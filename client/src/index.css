@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import './assets/css/theme-vars.css';
+@import './assets/css/styles.css';
+@import './assets/css/custom-styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Champ Black';
+  src: url('/assets/fonts/Champ-Black.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Azeret Mono';
+  src: url('/assets/fonts/AzeretMono-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-foreground: #2d0f28;
+  --color-background: #f8ebd7;
+  --color-accent-background: #ca9af1;
+  --color-accent-foreground: #2d0f28;
+  --accent-purple: #ca9af1;
+  --accent-green: #036e2c;
+  --page-width: 87.5rem;
+  --page-padding: 1.0rem;
+  --page-padding-mobile: 0.75rem;
+}
+
+body {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Authentic Theme Color Utilities */
+.bg-cream { background-color: #f8ebd7 !important; }
+.text-cream { color: #f8ebd7 !important; }
+.border-dark-brown { border-color: #2d0f28 !important; }
+.bg-dark-brown { background-color: #2d0f28 !important; }
+.text-dark-brown { color: #2d0f28 !important; }
+.bg-brown { background-color: #894031 !important; }
+.text-brown { color: #894031 !important; }
+.border-brown { border-color: #894031 !important; }
+.from-brown {
+  --tw-gradient-from: #894031 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(137 64 49 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.bg-accent-purple { background-color: #ca9af1 !important; }
+.text-accent-purple { color: #ca9af1 !important; }
+.border-accent-purple { border-color: #ca9af1 !important; }
+.font-primary { font-family: 'Champ Black', 'Inter', sans-serif !important; }
+.font-secondary { font-family: 'Azeret Mono', monospace !important; }
+
+/* Authentic Drizzy Chunky Pill Buttons */
+.button-primary,
+.btn-drizzy-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Champ Black', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #ca9af1 !important;
+  color: #2d0f28 !important;
+  border: 2px solid #2d0f28 !important;
+  border-bottom: 4px solid #2d0f28 !important;
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.button-primary:hover,
+.btn-drizzy-primary:hover {
+  background-color: #f8ebd7 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+}
+
+.button-primary:active,
+.btn-drizzy-primary:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px !important;
+}
+
+.btn-drizzy-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Champ Black', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #2d0f28 !important;
+  color: #f8ebd7 !important;
+  border: 2px solid #2d0f28 !important;
+  border-bottom: 4px solid #2d0f28 !important;
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-drizzy-secondary:hover {
+  background-color: #3f1638 !important;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes announcement-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-announcement-marquee {
+  animation: announcement-marquee 44s linear infinite;
+}
+
+.animate-ticker-marquee {
+  animation: marquee 44s linear infinite;
+}

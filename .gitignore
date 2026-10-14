@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+/node_modules*
+*node_modules*
+
+# Production builds
+dist/
+build/
+
+# Environment files
+.env
+.env*.local
+
+# Logs and runtime data
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary / scratch / reference downloads
+scratch/
+getdrizzy/
+getdrizzy_download/
+getdrizzy_screenshots/
+*.zip
+*.tar.gz

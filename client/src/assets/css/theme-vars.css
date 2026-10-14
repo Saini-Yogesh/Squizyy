@@ -1,0 +1,288 @@
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n5.d7101d5e168594dd06f56f290dd759fba5431d97.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n5.5332a76bbd27da00474c136abb1ca3cbbf259068.woff") format("woff");
+}
+
+      
+        @font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n6.771af0474a71b3797eb38f3487d6fb79d43b6877.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n6.88c903d8f9e157d48b73b7777d0642925bcecde7.woff") format("woff");
+}
+
+      
+        @font-face {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n7.02711e6b374660cfc7915d1afc1c204e633421e4.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n7.6dab87426f6b8813070abd79972ceaf2f8d3b012.woff") format("woff");
+}
+
+      
+      @font-face {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_i7.b377bcd4cc0f160622a22d638ae7e2cd9b86ea4c.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_i7.7c69a6a34e3bb44fcf6f975857e13b9a9b25beb4.woff") format("woff");
+}
+
+    
+
+    
+      
+      
+      
+        @font-face {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n5.d7101d5e168594dd06f56f290dd759fba5431d97.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n5.5332a76bbd27da00474c136abb1ca3cbbf259068.woff") format("woff");
+}
+
+      
+        @font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n6.771af0474a71b3797eb38f3487d6fb79d43b6877.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n6.88c903d8f9e157d48b73b7777d0642925bcecde7.woff") format("woff");
+}
+
+      
+        @font-face {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_n7.02711e6b374660cfc7915d1afc1c204e633421e4.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_n7.6dab87426f6b8813070abd79972ceaf2f8d3b012.woff") format("woff");
+}
+
+      
+      @font-face {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_i4.feae1981dda792ab80d117249d9c7e0f1017e5b3.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_i4.62773b7113d5e5f02c71486623cf828884c85c6e.woff") format("woff");
+}
+
+      @font-face {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("//getdrizzy.co/cdn/fonts/inter/inter_i7.b377bcd4cc0f160622a22d638ae7e2cd9b86ea4c.woff2") format("woff2"),
+       url("//getdrizzy.co/cdn/fonts/inter/inter_i7.7c69a6a34e3bb44fcf6f975857e13b9a9b25beb4.woff") format("woff");
+}
+
+    
+  
+
+  :root {
+    --letter-spacing: 0.0em;
+
+    
+      --font-heading-family: Inter, sans-serif;
+      --font-heading-style: normal;
+      --font-heading-weight: 700;
+      --font-heading-weight-bold: 900;
+
+      --font-body-family: Inter, sans-serif;
+      --font-body-style: normal;
+      --font-body-weight: 400;
+      --font-body-weight-bold: 600;
+    
+  }
+
+:root,
+    
+    .color-scheme-1 {
+
+      --color-foreground: #2d0f28;
+      --color-background: #f8ebd7;
+
+      
+
+      --color-primary-background: #f8ebd7;
+      --color-primary-foreground: #2d0f28;
+
+      --color-secondary-background: #2d0f28;
+      --color-secondary-foreground: #f8ebd7;
+
+      --color-muted-background: #f1f5f9;
+      --color-muted-foreground: #64748b;
+
+      --color-accent-background: #ca9af1;
+      --color-accent-foreground: #2d0f28;
+
+      --color-destructive-background: #d9534f;
+      --color-destructive-foreground: #f9f9f9;
+    }
+  
+    .color-scheme-6b429eba-cf78-4f62-a7d0-644c65da650d {
+
+      --color-foreground: #f8ebd7;
+      --color-background: #894031;
+
+      
+
+      --color-primary-background: #894031;
+      --color-primary-foreground: #f8ebd7;
+
+      --color-secondary-background: #f8ebd7;
+      --color-secondary-foreground: #894031;
+
+      --color-muted-background: #f1f5f9;
+      --color-muted-foreground: #64748b;
+
+      --color-accent-background: #f8f4e7;
+      --color-accent-foreground: #323334;
+
+      --color-destructive-background: #d9534f;
+      --color-destructive-foreground: #f9f9f9;
+    }
+  
+    .color-scheme-828742e9-7009-4ced-847a-38b9d0a9af8e {
+
+      --color-foreground: #2d0f28;
+      --color-background: #ca9af1;
+
+      
+
+      --color-primary-background: #ca9af1;
+      --color-primary-foreground: #2d0f28;
+
+      --color-secondary-background: #2d0f28;
+      --color-secondary-foreground: #f8ebd7;
+
+      --color-muted-background: #f1f5f9;
+      --color-muted-foreground: #64748b;
+
+      --color-accent-background: #f8f4e7;
+      --color-accent-foreground: #323334;
+
+      --color-destructive-background: #d9534f;
+      --color-destructive-foreground: #f9f9f9;
+    }
+  
+    .color-scheme-3a7804da-5e7c-4c0c-80a4-226a06a22b3f {
+
+      --color-foreground: #f8ebd7;
+      --color-background: #2d0f28;
+
+      
+
+      --color-primary-background: #f8ebd7;
+      --color-primary-foreground: #2d0f28;
+
+      --color-secondary-background: #2d0f28;
+      --color-secondary-foreground: #f8ebd7;
+
+      --color-muted-background: #f1f5f9;
+      --color-muted-foreground: #64748b;
+
+      --color-accent-background: #f8f4e7;
+      --color-accent-foreground: #323334;
+
+      --color-destructive-background: #d9534f;
+      --color-destructive-foreground: #f9f9f9;
+    }
+  
+    .color-scheme-5042c777-0933-4a90-a652-823305460002 {
+
+      --color-foreground: #ffffff;
+      --color-background: #036e2c;
+
+      
+
+      --color-primary-background: #f8ebd7;
+      --color-primary-foreground: #2d0f28;
+
+      --color-secondary-background: #2d0f28;
+      --color-secondary-foreground: #f8ebd7;
+
+      --color-muted-background: #f1f5f9;
+      --color-muted-foreground: #64748b;
+
+      --color-accent-background: #036e2c;
+      --color-accent-foreground: #ffffff;
+
+      --color-destructive-background: #d9534f;
+      --color-destructive-foreground: #f9f9f9;
+    }
+
+:root {
+    --page-padding: 1.0rem;
+    --page-padding-mobile: 0.75rem;
+    --page-width: 87.5rem;
+
+    --portrait-ratio: 0.75;
+    --landscape-ratio: 1.33;
+
+    --radius: 0.125rem;
+    --radius-media: 0.125rem;
+    --radius-block: 0.125rem;
+
+    --screen-height: 100dvh;
+  }
+
+  @supports (height: 100svh) {
+    :root {
+      --screen-height: 100svh;
+    }
+  }
+
+:root {
+    --animation-duration: 300ms;
+    --animation-short-duration: 100ms;
+    --animation-long-duration: 700ms;
+
+    --animation-delay: 0ms;
+    --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-animation: reduce) {
+    :root {
+      --animation-duration: 1ms;
+      --animation-short-duration: 1ms;
+      --animation-long-duration: 1ms;
+      --animation-delay: 0ms;
+    }
+
+    *,
+    ::before,
+    ::after {
+      background-attachment: initial;
+      scroll-behavior: auto;
+    }
+  }
+
+@font-face {
+        font-family: 'Champ Black';
+        src: url("//getdrizzy.co/cdn/shop/t/3/assets/Champ-Black.otf?v=3892180265799515211786711659") format('opentype');
+        font-weight: 900;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'Azeret Mono';
+        src: url("//getdrizzy.co/cdn/shop/t/3/assets/AzeretMono-VariableFont.ttf?v=95790095972183584901786711659") format('truetype');
+        font-weight: 500;
+        font-display: swap;
+    }
+
