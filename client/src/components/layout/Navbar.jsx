@@ -64,31 +64,19 @@ const Navbar = () => {
                 <div className="flex items-center gap-6 basis-1/3 grow justify-end">
                   <NavLink
                     to="/"
-                    className={({ isActive }) =>
-                      `block text-heading6 uppercase hover:opacity-75 transition-opacity ${
-                        isActive ? 'underline decoration-2 underline-offset-4' : ''
-                      }`
-                    }
+                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
                   >
                     Home
                   </NavLink>
                   <NavLink
                     to="/pages/our-story"
-                    className={({ isActive }) =>
-                      `block text-heading6 uppercase hover:opacity-75 transition-opacity ${
-                        isActive ? 'underline decoration-2 underline-offset-4' : ''
-                      }`
-                    }
+                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
                   >
                     Our Story
                   </NavLink>
                   <NavLink
                     to="/pages/store-locator"
-                    className={({ isActive }) =>
-                      `block text-heading6 uppercase hover:opacity-75 transition-opacity ${
-                        isActive ? 'underline decoration-2 underline-offset-4' : ''
-                      }`
-                    }
+                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
                   >
                     Stockists
                   </NavLink>
@@ -107,20 +95,16 @@ const Navbar = () => {
                 <div className="flex items-center gap-6 basis-1/3 grow justify-start">
                   <NavLink
                     to="/pages/wholesale"
-                    className={({ isActive }) =>
-                      `block text-heading6 uppercase hover:opacity-75 transition-opacity ${
-                        isActive ? 'underline decoration-2 underline-offset-4' : ''
-                      }`
-                    }
+                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
                   >
                     Wholesale
                   </NavLink>
 
                   <Link
                     to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
-                    className="block !text-heading6 !py-3 uppercase inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline rounded-[100px] w-fit focus-visible:outline-none text-[16px] lg:text-[20px] font-primary leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary"
+                    className="block !text-heading6 !py-3 uppercase inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline rounded-[100px] w-fit focus-visible:outline-none text-[16px] lg:text-[18px] font-champ leading-[100%] py-3 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-sm"
                   >
-                    Buy Drizzy Now
+                    BUY DRIZZY NOW
                   </Link>
 
                   {/* Desktop Cart Trigger */}

@@ -40,40 +40,40 @@ const FullPageMedia = () => {
             {/* Overlaid Quality Story Card */}
             <div className="absolute inset-0 z-[2] flex items-end lg:items-center px-4 lg:px-[60px] py-6 lg:py-10">
               <div className="relative w-full max-w-md lg:max-w-xl">
-                <div className="bg-background rounded-3xl lg:rounded-[32px] px-5 py-8 lg:px-8 lg:py-10 border-4 border-b-8 border-foreground space-y-4 shadow-2xl">
-                  <h3 className="text-heading5 lg:text-heading3 text-foreground">
+                <div className="bg-cream rounded-[32px] px-6 py-8 lg:px-10 lg:py-10 border-2 border-dark-brown space-y-4 shadow-xl text-dark-brown">
+                  <h3 className="font-champ text-dark-brown text-[28px] sm:text-[34px] lg:text-[40px] leading-[105%] uppercase">
                     Made by People Who Take Quality Very Seriously
                   </h3>
 
-                  <div className="text-body4 lg:text-body3 text-foreground">
+                  <div className="font-mono text-xs sm:text-sm text-dark-brown/90 leading-relaxed">
                     <p>
                       We source exclusively from Texas for a deeper roast and a smoother drizzle you won't find in supermarket jars.
                     </p>
                   </div>
 
-                  <p className="text-[14px] lg:text-[16px] font-primary leading-[100%] uppercase text-foreground pt-2">
+                  <p className="text-[15px] sm:text-[17px] font-champ uppercase text-dark-brown pt-1">
                     Using the 'Runner' Peanut
                   </p>
 
-                  <div className="text-body4 lg:text-body3 text-foreground">
+                  <div className="font-mono text-xs sm:text-sm text-dark-brown/90 leading-relaxed">
                     <p>
                       Known for its high oil content and rich flavor, it’s the secret to our ultra-smooth, no-clog drizzle.
                     </p>
                   </div>
 
-                  <div className="border-t border-dashed border-foreground pt-4 lg:pt-5 text-caption lg:text-body4 uppercase !mt-6 text-foreground font-bold">
-                    SOURCED from Texas
+                  <div className="border-t border-dashed border-dark-brown/40 pt-4 text-xs font-mono uppercase !mt-5 text-dark-brown font-bold tracking-wider">
+                    SOURCED FROM TEXAS
                   </div>
 
-                  <div className="border-t border-dashed border-foreground pt-4 lg:pt-5 text-caption lg:text-body4 uppercase text-foreground font-bold">
-                    NEXT HARVESTING SEASON Starting October 2026
+                  <div className="border-t border-dashed border-dark-brown/40 pt-4 text-xs font-mono uppercase text-dark-brown font-bold tracking-wider">
+                    NEXT HARVESTING SEASON STARTING OCTOBER 2026
                   </div>
 
                   <Link
                     to="/pages/our-story"
-                    className="inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full md:w-fit focus-visible:outline-none text-[16px] lg:text-[20px] font-primary leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary !mt-6"
+                    className="inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full md:w-fit focus-visible:outline-none text-[15px] sm:text-[17px] font-champ leading-[100%] py-3.5 px-7 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary !mt-6 shadow-sm"
                   >
-                    Learn more about Drizzy
+                    LEARN MORE ABOUT DRIZZY
                   </Link>
                 </div>
 

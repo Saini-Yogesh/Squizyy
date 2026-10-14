@@ -91,137 +91,172 @@ const ProductDetails = () => {
 
       {/* Main PDP Section */}
       <section className="pb-16 px-4 max-w-[87.5rem] mx-auto">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
-          {/* Left Gallery */}
-          <div className="w-full lg:w-[50%] lg:sticky lg:top-24">
-            <ProductGallery images={product?.images} />
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-14 items-start">
+          {/* Left Gallery - 2-Column Square Grid on Desktop, Strip on Mobile */}
+          <div className="w-full lg:w-[52%]">
+            <ProductGallery images={product?.images} mode="pdp" />
           </div>
 
-          {/* Right Buy Box */}
-          <div className="w-full lg:w-[50%] flex flex-col text-dark-brown">
-            {/* Reviews badge */}
-            <div className="flex items-center gap-2 mb-3">
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 fill-accent-purple stroke-dark-brown" viewBox="0 0 24 24">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                ))}
-              </div>
-              <span className="font-mono text-xs font-bold text-dark-brown">
-                5.0 based on 984 Aussie Reviews
-              </span>
-            </div>
-
-            <h1 className="font-champ text-3xl sm:text-4xl lg:text-5xl uppercase text-dark-brown leading-tight">
-              {product?.name}
+          {/* Right Buy Box - Sticky on Desktop */}
+          <div className="w-full lg:w-[48%] lg:sticky lg:top-24 flex flex-col text-dark-brown">
+            {/* Title */}
+            <h1 className="font-champ text-3xl sm:text-4xl lg:text-5xl uppercase text-dark-brown leading-none tracking-tight">
+              {product?.name || 'Drizzy Squeezy Peanut Butter 19.4 Oz'}
             </h1>
 
-            <p className="mt-2 text-sm sm:text-base font-body text-dark-brown/80 font-medium">
-              The Ultimate Breakfast Power-Up • 19.4 oz (550g)
+            {/* Subtitle */}
+            <p className="mt-3 text-sm sm:text-base font-mono text-dark-brown font-medium">
+              19.4 Oz of peanut butter
             </p>
 
-            {/* Feature Bullets */}
-            <div className="mt-4 space-y-2 border-y border-dark-brown/15 py-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-dark-brown">
-                <span className="text-accent-green font-bold text-base">✓</span>
-                <span>100% roasted American Runner peanuts + splash of peanut oil</span>
+            {/* Dashed separator */}
+            <div className="w-full border-t border-dashed border-dark-brown/30 my-4" />
+
+            {/* Price */}
+            <div className="font-mono text-xl sm:text-2xl font-bold text-dark-brown">
+              ${(calculatedPrice / 100).toFixed(2)}
+            </div>
+
+            {/* Dashed separator */}
+            <div className="w-full border-t border-dashed border-dark-brown/30 my-4" />
+
+            {/* Feature Checkmarks */}
+            <div className="space-y-2.5 font-mono text-xs sm:text-sm text-dark-brown">
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 h-5 rounded-md border border-dark-brown flex items-center justify-center font-bold text-xs shrink-0">
+                  ✓
+                </span>
+                <span>Ultra-smooth drizzlable texture</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-dark-brown">
-                <span className="text-accent-green font-bold text-base">✓</span>
-                <span>Zero added sugars, zero palm oil, zero stabilizers</span>
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 h-5 rounded-md border border-dark-brown flex items-center justify-center font-bold text-xs shrink-0">
+                  ✓
+                </span>
+                <span>7g of plant-based protein & 100% Natural</span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono text-dark-brown">
-                <span className="text-accent-green font-bold text-base">✓</span>
-                <span>7g plant protein per serving in an ultra-smooth squeeze bottle</span>
+              <div className="flex items-center gap-2.5">
+                <span className="w-5 h-5 rounded-md border border-dark-brown flex items-center justify-center font-bold text-xs shrink-0">
+                  ✓
+                </span>
+                <span>Naturally rich in protein & healthy fats</span>
               </div>
+            </div>
+
+            {/* Quantity Header */}
+            <div className="font-champ text-lg sm:text-xl uppercase text-dark-brown mt-6 mb-3">
+              Quantity: {selectedOption?.quantity || 1} {selectedOption?.quantity === 1 ? 'Bottle' : 'Bottles'}
             </div>
 
             {/* Bottle Selector Component */}
             {product?.bottleOptions && (
-              <div className="mt-6">
-                <BottleSelector
-                  options={product.bottleOptions}
-                  selectedOption={selectedOption}
-                  onSelect={setSelectedOption}
-                />
-              </div>
+              <BottleSelector
+                options={product.bottleOptions}
+                selectedOption={selectedOption}
+                onSelect={setSelectedOption}
+              />
             )}
 
-            {/* Subscription toggle */}
-            <div className="mt-6 p-4 bg-white border-2 border-dark-brown rounded-2xl space-y-3">
-              <label className="flex items-center justify-between cursor-pointer">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="radio"
-                    name="purchaseType"
-                    checked={purchaseType === 'one-time'}
-                    onChange={() => setPurchaseType('one-time')}
-                    className="accent-dark-brown w-4 h-4"
-                  />
-                  <span className="font-champ text-sm uppercase text-dark-brown">
-                    One-Time Purchase
-                  </span>
-                </div>
-                <span className="font-champ text-sm text-dark-brown">
-                  ${((selectedOption?.price || 999) / 100).toFixed(2)}
-                </span>
-              </label>
-
-              <label className="flex items-center justify-between cursor-pointer pt-2 border-t border-dark-brown/10">
-                <div className="flex items-center gap-3">
-                  <input
-                    type="radio"
-                    name="purchaseType"
-                    checked={purchaseType === 'subscription'}
-                    onChange={() => setPurchaseType('subscription')}
-                    className="accent-dark-brown w-4 h-4"
-                  />
-                  <div>
-                    <span className="font-champ text-sm uppercase text-dark-brown">
-                      Subscribe & Save (10% OFF)
-                    </span>
-                    <span className="block text-[11px] font-mono text-dark-brown/70">
-                      Cancel or pause anytime
+            {/* Subscription toggle cards */}
+            <div className="mt-4 space-y-2.5">
+              {/* Card 1: Subscribe and save */}
+              <div
+                onClick={() => setPurchaseType('subscription')}
+                className={`p-3.5 sm:p-4 rounded-2xl border-2 sm:border-3 border-dark-brown cursor-pointer transition-all ${
+                  purchaseType === 'subscription'
+                    ? 'bg-[#2D0F28] text-[#CA9AF1]'
+                    : 'bg-[#F8EBD7] text-dark-brown hover:bg-[#faefe1]'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${purchaseType === 'subscription' ? 'border-[#CA9AF1]' : 'border-dark-brown'}`}>
+                      {purchaseType === 'subscription' && <div className="w-2 h-2 rounded-full bg-[#CA9AF1]" />}
+                    </div>
+                    <span className="font-champ text-sm sm:text-base uppercase tracking-tight">
+                      Subscribe and save
                     </span>
                   </div>
+                  <span className="font-champ text-sm sm:text-base font-bold">
+                    ${(Math.round((selectedOption?.price || 999) * 0.9) / 100).toFixed(2)}
+                  </span>
                 </div>
-                <span className="font-champ text-sm text-dark-brown">
-                  ${(Math.round((selectedOption?.price || 999) * 0.9) / 100).toFixed(2)}
-                </span>
-              </label>
+
+                {/* Frequency Dropdown */}
+                {purchaseType === 'subscription' && (
+                  <div className="mt-3 pt-3 border-t border-[#CA9AF1]/20 flex items-center justify-between text-xs font-mono">
+                    <span>Delivery:</span>
+                    <select
+                      value={deliveryFrequency}
+                      onChange={(e) => setDeliveryFrequency(e.target.value)}
+                      className="bg-transparent text-[#CA9AF1] border border-[#CA9AF1]/40 rounded-lg px-2.5 py-1 focus:outline-none cursor-pointer"
+                    >
+                      <option value="2 weeks" className="bg-[#2D0F28] text-cream">Every 2 weeks</option>
+                      <option value="4 weeks" className="bg-[#2D0F28] text-cream">Every 4 weeks</option>
+                      <option value="6 weeks" className="bg-[#2D0F28] text-cream">Every 6 weeks</option>
+                      <option value="8 weeks" className="bg-[#2D0F28] text-cream">Every 8 weeks</option>
+                    </select>
+                  </div>
+                )}
+              </div>
+
+              {/* Card 2: One Time Purchase */}
+              <div
+                onClick={() => setPurchaseType('one-time')}
+                className={`p-3.5 sm:p-4 rounded-2xl border-2 sm:border-3 border-dark-brown cursor-pointer transition-all ${
+                  purchaseType === 'one-time'
+                    ? 'bg-[#2D0F28] text-[#CA9AF1]'
+                    : 'bg-[#F8EBD7] text-dark-brown hover:bg-[#faefe1]'
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${purchaseType === 'one-time' ? 'border-[#CA9AF1]' : 'border-dark-brown'}`}>
+                      {purchaseType === 'one-time' && <div className="w-2 h-2 rounded-full bg-[#CA9AF1]" />}
+                    </div>
+                    <span className="font-champ text-sm sm:text-base uppercase tracking-tight">
+                      One Time Purchase
+                    </span>
+                  </div>
+                  <span className="font-champ text-sm sm:text-base font-bold">
+                    ${((selectedOption?.price || 999) / 100).toFixed(2)}
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Add to Cart CTA */}
-            <div className="mt-6">
+            <div className="mt-5">
               <button
                 type="button"
                 onClick={handleAddToCart}
                 disabled={adding}
-                className="w-full bg-accent-purple text-dark-brown border-2 border-dark-brown rounded-full py-5 px-8 font-champ text-xl uppercase tracking-wide button-primary hover:bg-cream disabled:opacity-50"
+                className="w-full bg-accent-purple hover:bg-[#b885e3] text-dark-brown border-2 border-dark-brown rounded-full py-4 sm:py-4.5 px-8 font-champ text-lg sm:text-xl uppercase tracking-wide button-primary transition-colors cursor-pointer shadow-md disabled:opacity-50"
               >
-                {adding ? 'ADDING TO CART...' : `ADD TO CART • $${(calculatedPrice / 100).toFixed(2)}`}
+                {adding ? 'ADDING...' : 'ADD TO CART'}
               </button>
+              <p className="mt-2 text-center font-mono text-[11px] sm:text-xs text-dark-brown uppercase tracking-wider">
+                FREE SHIPPING ON ORDERS OVER $49.99+
+              </p>
             </div>
 
-            {/* 3 Authentic PDP Accordions */}
-            <div className="mt-8 border-t border-dark-brown/20 divide-y divide-dark-brown/20">
+            {/* 3 Authentic PDP Accordions in Single Rounded Box */}
+            <div className="mt-6 border-2 sm:border-3 border-dark-brown rounded-3xl bg-cream overflow-hidden p-5 sm:p-6 divide-y divide-dashed divide-dark-brown/30">
               {/* Accordion 1: Description */}
-              <div className="py-4">
+              <div className="pb-4">
                 <button
                   type="button"
                   onClick={() => toggleAccordion('description')}
-                  className="w-full flex items-center justify-between font-champ text-base uppercase text-dark-brown cursor-pointer"
+                  className="w-full flex items-center justify-between font-champ text-base sm:text-lg uppercase text-dark-brown cursor-pointer text-left"
                 >
                   <span>Description</span>
-                  <span className="font-bold text-lg">{openAccordion === 'description' ? '−' : '+'}</span>
+                  <span className="font-mono text-xl">{openAccordion === 'description' ? '∧' : '∨'}</span>
                 </button>
                 {openAccordion === 'description' && (
-                  <div className="mt-3 text-xs sm:text-sm font-body leading-relaxed text-dark-brown/90 space-y-2">
+                  <div className="mt-3 text-xs sm:text-sm font-mono leading-relaxed text-dark-brown/90 space-y-2">
                     <p>Drizzy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life.</p>
                     <p>No jars. No knives. No mess. Just shake, squeeze and drizzle over toast, oats, smoothies, fruit or straight into your mouth.</p>
-                    <p className="font-bold mt-2">Why Drizzy™:</p>
-                    <ul className="list-disc pl-5 space-y-1 font-mono text-xs">
+                    <p className="font-bold mt-2 font-champ uppercase">Why Drizzy™:</p>
+                    <ul className="list-disc pl-5 space-y-1 text-xs">
                       <li>Squeeze bottle = zero mess</li>
                       <li>Smooth, drizzlable consistency</li>
                       <li>7g protein per serve</li>
@@ -236,10 +271,10 @@ const ProductDetails = () => {
                 <button
                   type="button"
                   onClick={() => toggleAccordion('ingredients')}
-                  className="w-full flex items-center justify-between font-champ text-base uppercase text-dark-brown cursor-pointer"
+                  className="w-full flex items-center justify-between font-champ text-base sm:text-lg uppercase text-dark-brown cursor-pointer text-left"
                 >
                   <span>Ingredients</span>
-                  <span className="font-bold text-lg">{openAccordion === 'ingredients' ? '−' : '+'}</span>
+                  <span className="font-mono text-xl">{openAccordion === 'ingredients' ? '∧' : '∨'}</span>
                 </button>
                 {openAccordion === 'ingredients' && (
                   <div className="mt-3 text-xs sm:text-sm font-mono leading-relaxed text-dark-brown/90 space-y-2">
@@ -251,19 +286,19 @@ const ProductDetails = () => {
               </div>
 
               {/* Accordion 3: Nutrition Facts */}
-              <div className="py-4">
+              <div className="pt-4">
                 <button
                   type="button"
                   onClick={() => toggleAccordion('nutrition')}
-                  className="w-full flex items-center justify-between font-champ text-base uppercase text-dark-brown cursor-pointer"
+                  className="w-full flex items-center justify-between font-champ text-base sm:text-lg uppercase text-dark-brown cursor-pointer text-left"
                 >
                   <span>Nutrition Facts</span>
-                  <span className="font-bold text-lg">{openAccordion === 'nutrition' ? '−' : '+'}</span>
+                  <span className="font-mono text-xl">{openAccordion === 'nutrition' ? '∧' : '∨'}</span>
                 </button>
                 {openAccordion === 'nutrition' && (
                   <div className="mt-3 text-xs sm:text-sm font-mono leading-relaxed text-dark-brown/90 space-y-2">
                     <p><strong>Serving Size:</strong> 2 tbsp (32g) • Servings Per Container: Approx. 17</p>
-                    <p><strong>Calories:</strong> 190 • <strong>Total Fat:</strong> 16g (21% DV)</p>
+                    <p><strong>Calories:</strong> 200 • <strong>Total Fat:</strong> 16g (21% DV)</p>
                     <p><strong>Sodium:</strong> 0mg (0% DV) • <strong>Total Carbs:</strong> 6g (2% DV)</p>
                     <p><strong>Dietary Fiber:</strong> 2g (7% DV) • <strong>Total Sugars:</strong> 1g (Includes 0g Added Sugars)</p>
                     <p><strong>Protein:</strong> 7g (14% DV)</p>

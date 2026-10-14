@@ -5,6 +5,7 @@ import AnnouncementBar from './components/layout/AnnouncementBar';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import CartDrawer from './components/layout/CartDrawer';
+import NewsletterModal from './components/layout/NewsletterModal';
 
 // Pages
 import Home from './pages/Home';
@@ -56,6 +57,7 @@ const AppContent = () => {
       </main>
 
       <Footer />
+      <NewsletterModal />
     </div>
   );
 };

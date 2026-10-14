@@ -2,14 +2,14 @@ import React from 'react';
 
 const FeatureTicker = () => {
   const tickerItems = [
-    { icon: '/assets/images/image_10_Vectorized.svg', title: 'Aussie-Owned' },
-    { icon: '/assets/images/image_11_Vectorized_-2.svg', title: 'Ultra-Smooth' },
-    { icon: '/assets/images/image_11_Vectorized.svg', title: 'Zero added sugar' },
-    { icon: '/assets/images/image_11_Vectorized_-1.svg', title: 'Natural fuel' },
-    { icon: '/assets/images/image_10_Vectorized.svg', title: 'Aussie-Owned' },
-    { icon: '/assets/images/image_11_Vectorized_-2.svg', title: 'Ultra-Smooth' },
-    { icon: '/assets/images/image_11_Vectorized.svg', title: 'Zero added sugar' },
-    { icon: '/assets/images/image_11_Vectorized_-1.svg', title: 'Natural fuel' },
+    { icon: '/assets/images/image_10_Vectorized.svg', title: 'AUSSIE-OWNED' },
+    { icon: '/assets/images/image_11_Vectorized_-2.svg', title: 'ULTRA-SMOOTH' },
+    { icon: '/assets/images/image_11_Vectorized.svg', title: 'ZERO ADDED SUGAR' },
+    { icon: '/assets/images/image_11_Vectorized_-1.svg', title: 'NATURAL FUEL' },
+    { icon: '/assets/images/image_10_Vectorized.svg', title: 'AUSSIE-OWNED' },
+    { icon: '/assets/images/image_11_Vectorized_-2.svg', title: 'ULTRA-SMOOTH' },
+    { icon: '/assets/images/image_11_Vectorized.svg', title: 'ZERO ADDED SUGAR' },
+    { icon: '/assets/images/image_11_Vectorized_-1.svg', title: 'NATURAL FUEL' },
   ];
 
   return (

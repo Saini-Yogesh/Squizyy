@@ -29,8 +29,8 @@ const MarqueeCards = () => {
               </div>
 
               {/* Desktop alternating row left */}
-              <div className="hidden lg:flex items-center gap-10 flex-shrink-0">
-                <div className="h-9 w-9 flex-shrink-0">
+              <div className="hidden lg:flex items-center gap-6 lg:gap-8 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -39,7 +39,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png"
                     alt="drizzy peanut"
@@ -48,7 +48,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -57,7 +57,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png"
                     alt="drizzy peanut"
@@ -66,7 +66,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -78,13 +78,13 @@ const MarqueeCards = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-heading4 lg:text-heading1 leading-[100%] text-foreground uppercase whitespace-nowrap">
-                Life's Better With Drizzy
+              <h3 className="font-champ text-dark-brown text-[28px] sm:text-[38px] lg:text-[46px] leading-[100%] uppercase whitespace-nowrap text-center px-2 tracking-tight">
+                LIFE'S BETTER WITH DRIZZY
               </h3>
 
               {/* Desktop alternating row right */}
-              <div className="hidden lg:flex items-center gap-10 flex-shrink-0">
-                <div className="h-9 w-9 flex-shrink-0">
+              <div className="hidden lg:flex items-center gap-6 lg:gap-8 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -93,7 +93,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png"
                     alt="drizzy peanut"
@@ -102,7 +102,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -111,7 +111,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png"
                     alt="drizzy peanut"
@@ -120,7 +120,7 @@ const MarqueeCards = () => {
                     className="aspect-auto w-full object-contain h-full"
                   />
                 </div>
-                <div className="h-9 w-9 flex-shrink-0">
+                <div className="h-8 w-8 lg:h-9 lg:w-9 flex-shrink-0">
                   <img
                     src="/assets/images/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg"
                     alt="drizzy mascot"
@@ -143,15 +143,15 @@ const MarqueeCards = () => {
               </div>
             </div>
 
-            <p className="text-body4 lg:text-body3 max-w-2xl text-foreground/80 mt-2">
-              Adding joy to your day so that you actually get the most out of a healthy, age-old pantry staple loved by all.
+            <p className="font-secondary text-xs sm:text-sm lg:text-[15px] max-w-xl text-dark-brown/90 mt-4 text-center leading-relaxed">
+              Adding joy to your day so that you actually get the most out of<br className="hidden sm:inline" /> a healthy, age-old pantry staple loved by all.
             </p>
           </div>
 
-          <div className="container flex justify-center mx-auto">
+          <div className="container flex justify-center mx-auto mt-2">
             <Link
               to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
-              className="inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full md:w-fit focus-visible:outline-none text-[16px] lg:text-[20px] font-primary leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-md"
+              className="inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full md:w-fit focus-visible:outline-none text-[16px] lg:text-[19px] font-champ leading-[100%] py-4 px-8 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-[0_4px_0_#2d0f28]"
             >
               BUY DRIZZY PEANUT BUTTER NOW
             </Link>

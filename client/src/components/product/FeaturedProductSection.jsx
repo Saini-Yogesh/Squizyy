@@ -82,7 +82,7 @@ const FeaturedProductSection = () => {
   return (
     <div id="shopify-section-template--22221105463467__featured_product_dzQzaz" className="shopify-section relative">
       <section
-        className="relative bg-brown text-cream color-scheme-6b429eba-cf78-4f62-a7d0-644c65da650d pb-12 lg:pb-20 px-0 overflow-hidden"
+        className="relative bg-brown text-cream color-scheme-6b429eba-cf78-4f62-a7d0-644c65da650d pb-12 lg:pb-20 px-0 overflow-hidden rounded-b-[32px] sm:rounded-b-[40px]"
         style={{
           '--spacing-top': '2.5rem',
           '--spacing-bottom': '2.5rem',
@@ -149,7 +149,7 @@ const FeaturedProductSection = () => {
               <div className="flex w-full flex-col items-start lg:w-1/2 lg:py-2">
                 
                 {/* 5-Star Aussie Reviews */}
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2">
                   <div className="flex items-center gap-[3px] text-accent-purple">
                     {[...Array(5)].map((_, i) => (
                       <svg
@@ -166,17 +166,17 @@ const FeaturedProductSection = () => {
                       </svg>
                     ))}
                   </div>
-                  <span className="text-body4 lg:text-body3 text-cream font-bold">
+                  <span className="font-mono text-xs sm:text-sm text-cream font-bold">
                     5.0 Based on 984 Aussie Reviews
                   </span>
                 </div>
 
                 {/* Product Title & Serving Size */}
                 <div className="mt-3 space-y-1">
-                  <h2 className="text-heading4 lg:text-heading2 text-cream font-primary">
-                    The Ultimate Breakfast Power-Up
+                  <h2 className="text-[34px] sm:text-[44px] lg:text-[50px] leading-[105%] text-cream font-champ uppercase">
+                    The Ultimate<br />Breakfast Power-Up
                   </h2>
-                  <div className="text-body3 lg:text-body2 text-cream/90 font-mono">
+                  <div className="font-mono text-base sm:text-lg text-cream pt-1">
                     19.4 oz (550g)
                   </div>
                 </div>
@@ -185,7 +185,7 @@ const FeaturedProductSection = () => {
                 <div className="w-full border-t border-dashed border-cream/40 mt-5 lg:mt-6" />
 
                 {/* Price Display */}
-                <div className="text-[24px] lg:text-heading5 font-primary leading-[100%] mt-5 lg:mt-6 text-cream">
+                <div className="text-[28px] sm:text-[34px] font-champ leading-[100%] mt-5 lg:mt-6 text-cream">
                   <span>$9.99</span>
                 </div>
 
@@ -194,8 +194,8 @@ const FeaturedProductSection = () => {
 
                 {/* 3 Authentic Feature Bullet Items with Checkmarks */}
                 <div className="space-y-3.5 mt-5 lg:mt-6 w-full">
-                  <div className="w-full flex items-center gap-3.5">
-                    <div className="w-5 h-5 shrink-0">
+                  <div className="w-full flex items-start sm:items-center gap-3">
+                    <div className="w-5 h-5 shrink-0 mt-0.5 sm:mt-0">
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
@@ -205,13 +205,13 @@ const FeaturedProductSection = () => {
                         <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
-                    <div className="text-body4 lg:text-body3 text-cream">
+                    <div className="font-mono text-xs sm:text-sm text-cream leading-relaxed">
                       Simply shake, squeeze and drizzle.
                     </div>
                   </div>
 
-                  <div className="w-full flex items-center gap-3.5">
-                    <div className="w-5 h-5 shrink-0">
+                  <div className="w-full flex items-start sm:items-center gap-3">
+                    <div className="w-5 h-5 shrink-0 mt-0.5 sm:mt-0">
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
@@ -221,13 +221,13 @@ const FeaturedProductSection = () => {
                         <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
-                    <div className="text-body4 lg:text-body3 text-cream">
+                    <div className="font-mono text-xs sm:text-sm text-cream leading-relaxed">
                       100% Pure American roasted peanuts with a splash of peanut oil. No palm oil, no junk.
                     </div>
                   </div>
 
-                  <div className="w-full flex items-center gap-3.5">
-                    <div className="w-5 h-5 shrink-0">
+                  <div className="w-full flex items-start sm:items-center gap-3">
+                    <div className="w-5 h-5 shrink-0 mt-0.5 sm:mt-0">
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
@@ -237,7 +237,7 @@ const FeaturedProductSection = () => {
                         <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
-                    <div className="text-body4 lg:text-body3 text-cream">
+                    <div className="font-mono text-xs sm:text-sm text-cream leading-relaxed">
                       7g of protein per serve for everything you love and anything you crave.
                     </div>
                   </div>
@@ -246,13 +246,13 @@ const FeaturedProductSection = () => {
                 {/* Add to Cart / Buy Now Action Button */}
                 <a
                   href="/products/drizzy-squeezy-peanut-butter-19-4-oz"
-                  className="!w-full mt-8 lg:mt-10 inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full md:w-fit focus-visible:outline-none text-[16px] lg:text-[20px] font-primary leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-lg"
+                  className="!w-full mt-8 lg:mt-10 inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full focus-visible:outline-none text-[16px] lg:text-[19px] font-champ leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-[0_4px_0_#2d0f28]"
                 >
                   BUY DRIZZY PEANUT BUTTER NOW
                 </a>
 
                 {/* Free Shipping Subtext */}
-                <div className="w-full text-caption lg:text-body4 text-center mt-3 text-cream/90 font-bold uppercase">
+                <div className="w-full font-mono text-xs text-center mt-3 text-cream font-bold uppercase tracking-wider">
                   FREE SHIPPING ON ORDERS $49.99+
                 </div>
 

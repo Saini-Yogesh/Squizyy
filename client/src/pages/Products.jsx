@@ -37,23 +37,13 @@ const Products = () => {
   return (
     <div className="w-full">
       <div id="shopify-section-template--22221105561771__main-collection" className="shopify-section">
-        <section className="relative grid items-center bg-background bg-gradient text-foreground color-scheme-1 py-10 lg:py-16">
-          <div className="container relative flex flex-col mx-auto px-4 max-w-[87.5rem]">
-            {/* Header / Product count */}
-            <div className="flex justify-between items-center mb-6 lg:mb-8">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-champ uppercase text-dark-brown">
-                Products
-              </h1>
-              <div className="text-[14px] tracking-[-0.01em] leading-[120%] font-body text-dark-brown/70 flex gap-1 ml-auto">
-                <span>{products.length}</span> Products
-              </div>
-            </div>
-
-            {/* Product Grid */}
+        <section className="relative bg-cream text-dark-brown py-8 sm:py-12 lg:py-16">
+          <div className="container mx-auto px-4 max-w-[87.5rem]">
+            {/* Product Grid - 2 products in 4-column desktop grid matching collections__all_1.png */}
             <div id="ProductGridContainer" className="product-grid-container w-full">
               <div
                 id="product-grid"
-                className="grid collection product-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 place-content-stretch"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-content-stretch"
               >
                 {products.map((p) => (
                   <ProductCard key={p.slug || p._id} product={p} />

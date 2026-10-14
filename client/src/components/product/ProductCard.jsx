@@ -27,46 +27,46 @@ const ProductCard = ({ product }) => {
         {/* Card Image */}
         <Link
           to={`/products/${product.slug}`}
-          className="group w-full !aspect-[3/4] overflow-hidden relative z-0 border-x-[2px] border-t-[2px] border-b-[4px] border-dark-brown rounded-[16px] bg-cream"
+          className="group w-full aspect-[3/4] overflow-hidden relative z-0 border-2 sm:border-3 border-dark-brown rounded-2xl sm:rounded-[22px] bg-white shadow-sm"
         >
           <div className="h-full w-full relative">
             <img
               src={primaryImage}
               alt={product.name}
-              className="aspect-auto w-full object-cover w-full h-auto !aspect-[3/4] z-10 absolute inset-0 transition-opacity duration-200 ease-in opacity-100 group-hover:opacity-0"
+              className="w-full h-full object-cover z-10 absolute inset-0 transition-opacity duration-200 ease-in opacity-100 group-hover:opacity-0"
               loading="eager"
             />
             <img
               src={hoverImage}
               alt={product.name}
-              className="aspect-auto w-full object-cover w-full h-auto !aspect-[3/4] z-0 absolute inset-0 transition-opacity duration-200 ease-in opacity-0 group-hover:opacity-100"
+              className="w-full h-full object-cover z-0 absolute inset-0 transition-opacity duration-200 ease-in opacity-0 group-hover:opacity-100"
               loading="lazy"
             />
           </div>
         </Link>
 
         {/* Card Info */}
-        <div className="flex flex-col gap-2 z-10">
+        <div className="flex flex-col gap-1.5 z-10 mt-1">
           <Link
             to={`/products/${product.slug}`}
-            className="transition-colors text-[14px] lg:text-[16px] font-body tracking-[-0.01em] leading-[120%] text-dark-brown hover:text-dark-brown/80"
+            className="font-mono text-sm sm:text-base text-dark-brown hover:underline leading-snug line-clamp-2"
           >
             {product.name}
           </Link>
-          <div className="text-[14px] lg:text-[16px] font-body tracking-[-0.01em] leading-[120%] text-dark-brown font-semibold">
+          <div className="font-mono text-sm sm:text-base text-dark-brown font-bold">
             ${priceDisplay}
           </div>
         </div>
 
         {/* Add To Cart Button */}
-        <div className="w-full mt-auto">
+        <div className="w-full mt-auto pt-2">
           <button
             type="button"
             onClick={handleAddToCart}
             disabled={loading}
-            className="AddToCart relative !w-full inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline uppercase rounded-[100px] w-full text-[16px] lg:text-[20px] font-champ leading-[100%] py-4 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream disabled:opacity-80 button-primary"
+            className="w-full bg-accent-purple hover:bg-[#b885e3] text-dark-brown border-2 border-dark-brown font-champ uppercase text-base sm:text-lg py-3 sm:py-3.5 px-6 rounded-full transition-colors button-primary shadow-sm cursor-pointer disabled:opacity-80"
           >
-            <span>{loading ? 'Adding...' : 'Add to Cart'}</span>
+            <span>{loading ? 'Adding...' : 'ADD TO CART'}</span>
           </button>
         </div>
       </div>

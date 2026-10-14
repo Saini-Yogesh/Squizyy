@@ -61,11 +61,11 @@ const Footer = () => {
         <div className="relative z-[1] container max-w-[87.5rem] mx-auto px-4 lg:px-6 pt-4 lg:pt-8">
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
             {/* Card 1: Sign up & save 10% */}
-            <div className="lg:w-[35%] bg-cream border-4 border-b-8 border-dark-brown px-6 py-8 lg:px-8 lg:py-10 flex flex-col justify-center rounded-3xl lg:rounded-[32px] shadow-sm">
-              <h2 className="text-heading3 font-primary text-dark-brown">
+            <div className="lg:w-[36%] bg-cream border-2 border-dark-brown px-6 py-8 lg:px-8 lg:py-10 flex flex-col justify-center rounded-[32px] shadow-sm">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-champ uppercase text-dark-brown">
                 Sign up & save 10%
               </h2>
-              <p className="text-body4 lg:text-body3 mt-2 text-dark-brown font-mono">
+              <p className="font-mono text-xs sm:text-sm mt-3 text-dark-brown/90 leading-relaxed">
                 Subscribe to our newsletter and get first access to new releases & exclusive deals.
               </p>
 
@@ -76,14 +76,14 @@ const Footer = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter email"
                   required
-                  className="text-caption lg:text-body3 h-[49px] lg:h-[54px] border-2 border-dark-brown bg-cream p-4 rounded-lg placeholder:text-dark-brown/60 text-dark-brown font-mono focus:outline-none"
+                  className="h-[49px] lg:h-[54px] border-2 border-dark-brown bg-cream p-4 rounded-lg placeholder:text-dark-brown/60 text-dark-brown font-mono text-sm focus:outline-none"
                 />
                 <button
                   type="submit"
                   disabled={status.state === 'loading'}
-                  className="button-primary !w-full py-4 text-sm lg:text-base font-primary uppercase"
+                  className="button-primary !w-full py-4 text-sm lg:text-base font-champ uppercase"
                 >
-                  {status.state === 'loading' ? 'Joining...' : 'Get my 10% off'}
+                  {status.state === 'loading' ? 'Joining...' : 'GET MY 10% OFF'}
                 </button>
               </form>
 
@@ -95,8 +95,8 @@ const Footer = () => {
             </div>
 
             {/* Card 2: Get Drizzy with it */}
-            <div className="grow bg-cream border-4 border-b-8 border-dark-brown px-6 py-8 lg:p-10 rounded-3xl lg:rounded-[32px] shadow-sm">
-              <h2 className="text-heading2 lg:text-heading1 font-primary text-dark-brown">
+            <div className="grow bg-cream border-2 border-dark-brown px-6 py-8 lg:p-10 rounded-[32px] shadow-sm">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-champ uppercase text-dark-brown">
                 Get Drizzy with it
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 lg:mt-10">

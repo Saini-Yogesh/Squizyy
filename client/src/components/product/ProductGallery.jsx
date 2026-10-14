@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProductGallery = ({ images = [] }) => {
+const ProductGallery = ({ images = [], mode = 'compact' }) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const defaultImages = [
@@ -19,6 +19,79 @@ const ProductGallery = ({ images = [] }) => {
 
   const galleryImages = images.length > 0 ? images : defaultImages;
 
+  // PDP 2-Column Grid Mode
+  if (mode === 'pdp') {
+    return (
+      <div className="w-full">
+        {/* Desktop Layout: Large Hero + 2-Column Grid */}
+        <div className="hidden lg:flex flex-col gap-4 w-full">
+          {/* Main Top Feature Card */}
+          <div className="w-full aspect-square rounded-[28px] border-3 border-dark-brown overflow-hidden bg-white p-6 flex items-center justify-center shadow-sm">
+            <img
+              src={galleryImages[0]}
+              alt="Drizzy Squeezy Peanut Butter"
+              className="w-full h-full object-contain"
+              loading="eager"
+            />
+          </div>
+
+          {/* 2-Column Square Grid for all subsequent photos */}
+          <div className="grid grid-cols-2 gap-4 w-full">
+            {galleryImages.slice(1).map((img, idx) => (
+              <div
+                key={idx}
+                className="w-full aspect-square rounded-[24px] border-3 border-dark-brown overflow-hidden bg-white shadow-sm flex items-center justify-center group"
+              >
+                <img
+                  src={img}
+                  alt={`Drizzy view ${idx + 2}`}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Layout: Large Top Card + Horizontal Thumbnail Strip */}
+        <div className="lg:hidden flex flex-col gap-3 w-full">
+          <div className="w-full aspect-square rounded-[24px] border-3 border-dark-brown overflow-hidden bg-white p-4 flex items-center justify-center shadow-sm">
+            <img
+              src={galleryImages[activeImage]}
+              alt="Drizzy Squeezy Peanut Butter"
+              className="w-full h-full object-contain"
+              loading="eager"
+            />
+          </div>
+
+          {/* Scrollable Thumbnails Strip */}
+          <div className="flex gap-2.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-1 px-1">
+            {galleryImages.map((img, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setActiveImage(idx)}
+                className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-xl border-2 overflow-hidden bg-white transition-all cursor-pointer ${
+                  activeImage === idx
+                    ? 'border-dark-brown ring-2 ring-accent-purple opacity-100 scale-95'
+                    : 'border-dark-brown/40 opacity-60 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={img}
+                  alt={`Thumbnail ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Compact Mode (Used on Home Page Feature Section)
   return (
     <div className="flex w-full items-center justify-center flex-col gap-4">
       <div className="relative mx-auto flex flex-col gap-4 w-full">
@@ -48,7 +121,7 @@ const ProductGallery = ({ images = [] }) => {
           </div>
 
           {/* Main viewport */}
-          <div className="main-viewport w-full max-w-full overflow-hidden relative border-4 border-b-[8px] border-dark-brown rounded-2xl bg-white aspect-[400/460] flex items-center justify-center">
+          <div className="main-viewport w-full max-w-full overflow-hidden relative border-2 border-dark-brown rounded-[28px] bg-white p-4 aspect-[400/460] flex items-center justify-center shadow-sm">
             <img
               src={galleryImages[activeImage]}
               alt="Drizzy Squeezy Peanut Butter 19.4 Oz"
