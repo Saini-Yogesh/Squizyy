@@ -1,0 +1,7 @@
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  outline: none;
+  width: 100%;
+}

@@ -1,0 +1,370 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  pointer-events: auto;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  max-width: 25rem;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  box-shadow: -10px 0 30px rgba(45, 15, 40, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 2px solid var(--border-color);
+  animation: slideInRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid var(--border-muted);
+  padding: 1rem 1.25rem;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-champ);
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-champ);
+  font-size: 1.125rem;
+  color: var(--color-foreground);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.badge {
+  font-family: var(--font-champ);
+  background-color: var(--color-accent-purple);
+  color: var(--color-dark-brown);
+  border-radius: var(--radius-pill);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border: 1px solid var(--border-color);
+}
+
+.closeButton {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-foreground);
+  transition: background-color var(--transition-fast);
+  background: transparent;
+  border: none;
+}
+
+.closeButton:hover {
+  background-color: rgba(45, 15, 40, 0.1);
+}
+
+/* Shipping Progress Meter */
+.shippingMeter {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent-purple);
+  border: 2px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+}
+
+.shippingText {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-dark-brown);
+}
+
+.progressBarContainer {
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.progressBarTrack {
+  height: 0.5rem;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-cream);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--color-dark-brown);
+  transition: width 0.3s ease-out;
+}
+
+/* Body */
+.body {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Empty State */
+.emptyState {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  gap: 1rem;
+}
+
+.emptyIconCircle {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background-color: rgba(202, 154, 241, 0.3);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+  object-fit: contain;
+}
+
+.emptyTitle {
+  font-family: var(--font-champ);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+}
+
+.emptyDescription {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(45, 15, 40, 0.7);
+  max-width: 16rem;
+  line-height: 1.4;
+}
+
+.startSqueezingBtn {
+  margin-top: 0.5rem;
+}
+
+/* Items List */
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.itemCard {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.itemImageWrapper {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-muted);
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.itemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  min-width: 0;
+  justify-content: space-between;
+}
+
+.itemTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.itemName {
+  font-family: var(--font-champ);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 130px;
+}
+
+.itemVariant {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: rgba(45, 15, 40, 0.7);
+}
+
+.removeButton {
+  color: rgba(45, 15, 40, 0.4);
+  transition: color var(--transition-fast);
+  padding: 0.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  color: #e53e3e;
+}
+
+.itemBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 0.125rem 0.5rem;
+  background-color: var(--color-background);
+}
+
+.qtyBtn {
+  color: var(--color-foreground);
+  padding: 0.125rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qtyBtn:hover {
+  opacity: 0.7;
+}
+
+.qtyNumber {
+  font-family: var(--font-champ);
+  font-size: 0.75rem;
+  padding: 0 0.5rem;
+}
+
+.itemPrice {
+  font-family: var(--font-champ);
+  font-size: 0.875rem;
+  color: var(--color-foreground);
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.subtotalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-champ);
+  font-size: 1rem;
+  color: var(--color-foreground);
+  text-transform: uppercase;
+}
+
+.subtotalPrice {
+  font-size: 1.125rem;
+}
+
+.taxNotice {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: rgba(45, 15, 40, 0.6);
+  text-align: center;
+}
+
+.checkoutButton {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+}

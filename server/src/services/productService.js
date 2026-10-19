@@ -18,19 +18,34 @@ const getAllProducts = async () => {
 };
 
 const getProductBySlug = async (slug) => {
+  if (!slug) return null;
+  const cleanSlug = String(slug).trim().toLowerCase();
+
   if (getIsConnected()) {
     try {
-      const product = await Product.findOne({ slug });
+      const product = await Product.findOne({
+        $or: [
+          { slug: cleanSlug },
+          { _id: cleanSlug.match(/^[0-9a-fA-F]{24}$/) ? cleanSlug : null }
+        ]
+      });
       if (product) return product;
     } catch (err) {
       console.warn('Mongoose query failed, using memory cache:', err.message);
     }
   }
-  return memoryProducts.find(p => p.slug === slug || (slug === 'drizzy-peanut-drizzle' && p.slug === 'drizzy-squeezy-peanut-butter-19-4-oz')) || memoryProducts[0];
+
+  // Alias compatibility
+  const targetSlug = cleanSlug === 'drizzy-peanut-drizzle' 
+    ? 'drizzy-squeezy-peanut-butter-19-4-oz' 
+    : cleanSlug;
+
+  const found = memoryProducts.find(p => p.slug === targetSlug || p.id === cleanSlug || p._id === cleanSlug);
+  return found || null;
 };
 
 const updateProductInMemory = (slug, data) => {
-  const index = memoryProducts.findIndex(p => p.slug === slug);
+  const index = memoryProducts.findIndex(p => p.slug === slug || p.id === slug);
   if (index !== -1) {
     memoryProducts[index] = { ...memoryProducts[index], ...data };
     return memoryProducts[index];
@@ -38,8 +53,27 @@ const updateProductInMemory = (slug, data) => {
   return null;
 };
 
+const updateProduct = async (slug, data) => {
+  let updatedDoc = null;
+  if (getIsConnected()) {
+    try {
+      updatedDoc = await Product.findOneAndUpdate(
+        { $or: [{ slug }, { _id: slug.match(/^[0-9a-fA-F]{24}$/) ? slug : null }] },
+        { $set: data },
+        { new: true }
+      );
+    } catch (err) {
+      console.warn('Mongoose update product error:', err.message);
+    }
+  }
+
+  const memoryUpdated = updateProductInMemory(slug, data);
+  return updatedDoc || memoryUpdated;
+};
+
 module.exports = {
   getAllProducts,
   getProductBySlug,
-  updateProductInMemory
+  updateProductInMemory,
+  updateProduct
 };

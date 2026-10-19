@@ -1,0 +1,12 @@
+.appShell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-background, #fffaf3);
+  color: var(--color-foreground, #2b1408);
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.mainContent {
+  flex: 1;
+}

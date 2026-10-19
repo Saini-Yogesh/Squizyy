@@ -1,0 +1,360 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  color: var(--color-foreground);
+  padding-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-bottom: 3.5rem;
+  }
+}
+
+.bgWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dripWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.dripDesktop {
+  display: none;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .dripDesktop {
+    display: block;
+  }
+}
+
+.dripMobile {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .dripMobile {
+    display: none;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: var(--page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 1rem 0;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 2rem 1.5rem 0;
+  }
+}
+
+.cardsRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .cardsRow {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* Newsletter Signup Card */
+.newsletterCard {
+  background-color: var(--color-cream);
+  border: 2px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 1024px) {
+  .newsletterCard {
+    width: 36%;
+    padding: 2.5rem 2rem;
+  }
+}
+
+.cardTitle {
+  font-family: var(--font-champ);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .cardTitle {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.cardSubtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+  color: rgba(45, 15, 40, 0.9);
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  .cardSubtitle {
+    font-size: 0.875rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.input {
+  height: 49px;
+  border: 2px solid var(--border-color);
+  background-color: var(--color-cream);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-dark-brown);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(45, 15, 40, 0.6);
+}
+
+.input:focus {
+  border-color: var(--color-dark-brown);
+  background-color: #fff;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .submitBtn {
+    font-size: 1rem;
+  }
+}
+
+.statusMessage {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.statusSuccess {
+  color: var(--color-accent-green);
+}
+
+.statusError {
+  color: #c53030;
+}
+
+/* Links & Nav Card */
+.linksCard {
+  flex-grow: 1;
+  background-color: var(--color-cream);
+  border: 2px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 1024px) {
+  .linksCard {
+    padding: 2.5rem;
+  }
+}
+
+.linksTitle {
+  font-family: var(--font-champ);
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown);
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .linksTitle {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .linksTitle {
+    font-size: 3rem;
+  }
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .linksGrid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2.5rem;
+  }
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .navList {
+    gap: 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.footerLink {
+  color: var(--color-dark-brown);
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  transition: opacity var(--transition-fast);
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.socialHeading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark-brown);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .socialHeading {
+    font-size: 0.875rem;
+  }
+}
+
+.socialList {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.socialIconLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: opacity var(--transition-fast);
+}
+
+.socialIconLink:hover {
+  opacity: 0.7;
+}
+
+/* Giant Bottom Logo & Copyright */
+.bottomSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .bottomSection {
+    margin-top: 3.75rem;
+  }
+}
+
+.brandLogoImg {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .brandLogoImg {
+    max-height: 160px;
+  }
+}
+
+.copyright {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(45, 15, 40, 0.8);
+}
+
+@media (min-width: 1024px) {
+  .copyright {
+    font-size: 0.875rem;
+  }
+}

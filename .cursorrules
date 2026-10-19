@@ -1,0 +1,6 @@
+# Cursor Rules
+
+Always refer to AGENTS.md for universal project instructions, architecture patterns, and rules.
+Consult docs/ai/PROJECT_MAP.md to locate relevant files before scanning or modifying the codebase.
+Use CSS Modules (*.module.css) for frontend styles. Never add Tailwind CSS classes.
+Follow the Controller -> Service -> Model architecture for backend features.

@@ -7,10 +7,11 @@ import FeaturesGrid from '../components/sections/FeaturesGrid';
 import FullPageMedia from '../components/sections/FullPageMedia';
 import MarqueeCards from '../components/sections/MarqueeCards';
 import InstaFeed from '../components/sections/InstaFeed';
+import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <main id="MainContent" className="flex flex-col gap-0 outline-none w-full" tabIndex={-1}>
+    <main id="MainContent" className={styles.mainContent} tabIndex={-1}>
       {/* 1. Hero */}
       <Hero />
 

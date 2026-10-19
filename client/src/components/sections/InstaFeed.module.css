@@ -1,0 +1,217 @@
+.feedSection {
+  background-color: var(--color-cream, #fffbf2);
+  color: var(--color-dark-brown, #2b1408);
+  padding: 3rem 0 4rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .feedSection {
+    padding: 4rem 0 6rem 0;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    margin-bottom: 3rem;
+  }
+}
+
+.heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full, 9999px);
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-dark-brown, #2b1408);
+  border: 2px solid var(--color-dark-brown, #2b1408);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.navButtonLeft {
+  left: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .navButtonLeft {
+    left: 1rem;
+  }
+}
+
+.navButtonRight {
+  right: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .navButtonRight {
+    right: 1rem;
+  }
+}
+
+.track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .track {
+    gap: 1.5rem;
+  }
+}
+
+.reelCard {
+  flex-shrink: 0;
+  width: 240px;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius-2xl, 24px);
+  overflow: hidden;
+  border: 3px solid var(--color-dark-brown, #2b1408);
+  background-color: #2d0f28;
+  position: relative;
+  scroll-snap-align: start;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(43, 20, 8, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .reelCard {
+    width: 280px;
+    border-radius: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reelCard {
+    width: 310px;
+  }
+}
+
+.reelCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(43, 20, 8, 0.18);
+}
+
+.reelImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.reelCard:hover .reelImage {
+  transform: scale(1.05);
+}
+
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  background-color: rgba(202, 154, 241, 0.95);
+  backdrop-filter: blur(4px);
+  color: var(--color-dark-brown, #2b1408);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--color-dark-brown, #2b1408);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.caption {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1.25rem;
+  z-index: 10;
+  color: #ffffff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: pre-line;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  line-height: 1.35;
+  margin: 0;
+}

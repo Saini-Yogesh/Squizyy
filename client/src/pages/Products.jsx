@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/product/ProductCard';
+import Spinner from '../components/common/Spinner/Spinner';
 import { getProducts } from '../services/api';
+import styles from './Products.module.css';
 
 const defaultFallbackProducts = [
   {
@@ -8,48 +10,78 @@ const defaultFallbackProducts = [
     slug: 'drizzy-squeezy-peanut-butter-19-4-oz',
     name: 'Drizzy Squeezy Peanut Butter 19.4 Oz',
     price: 999,
-    images: ['/assets/images/DRIZZY12302.jpg', '/assets/images/USADRIZZYFRONTcopy.jpg']
+    images: ['/assets/images/DRIZZY12302.jpg', '/assets/images/USADRIZZYFRONTcopy.jpg'],
   },
   {
     id: '8932545495211',
     slug: 'food-services-pack-6-units',
     name: 'Food Services Case Pack (6 units)',
     price: 3750,
-    images: ['/assets/images/Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png']
-  }
+    images: ['/assets/images/Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png'],
+  },
 ];
 
 const Products = () => {
   const [products, setProducts] = useState(defaultFallbackProducts);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+    setLoading(true);
+
     getProducts()
       .then((data) => {
-        if (data && data.length > 0) {
+        if (isMounted && Array.isArray(data) && data.length > 0) {
           setProducts(data);
         }
       })
       .catch((err) => {
         console.warn('Using authentic fallback products:', err);
+      })
+      .finally(() => {
+        if (isMounted) {
+          setLoading(false);
+        }
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
-    <div className="w-full">
-      <div id="shopify-section-template--22221105561771__main-collection" className="shopify-section">
-        <section className="relative bg-cream text-dark-brown py-8 sm:py-12 lg:py-16">
-          <div className="container mx-auto px-4 max-w-[87.5rem]">
-            {/* Product Grid - 2 products in 4-column desktop grid matching collections__all_1.png */}
-            <div id="ProductGridContainer" className="product-grid-container w-full">
-              <div
-                id="product-grid"
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-content-stretch"
-              >
-                {products.map((p) => (
-                  <ProductCard key={p.slug || p._id} product={p} />
-                ))}
-              </div>
+    <div className={styles.pageContainer}>
+      <div id="shopify-section-main-collection" className="shopify-section">
+        <section className={styles.section} aria-label="All Products">
+          <div className={styles.container}>
+            <div className={styles.headerArea}>
+              <h1 className={styles.pageTitle}>Shop All Drizzy</h1>
+              <p className={styles.pageSubtitle}>
+                100% natural squeezy peanut butter, straight from Texas runner peanuts.
+              </p>
             </div>
+
+            {loading && products.length === 0 ? (
+              <div className={styles.emptyState}>
+                <Spinner size="lg" />
+                <p className={styles.emptyDesc} style={{ marginTop: '1rem' }}>
+                  Loading delicious peanut butter...
+                </p>
+              </div>
+            ) : products.length === 0 ? (
+              <div className={styles.emptyState}>
+                <h2 className={styles.emptyTitle}>No products found</h2>
+                <p className={styles.emptyDesc}>Check back soon for new roasts and batches!</p>
+              </div>
+            ) : (
+              <div id="ProductGridContainer" className="product-grid-container">
+                <div id="product-grid" className={styles.grid}>
+                  {products.map((p) => (
+                    <ProductCard key={p.slug || p._id || p.id} product={p} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </div>

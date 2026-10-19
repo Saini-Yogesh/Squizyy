@@ -1,62 +1,62 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import styles from './TermsOfService.module.css';
 
 const TermsOfService = () => {
   return (
-    <div className="w-full bg-cream py-12 lg:py-16">
-      <div className="container mx-auto px-4 max-w-4xl text-left">
-        <h1 className="text-4xl sm:text-5xl font-champ uppercase text-dark-brown mb-8 text-center sm:text-left">
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <h1 className={styles.heading}>
           Terms of Service
         </h1>
 
-        <div className="bg-white border-4 border-b-8 border-dark-brown rounded-[32px] p-6 sm:p-12 shadow-2xl text-dark-brown space-y-6 font-body text-sm sm:text-base leading-relaxed">
+        <div className={styles.card}>
           <div>
-            <h3 className="font-champ text-2xl uppercase text-dark-brown mb-2">Welcome to Drizzy!</h3>
-            <p>
+            <h2 className={styles.sectionTitle}>Welcome to Drizzy!</h2>
+            <p style={{ margin: 0 }}>
               These Terms of Service (“Terms”) govern your access to and use of our website, online store, and any related services operated by Drizzy (“we”, “our”, or “us”).
               By visiting our site or making a purchase, you agree to these Terms. Please read them carefully before using our services.
             </p>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-champ text-xl uppercase text-dark-brown">1. Using Our Website</h3>
-            <p>You may use our website and services only for lawful purposes and in accordance with these Terms.</p>
-            <ul className="list-disc pl-6 space-y-1">
+          <div>
+            <h2 className={styles.sectionTitle}>1. Using Our Website</h2>
+            <p style={{ margin: '0 0 0.5rem 0' }}>You may use our website and services only for lawful purposes and in accordance with these Terms.</p>
+            <ul className={styles.bulletList}>
               <li>Do not use our website for any illegal or unauthorized purpose.</li>
               <li>Do not interfere with or disrupt the security or functionality of the website.</li>
-              <li>Do not attempt to collect or misuse other users’ personal data.</li>
+              <li>Do not attempt to collect or misuse other users' personal data.</li>
             </ul>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-champ text-xl uppercase text-dark-brown">2. Products and Orders</h3>
-            <p>
+          <div>
+            <h2 className={styles.sectionTitle}>2. Products and Orders</h2>
+            <p style={{ margin: 0 }}>
               We do our best to display product details, images, and pricing as accurately as possible. When you place an order, you agree that all information provided is accurate and that you are authorized to use the payment method provided.
             </p>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-champ text-xl uppercase text-dark-brown">3. Shipping and Delivery</h3>
-            <p>
+          <div>
+            <h2 className={styles.sectionTitle}>3. Shipping and Delivery</h2>
+            <p style={{ margin: 0 }}>
               Delivery times are estimates and may vary based on your location. If your order arrives damaged or missing, please contact us within 7 days of delivery at{' '}
-              <a href="mailto:hello@getdrizzy.co" className="underline font-bold text-dark-brown">
+              <a href="mailto:hello@getdrizzy.co" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
                 hello@getdrizzy.co
               </a>.
             </p>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-champ text-xl uppercase text-dark-brown">4. Returns and Refunds</h3>
-            <p>
+          <div>
+            <h2 className={styles.sectionTitle}>4. Returns and Refunds</h2>
+            <p style={{ margin: 0 }}>
               Your satisfaction matters to us! Due to the perishable nature of peanut butter food products, returns are accepted within 7 days if defective or incorrect.
             </p>
           </div>
 
-          <div className="space-y-3">
-            <h3 className="font-champ text-xl uppercase text-dark-brown">5. Contact Us</h3>
-            <p>
+          <div>
+            <h2 className={styles.sectionTitle}>5. Contact Us</h2>
+            <p style={{ margin: 0 }}>
               Questions about the Terms of Service should be sent to{' '}
-              <a href="mailto:hello@getdrizzy.co" className="underline font-bold text-dark-brown">
+              <a href="mailto:hello@getdrizzy.co" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
                 hello@getdrizzy.co
               </a>.
             </p>

@@ -1,0 +1,255 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  background-color: var(--color-accent-purple);
+  color: var(--color-dark-brown);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Floating Decorative Elements */
+.peanutLeft {
+  display: none;
+  position: absolute;
+  width: 17vw;
+  transform: rotate(-60deg);
+  left: -6vw;
+  top: 16%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .peanutLeft {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .peanutLeft {
+    top: 65%;
+  }
+}
+
+.bottleLeft {
+  position: absolute;
+  width: 58vw;
+  left: 0;
+  top: 20%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .bottleLeft {
+    width: 35vw;
+    left: -2rem;
+  }
+}
+
+.peanutRight {
+  display: none;
+  position: absolute;
+  width: 6.25vw;
+  transform: rotate(-14deg);
+  right: -1.5%;
+  top: 20%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .peanutRight {
+    display: block;
+  }
+}
+
+.otherProductRight {
+  position: absolute;
+  width: 86vw;
+  right: -10vw;
+  bottom: 10%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .otherProductRight {
+    width: 35vw;
+    right: -0.625rem;
+    bottom: 25%;
+  }
+}
+
+.mainWrapper {
+  background-color: var(--color-accent-purple);
+  width: 100%;
+}
+
+.dripTop {
+  width: 100%;
+}
+
+.dripImgDesktop {
+  display: none;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .dripImgDesktop {
+    display: block;
+  }
+}
+
+.dripImgMobile {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .dripImgMobile {
+    display: none;
+  }
+}
+
+.container {
+  position: relative;
+  max-width: 925px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.75rem;
+  padding: 0 1rem 25vh;
+  z-index: 3;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-bottom: 20vh;
+  }
+}
+
+.headline {
+  font-family: var(--font-champ);
+  color: var(--color-dark-brown);
+  font-size: 2.125rem;
+  line-height: 1.05;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .headline {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headline {
+    font-size: 3.375rem;
+  }
+}
+
+.vsRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .vsRow {
+    flex-direction: row;
+    gap: 0;
+    margin-top: 4.25rem;
+  }
+}
+
+.leftPerks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .leftPerks {
+    align-items: flex-start;
+    flex-basis: 33.333%;
+  }
+}
+
+.rightPains {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .rightPains {
+    align-items: flex-end;
+    flex-basis: 33.333%;
+  }
+}
+
+.pillBadge {
+  width: fit-content;
+  font-family: var(--font-champ);
+  font-size: 0.8125rem;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-cream);
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--border-color);
+  color: var(--color-dark-brown);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 1024px) {
+  .pillBadge {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+.vsCircle {
+  margin-top: 1rem;
+  width: 5rem;
+  height: 5rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-dark-brown);
+  color: var(--color-cream);
+  font-family: var(--font-champ);
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .vsCircle {
+    margin-top: 0;
+  }
+}
+
+.dripBottom {
+  width: 100%;
+  background-color: var(--color-brown);
+}

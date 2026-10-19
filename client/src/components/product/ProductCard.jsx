@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import { formatCurrency } from '../../utils/formatters';
+import styles from './ProductCard.module.css';
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -19,52 +21,52 @@ const ProductCard = ({ product }) => {
 
   const primaryImage = product.images?.[0] || '/assets/images/DRIZZY12302.jpg';
   const hoverImage = product.images?.[1] || product.images?.[0] || '/assets/images/USADRIZZYFRONTcopy.jpg';
-  const priceDisplay = (product.price / 100).toFixed(2);
 
   return (
-    <div className="h-full w-full product-card relative">
-      <div className="flex h-full w-full flex-col gap-3">
+    <div className={styles.card}>
+      <div className={styles.inner}>
         {/* Card Image */}
         <Link
           to={`/products/${product.slug}`}
-          className="group w-full aspect-[3/4] overflow-hidden relative z-0 border-2 sm:border-3 border-dark-brown rounded-2xl sm:rounded-[22px] bg-white shadow-sm"
+          className={styles.imageLink}
+          aria-label={`View details for ${product.name}`}
         >
-          <div className="h-full w-full relative">
+          <div className={styles.imageContainer}>
             <img
               src={primaryImage}
               alt={product.name}
-              className="w-full h-full object-cover z-10 absolute inset-0 transition-opacity duration-200 ease-in opacity-100 group-hover:opacity-0"
+              className={styles.primaryImg}
               loading="eager"
             />
             <img
               src={hoverImage}
-              alt={product.name}
-              className="w-full h-full object-cover z-0 absolute inset-0 transition-opacity duration-200 ease-in opacity-0 group-hover:opacity-100"
+              alt=""
+              className={styles.hoverImg}
               loading="lazy"
             />
           </div>
         </Link>
 
         {/* Card Info */}
-        <div className="flex flex-col gap-1.5 z-10 mt-1">
+        <div className={styles.info}>
           <Link
             to={`/products/${product.slug}`}
-            className="font-mono text-sm sm:text-base text-dark-brown hover:underline leading-snug line-clamp-2"
+            className={styles.title}
           >
             {product.name}
           </Link>
-          <div className="font-mono text-sm sm:text-base text-dark-brown font-bold">
-            ${priceDisplay}
+          <div className={styles.price}>
+            {formatCurrency(product.price)}
           </div>
         </div>
 
         {/* Add To Cart Button */}
-        <div className="w-full mt-auto pt-2">
+        <div className={styles.actions}>
           <button
             type="button"
             onClick={handleAddToCart}
             disabled={loading}
-            className="w-full bg-accent-purple hover:bg-[#b885e3] text-dark-brown border-2 border-dark-brown font-champ uppercase text-base sm:text-lg py-3 sm:py-3.5 px-6 rounded-full transition-colors button-primary shadow-sm cursor-pointer disabled:opacity-80"
+            className={`button-primary ${styles.addToCartBtn}`}
           >
             <span>{loading ? 'Adding...' : 'ADD TO CART'}</span>
           </button>

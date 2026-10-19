@@ -1,62 +1,63 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import styles from './InstaFeed.module.css';
+
+const reels = [
+  {
+    id: '1',
+    img: '/assets/images/timeline-3.jpg',
+    badge: null,
+    caption: 'ME! 🇦🇺 Five m...',
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '2',
+    img: '/assets/images/7197cdc3c5194c39804a834f7b97aebd.thumbnail.0000000000.jpg',
+    badge: null,
+    caption: '"Go where the wind takes you"\nMe:',
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '3',
+    img: '/assets/images/DRIZZY13132.jpg',
+    badge: null,
+    caption: null,
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '4',
+    img: '/assets/images/insta-post-1.png',
+    badge: null,
+    caption: 'Come with us to watch Drizzy launch',
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '5',
+    img: '/assets/images/insta-post-2.png',
+    badge: 'Yo-Chi Frozen Yogurt',
+    caption: null,
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '6',
+    img: '/assets/images/insta-post-3.png',
+    badge: null,
+    caption: null,
+    link: 'https://instagram.com/getdrizzy',
+  },
+  {
+    id: '7',
+    img: '/assets/images/insta-post-4.png',
+    badge: null,
+    caption: null,
+    link: 'https://instagram.com/getdrizzy',
+  },
+];
 
 const InstaFeed = () => {
   const scrollRef = useRef(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
-
-  const reels = [
-    {
-      id: '1',
-      img: '/assets/images/timeline-3.jpg',
-      badge: null,
-      caption: 'ME! 🇦🇺 Five m...',
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '2',
-      img: '/assets/images/7197cdc3c5194c39804a834f7b97aebd.thumbnail.0000000000.jpg',
-      badge: null,
-      caption: '"Go where the wind takes you"\nMe:',
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '3',
-      img: '/assets/images/DRIZZY13132.jpg',
-      badge: null,
-      caption: null,
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '4',
-      img: '/assets/images/insta-post-1.png',
-      badge: null,
-      caption: 'Come with us to watch Drizzy launch',
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '5',
-      img: '/assets/images/insta-post-2.png',
-      badge: 'Yo-Chi Frozen Yogurt',
-      caption: null,
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '6',
-      img: '/assets/images/insta-post-3.png',
-      badge: null,
-      caption: null,
-      link: 'https://instagram.com/getdrizzy',
-    },
-    {
-      id: '7',
-      img: '/assets/images/insta-post-4.png',
-      badge: null,
-      caption: null,
-      link: 'https://instagram.com/getdrizzy',
-    },
-  ];
 
   const checkScroll = () => {
     if (scrollRef.current) {
@@ -81,29 +82,27 @@ const InstaFeed = () => {
   };
 
   return (
-    <div id="shopify-section-template--22221105463467__178698386217403125" className="shopify-section relative">
-      <section className="bg-cream text-dark-brown pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8">
-          
+    <div id="shopify-section-instagram-feed" className="shopify-section">
+      <section className={styles.feedSection} aria-label="Instagram Community Feed">
+        <div className={styles.container}>
           {/* Section Header */}
-          <div className="text-center mb-8 lg:mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-champ uppercase tracking-tight text-dark-brown">
+          <div className={styles.header}>
+            <h2 className={styles.heading}>
               Follow @getdrizzy
             </h2>
           </div>
 
           {/* Carousel Slider Container */}
-          <div className="relative group/carousel">
-            
+          <div className={styles.carouselContainer}>
             {/* Left Scroll Button */}
             {canScrollLeft && (
               <button
                 type="button"
                 onClick={() => scroll('left')}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-dark-brown border-2 border-dark-brown flex items-center justify-center shadow-lg transition-transform hover:scale-105 cursor-pointer"
-                aria-label="Scroll left"
+                className={`${styles.navButton} ${styles.navButtonLeft}`}
+                aria-label="Scroll left in Instagram feed"
               >
-                <ChevronLeft size={24} className="stroke-[2.5]" />
+                <ChevronLeft size={24} strokeWidth={2.5} />
               </button>
             )}
 
@@ -112,10 +111,10 @@ const InstaFeed = () => {
               <button
                 type="button"
                 onClick={() => scroll('right')}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 hover:bg-white text-dark-brown border-2 border-dark-brown flex items-center justify-center shadow-lg transition-transform hover:scale-105 cursor-pointer"
-                aria-label="Scroll right"
+                className={`${styles.navButton} ${styles.navButtonRight}`}
+                aria-label="Scroll right in Instagram feed"
               >
-                <ChevronRight size={24} className="stroke-[2.5]" />
+                <ChevronRight size={24} strokeWidth={2.5} />
               </button>
             )}
 
@@ -123,7 +122,7 @@ const InstaFeed = () => {
             <div
               ref={scrollRef}
               onScroll={checkScroll}
-              className="flex gap-4 sm:gap-6 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-2 px-2 snap-x snap-mandatory scroll-smooth"
+              className={styles.track}
             >
               {reels.map((reel) => (
                 <a
@@ -131,39 +130,35 @@ const InstaFeed = () => {
                   href={reel.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 w-[240px] sm:w-[280px] lg:w-[310px] aspect-[9/16] rounded-[24px] sm:rounded-[32px] overflow-hidden border-3 border-dark-brown bg-[#2D0F28] shadow-sm relative group snap-start transition-transform duration-200 hover:-translate-y-1 hover:shadow-xl"
+                  className={styles.reelCard}
+                  aria-label={reel.caption || 'Drizzy Instagram reel'}
                 >
-                  {/* Reel Image */}
                   <img
                     src={reel.img}
-                    alt={reel.caption || 'Drizzy post'}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    alt={reel.caption || 'Drizzy Instagram post'}
+                    className={styles.reelImage}
                     loading="lazy"
                   />
 
-                  {/* Dark gradient for text readability if caption exists */}
                   {reel.caption && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+                    <div className={styles.gradientOverlay} />
                   )}
 
-                  {/* Badge (e.g. Yo-Chi location pin) */}
                   {reel.badge && (
-                    <div className="absolute top-4 left-4 z-10 bg-accent-purple/90 backdrop-blur-sm text-dark-brown font-mono font-bold text-[10px] sm:text-xs px-3 py-1.5 rounded-full border border-dark-brown flex items-center gap-1.5 shadow-sm">
-                      <span>📍</span>
+                    <div className={styles.badge}>
+                      <span aria-hidden="true">📍</span>
                       <span>{reel.badge}</span>
                     </div>
                   )}
 
-                  {/* Caption Overlay */}
                   {reel.caption && (
-                    <div className="absolute inset-x-4 bottom-5 z-10 text-white font-mono text-xs sm:text-sm font-semibold whitespace-pre-line drop-shadow-md leading-snug">
+                    <p className={styles.caption}>
                       {reel.caption}
-                    </div>
+                    </p>
                   )}
                 </a>
               ))}
             </div>
-
           </div>
         </div>
       </section>

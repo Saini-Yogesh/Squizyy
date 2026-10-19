@@ -16,7 +16,7 @@ const updateProduct = async (req, res, next) => {
   try {
     const { slug } = req.params;
     const updateData = req.body;
-    const updated = productService.updateProductInMemory(slug, updateData);
+    const updated = await productService.updateProduct(slug, updateData);
     if (!updated) {
       return sendError(res, 'Product not found', 404);
     }

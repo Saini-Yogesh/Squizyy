@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import './variables.css';
+@import './reset.css';
+
+@font-face {
+  font-family: 'Champ Black';
+  src: url('/assets/fonts/Champ-Black.otf') format('opentype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Azeret Mono';
+  src: url('/assets/fonts/AzeretMono-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: var(--color-accent-purple);
+  color: var(--color-foreground);
+}
+
+/* Authentic Drizzy Chunky Pill Button - Universal Class */
+.button-primary,
+.btn-drizzy-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-champ);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--color-accent-purple);
+  color: var(--color-foreground);
+  border: 2px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 0.85rem 2rem;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  user-select: none;
+}
+
+.button-primary:hover,
+.btn-drizzy-primary:hover {
+  background-color: var(--color-accent-purple-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+}
+
+.button-primary:active,
+.btn-drizzy-primary:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+
+.button-primary:disabled,
+.btn-drizzy-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-drizzy-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-champ);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--color-foreground);
+  color: var(--color-background);
+  border: 2px solid var(--border-color);
+  border-bottom: 4px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 0.85rem 2rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-drizzy-secondary:hover {
+  background-color: #3f1638;
+  transform: translateY(-2px);
+}
+
+/* Global Keyframe Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes announcement-marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

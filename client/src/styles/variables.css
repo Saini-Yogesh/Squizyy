@@ -1,0 +1,64 @@
+:root {
+  /* Brand Color Palette */
+  --color-background: #f8ebd7;
+  --color-foreground: #2d0f28;
+  --color-dark-brown: #2d0f28;
+  --color-brown: #894031;
+  --color-light-brown: #d4a373;
+  --color-cream: #f8ebd7;
+  --color-cream-light: #fff9ef;
+  --color-accent-purple: #ca9af1;
+  --color-accent-purple-light: #f4eaff;
+  --color-accent-purple-hover: #b885e3;
+  --color-accent-green: #036e2c;
+  --color-accent-yellow: #ffe8b3;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Semantic Borders & Dividers */
+  --border-color: #2d0f28;
+  --border-muted: rgba(45, 15, 40, 0.15);
+  --border-dashed: rgba(45, 15, 40, 0.25);
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+  --border-width-lg: 3px;
+  --border-width-xl: 4px;
+  --border-width-heavy: 8px;
+
+  /* Typography */
+  --font-primary: 'Champ Black', 'Inter', sans-serif;
+  --font-champ: 'Champ Black', 'Inter', sans-serif;
+  --font-secondary: 'Azeret Mono', monospace;
+  --font-mono: 'Azeret Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Spacing & Layout */
+  --page-max-width: 87.5rem; /* 1400px */
+  --container-max-width: 1400px;
+  --container-padding: 1.5rem;
+  --container-padding-mobile: 1rem;
+  --header-height: 80px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(45, 15, 40, 0.08);
+  --shadow-md: 0 4px 12px rgba(45, 15, 40, 0.12);
+  --shadow-lg: 0 10px 25px rgba(45, 15, 40, 0.15);
+  --shadow-xl: 0 18px 40px rgba(45, 15, 40, 0.2);
+  --shadow-pill: 0 4px 0 #2d0f28;
+  --shadow-pill-hover: 0 6px 0 #2d0f28;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}

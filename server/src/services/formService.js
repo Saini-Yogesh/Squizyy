@@ -25,6 +25,10 @@ const subscribeNewsletter = async (email, source = 'homepage-footer') => {
       const newSub = await Newsletter.create({ email: cleanEmail, source });
       return { subscriber: newSub, isNew: true };
     } catch (err) {
+      if (err.code === 11000) {
+        const existing = await Newsletter.findOne({ email: cleanEmail });
+        return { subscriber: existing || { email: cleanEmail }, isNew: false };
+      }
       console.warn('Mongoose newsletter error:', err.message);
     }
   }

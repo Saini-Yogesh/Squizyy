@@ -1,41 +1,34 @@
 import React, { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { openCart, itemCount } = useCart();
-  const location = useLocation();
+
+  const getNavLinkClass = ({ isActive }) => 
+    `${styles.navLink} ${isActive ? styles.activeNavLink : ''}`;
 
   return (
-    <div
-      id="shopify-section-sections--22221105168555__aee8d273-a723-4121-98fe-3e6743d9dbc4"
-      className="shopify-section shopify-section-group-header-group relative z-30"
-    >
-      <header
-        id="shopify-section-header"
-        className="transition-transform !duration-300 !ease-in-out w-full bg-background text-foreground color-scheme-1"
-        style={{
-          '--spacing-top': '1.5rem',
-          '--spacing-bottom': '1.5rem',
-          '--spacing-top-mobile': '0.875rem',
-          '--spacing-bottom-mobile': '0.875rem',
-        }}
-      >
-        <div className="relative w-full pt-[0.875rem] pb-[0.875rem] lg:pt-[1.5rem] lg:pb-[1.5rem]">
-          <div className="px-4 lg:px-6 flex">
-            <div className="w-full flex gap-0 items-center justify-between">
+    <div className={styles.wrapper}>
+      <header className={styles.header}>
+        <div className={styles.inner}>
+          <div className={styles.container}>
+            <div className={styles.bar}>
               {/* Mobile Menu Toggle Button */}
               <button
+                type="button"
                 id="menu-toggle"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden flex justify-center items-center w-8 h-8 p-1 text-foreground cursor-pointer"
-                aria-label="Toggle navigation menu"
+                className={styles.mobileToggle}
+                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={mobileMenuOpen}
               >
                 {mobileMenuOpen ? (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
-                      d="M11.9998 13.4L7.0998 18.3C6.91647 18.4834 6.68314 18.575 6.3998 18.575C6.11647 18.575 5.88314 18.4834 5.6998 18.3C5.51647 18.1167 5.4248 17.8834 5.4248 17.6C5.4248 17.3167 5.51647 17.0834 5.6998 16.9L10.5998 12L5.6998 7.10005C5.51647 6.91672 5.4248 6.68338 5.4248 6.40005C5.4248 6.11672 5.51647 5.88338 5.6998 5.70005C5.88314 5.51672 6.11647 5.42505 6.3998 5.42505C6.68314 5.42505 6.91647 5.51672 7.0998 5.70005L11.9998 10.6L16.8998 5.70005C17.0831 5.51672 17.3165 5.42505 17.5998 5.42505C17.8831 5.42505 18.1165 5.51672 18.2998 5.70005C18.4831 5.88338 18.5748 6.11672 18.5748 6.40005C18.5748 6.68338 18.4831 6.91672 18.2998 7.10005L13.3998 12L18.2998 16.9C18.4831 17.0834 18.5748 17.3167 18.5748 17.6C18.5748 17.8834 18.4831 18.1167 18.2998 18.3C18.1165 18.4834 17.8831 18.575 17.5998 18.575C17.3165 18.575 17.0831 18.4834 16.8998 18.3L11.9998 13.4Z"
+                      d="M12 13.4L7.1 18.3C6.9 18.5 6.7 18.6 6.4 18.6C6.1 18.6 5.9 18.5 5.7 18.3C5.5 18.1 5.4 17.9 5.4 17.6C5.4 17.3 5.5 17.1 5.7 16.9L10.6 12L5.7 7.1C5.5 6.9 5.4 6.7 5.4 6.4C5.4 6.1 5.5 5.9 5.7 5.7C5.9 5.5 6.1 5.4 6.4 5.4C6.7 5.4 6.9 5.5 7.1 5.7L12 10.6L16.9 5.7C17.1 5.5 17.3 5.4 17.6 5.4C17.9 5.4 18.1 5.5 18.3 5.7C18.5 5.9 18.6 6.1 18.6 6.4C18.6 6.7 18.5 6.9 18.3 7.1L13.4 12L18.3 16.9C18.5 17.1 18.6 17.3 18.6 17.6C18.6 17.9 18.5 18.1 18.3 18.3C18.1 18.5 17.9 18.6 17.6 18.6C17.3 18.6 17.1 18.5 16.9 18.3L12 13.4Z"
                       fill="#2D0F28"
                     />
                   </svg>
@@ -50,59 +43,47 @@ const Navbar = () => {
               </button>
 
               {/* Mobile Center Brand Logo */}
-              <Link to="/" className="!outline-none !border-none block lg:hidden" aria-label="Drizzy USA logo">
+              <Link to="/" className={styles.mobileLogo} aria-label="Drizzy USA logo">
                 <img
                   src="/assets/images/drizzy-dark-logo.svg"
                   alt="Drizzy USA"
-                  className="h-[30px] w-auto object-contain"
+                  className={styles.mobileLogoImg}
                 />
               </Link>
 
               {/* Desktop Full Navigation */}
-              <nav className="hidden w-full lg:flex items-center justify-between gap-8">
+              <nav className={styles.desktopNav} aria-label="Main Navigation">
                 {/* Left Nav Links */}
-                <div className="flex items-center gap-6 basis-1/3 grow justify-end">
-                  <NavLink
-                    to="/"
-                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
-                  >
+                <div className={styles.navGroupLeft}>
+                  <NavLink to="/" className={getNavLinkClass}>
                     Home
                   </NavLink>
-                  <NavLink
-                    to="/pages/our-story"
-                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
-                  >
+                  <NavLink to="/pages/our-story" className={getNavLinkClass}>
                     Our Story
                   </NavLink>
-                  <NavLink
-                    to="/pages/store-locator"
-                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
-                  >
+                  <NavLink to="/pages/store-locator" className={getNavLinkClass}>
                     Stockists
                   </NavLink>
                 </div>
 
                 {/* Center Brand Logo */}
-                <Link to="/" className="!outline-none !border-none block px-4 shrink-0" aria-label="Drizzy USA logo">
+                <Link to="/" className={styles.desktopLogo} aria-label="Drizzy USA logo">
                   <img
                     src="/assets/images/drizzy-dark-logo.svg"
                     alt="Drizzy USA"
-                    className="h-[46px] w-auto object-contain"
+                    className={styles.desktopLogoImg}
                   />
                 </Link>
 
                 {/* Right Links & Actions */}
-                <div className="flex items-center gap-6 basis-1/3 grow justify-start">
-                  <NavLink
-                    to="/pages/wholesale"
-                    className="block text-heading6 uppercase hover:opacity-75 transition-opacity text-dark-brown"
-                  >
+                <div className={styles.navGroupRight}>
+                  <NavLink to="/pages/wholesale" className={getNavLinkClass}>
                     Wholesale
                   </NavLink>
 
                   <Link
                     to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
-                    className="block !text-heading6 !py-3 uppercase inline-flex text-nowrap transition-colors duration-200 ease-out items-center justify-center cursor-pointer no-underline rounded-[100px] w-fit focus-visible:outline-none text-[16px] lg:text-[18px] font-champ leading-[100%] py-3 px-6 bg-accent-purple text-dark-brown border-2 border-dark-brown hover:bg-cream button-primary shadow-sm"
+                    className={styles.buyNowBtn}
                   >
                     BUY DRIZZY NOW
                   </Link>
@@ -111,23 +92,19 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={openCart}
-                    className="cart-drawer-trigger ml-auto flex relative justify-center items-center w-10 h-10 p-2 rounded-full border border-dark-brown bg-accent-purple cursor-pointer transition-transform hover:scale-105"
-                    aria-label="cart icon"
+                    className={styles.cartTriggerDesktop}
+                    aria-label={`Cart with ${itemCount} items`}
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
                         stroke="#2D0F28"
                         strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
                       />
                       <path
                         d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
                         stroke="#2D0F28"
                         strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
                       />
                       <path d="M2.25 3.75H5.25L7.5 16.5H19.5" stroke="#2D0F28" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       <path
@@ -139,36 +116,30 @@ const Navbar = () => {
                       />
                     </svg>
                     {itemCount > 0 && (
-                      <span className="absolute -top-1 -right-1 bg-dark-brown text-cream text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center font-primary border border-cream">
-                        {itemCount}
-                      </span>
+                      <span className={styles.cartBadge}>{itemCount}</span>
                     )}
                   </button>
                 </div>
               </nav>
 
               {/* Mobile Right Cart Button */}
-              <div className="flex gap-3 items-center lg:hidden">
+              <div className={styles.mobileActions}>
                 <button
                   type="button"
                   onClick={openCart}
-                  className="cart-drawer-trigger flex relative justify-center items-center w-8 h-8 p-1.5 rounded-full border border-dark-brown bg-accent-purple cursor-pointer"
-                  aria-label="cart icon"
+                  className={styles.cartTriggerMobile}
+                  aria-label={`Cart with ${itemCount} items`}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
                       stroke="#2D0F28"
                       strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
                     />
                     <path
                       d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
                       stroke="#2D0F28"
                       strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
                     />
                     <path d="M2.25 3.75H5.25L7.5 16.5H19.5" stroke="#2D0F28" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     <path
@@ -180,9 +151,7 @@ const Navbar = () => {
                     />
                   </svg>
                   {itemCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-dark-brown text-cream text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center font-primary border border-cream">
-                      {itemCount}
-                    </span>
+                    <span className={styles.cartBadge}>{itemCount}</span>
                   )}
                 </button>
               </div>
@@ -192,40 +161,40 @@ const Navbar = () => {
 
         {/* Mobile Accordion Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden w-full bg-background border-b-2 border-dark-brown px-6 py-6 transition-all duration-200">
-            <nav className="flex flex-col gap-4">
+          <div className={styles.mobileMenu}>
+            <nav className={styles.mobileNav}>
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-heading5 uppercase py-2 border-b border-foreground/15 text-foreground"
+                className={styles.mobileNavLink}
               >
                 Home
               </Link>
               <Link
                 to="/pages/our-story"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-heading5 uppercase py-2 border-b border-foreground/15 text-foreground"
+                className={styles.mobileNavLink}
               >
                 Our Story
               </Link>
               <Link
                 to="/pages/store-locator"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-heading5 uppercase py-2 border-b border-foreground/15 text-foreground"
+                className={styles.mobileNavLink}
               >
                 Stockists
               </Link>
               <Link
                 to="/pages/wholesale"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-heading5 uppercase py-2 border-b border-foreground/15 text-foreground"
+                className={styles.mobileNavLink}
               >
                 Wholesale
               </Link>
               <Link
                 to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
                 onClick={() => setMobileMenuOpen(false)}
-                className="button-primary text-center py-3 text-base mt-2"
+                className={styles.mobileBuyNow}
               >
                 Buy Drizzy Now
               </Link>

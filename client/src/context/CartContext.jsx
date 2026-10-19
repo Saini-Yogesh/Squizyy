@@ -27,15 +27,17 @@ export const CartProvider = ({ children }) => {
 
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+  const toggleCart = () => setIsOpen(prev => !prev);
 
   const addToCart = (product, selectedOption, purchaseType = 'one-time', deliveryFrequency = '4 weeks', quantity = 1) => {
-    // Generate unique ID based on product, bottle count, and purchase type
+    if (!product) return;
     const bottleCount = selectedOption?.quantity || 1;
+    const rawPrice = selectedOption?.price || product.price || 999;
     const unitPrice = purchaseType === 'subscription' 
-      ? Math.round((selectedOption?.price || product.price) * 0.9) 
-      : (selectedOption?.price || product.price);
+      ? Math.round(rawPrice * 0.9) 
+      : rawPrice;
 
-    const itemId = `${product.slug}-${bottleCount}-${purchaseType}-${purchaseType === 'subscription' ? deliveryFrequency : ''}`;
+    const itemId = `${product.slug || product._id || 'drizzy-pb'}-${bottleCount}-${purchaseType}-${purchaseType === 'subscription' ? deliveryFrequency : ''}`;
 
     setItems(prevItems => {
       const existingIndex = prevItems.findIndex(i => i.id === itemId);
@@ -46,16 +48,18 @@ export const CartProvider = ({ children }) => {
       } else {
         const newItem = {
           id: itemId,
-          productId: product._id || product.slug,
-          slug: product.slug,
-          title: product.name,
+          productId: product._id || product.slug || 'drizzy-pb',
+          slug: product.slug || 'drizzy-squeezy-peanut-butter-19-4-oz',
+          title: product.name || 'Drizzy Squeezy Peanut Butter',
+          name: product.name || 'Drizzy Squeezy Peanut Butter',
           variantTitle: `${bottleCount}x Bottle${bottleCount > 1 ? 's' : ''}`,
           bottleCount,
           price: unitPrice,
           image: selectedOption?.image || product.images?.[0] || '/assets/images/1_bottle.png',
           purchaseType,
           deliveryFrequency: purchaseType === 'subscription' ? deliveryFrequency : null,
-          quantity
+          quantity: Math.max(1, quantity),
+          selectedOption: selectedOption || { quantity: bottleCount, price: unitPrice }
         };
         return [...prevItems, newItem];
       }
@@ -64,16 +68,36 @@ export const CartProvider = ({ children }) => {
     openCart();
   };
 
-  const updateQuantity = (itemId, newQty) => {
+  /**
+   * Overloaded updateQuantity to accept either itemId or (productId, newQty, bottleCount, purchaseType)
+   */
+  const updateQuantity = (idOrProductId, newQty, bottleCount, purchaseType) => {
     if (newQty <= 0) {
-      removeFromCart(itemId);
+      removeFromCart(idOrProductId, bottleCount, purchaseType);
       return;
     }
-    setItems(prev => prev.map(item => item.id === itemId ? { ...item, quantity: newQty } : item));
+    setItems(prev => prev.map(item => {
+      if (item.id === idOrProductId) {
+        return { ...item, quantity: newQty };
+      }
+      if (bottleCount !== undefined && item.productId === idOrProductId && item.bottleCount === bottleCount && (!purchaseType || item.purchaseType === purchaseType)) {
+        return { ...item, quantity: newQty };
+      }
+      return item;
+    }));
   };
 
-  const removeFromCart = (itemId) => {
-    setItems(prev => prev.filter(item => item.id !== itemId));
+  /**
+   * Overloaded removeFromCart to accept either itemId or (productId, bottleCount, purchaseType)
+   */
+  const removeFromCart = (idOrProductId, bottleCount, purchaseType) => {
+    setItems(prev => prev.filter(item => {
+      if (item.id === idOrProductId) return false;
+      if (bottleCount !== undefined && item.productId === idOrProductId && item.bottleCount === bottleCount && (!purchaseType || item.purchaseType === purchaseType)) {
+        return false;
+      }
+      return true;
+    }));
   };
 
   const clearCart = () => {
@@ -82,28 +106,48 @@ export const CartProvider = ({ children }) => {
 
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const itemCount = items.reduce((sum, item) => sum + (item.quantity * (item.bottleCount || 1)), 0);
-  const shipping = subtotal >= FREE_SHIPPING_THRESHOLD_CENTS || subtotal === 0 ? 0 : 599;
+  const totalBottleUnits = itemCount;
+  const isFreeShippingQualified = subtotal >= FREE_SHIPPING_THRESHOLD_CENTS;
+  const shipping = isFreeShippingQualified || subtotal === 0 ? 0 : 599;
   const amountUntilFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD_CENTS - subtotal);
+  const amountToFreeShipping = amountUntilFreeShipping;
   const freeShippingProgress = Math.min(100, Math.round((subtotal / FREE_SHIPPING_THRESHOLD_CENTS) * 100));
 
+  const contextValue = {
+    // Items state
+    items,
+    cart: { items },
+    
+    // Drawer visibility (both names supported for 100% compatibility)
+    isOpen,
+    isCartOpen: isOpen,
+    openCart,
+    closeCart,
+    toggleCart,
+    
+    // Mutation methods
+    addToCart,
+    updateQuantity,
+    removeFromCart,
+    clearCart,
+    
+    // Financial metrics
+    subtotal,
+    shipping,
+    total: subtotal + shipping,
+    itemCount,
+    totalBottleUnits,
+    
+    // Free shipping meter
+    freeShippingThreshold: FREE_SHIPPING_THRESHOLD_CENTS,
+    amountUntilFreeShipping,
+    amountToFreeShipping,
+    freeShippingProgress,
+    isFreeShippingQualified
+  };
+
   return (
-    <CartContext.Provider value={{
-      items,
-      isOpen,
-      openCart,
-      closeCart,
-      addToCart,
-      updateQuantity,
-      removeFromCart,
-      clearCart,
-      subtotal,
-      shipping,
-      total: subtotal + shipping,
-      itemCount,
-      freeShippingThreshold: FREE_SHIPPING_THRESHOLD_CENTS,
-      amountUntilFreeShipping,
-      freeShippingProgress
-    }}>
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );
@@ -116,3 +160,5 @@ export const useCart = () => {
   }
   return context;
 };
+
+export default CartContext;

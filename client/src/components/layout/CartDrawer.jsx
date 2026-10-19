@@ -1,59 +1,50 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
-import { Trash2, Plus, Minus, ArrowRight, Truck } from 'lucide-react';
+import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
+import { formatCurrency } from '../../utils/formatters';
+import styles from './CartDrawer.module.css';
 
 const CartDrawer = () => {
   const {
-    cart,
-    isCartOpen,
+    items,
+    isOpen,
     closeCart,
     updateQuantity,
     removeFromCart,
     subtotal,
     itemCount,
-    freeShippingThreshold,
-    amountToFreeShipping,
+    amountUntilFreeShipping,
     freeShippingProgress,
     isFreeShippingQualified,
   } = useCart();
 
   const navigate = useNavigate();
 
-  if (!isCartOpen) return null;
+  if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 h-screen w-screen pointer-events-auto"
-      style={{ height: '100dvh' }}
-    >
+    <div className={styles.overlay} role="dialog" aria-modal="true" aria-label="Shopping Cart">
       {/* Backdrop overlay */}
       <div
         onClick={closeCart}
-        className="absolute inset-0 z-0 h-screen w-screen bg-black/40 backdrop-blur-[2px] transition-opacity duration-200"
+        className={styles.backdrop}
       />
 
-      {/* Drawer */}
-      <div
-        className="bg-background color-scheme-1 absolute right-0 top-0 z-10 h-screen w-full md:w-[24rem] shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out border-l-2 border-dark-brown"
-        style={{ height: '100dvh' }}
-      >
+      {/* Drawer Container */}
+      <div className={styles.drawer}>
         {/* Drawer Header */}
-        <div className="cart-drawer--header border-b border-dark-brown/15 p-4">
-          <div className="flex items-center justify-between font-primary">
-            <div className="flex items-center">
-              <span className="text-body2 font-primary text-foreground uppercase tracking-tight font-bold">
-                Your Cart
-              </span>
-              <div className="text-caption font-primary bg-accent-purple text-dark-brown rounded-full w-6 h-6 flex items-center justify-center ml-2 font-bold border border-dark-brown">
-                {itemCount}
-              </div>
+        <div className={styles.header}>
+          <div className={styles.headerRow}>
+            <div className={styles.titleArea}>
+              <span className={styles.title}>Your Cart</span>
+              <div className={styles.badge}>{itemCount}</div>
             </div>
 
             <button
               onClick={closeCart}
               type="button"
-              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full hover:bg-dark-brown/10 text-foreground transition-colors"
+              className={styles.closeButton}
               aria-label="Close cart"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,21 +57,21 @@ const CartDrawer = () => {
           </div>
 
           {/* Authentic Freebies / Free Shipping Progress Meter */}
-          <div className="mt-3 py-3 px-3.5 rounded-[12px] bg-accent-purple border-x-[2px] border-t-[2px] border-b-[4px] border-dark-brown">
-            <div className="text-center font-secondary text-[11px] font-bold text-dark-brown">
+          <div className={styles.shippingMeter}>
+            <div className={styles.shippingText}>
               {isFreeShippingQualified ? (
                 <span>🎉 You've unlocked <strong>FREE Shipping!</strong></span>
               ) : (
                 <span>
-                  You're <strong>${(amountToFreeShipping / 100).toFixed(2)} away</strong> from FREE Shipping!
+                  You're <strong>{formatCurrency(amountUntilFreeShipping)} away</strong> from FREE Shipping!
                 </span>
               )}
             </div>
 
-            <div className="mt-2.5 relative">
-              <div className="h-2 w-full rounded-full bg-cream border border-dark-brown overflow-hidden">
+            <div className={styles.progressBarContainer}>
+              <div className={styles.progressBarTrack}>
                 <div
-                  className="h-full bg-dark-brown transition-all duration-300"
+                  className={styles.progressBarFill}
                   style={{ width: `${Math.min(100, freeShippingProgress)}%` }}
                 />
               </div>
@@ -89,20 +80,18 @@ const CartDrawer = () => {
         </div>
 
         {/* Drawer Body */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {cart.items.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-center py-16 gap-4">
-              <div className="w-16 h-16 rounded-full bg-accent-purple/30 border-2 border-dark-brown flex items-center justify-center">
+        <div className={styles.body}>
+          {items.length === 0 ? (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIconCircle}>
                 <img
                   src="/assets/images/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png"
-                  alt="Empty cart"
-                  className="w-8 h-8 object-contain"
+                  alt=""
+                  className={styles.emptyIcon}
                 />
               </div>
-              <h4 className="font-primary text-xl uppercase text-foreground">
-                Your cart is empty
-              </h4>
-              <p className="font-secondary text-xs text-foreground/70 max-w-xs">
+              <h4 className={styles.emptyTitle}>Your cart is empty</h4>
+              <p className={styles.emptyDescription}>
                 Looks like you haven't added any squeezy peanut butter to your cart yet.
               </p>
               <button
@@ -111,71 +100,70 @@ const CartDrawer = () => {
                   closeCart();
                   navigate('/products/drizzy-squeezy-peanut-butter-19-4-oz');
                 }}
-                className="button-primary py-3 px-6 text-sm mt-2"
+                className={`button-primary ${styles.startSqueezingBtn}`}
               >
                 Start Squeezing
               </button>
             </div>
           ) : (
-            <div className="space-y-3">
-              {cart.items.map((item) => (
-                <div
-                  key={`${item.productId}-${item.selectedOption?.quantity}-${item.purchaseType}`}
-                  className="flex gap-3 p-3 rounded-2xl bg-white border-2 border-dark-brown shadow-sm"
-                >
+            <div className={styles.itemsList}>
+              {items.map((item) => (
+                <div key={item.id} className={styles.itemCard}>
                   {/* Item Image */}
-                  <div className="w-16 h-16 rounded-xl border border-dark-brown/20 bg-background flex items-center justify-center p-1 shrink-0 overflow-hidden">
+                  <div className={styles.itemImageWrapper}>
                     <img
-                      src={item.image || '/assets/images/USADRIZZYFRONTcopy_1.jpg'}
-                      alt={item.name}
-                      className="w-full h-full object-contain"
+                      src={item.image || '/assets/images/1_bottle.png'}
+                      alt={item.title || item.name}
+                      className={styles.itemImage}
                     />
                   </div>
 
                   {/* Details */}
-                  <div className="flex flex-col flex-1 min-w-0 justify-between">
-                    <div className="flex items-start justify-between gap-2">
+                  <div className={styles.itemInfo}>
+                    <div className={styles.itemTop}>
                       <div>
-                        <h5 className="font-primary text-xs uppercase text-foreground truncate max-w-[140px]">
-                          {item.name}
+                        <h5 className={styles.itemName}>
+                          {item.title || item.name}
                         </h5>
-                        <p className="font-secondary text-[11px] text-foreground/70">
-                          {item.selectedOption?.title || 'Single Bottle'}
+                        <p className={styles.itemVariant}>
+                          {item.variantTitle || `${item.bottleCount} Bottle${item.bottleCount > 1 ? 's' : ''}`}
                           {item.purchaseType === 'subscription' && ' • Subscribe (10% off)'}
                         </p>
                       </div>
 
                       <button
                         type="button"
-                        onClick={() => removeFromCart(item.productId, item.selectedOption?.quantity, item.purchaseType)}
-                        className="text-foreground/40 hover:text-red-500 transition-colors p-1"
-                        aria-label="Remove item"
+                        onClick={() => removeFromCart(item.id)}
+                        className={styles.removeButton}
+                        aria-label={`Remove ${item.title || item.name} from cart`}
                       >
-                        <Trash2 size={14} />
+                        <Trash2 size={15} />
                       </button>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2">
-                      <div className="flex items-center border border-dark-brown rounded-full px-2 py-0.5 bg-background">
+                    <div className={styles.itemBottom}>
+                      <div className={styles.quantityControls}>
                         <button
                           type="button"
-                          onClick={() => updateQuantity(item.productId, item.quantity - 1, item.selectedOption?.quantity, item.purchaseType)}
-                          className="text-foreground p-0.5 hover:opacity-70"
+                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          className={styles.qtyBtn}
+                          aria-label="Decrease quantity"
                         >
                           <Minus size={12} />
                         </button>
-                        <span className="font-primary text-xs px-2">{item.quantity}</span>
+                        <span className={styles.qtyNumber}>{item.quantity}</span>
                         <button
                           type="button"
-                          onClick={() => updateQuantity(item.productId, item.quantity + 1, item.selectedOption?.quantity, item.purchaseType)}
-                          className="text-foreground p-0.5 hover:opacity-70"
+                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          className={styles.qtyBtn}
+                          aria-label="Increase quantity"
                         >
                           <Plus size={12} />
                         </button>
                       </div>
 
-                      <span className="font-primary text-sm text-foreground">
-                        ${((item.price * item.quantity) / 100).toFixed(2)}
+                      <span className={styles.itemPrice}>
+                        {formatCurrency(item.price * item.quantity)}
                       </span>
                     </div>
                   </div>
@@ -186,23 +174,23 @@ const CartDrawer = () => {
         </div>
 
         {/* Drawer Footer */}
-        {cart.items.length > 0 && (
-          <div className="cart-drawer--footer border-t-2 border-dark-brown p-4 bg-white/50 backdrop-blur-sm space-y-3">
-            <div className="flex items-center justify-between font-primary text-base text-foreground">
-              <span className="uppercase">Subtotal</span>
-              <span className="text-lg">${(subtotal / 100).toFixed(2)}</span>
+        {items.length > 0 && (
+          <div className={styles.footer}>
+            <div className={styles.subtotalRow}>
+              <span>Subtotal</span>
+              <span className={styles.subtotalPrice}>{formatCurrency(subtotal)}</span>
             </div>
 
-            <p className="font-secondary text-[10px] text-foreground/60 text-center">
+            <p className={styles.taxNotice}>
               Taxes and shipping calculated at checkout.
             </p>
 
             <Link
               to="/cart"
               onClick={closeCart}
-              className="button-primary w-full py-4 text-center text-base flex items-center justify-center gap-2 shadow-lg"
+              className={`button-primary ${styles.checkoutButton}`}
             >
-              <span>CHECKOUT NOW • ${(subtotal / 100).toFixed(2)}</span>
+              <span>CHECKOUT NOW • {formatCurrency(subtotal)}</span>
               <ArrowRight size={18} />
             </Link>
           </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { formatCurrency } from '../../utils/formatters';
+import styles from './BottleSelector.module.css';
 
 const BottleSelector = ({ options = [], selectedOption, onSelect }) => {
   const bottleAssets = {
@@ -9,7 +11,7 @@ const BottleSelector = ({ options = [], selectedOption, onSelect }) => {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
+    <div className={styles.grid}>
       {options.map((option) => {
         const isSelected = selectedOption?.quantity === option.quantity;
         const assetInfo = bottleAssets[option.quantity] || {};
@@ -21,55 +23,48 @@ const BottleSelector = ({ options = [], selectedOption, onSelect }) => {
             key={option.quantity}
             type="button"
             onClick={() => onSelect(option)}
-            className={`relative flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3.5 text-left rounded-2xl border-2 sm:border-3 border-dark-brown cursor-pointer transition-all duration-150 ${
-              isSelected
-                ? 'bg-[#2D0F28] text-[#CA9AF1] shadow-md ring-2 ring-[#2D0F28]'
-                : 'bg-[#F8EBD7] text-dark-brown hover:bg-[#faefe1]'
-            }`}
+            className={`${styles.optionCard} ${isSelected ? styles.selected : ''}`}
+            aria-pressed={isSelected}
           >
             {/* Sticker Badge if popular or best value */}
             {badgeImg && (
-              <span className="absolute -top-3.5 -right-2 sm:-top-4 sm:-right-3 z-10 pointer-events-none">
+              <span className={styles.badgeWrapper}>
                 <img
                   src={badgeImg}
-                  alt="Badge"
-                  className="w-12 sm:w-16 h-auto object-contain drop-shadow-md"
+                  alt=""
+                  className={styles.badgeImg}
                 />
               </span>
             )}
 
             {/* Bottle Thumbnail Image */}
-            <div className="w-10 h-14 sm:w-12 sm:h-16 flex-shrink-0 flex items-center justify-center">
+            <div className={styles.thumbWrapper}>
               <img
                 src={bottleImg}
                 alt={option.title}
-                className="w-full h-full object-contain"
+                className={styles.thumbImg}
               />
             </div>
 
             {/* Bottle Title & Pricing Info */}
-            <div className="flex flex-col flex-1 min-w-0">
-              <span
-                className={`font-champ text-sm sm:text-base uppercase tracking-tight leading-tight ${
-                  isSelected ? 'text-[#CA9AF1]' : 'text-dark-brown'
-                }`}
-              >
+            <div className={styles.info}>
+              <span className={styles.title}>
                 {option.quantity}x Bottle{option.quantity > 1 ? 's' : ''}
               </span>
 
-              <div className="flex items-center gap-1.5 mt-1 font-champ">
-                <span className={`text-sm sm:text-base font-bold ${isSelected ? 'text-[#CA9AF1]' : 'text-dark-brown'}`}>
-                  ${(option.price / 100).toFixed(2)}
+              <div className={styles.pricing}>
+                <span className={styles.price}>
+                  {formatCurrency(option.price)}
                 </span>
                 {option.compareAtPrice > option.price && (
-                  <span className={`text-xs font-mono line-through ${isSelected ? 'text-[#CA9AF1]/60' : 'text-dark-brown/50'}`}>
-                    ${(option.compareAtPrice / 100).toFixed(2)}
+                  <span className={styles.comparePrice}>
+                    {formatCurrency(option.compareAtPrice)}
                   </span>
                 )}
               </div>
 
               {option.savingsPercent && option.savingsPercent !== '0%' && (
-                <span className={`text-[10px] sm:text-xs font-mono font-bold mt-0.5 ${isSelected ? 'text-cream' : 'text-dark-brown/70'}`}>
+                <span className={styles.savings}>
                   Save {option.savingsPercent}
                 </span>
               )}

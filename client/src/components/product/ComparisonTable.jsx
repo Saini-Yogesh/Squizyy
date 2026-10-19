@@ -1,126 +1,116 @@
 import React from 'react';
+import styles from './ComparisonTable.module.css';
 
 const ComparisonTable = () => {
   return (
-    <div id="shopify-section-template--22221105463467__comparison_k3FRjd" className="shopify-section">
-      <section
-        className="relative bg-accent-purple text-dark-brown color-scheme-828742e9-7009-4ced-847a-38b9d0a9af8e pt-0 pb-0 px-0 overflow-hidden"
-        style={{
-          '--spacing-top': '0.0rem',
-          '--spacing-bottom': '0.0rem',
-          '--spacing-top-mobile': '0.0rem',
-          '--spacing-bottom-mobile': '0.0rem',
-        }}
-      >
+    <div className={styles.wrapper}>
+      <section className={styles.section} aria-label="Product Comparison">
         {/* Floating peanut left */}
-        <div className="hidden md:block absolute w-[17vw] rotate-[-60deg] left-[-6vw] top-[16%] lg:top-[65%] z-[2] pointer-events-none">
+        <div className={styles.peanutLeft}>
           <img
             src="/assets/images/drizzy-peanut-left.png"
-            alt="drizzy peanut"
-            className="aspect-auto w-full object-cover"
+            alt=""
+            loading="lazy"
           />
         </div>
 
         {/* Product bottle left */}
-        <div className="absolute w-[58vw] md:w-[35vw] left-0 md:-left-8 top-[20%] z-[1] pointer-events-none">
+        <div className={styles.bottleLeft}>
           <img
             src="/assets/images/product-bottle-left.png"
-            alt="drizzy bottle"
-            className="aspect-auto w-full object-cover w-full hidden md:block"
-          />
-          <img
-            src="/assets/images/product-image-left-mobile_44b57598-ff45-4f03-85da-e91f86420009.png"
-            alt="drizzy bottle"
-            className="aspect-auto w-full object-cover w-full md:hidden"
+            alt="Drizzy Bottle"
+            loading="lazy"
           />
         </div>
 
         {/* Floating peanut right */}
-        <div className="hidden md:block absolute w-[6.25vw] rotate-[-14deg] right-[-1.5%] top-[20%] z-[2] pointer-events-none">
+        <div className={styles.peanutRight}>
           <img
             src="/assets/images/drizzy-peanut-left.png"
-            alt="drizzy peanut"
-            className="aspect-auto w-full object-cover"
+            alt=""
+            loading="lazy"
           />
         </div>
 
         {/* Other product right (messy jars) */}
-        <div className="absolute w-[86vw] md:w-[35vw] right-[-10vw] md:-right-2.5 bottom-[10%] md:bottom-[25%] z-[1] pointer-events-none">
+        <div className={styles.otherProductRight}>
           <img
             src="/assets/images/other-product-right.png"
-            alt="other jars"
-            className="aspect-auto w-full object-cover"
+            alt="Standard Peanut Butter Jars"
+            loading="lazy"
           />
         </div>
 
-        <div className="main-wrapper bg-accent-purple">
+        <div className={styles.mainWrapper}>
           {/* Top cream dripping graphic */}
-          <div className="w-full">
+          <div className={styles.dripTop}>
             <img
               src="/assets/images/cream-drip.svg"
-              alt="cream drip"
-              className="w-full object-cover hidden md:block"
+              alt=""
+              className={styles.dripImgDesktop}
+              loading="lazy"
             />
             <img
               src="/assets/images/cream-drip-mobile.svg"
-              alt="cream drip"
-              className="w-full object-cover md:hidden"
+              alt=""
+              className={styles.dripImgMobile}
+              loading="lazy"
             />
           </div>
 
           {/* Headline and Comparison badges */}
-          <div className="relative container md:max-w-[925px] mx-auto mt-3 pb-[25vh] lg:pb-[20vh] z-[3]">
-            <h2 className="font-champ text-dark-brown text-[34px] sm:text-[44px] lg:text-[54px] leading-[105%] text-center mx-auto max-w-[800px] uppercase">
+          <div className={styles.container}>
+            <h2 className={styles.headline}>
               Kiss Your Jar Goodbye, Mwa!
             </h2>
 
-            <div className="w-full flex flex-col items-center md:gap-2.5 mt-16 md:mt-[68px]">
-              <div className="w-full flex justify-between items-center flex-col md:flex-row gap-8 md:gap-0">
-                {/* Left (Drizzy) perks */}
-                <div className="flex flex-col gap-3 items-end md:items-start md:basis-1/3">
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    PERFECTLY SMOOTH
-                  </div>
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    SQUEEZE AND DRIZZLE
-                  </div>
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    ZERO MESS
-                  </div>
+            <div className={styles.vsRow}>
+              {/* Left (Drizzy) perks */}
+              <div className={styles.leftPerks}>
+                <div className={styles.pillBadge}>
+                  PERFECTLY SMOOTH
                 </div>
-
-                {/* VS Badge */}
-                <div className="mt-8 md:mt-0 self-center w-20 h-20 aspect-square flex justify-center items-center rounded-full bg-dark-brown text-cream font-champ text-2xl shadow-lg border-2 border-dark-brown">
-                  VS
+                <div className={styles.pillBadge}>
+                  SQUEEZE AND DRIZZLE
                 </div>
+                <div className={styles.pillBadge}>
+                  ZERO MESS
+                </div>
+              </div>
 
-                {/* Right (Standard Jars) pain points */}
-                <div className="flex flex-col gap-3 items-start md:items-end md:basis-1/3">
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    HARD TO STIR
-                  </div>
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    SCOOP AND SCRAPE
-                  </div>
-                  <div className="w-fit text-[13px] lg:text-[16px] leading-[100%] font-champ uppercase py-2.5 px-5 lg:py-3 lg:px-6 bg-cream rounded-full border-2 border-dark-brown text-dark-brown shadow-sm">
-                    SOMEHOW GET IT EVERYWHERE
-                  </div>
+              {/* VS Badge */}
+              <div className={styles.vsCircle} aria-hidden="true">
+                VS
+              </div>
+
+              {/* Right (Standard Jars) pain points */}
+              <div className={styles.rightPains}>
+                <div className={styles.pillBadge}>
+                  HARD TO STIR
+                </div>
+                <div className={styles.pillBadge}>
+                  SCOOP AND SCRAPE
+                </div>
+                <div className={styles.pillBadge}>
+                  SOMEHOW GET IT EVERYWHERE
                 </div>
               </div>
             </div>
           </div>
 
           {/* Bottom purple drip graphic */}
-          <div className="w-full bg-brown">
+          <div className={styles.dripBottom}>
             <img
               src="/assets/images/purple-drip.svg"
-              alt="purple drip"
-              className="aspect-auto w-full object-cover hidden md:block"
+              alt=""
+              className={styles.dripImgDesktop}
+              loading="lazy"
             />
             <img
               src="/assets/images/purple-drip-mobile.svg"
-              alt="purple drip"
-              className="aspect-auto w-full object-cover md:hidden"
+              alt=""
+              className={styles.dripImgMobile}
+              loading="lazy"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
 import { getReviews } from '../../services/api';
+import styles from './ReviewCarousel.module.css';
 
 const ReviewCarousel = ({ productSlug }) => {
   const [reviews, setReviews] = useState([]);
@@ -25,58 +26,57 @@ const ReviewCarousel = ({ productSlug }) => {
   };
 
   return (
-    <section className="py-20 bg-white/50 border-y-2 border-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section className={styles.section} aria-label="Customer Reviews">
+      <div className={styles.container}>
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="flex items-center justify-center gap-1 text-amber-500 mb-2">
+        <div className={styles.header}>
+          <div className={styles.starsRow} aria-label="5 out of 5 stars">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={22} className="fill-amber-400 stroke-amber-500" />
+              <Star key={i} size={22} className={styles.starIcon} />
             ))}
           </div>
-          <h2 className="font-champ text-3xl sm:text-5xl uppercase tracking-tight text-foreground">
+          <h2 className={styles.title}>
             Loved by 1,000+ Aussies & Americans
           </h2>
-          <p className="mt-2 text-sm md:text-base font-mono text-foreground/75">
+          <p className={styles.subtitle}>
             4.9 / 5.0 Average Customer Rating Across 1,000+ Verified Buyers
           </p>
         </div>
 
         {/* Carousel Container */}
-        <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden p-2">
+        <div className={styles.carousel}>
+          <div className={styles.viewport}>
             <div 
-              className="flex transition-transform duration-300 ease-in-out"
+              className={styles.track}
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {reviews.map((rev, idx) => (
-                <div key={idx} className="w-full shrink-0 px-4">
-                  <div className="bg-background rounded-3xl border-4 border-foreground p-8 md:p-10 shadow-md flex flex-col justify-between min-h-[220px]">
+                <div key={idx} className={styles.slide}>
+                  <div className={styles.card}>
                     <div>
-                      <div className="flex items-center gap-1 text-amber-500 mb-3">
+                      <div className={styles.cardStars}>
                         {[...Array(rev.rating || 5)].map((_, i) => (
-                          <Star key={i} size={18} className="fill-amber-400 stroke-amber-500" />
+                          <Star key={i} size={18} className={styles.starIcon} />
                         ))}
                       </div>
-                      <h4 className="font-champ text-xl md:text-2xl uppercase text-foreground mb-3">
+                      <h3 className={styles.reviewTitle}>
                         "{rev.title}"
-                      </h4>
-                      <p className="text-foreground/85 text-base md:text-lg leading-relaxed font-normal">
+                      </h3>
+                      <p className={styles.reviewContent}>
                         "{rev.content}"
                       </p>
                     </div>
 
-                    <div className="pt-6 mt-6 border-t border-foreground/15 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="font-champ text-base uppercase text-foreground">{rev.author}</span>
+                    <div className={styles.cardFooter}>
+                      <div className={styles.authorArea}>
+                        <span className={styles.authorName}>{rev.author}</span>
                         {rev.verified && (
-                          <span className="inline-flex items-center gap-1 text-xs font-mono font-medium text-accent-green bg-accent-green/10 px-2 py-0.5 rounded-full">
+                          <span className={styles.verifiedBadge}>
                             <CheckCircle size={12} /> Verified Buyer
                           </span>
                         )}
                       </div>
-                      <span className="text-xs font-mono text-foreground/60">{rev.location}</span>
+                      <span className={styles.location}>{rev.location}</span>
                     </div>
                   </div>
                 </div>
@@ -86,31 +86,31 @@ const ReviewCarousel = ({ productSlug }) => {
 
           {/* Nav Controls */}
           {reviews.length > 1 && (
-            <div className="flex items-center justify-center gap-4 mt-8">
+            <div className={styles.controls}>
               <button
+                type="button"
                 onClick={prevSlide}
-                className="w-12 h-12 rounded-full border-2 border-foreground bg-white text-foreground hover:bg-accent-purple transition-all flex items-center justify-center shadow-sm"
+                className={styles.arrowBtn}
                 aria-label="Previous review"
               >
                 <ChevronLeft size={22} />
               </button>
-              <div className="flex items-center gap-1.5 font-mono text-sm">
-                <span className="font-bold">{currentIndex + 1}</span>
-                <span className="opacity-50">/</span>
+              <div className={styles.counter}>
+                <span className={styles.counterCurrent}>{currentIndex + 1}</span>
+                <span className={styles.counterDivider}>/</span>
                 <span>{reviews.length}</span>
               </div>
               <button
+                type="button"
                 onClick={nextSlide}
-                className="w-12 h-12 rounded-full border-2 border-foreground bg-white text-foreground hover:bg-accent-purple transition-all flex items-center justify-center shadow-sm"
+                className={styles.arrowBtn}
                 aria-label="Next review"
               >
                 <ChevronRight size={22} />
               </button>
             </div>
           )}
-
         </div>
-
       </div>
     </section>
   );

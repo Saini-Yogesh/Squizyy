@@ -4,30 +4,31 @@ const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  timeout: 10000
 });
 
 // Product API
 export const getProducts = async () => {
   const response = await api.get('/products');
-  return response.data.data;
+  return response.data?.data || response.data || [];
 };
 
 export const getProductBySlug = async (slug) => {
   const response = await api.get(`/products/${slug}`);
-  return response.data.data;
+  return response.data?.data || response.data || null;
 };
 
 // Store Locator API
 export const getStores = async (query = '') => {
   const response = await api.get('/stores', { params: { query } });
-  return response.data.data;
+  return response.data?.data || response.data || [];
 };
 
 // Reviews API
 export const getReviews = async (productSlug) => {
   const response = await api.get('/reviews', { params: { productSlug } });
-  return response.data.data;
+  return response.data?.data || response.data || [];
 };
 
 export const submitReview = async (reviewData) => {
@@ -36,7 +37,7 @@ export const submitReview = async (reviewData) => {
 };
 
 // Newsletter API
-export const subscribeNewsletter = async (email, source) => {
+export const subscribeNewsletter = async (email, source = 'website') => {
   const response = await api.post('/newsletter', { email, source });
   return response.data;
 };
@@ -56,7 +57,11 @@ export const submitContest = async (contestData) => {
 // Cart / Checkout API
 export const checkoutOrder = async (orderData) => {
   const response = await api.post('/cart/checkout', orderData);
-  return response.data;
+  const data = response.data;
+  return {
+    ...data,
+    order: data.data?.order || data.data || data
+  };
 };
 
 // Admin API
@@ -66,7 +71,7 @@ export const getAdminStats = async (adminKey) => {
       'x-admin-key': adminKey
     }
   });
-  return response.data.data;
+  return response.data?.data || response.data;
 };
 
 export const updateAdminProduct = async (slug, updateData, adminKey) => {
@@ -75,7 +80,7 @@ export const updateAdminProduct = async (slug, updateData, adminKey) => {
       'x-admin-key': adminKey
     }
   });
-  return response.data.data;
+  return response.data?.data || response.data;
 };
 
 export default api;

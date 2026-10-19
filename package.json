@@ -10,7 +10,8 @@
     "client:build": "npm run build --prefix client",
     "server": "npm run dev --prefix server",
     "server:start": "npm start --prefix server",
-    "install:all": "npm install && npm install --prefix server && npm install --prefix client"
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "doc:verify": "node scripts/verify-ai-docs.js"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"

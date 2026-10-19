@@ -20,6 +20,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import CartPage from './pages/CartPage';
 import AdminDashboard from './pages/AdminDashboard';
+import styles from './App.module.css';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,13 +32,13 @@ const ScrollToTop = () => {
 
 const AppContent = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground font-body">
+    <div className={styles.appShell}>
       <ScrollToTop />
       <AnnouncementBar />
       <Navbar />
       <CartDrawer />
-      
-      <main className="flex-1">
+
+      <main className={styles.mainContent}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections/all" element={<Products />} />

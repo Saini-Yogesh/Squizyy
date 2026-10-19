@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { subscribeNewsletter } from '../../services/api';
+import { validateEmail } from '../../utils/validation';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -8,149 +10,158 @@ const Footer = () => {
 
   const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (!email || !email.includes('@')) {
+    if (!validateEmail(email)) {
       setStatus({ state: 'error', message: 'Please enter a valid email address.' });
       return;
     }
     try {
       setStatus({ state: 'loading', message: '' });
-      await subscribeNewsletter(email);
-      setStatus({ state: 'success', message: 'Thanks for subscribing to Drizzy!' });
+      const res = await subscribeNewsletter(email, 'homepage-footer');
+      setStatus({
+        state: 'success',
+        message: res.message || 'Thanks for subscribing! Use code WELCOME10 for 10% off.'
+      });
       setEmail('');
     } catch (err) {
-      setStatus({ state: 'success', message: 'Thanks for subscribing to Drizzy!' });
-      setEmail('');
+      const errMsg = err.response?.data?.message || 'Subscription failed. Please check your network and try again.';
+      setStatus({ state: 'error', message: errMsg });
     }
   };
 
   return (
-    <footer id="shopify-section-sections--22221105135787__footer_BGPBbi" className="shopify-section shopify-section-group-footer-group relative overflow-hidden">
-      <section
-        className="relative text-foreground color-scheme-1 pb-10 lg:pb-14 overflow-hidden"
-        style={{
-          '--spacing-top': '0.0rem',
-          '--spacing-bottom': '3.75rem',
-          '--spacing-top-mobile': '0.0rem',
-          '--spacing-bottom-mobile': '2.5rem',
-        }}
-      >
+    <footer className={styles.footer} role="contentinfo">
+      <section className={styles.section}>
         {/* Pastel Colorful Gradient Background */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className={styles.bgWrapper}>
           <img
             src="/assets/images/footer-bg.png"
-            alt="drizzy footer background"
-            className="w-full h-full object-cover"
+            alt=""
+            className={styles.bgImage}
+            loading="lazy"
           />
         </div>
 
         {/* Dripping Graphic at top of footer */}
-        <div className="relative z-[1] w-full">
+        <div className={styles.dripWrapper}>
           <img
             src="/assets/images/footer-drip.svg"
-            alt="footer drip"
-            className="w-full object-cover hidden lg:block aspect-auto"
+            alt=""
+            className={styles.dripDesktop}
+            loading="lazy"
           />
           <img
             src="/assets/images/timeline-drip-mobile.svg"
-            alt="footer drip"
-            className="w-full object-cover lg:hidden aspect-auto"
+            alt=""
+            className={styles.dripMobile}
+            loading="lazy"
           />
         </div>
 
         {/* Main Footer Cards Container */}
-        <div className="relative z-[1] container max-w-[87.5rem] mx-auto px-4 lg:px-6 pt-4 lg:pt-8">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+        <div className={styles.container}>
+          <div className={styles.cardsRow}>
             {/* Card 1: Sign up & save 10% */}
-            <div className="lg:w-[36%] bg-cream border-2 border-dark-brown px-6 py-8 lg:px-8 lg:py-10 flex flex-col justify-center rounded-[32px] shadow-sm">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-champ uppercase text-dark-brown">
+            <div className={styles.newsletterCard}>
+              <h2 className={styles.cardTitle}>
                 Sign up & save 10%
               </h2>
-              <p className="font-mono text-xs sm:text-sm mt-3 text-dark-brown/90 leading-relaxed">
+              <p className={styles.cardSubtitle}>
                 Subscribe to our newsletter and get first access to new releases & exclusive deals.
               </p>
 
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-4 mt-6">
+              <form onSubmit={handleSubscribe} className={styles.form}>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter email"
+                  placeholder="Enter email address"
                   required
-                  className="h-[49px] lg:h-[54px] border-2 border-dark-brown bg-cream p-4 rounded-lg placeholder:text-dark-brown/60 text-dark-brown font-mono text-sm focus:outline-none"
+                  className={styles.input}
+                  aria-label="Email address for newsletter"
                 />
                 <button
                   type="submit"
                   disabled={status.state === 'loading'}
-                  className="button-primary !w-full py-4 text-sm lg:text-base font-champ uppercase"
+                  className={`button-primary ${styles.submitBtn}`}
                 >
                   {status.state === 'loading' ? 'Joining...' : 'GET MY 10% OFF'}
                 </button>
               </form>
 
               {status.message && (
-                <p className={`text-xs font-mono font-bold mt-2 ${status.state === 'error' ? 'text-red-600' : 'text-accent-green'}`}>
+                <p className={`${styles.statusMessage} ${status.state === 'error' ? styles.statusError : styles.statusSuccess}`}>
                   {status.message}
                 </p>
               )}
             </div>
 
             {/* Card 2: Get Drizzy with it */}
-            <div className="grow bg-cream border-2 border-dark-brown px-6 py-8 lg:p-10 rounded-[32px] shadow-sm">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-champ uppercase text-dark-brown">
+            <div className={styles.linksCard}>
+              <h2 className={styles.linksTitle}>
                 Get Drizzy with it
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 lg:mt-10">
-                <div>
-                  <ul className="list-none space-y-4 lg:space-y-6 font-mono text-xs lg:text-sm">
+              <div className={styles.linksGrid}>
+                <div className={styles.navCol}>
+                  <ul className={styles.navList}>
                     <li>
-                      <Link to="/products/drizzy-squeezy-peanut-butter-19-4-oz" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/products/drizzy-squeezy-peanut-butter-19-4-oz" className={styles.footerLink}>
                         Shop Drizzy
                       </Link>
                     </li>
                     <li>
-                      <Link to="/pages/our-story" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/pages/our-story" className={styles.footerLink}>
                         Our Story
                       </Link>
                     </li>
                     <li>
-                      <Link to="/pages/wholesale" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/pages/wholesale" className={styles.footerLink}>
                         Wholesale
                       </Link>
                     </li>
                     <li>
-                      <Link to="/pages/sproutslaunchwinflightstoaustralia" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/pages/sproutslaunchwinflightstoaustralia" className={styles.footerLink}>
                         Win Flights to Australia
                       </Link>
                     </li>
                   </ul>
                 </div>
 
-                <div>
-                  <ul className="list-none space-y-4 lg:space-y-6 font-mono text-xs lg:text-sm">
+                <div className={styles.navCol}>
+                  <ul className={styles.navList}>
                     <li>
-                      <Link to="/policies/privacy-policy" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/policies/privacy-policy" className={styles.footerLink}>
                         Privacy Policy
                       </Link>
                     </li>
                     <li>
-                      <Link to="/policies/terms-of-service" className="text-dark-brown hover:underline block w-fit">
+                      <Link to="/policies/terms-of-service" className={styles.footerLink}>
                         Terms of Service
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/pages/rules" className={styles.footerLink}>
+                        Sweepstakes Rules
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/admin" className={styles.footerLink}>
+                        Admin Portal
                       </Link>
                     </li>
                   </ul>
                 </div>
 
-                <div>
-                  <h3 className="font-mono text-xs lg:text-sm mb-4 text-dark-brown font-bold uppercase">
+                <div className={styles.navCol}>
+                  <h3 className={styles.socialHeading}>
                     Follow Us On
                   </h3>
-                  <ul className="list-none flex gap-6 items-center">
+                  <ul className={styles.socialList}>
                     <li>
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.instagram.com/getdrizzy/"
-                        className="inline-flex items-center justify-center w-6 h-6 hover:opacity-75 transition-opacity"
+                        className={styles.socialIconLink}
                         aria-label="Instagram"
                       >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +174,7 @@ const Footer = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.linkedin.com/company/drizzypeanuts/"
-                        className="inline-flex items-center justify-center w-6 h-6 hover:opacity-75 transition-opacity"
+                        className={styles.socialIconLink}
                         aria-label="LinkedIn"
                       >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +187,7 @@ const Footer = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.tiktok.com/@getdrizzypeanuts"
-                        className="inline-flex items-center justify-center w-6 h-6 hover:opacity-75 transition-opacity"
+                        className={styles.socialIconLink}
                         aria-label="TikTok"
                       >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -194,15 +205,16 @@ const Footer = () => {
           </div>
 
           {/* Giant Centered Logo & Copyright */}
-          <div className="w-full flex flex-col items-center text-center gap-6 mt-8 lg:mt-[60px]">
-            <div className="w-full px-2">
+          <div className={styles.bottomSection}>
+            <div style={{ width: '100%', padding: '0 0.5rem' }}>
               <img
                 src="/assets/images/drizzy-dark-logo.svg"
                 alt="DRIZZY"
-                className="w-full h-auto max-h-[120px] lg:max-h-[160px] object-contain mx-auto"
+                className={styles.brandLogoImg}
+                loading="lazy"
               />
             </div>
-            <div className="text-body4 lg:text-body3 text-dark-brown/80 font-mono">
+            <div className={styles.copyright}>
               © Drizzy Pty Limited, 2026. All Rights Reserved.
             </div>
           </div>
