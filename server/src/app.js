@@ -36,6 +36,11 @@ app.use(express.urlencoded({ extended: true }));
 // Static uploads if any
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Root test route
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'Drizzy API Server is running', status: 'ok' });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });

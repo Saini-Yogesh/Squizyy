@@ -23,6 +23,7 @@ async function startServer() {
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`===============================================`);
     console.log(`🚀 Drizzy API Server is running on port ${PORT}`);
+    console.log(`   Root:         http://localhost:${PORT}/`);
     console.log(`   Health check: http://localhost:${PORT}/api/health`);
     console.log(`   Products API: http://localhost:${PORT}/api/products`);
     console.log(`   Stores API:   http://localhost:${PORT}/api/stores`);

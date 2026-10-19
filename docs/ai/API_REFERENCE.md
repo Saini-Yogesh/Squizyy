@@ -26,6 +26,20 @@ Base URL: `http://localhost:5000/api` (proxied in development to `/api`)
 
 ## 2. Public Endpoints
 
+### 2.0 System & Health
+
+#### `GET /`
+Root test route for verifying server responsiveness in a browser.
+- **Response**: `{ "success": true, "message": "Drizzy API Server is running", "status": "ok" }`
+- **Status Code**: `200 OK`
+
+#### `GET /api/health`
+Liveness probe endpoint.
+- **Response**: `{ "status": "ok", "timestamp": "2026-10-19T..." }`
+- **Status Code**: `200 OK`
+
+---
+
 ### 2.1 Products
 
 #### `GET /api/products`
