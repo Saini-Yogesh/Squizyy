@@ -65,6 +65,7 @@ Squizyy/
 │   │   ├── styles/                    # Global tokens (variables.css, reset.css, globals.css)
 │   │   └── utils/                     # Formatting & validation helpers
 │   ├── vite.config.js                 # Dev server proxy (/api -> localhost:5000)
+│   ├── vercel.json                    # SPA routing rewrites for Vercel deployment
 │   └── package.json                   # Client dependencies and build scripts
 └── server/                            # Backend (Node.js + Express)
     ├── src/
