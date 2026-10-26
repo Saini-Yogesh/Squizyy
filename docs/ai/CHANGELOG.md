@@ -4,6 +4,19 @@ All notable architectural changes, system refactorings, and bug fixes are docume
 
 ---
 
+## [2026-10-27] — Shopify Theme Check Compliance & Zero-Offense Hardening
+
+### Fixed
+- **Zero-Offense Theme Check Resolution**: Resolved all 61 offenses (50 errors, 11 warnings) across 27 files in `squizyy-shopify-theme/` using `npx shopify theme check` (57 files inspected, 0 offenses found).
+- **ParserBlockingScript**: Replaced parser-blocking `script_tag` filters with deferred `<script defer="defer"></script>` tags in `layout/theme.liquid`.
+- **RemoteAsset & Fonts**: Replaced Google Fonts with local `@font-face` definitions in `assets/theme.css` using local assets (`inter_n4.*.woff2`, `inter_n7.*.woff2`), removing external font links. Converted contest hero video into a dynamic section setting.
+- **MissingAsset**: Replaced missing `bundle-1x.png` fallback with verified `pdp-image.png`.
+- **OrphanedSnippet**: Integrated all 6 reusable snippets (`bottle-selector.liquid`, `button.liquid`, `icon.liquid`, `price.liquid`, `product-badge.liquid`, `product-gallery.liquid`) across PDP, card, cart, header, and 404 sections.
+- **UnusedAssign**: Implemented sold-out state badge display in `snippets/price.liquid` using `available`.
+- **ImgWidthAndHeight**: Calculated intrinsic dimensions from binary headers (PNG, WebP VP8X, AVIF `ispe`, and SVG `viewBox`) and added explicit `width`, `height`, and `loading="lazy"` attributes across 46 image tags.
+
+---
+
 ## [2026-10-26] — Native Shopify Online Store 2.0 Theme Migration
 
 ### Added
