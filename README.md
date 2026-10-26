@@ -4,6 +4,29 @@ High-fidelity reconstruction and full-stack implementation of the Drizzy referen
 
 ---
 
+## 🛍️ Native Shopify Online Store 2.0 Theme (`squizyy-shopify-theme/`)
+
+The repository includes a 100% native, production-ready **Shopify Online Store 2.0 Theme** in [`squizyy-shopify-theme/`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme) that passes **Shopify Theme Check with zero offenses (0 errors, 0 warnings)**.
+
+👉 **[Read the Complete Shopify Developer & Deployment Guide](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/README.md)** for instructions on editing sections, modifying colors/fonts, and maintaining code.
+
+### Quick Shopify Commands:
+```powershell
+# 1. Verify Theme Check (Zero errors)
+npm run theme:check
+
+# 2. Preview locally with live hot-reloading
+npx shopify theme dev --path squizyy-shopify-theme --store=squizyy-dev.myshopify.com
+
+# 3. Push code to Shopify as a safe unpublished draft theme
+npx shopify theme push --path squizyy-shopify-theme --store=squizyy-dev.myshopify.com --unpublished
+
+# 4. Pull merchant customizer changes down locally
+npx shopify theme pull --path squizyy-shopify-theme --store=squizyy-dev.myshopify.com
+```
+
+---
+
 ## 🥜 Project Architecture
 
 ```
