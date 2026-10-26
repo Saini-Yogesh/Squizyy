@@ -1,0 +1,14 @@
+{
+  "current": {
+    "color_bg": "#f8ebd7",
+    "color_fg": "#2d0f28",
+    "color_cream": "#fffbf2",
+    "color_purple": "#ca9af1",
+    "color_green": "#036e2c",
+    "free_shipping_threshold": 4999,
+    "free_shipping_message": "Add another bottle for free shipping!",
+    "free_shipping_unlocked": "You've unlocked FREE standard shipping!",
+    "social_instagram": "https://instagram.com/getdrizzy",
+    "social_tiktok": "https://tiktok.com/@getdrizzy"
+  }
+}

@@ -1,0 +1,181 @@
+{%- comment -%}
+  "Kiss Your Jar Goodbye" Comparison Section
+{%- endcomment -%}
+
+<section class="comparison-section">
+  <div class="comparison-container container">
+    <div class="comparison-header">
+      <h2 class="comparison-title">KISS YOUR JAR GOODBYE</h2>
+      <p class="comparison-subtitle">Why struggle with knife battles, separated oils, and crusty jars?</p>
+    </div>
+
+    <div class="comparison-cards-grid">
+      <!-- The Old Way (Jars) -->
+      <div class="comparison-card card-old">
+        <div class="comparison-card-badge badge-old">The Old Way</div>
+        <div class="comparison-image-wrap">
+          <img src="{{ 'other-product-right.png' | asset_url }}" alt="Old peanut butter jar" class="comparison-img">
+        </div>
+        <ul class="comparison-list">
+          <li class="item-negative">❌ Requires intense stirring every time</li>
+          <li class="item-negative">❌ Rips apart your soft bread</li>
+          <li class="item-negative">❌ Leaves oily knuckles and greasy knives</li>
+          <li class="item-negative">❌ Half the jar gets stuck in the corners</li>
+        </ul>
+      </div>
+
+      <!-- VS Badge -->
+      <div class="comparison-vs-circle">VS</div>
+
+      <!-- The Drizzy Way -->
+      <div class="comparison-card card-new">
+        <div class="comparison-card-badge badge-new">The Drizzy Way</div>
+        <div class="comparison-image-wrap">
+          <img src="{{ 'product-bottle-left.png' | asset_url }}" alt="Drizzy squeezable bottle" class="comparison-img">
+        </div>
+        <ul class="comparison-list">
+          <li class="item-positive">✓ Silky smooth drizzle every single time</li>
+          <li class="item-positive">✓ Clean squeeze cap — zero mess or cleanup</li>
+          <li class="item-positive">✓ Perfect for fruit, oatmeal, toast, or smoothies</li>
+          <li class="item-positive">✓ 100% Aussie high-oleic peanuts with zero additives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.comparison-section {
+  padding: 5rem 0;
+  background-color: var(--color-background, #f8ebd7);
+}
+.comparison-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.comparison-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+}
+.comparison-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-foreground, #2d0f28);
+  opacity: 0.8;
+  margin: 0;
+}
+.comparison-cards-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .comparison-cards-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+.comparison-card {
+  position: relative;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  padding: 3rem 2rem 2.5rem;
+  box-shadow: 0 10px 0 var(--color-foreground, #2d0f28);
+}
+.card-new {
+  border-color: var(--color-accent-purple, #ca9af1);
+  box-shadow: 0 10px 0 var(--color-accent-purple, #ca9af1);
+}
+.comparison-card-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.4rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  white-space: nowrap;
+}
+.badge-old {
+  background-color: #ffd2d2;
+  color: #8a1f1f;
+}
+.badge-new {
+  background-color: var(--color-accent-green, #036e2c);
+  color: #ffffff;
+  border-color: var(--color-accent-green, #036e2c);
+}
+.comparison-image-wrap {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.comparison-img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.comparison-list li {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.item-negative {
+  color: #8a1f1f;
+}
+.item-positive {
+  color: var(--color-foreground, #2d0f28);
+}
+.comparison-vs-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-foreground, #2d0f28);
+  color: #ffffff;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+@media (min-width: 768px) {
+  .comparison-vs-circle {
+    display: flex;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Comparison"
+    }
+  ]
+}
+{% endschema %}

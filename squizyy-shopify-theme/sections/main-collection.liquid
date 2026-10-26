@@ -1,0 +1,86 @@
+{%- comment -%}
+  Main Collection Grid (PLP)
+{%- endcomment -%}
+
+<section class="collection-section">
+  <div class="collection-container container">
+    <div class="collection-header">
+      <h1 class="collection-title">{{ collection.title | default: 'All Drizzy Products' }}</h1>
+      {%- if collection.description != blank -%}
+        <div class="collection-desc">{{ collection.description }}</div>
+      {%- endif -%}
+    </div>
+
+    {%- paginate collection.products by 12 -%}
+      <div class="collection-grid">
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product %}
+        {%- else -%}
+          <p class="collection-empty">No products found in this collection.</p>
+        {%- endfor -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="collection-pagination">
+          {{ paginate | default_pagination }}
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+<style>
+.collection-section {
+  padding: 4rem 0 6rem;
+}
+.collection-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 3.5rem;
+}
+.collection-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+.collection-desc {
+  font-size: 1.125rem;
+  color: var(--color-foreground, #2d0f28);
+  opacity: 0.85;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 640px) {
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.collection-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 4rem 0;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection Grid"
+    }
+  ]
+}
+{% endschema %}

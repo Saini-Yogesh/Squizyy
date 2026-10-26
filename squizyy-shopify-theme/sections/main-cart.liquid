@@ -1,0 +1,283 @@
+{%- comment -%}
+  Dedicated Full Page Cart (cart.json) with Shopify Native Checkout Redirection
+{%- endcomment -%}
+
+<section class="main-cart-section">
+  <div class="main-cart-container container">
+    <h1 class="main-cart-title">YOUR CART</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <div class="main-cart-layout">
+        <!-- Cart Items Table / List -->
+        <div class="cart-items-col">
+          <div class="cart-items-header hidden-mobile">
+            <span>Product</span>
+            <span>Quantity</span>
+            <span>Total</span>
+          </div>
+
+          <div class="cart-items-list">
+            {%- for item in cart.items -%}
+              <div class="cart-row-item">
+                <div class="cart-product-info">
+                  <div class="cart-row-image">
+                    <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" width="80" height="80">
+                  </div>
+                  <div class="cart-row-details">
+                    <h3 class="cart-row-title">{{ item.product.title }}</h3>
+                    {%- if item.variant.title != 'Default Title' -%}
+                      <p class="cart-row-variant">{{ item.variant.title }}</p>
+                    {%- endif -%}
+                    <span class="cart-row-unit-price">{{ item.price | money }}</span>
+                  </div>
+                </div>
+
+                <div class="cart-row-qty">
+                  <div class="cart-qty-picker">
+                    <button type="button" class="cart-qty-btn" data-cart-qty-change="-1" data-line="{{ forloop.index }}" data-current-qty="{{ item.quantity }}">-</button>
+                    <span class="cart-qty-val">{{ item.quantity }}</span>
+                    <button type="button" class="cart-qty-btn" data-cart-qty-change="1" data-line="{{ forloop.index }}" data-current-qty="{{ item.quantity }}">+</button>
+                  </div>
+                  <button type="button" class="cart-remove-link" data-cart-remove data-line="{{ forloop.index }}">Remove</button>
+                </div>
+
+                <div class="cart-row-total">
+                  <span>{{ item.final_line_price | money }}</span>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <!-- Order Summary Box -->
+        <div class="cart-summary-col">
+          <div class="cart-summary-card">
+            <h3 class="summary-title">ORDER SUMMARY</h3>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span class="summary-subtotal-val">{{ cart.total_price | money }}</span>
+            </div>
+
+            <p class="summary-tax-note">Shipping, taxes, and promotional codes calculated at checkout.</p>
+
+            <a href="/checkout" class="button-primary summary-checkout-btn">
+              <span>Proceed to Checkout</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <div class="summary-perks">
+              <p>✓ 100% Satisfaction Guarantee</p>
+              <p>✓ Secure 256-Bit SSL Encrypted Checkout</p>
+              <p>✓ Fast Dispatch from Local Warehouse</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {%- else -%}
+      <div class="cart-empty-view">
+        <div class="cart-empty-icon">🥜</div>
+        <h2 class="cart-empty-heading">Your cart is currently empty!</h2>
+        <p class="cart-empty-text">Looks like you haven't added any bottles of Drizzy yet.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="button-primary cart-empty-btn">Shop All Products</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+.main-cart-section {
+  padding: 4rem 0 6rem;
+}
+.main-cart-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 3rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+.main-cart-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 1024px) {
+  .main-cart-layout {
+    grid-template-columns: 1.8fr 1fr;
+  }
+}
+.cart-items-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.cart-row-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  padding: 1.5rem;
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 768px) {
+  .cart-row-item {
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+  }
+}
+.cart-product-info {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.cart-row-image {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-row-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cart-row-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-row-variant {
+  font-size: 0.8125rem;
+  color: rgba(45, 15, 40, 0.7);
+  margin: 0 0 0.25rem 0;
+}
+.cart-row-unit-price {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+.cart-row-qty {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.cart-remove-link {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgba(45, 15, 40, 0.6);
+  text-align: left;
+}
+.cart-row-total {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.35rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-summary-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 10px 0 var(--color-foreground, #2d0f28);
+}
+.summary-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  border-bottom: 2px solid var(--color-foreground, #2d0f28);
+  padding-bottom: 0.75rem;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+.summary-subtotal-val {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.75rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.summary-tax-note {
+  font-size: 0.8125rem;
+  opacity: 0.7;
+  margin: 0 0 2rem 0;
+}
+.summary-checkout-btn {
+  width: 100%;
+  padding: 1.125rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.summary-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  opacity: 0.8;
+  border-top: 1px solid rgba(45, 15, 40, 0.15);
+  padding-top: 1.25rem;
+}
+.cart-empty-view {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+.cart-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.cart-empty-heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 2.25rem;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.5rem 0;
+}
+.cart-empty-text {
+  font-size: 1.125rem;
+  opacity: 0.8;
+  margin: 0 0 2rem 0;
+}
+.cart-empty-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Main Cart Page",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Main Cart Page"
+    }
+  ]
+}
+{% endschema %}

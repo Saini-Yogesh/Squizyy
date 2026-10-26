@@ -1,0 +1,62 @@
+{%- comment -%}
+  "Life's Better With Drizzy" Mascot & Peanut Strip
+{%- endcomment -%}
+
+<section class="marquee-strip-section">
+  <div class="marquee-strip-track">
+    <div class="marquee-strip-content animate-marquee-reverse">
+      {%- for i in (1..6) -%}
+        <div class="strip-item">
+          <span>LIFE'S BETTER WITH DRIZZY</span>
+          <img src="{{ 'mascot-cream.svg' | asset_url }}" alt="" class="strip-mascot" width="36" height="36">
+          <span>ALWAYS FRESH</span>
+          <img src="{{ 'peanut-cream.svg' | asset_url }}" alt="" class="strip-peanut" width="30" height="30">
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+.marquee-strip-section {
+  background-color: var(--color-foreground, #2d0f28);
+  color: var(--color-cream, #fffbf2);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  user-select: none;
+  border-top: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+}
+.marquee-strip-track {
+  display: flex;
+  overflow: hidden;
+}
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.strip-mascot,
+.strip-peanut {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Marquee Cards Strip",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Marquee Cards Strip"
+    }
+  ]
+}
+{% endschema %}

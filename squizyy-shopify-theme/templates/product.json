@@ -1,0 +1,49 @@
+{
+  "name": "Product",
+  "sections": {
+    "main_product": {
+      "type": "product-main",
+      "settings": {}
+    },
+    "good_stuff": {
+      "type": "product-good-stuff",
+      "settings": {
+        "heading": "Good Stuff Only"
+      }
+    },
+    "premium_peanuts": {
+      "type": "product-premium-peanuts",
+      "settings": {
+        "heading": "Premium Peanuts. Nothing Else."
+      }
+    },
+    "reviews": {
+      "type": "review-carousel",
+      "settings": {
+        "heading": "Loved by 1,000+ Aussies",
+        "subheading": "4.9 / 5.0 Average Customer Rating Across 1,000+ Verified Buyers",
+        "bg_color": "#f8ebd7"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You May Also Like"
+      }
+    },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "bg_color": "#ca9af1"
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "good_stuff",
+    "premium_peanuts",
+    "reviews",
+    "recommendations",
+    "faq"
+  ]
+}

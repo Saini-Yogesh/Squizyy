@@ -1,0 +1,38 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "close": "Close",
+    "menu": "Menu",
+    "search": "Search"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "shop_now": "Shop Drizzy",
+    "subtotal": "Subtotal",
+    "checkout": "Proceed to Checkout",
+    "view_cart": "View Cart",
+    "quantity": "Quantity",
+    "remove": "Remove item",
+    "savings": "You save",
+    "free_shipping": "Free Shipping"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "one_time": "One-time purchase",
+      "subscribe": "Subscribe & Save 15%",
+      "select_bottles": "Select Quantity",
+      "save": "Save"
+    }
+  },
+  "newsletter": {
+    "heading": "Get 10% Off Your First Drizzle",
+    "subheading": "Drop your email below for 10% off your first order, secret recipes, and early access to drops.",
+    "placeholder": "Enter your email",
+    "submit": "Claim 10% Off",
+    "success": "Thanks for subscribing! Check your inbox for your 10% discount code."
+  }
+}

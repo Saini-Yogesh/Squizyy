@@ -1,0 +1,380 @@
+<section class="wholesale-form-section">
+  <div class="wholesale-form-container">
+    <!-- Left Column: Image with Mascot -->
+    <div class="wholesale-form-img-col">
+      <div class="wholesale-form-img-frame">
+        {%- if section.settings.side_image != blank -%}
+          {{ section.settings.side_image | image_url: width: 1000 | image_tag: alt: 'Wholesale Drizzy', class: 'wholesale-form-img' }}
+        {%- else -%}
+          <img src="{{ 'wholesale-form.png' | asset_url }}" alt="Wholesale Drizzy bottles" class="wholesale-form-img">
+        {%- endif -%}
+      </div>
+      <div class="wholesale-form-mascot">
+        <img src="{{ 'peanut-man.png' | asset_url }}" alt="" aria-hidden="true">
+      </div>
+    </div>
+
+    <!-- Right Column: Form Card -->
+    <div class="wholesale-form-card">
+      <h2 class="wholesale-form-heading">{{ section.settings.heading | default: 'Be one of the first to stock Drizzy.' }}</h2>
+      <div class="wholesale-form-subtext">
+        <p>We're partnering with select stores who care about quality, natural products and seriously smooth peanut butter.</p>
+        <p>Tell us where you're from and we'll be in touch.</p>
+      </div>
+
+      {%- form 'contact', id: 'contact_form', class: 'wholesale-form-inner' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="wholesale-form-success">
+            <p class="wholesale-success-title">🎉 Application Sent!</p>
+            <p class="wholesale-success-desc">Thank you! Your wholesale application has been submitted. Our team will review it within 1-2 business days.</p>
+          </div>
+        {%- else -%}
+          {%- if form.errors -%}
+            <div class="wholesale-form-errors" role="alert">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="wholesale-form-grid">
+            <div class="wholesale-field-group">
+              <label for="WholesaleForm-name" class="wholesale-field-label">Name *</label>
+              <input
+                type="text"
+                id="WholesaleForm-name"
+                name="contact[name]"
+                value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                placeholder="your name"
+                required
+                class="wholesale-input"
+              >
+            </div>
+
+            <div class="wholesale-field-group">
+              <label for="WholesaleForm-email" class="wholesale-field-label">Email *</label>
+              <input
+                type="email"
+                id="WholesaleForm-email"
+                name="contact[email]"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                placeholder="you@somemail.com"
+                required
+                class="wholesale-input"
+              >
+            </div>
+
+            <div class="wholesale-field-group">
+              <label for="WholesaleForm-company" class="wholesale-field-label">Company *</label>
+              <input
+                type="text"
+                id="WholesaleForm-company"
+                name="contact[company]"
+                placeholder="your company"
+                required
+                class="wholesale-input"
+              >
+            </div>
+
+            <div class="wholesale-field-group">
+              <label for="WholesaleForm-phone" class="wholesale-field-label">Phone Number</label>
+              <input
+                type="tel"
+                id="WholesaleForm-phone"
+                name="contact[phone]"
+                placeholder="your contact"
+                class="wholesale-input"
+              >
+            </div>
+
+            <div class="wholesale-field-group wholesale-field-full">
+              <label for="WholesaleForm-body" class="wholesale-field-label">Message</label>
+              <textarea
+                rows="5"
+                id="WholesaleForm-body"
+                name="contact[body]"
+                placeholder="tell us about your business"
+                class="wholesale-input wholesale-textarea"
+              >{{ form.body }}</textarea>
+            </div>
+          </div>
+
+          <div class="wholesale-submit-wrap">
+            <button type="submit" class="button-primary wholesale-submit-btn">
+              Submit form
+            </button>
+            <p class="wholesale-submit-note">Applications are reviewed within 1-2 business days.</p>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+<!-- Sprouts Nationwide Banner -->
+<section class="wholesale-sprouts-section">
+  <div class="wholesale-sprouts-container">
+    <h2 class="wholesale-sprouts-title">Aug 24, stocked nation-wide at</h2>
+    <div class="wholesale-sprouts-logo">
+      <img src="{{ 'sprouts-market.png' | asset_url }}" alt="Sprouts Farmers Market">
+    </div>
+  </div>
+</section>
+
+<style>
+.wholesale-form-section {
+  background-color: var(--color-background, #fffaf3);
+  padding: 4rem 1rem;
+}
+@media (min-width: 1024px) {
+  .wholesale-form-section {
+    padding: 6rem 1.5rem;
+  }
+}
+.wholesale-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 0 auto;
+  max-width: 87.5rem;
+}
+@media (min-width: 1024px) {
+  .wholesale-form-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+.wholesale-form-img-col {
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .wholesale-form-img-col {
+    width: 50%;
+  }
+}
+.wholesale-form-img-frame {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: var(--radius-2xl, 32px);
+  border: 4px solid var(--color-dark-brown, #2b1408);
+  border-bottom-width: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(43, 20, 8, 0.12);
+}
+.wholesale-form-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.wholesale-form-mascot {
+  position: absolute;
+  bottom: -2rem;
+  right: -1rem;
+  width: 7rem;
+  height: 7rem;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .wholesale-form-mascot {
+    width: 10rem;
+    height: 10rem;
+    bottom: -3rem;
+    right: -2rem;
+  }
+}
+.wholesale-form-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.wholesale-form-card {
+  width: 100%;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-dark-brown, #2b1408);
+  border-bottom-width: 8px;
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 20px 40px rgba(43, 20, 8, 0.12);
+  color: var(--color-dark-brown, #2b1408);
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .wholesale-form-card {
+    padding: 3rem 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .wholesale-form-card {
+    width: 50%;
+  }
+}
+.wholesale-form-heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 2rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+  margin: 0 0 1rem 0;
+}
+@media (min-width: 640px) {
+  .wholesale-form-heading {
+    font-size: 2.75rem;
+  }
+}
+.wholesale-form-subtext {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(43, 20, 8, 0.9);
+  margin-bottom: 2rem;
+}
+.wholesale-form-subtext p {
+  margin: 0 0 0.5rem 0;
+}
+.wholesale-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .wholesale-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.wholesale-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.wholesale-field-full {
+  grid-column: 1 / -1;
+}
+.wholesale-field-label {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+}
+.wholesale-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 2px solid var(--color-dark-brown, #2b1408);
+  background-color: #fff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.9rem;
+  color: var(--color-dark-brown, #2b1408);
+  outline: none;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s ease;
+}
+.wholesale-input:focus {
+  box-shadow: 0 0 0 3px rgba(202, 154, 241, 0.5);
+}
+.wholesale-textarea {
+  border-radius: 20px;
+  resize: vertical;
+}
+.wholesale-submit-wrap {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.wholesale-submit-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+.wholesale-submit-note {
+  font-size: 12px;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  color: rgba(43, 20, 8, 0.7);
+  margin: 0;
+  text-align: center;
+}
+.wholesale-form-success {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background-color: rgba(202, 154, 241, 0.3);
+  border: 3px solid var(--color-dark-brown, #2b1408);
+  border-radius: 20px;
+  text-align: center;
+}
+.wholesale-success-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+  margin: 0 0 0.5rem 0;
+}
+.wholesale-success-desc {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  color: var(--color-dark-brown, #2b1408);
+  margin: 0;
+}
+.wholesale-sprouts-section {
+  background-color: var(--color-cream, #fffbf2);
+  border-top: 3px solid var(--color-dark-brown, #2b1408);
+  border-bottom: 3px solid var(--color-dark-brown, #2b1408);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+.wholesale-sprouts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 87.5rem;
+  margin: 0 auto;
+}
+.wholesale-sprouts-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .wholesale-sprouts-title {
+    font-size: 2.25rem;
+  }
+}
+.wholesale-sprouts-logo {
+  height: 68px;
+}
+.wholesale-sprouts-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Wholesale Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Be one of the first to stock Drizzy."
+    },
+    {
+      "type": "image_picker",
+      "id": "side_image",
+      "label": "Side Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wholesale Form"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "rules-content",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

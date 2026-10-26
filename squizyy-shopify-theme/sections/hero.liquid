@@ -1,0 +1,160 @@
+{%- comment -%}
+  Homepage Hero Section with Aussie Rating Badge & Chunky CTA
+{%- endcomment -%}
+
+<section class="hero-section">
+  <div class="hero-container container">
+    <div class="hero-banner-frame">
+      <!-- Desktop Banner -->
+      <img
+        src="{{ 'hero-bg.png' | asset_url }}"
+        alt="Drizzy Peanut Butter"
+        class="hero-img-desktop hidden-mobile"
+        width="1440"
+        height="600"
+      >
+      <!-- Mobile Banner -->
+      <img
+        src="{{ 'hero-bg-mobile.png' | asset_url }}"
+        alt="Drizzy Peanut Butter"
+        class="hero-img-mobile hidden-desktop hidden-tablet"
+        width="600"
+        height="800"
+      >
+
+      <!-- Floating Mascot & Aussie Sticker -->
+      <div class="hero-floating-badge animate-float">
+        <img src="{{ 'Australia_Icon_7cdf6797-9b9e-43cd-8855-bed45dbfad15.png' | asset_url }}" alt="Aussie Made" width="100" height="100">
+      </div>
+    </div>
+
+    <!-- Hero Content Overlay / Card -->
+    <div class="hero-card">
+      <div class="hero-rating">
+        <div class="stars">★★★★★</div>
+        <span class="rating-text">Loved by 1,000+ Aussies</span>
+      </div>
+
+      <h1 class="hero-title">{{ section.settings.heading | default: 'THE WORLD’S FIRST DRIZZLE-ABLE PEANUT BUTTER' }}</h1>
+      <p class="hero-subtitle">{{ section.settings.subheading | default: 'No stirring. No spreading. Made from 100% Australian high-oleic peanuts.' }}</p>
+
+      <div class="hero-actions">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button-primary hero-btn">
+          {{ section.settings.button_label | default: 'Grab Your Bottle' }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero-section {
+  padding: 1.5rem 0 3rem;
+}
+.hero-banner-frame {
+  position: relative;
+  width: 100%;
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  overflow: hidden;
+  box-shadow: 0 12px 0 var(--color-foreground, #2d0f28);
+  background-color: var(--color-cream, #fffbf2);
+}
+.hero-img-desktop,
+.hero-img-mobile {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.hero-floating-badge {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+}
+.hero-card {
+  margin-top: 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 1rem;
+  margin-bottom: 1rem;
+}
+.stars {
+  color: #ffb800;
+  font-size: 1rem;
+}
+.rating-text {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-foreground, #2d0f28);
+}
+.hero-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-foreground, #2d0f28);
+  opacity: 0.85;
+  margin: 0 0 2rem 0;
+  line-height: 1.4;
+}
+.hero-btn {
+  font-size: 1.35rem;
+  padding: 1.25rem 3rem;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE WORLD’S FIRST DRIZZLE-ABLE PEANUT BUTTER"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "No stirring. No spreading. Made from 100% Australian high-oleic peanuts."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Grab Your Bottle"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}

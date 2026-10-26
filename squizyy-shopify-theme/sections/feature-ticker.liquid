@@ -1,0 +1,71 @@
+{%- comment -%}
+  Continuous Brand Pillar Marquee Ticker
+{%- endcomment -%}
+
+<section class="ticker-section">
+  <div class="ticker-track">
+    <div class="ticker-content animate-marquee">
+      {%- for i in (1..4) -%}
+        <div class="ticker-item">
+          <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
+          <span>HIGH IN PROTEIN</span>
+        </div>
+        <div class="ticker-item">
+          <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
+          <span>ZERO ADDED SUGAR</span>
+        </div>
+        <div class="ticker-item">
+          <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
+          <span>NO PALM OIL</span>
+        </div>
+        <div class="ticker-item">
+          <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
+          <span>100% AUSSIE PEANUTS</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+.ticker-section {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  border-top: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  user-select: none;
+}
+.ticker-track {
+  display: flex;
+  overflow: hidden;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-right: 3rem;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.ticker-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Feature Ticker",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Feature Ticker"
+    }
+  ]
+}
+{% endschema %}

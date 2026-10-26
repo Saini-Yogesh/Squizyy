@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "story_hero": {
+      "type": "story-hero",
+      "settings": {}
+    },
+    "story_founders": {
+      "type": "story-founders",
+      "settings": {}
+    },
+    "story_timeline": {
+      "type": "story-timeline",
+      "settings": {}
+    }
+  },
+  "order": [
+    "story_hero",
+    "story_founders",
+    "story_timeline"
+  ]
+}

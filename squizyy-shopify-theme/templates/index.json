@@ -1,0 +1,52 @@
+{
+  "name": "Home page",
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "THE WORLD’S FIRST DRIZZLE-ABLE PEANUT BUTTER",
+        "subheading": "No stirring. No spreading. Made from 100% Australian high-oleic peanuts.",
+        "button_label": "Grab Your Bottle",
+        "button_link": "/collections/all"
+      }
+    },
+    "ticker": {
+      "type": "feature-ticker",
+      "settings": {}
+    },
+    "comparison": {
+      "type": "product-comparison",
+      "settings": {}
+    },
+    "featured_product": {
+      "type": "featured-products",
+      "settings": {}
+    },
+    "features_grid": {
+      "type": "features-grid",
+      "settings": {}
+    },
+    "full_page_media": {
+      "type": "full-page-media",
+      "settings": {}
+    },
+    "marquee_cards": {
+      "type": "marquee-cards",
+      "settings": {}
+    },
+    "insta_feed": {
+      "type": "insta-feed",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "ticker",
+    "comparison",
+    "featured_product",
+    "features_grid",
+    "full_page_media",
+    "marquee_cards",
+    "insta_feed"
+  ]
+}

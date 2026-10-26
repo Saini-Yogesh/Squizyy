@@ -1,0 +1,179 @@
+{%- comment -%}
+  Renders a collection product card with secondary image hover swap.
+  Accepts:
+  - product: {Object} Shopify Product Liquid object
+{%- endcomment -%}
+
+<div class="product-card" data-product-card>
+  <a href="{{ product.url }}" class="product-card-media-wrap">
+    {%- if product.featured_image -%}
+      <img
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.title | escape }}"
+        class="product-card-img product-card-img-primary"
+        loading="lazy"
+        width="300"
+        height="300"
+      >
+      {%- if product.images[1] -%}
+        <img
+          src="{{ product.images[1] | image_url: width: 600 }}"
+          alt="{{ product.title | escape }}"
+          class="product-card-img product-card-img-secondary"
+          loading="lazy"
+          width="300"
+          height="300"
+        >
+      {%- endif -%}
+    {%- else -%}
+      <div class="product-card-placeholder">🥜</div>
+    {%- endif -%}
+
+    {%- if product.compare_at_price > product.price -%}
+      <span class="product-card-sale-badge">SALE</span>
+    {%- endif -%}
+  </a>
+
+  <div class="product-card-content">
+    <div class="product-card-rating">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="rating-count">(4.9)</span>
+    </div>
+
+    <h3 class="product-card-title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+
+    <div class="product-card-price-row">
+      <span class="product-price">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <s class="product-compare-price">{{ product.compare_at_price | money }}</s>
+      {%- endif -%}
+    </div>
+
+    <button
+      type="button"
+      class="button-primary product-card-add-btn"
+      data-add-to-cart
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      {% unless product.available %}disabled{% endunless %}
+    >
+      {%- if product.available -%}
+        Add to Cart
+      {%- else -%}
+        Sold Out
+      {%- endif -%}
+    </button>
+  </div>
+</div>
+
+<style>
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  overflow: hidden;
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 var(--color-foreground, #2d0f28);
+}
+.product-card-media-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+}
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.product-card-img-secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.product-card:hover .product-card-img-secondary {
+  opacity: 1;
+}
+.product-card:hover .product-card-img-primary {
+  opacity: 0;
+}
+.product-card-sale-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+.product-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.product-card-rating {
+  color: #ffb800;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 0.5rem;
+}
+.rating-count {
+  color: var(--color-foreground, #2d0f28);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+.product-card-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-foreground, #2d0f28);
+}
+.product-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.product-price {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.product-compare-price {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  color: rgba(45, 15, 40, 0.5);
+}
+.product-card-add-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 0.875rem;
+  font-size: 1rem;
+}
+</style>

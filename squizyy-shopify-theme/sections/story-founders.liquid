@@ -1,0 +1,93 @@
+{%- comment -%}
+  Our Story Founders & Mission
+{%- endcomment -%}
+
+<section class="story-founders-section">
+  <div class="story-founders-container container">
+    <div class="founders-card">
+      <div class="founders-img-wrap">
+        <img src="{{ 'our-story.png' | asset_url }}" alt="Drizzy Founders" class="founders-photo">
+      </div>
+      <div class="founders-content-wrap">
+        <span class="founders-kicker">THE MISSION</span>
+        <h2 class="founders-title">WE REFUSED TO ACCEPT THE CRUSTY JAR.</h2>
+        <p class="founders-text">
+          Peanut butter hasn't changed in nearly a century. Jars still separate, oil still splatters on your shirt, and knives still tear holes in your morning sourdough. We knew there had to be a better way.
+        </p>
+        <p class="founders-text">
+          By combining naturally sweet high-oleic peanuts with a clean, precision-squeeze valve, Drizzy brings the joy back to snacking. It's peanut butter, uncompromised.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.story-founders-section {
+  padding: 3rem 0 6rem;
+}
+.founders-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  overflow: hidden;
+  box-shadow: 0 12px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 1024px) {
+  .founders-card {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+.founders-img-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+}
+.founders-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.founders-content-wrap {
+  padding: 3.5rem 3rem;
+}
+.founders-kicker {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #036e2c);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.founders-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.05;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1.25rem 0;
+  text-transform: uppercase;
+}
+.founders-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0 0 1.25rem 0;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Story Founders",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Story Founders"
+    }
+  ]
+}
+{% endschema %}

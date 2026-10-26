@@ -1,0 +1,137 @@
+{%- comment -%}
+  "Good Stuff Only" 4 Perimeter Perks with Center Bottle
+{%- endcomment -%}
+
+<section class="good-stuff-section">
+  <div class="good-stuff-container container">
+    <div class="good-stuff-header">
+      <h2 class="good-stuff-title">{{ section.settings.heading | default: 'GOOD STUFF ONLY' }}</h2>
+      <p class="good-stuff-subtitle">Everything your body loves. Absolutely nothing it doesn't.</p>
+    </div>
+
+    <div class="good-stuff-stage">
+      <!-- Top Left -->
+      <div class="good-perk-card perk-tl">
+        <h3 class="perk-title">0g ADDED SUGAR</h3>
+        <p class="perk-desc">Naturally sweet Australian high-oleic peanuts roasted to bring out peak natural nuttiness.</p>
+      </div>
+
+      <!-- Top Right -->
+      <div class="good-perk-card perk-tr">
+        <h3 class="perk-title">NO PALM OIL EVER</h3>
+        <p class="perk-desc">We refuse to use cheap tropical oils or hydrogenated fats that harm the rainforest or your arteries.</p>
+      </div>
+
+      <!-- Center Bottle -->
+      <div class="good-center-bottle">
+        <img src="{{ 'product-bottle-left.png' | asset_url }}" alt="Drizzy Peanut Butter" class="center-bottle-img">
+      </div>
+
+      <!-- Bottom Left -->
+      <div class="good-perk-card perk-bl">
+        <h3 class="perk-title">HIGH-PROTEIN FUEL</h3>
+        <p class="perk-desc">Packed with 7 grams of plant-powered protein per 2 tablespoons to keep you going strong.</p>
+      </div>
+
+      <!-- Bottom Right -->
+      <div class="good-perk-card perk-br">
+        <h3 class="perk-title">HEART-HEALTHY FATS</h3>
+        <p class="perk-desc">High-oleic peanuts contain oleic acid levels matching extra virgin olive oil for lasting freshness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.good-stuff-section {
+  padding: 6rem 0;
+  background-color: var(--color-background, #f8ebd7);
+}
+.good-stuff-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.good-stuff-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+}
+.good-stuff-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.85;
+  margin: 0;
+}
+.good-stuff-stage {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .good-stuff-stage {
+    grid-template-columns: 1fr 280px 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+.good-perk-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.perk-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+.perk-desc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin: 0;
+}
+.good-center-bottle {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+@media (min-width: 768px) {
+  .good-center-bottle {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    padding: 0;
+  }
+}
+.center-bottle-img {
+  max-height: 380px;
+  width: auto;
+  object-fit: contain;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Good Stuff Only",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GOOD STUFF ONLY"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Good Stuff Only"
+    }
+  ]
+}
+{% endschema %}

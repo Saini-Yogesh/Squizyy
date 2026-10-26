@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": {
+      "type": "wholesale-hero",
+      "settings": {
+        "heading": "Partner with Drizzy",
+        "description": "Partner with a brand that values quality and simplicity. Tell us about your store and let's grow together."
+      }
+    },
+    "form": {
+      "type": "wholesale-form",
+      "settings": {
+        "heading": "Be one of the first to stock Drizzy."
+      }
+    },
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "form",
+    "faq"
+  ]
+}

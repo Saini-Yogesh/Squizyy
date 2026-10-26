@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Squizyy Shopify Theme — Theme Tokens & Components
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Champ Black';
+  src: url('Champ-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Azeret Mono';
+  src: url('AzeretMono-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-background: #f8ebd7;
+  --color-foreground: #2d0f28;
+  --color-dark-brown: #2b1408;
+  --color-cream: #fffbf2;
+  --color-accent-purple: #ca9af1;
+  --color-accent-green: #036e2c;
+  --color-border: #2d0f28;
+
+  --font-primary: 'Champ Black', serif, -apple-system, BlinkMacSystemFont;
+  --font-secondary: 'Azeret Mono', monospace, -apple-system, BlinkMacSystemFont;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  --border-thick: 3px solid var(--color-foreground);
+  --border-card: 4px solid var(--color-foreground);
+  --shadow-chunky: 0 4px 0 var(--color-foreground);
+  --shadow-chunky-hover: 0 6px 0 var(--color-foreground);
+  --shadow-modal: 0 20px 40px rgba(45, 15, 40, 0.25);
+
+  --container-max-width: 1440px;
+  --page-gutter: 1.5rem;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main#MainContent {
+  flex: 1 0 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
+}
+
+/* Chunky Tactile Button */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 1.125rem 2.25rem;
+  border-radius: var(--radius-full);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom-width: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+  transition: transform 0.15s ease, border-bottom-width 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+  text-decoration: none;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  background-color: #d4acf5;
+}
+
+.button-primary:active {
+  transform: translateY(2px);
+  border-bottom-width: 3px;
+}
+
+.button-secondary {
+  background-color: var(--color-cream, #fffbf2);
+  color: var(--color-foreground, #2d0f28);
+}
+
+.button-secondary:hover {
+  background-color: #ffffff;
+}
+
+.button-green {
+  background-color: var(--color-accent-green, #036e2c);
+  color: #ffffff;
+}
+
+.button-green:hover {
+  background-color: #048c38;
+}
+
+.button-outline {
+  background-color: transparent;
+  color: var(--color-foreground, #2d0f28);
+}
+
+.button-outline:hover {
+  background-color: rgba(45, 15, 40, 0.05);
+}

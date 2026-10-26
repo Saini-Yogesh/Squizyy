@@ -1,0 +1,232 @@
+{%- comment -%}
+  Sticky Navigation Header with Centered Logo & Cart Drawer Trigger
+{%- endcomment -%}
+
+<header class="site-header">
+  <div class="header-container container">
+    <!-- Mobile Hamburger Toggle -->
+    <button type="button" class="header-menu-btn hidden-desktop" data-mobile-menu-toggle aria-label="Open menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Desktop Navigation Links Left -->
+    <nav class="header-nav header-nav-left hidden-mobile hidden-tablet">
+      <a href="{{ routes.all_products_collection_url }}" class="nav-link">Shop</a>
+      <a href="/pages/our-story" class="nav-link">Our Story</a>
+      <a href="/pages/store-locator" class="nav-link">Store Locator</a>
+    </nav>
+
+    <!-- Center Brand Logo -->
+    <div class="header-logo-wrap">
+      <a href="{{ routes.root_url }}" class="header-logo-link">
+        <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="header-logo" width="140" height="42">
+      </a>
+    </div>
+
+    <!-- Right Navigation & Cart Trigger -->
+    <div class="header-nav-right">
+      <nav class="header-nav hidden-mobile hidden-tablet">
+        <a href="/pages/wholesale" class="nav-link">Wholesale</a>
+        <a href="/pages/sproutslaunchwinflightstoaustralia" class="nav-link">Win Flights</a>
+      </nav>
+
+      <button type="button" class="header-cart-btn" data-open-cart aria-label="Open cart">
+        <span class="cart-label hidden-mobile">Cart</span>
+        <div class="cart-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count-badge" data-cart-count>{{ cart.item_count }}</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
+<div class="mobile-menu-drawer" data-mobile-menu>
+  <div class="mobile-menu-header">
+    <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="mobile-menu-logo" width="120" height="36">
+    <button type="button" class="mobile-menu-close" data-mobile-menu-toggle aria-label="Close menu">✕</button>
+  </div>
+  <nav class="mobile-menu-nav">
+    <a href="{{ routes.all_products_collection_url }}" class="mobile-nav-link">Shop</a>
+    <a href="/pages/our-story" class="mobile-nav-link">Our Story</a>
+    <a href="/pages/store-locator" class="mobile-nav-link">Store Locator</a>
+    <a href="/pages/wholesale" class="mobile-nav-link">Wholesale</a>
+    <a href="/pages/sproutslaunchwinflightstoaustralia" class="mobile-nav-link">Win Flights to Australia</a>
+    <a href="/pages/rules" class="mobile-nav-link">Official Rules</a>
+  </nav>
+</div>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 990;
+  background-color: var(--color-background, #f8ebd7);
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  padding: 1rem 0;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-link {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+  position: relative;
+  transition: transform 0.15s ease;
+}
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+.header-logo-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+.header-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-foreground, #2d0f28);
+  padding: 0.25rem;
+}
+.header-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.header-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--color-foreground, #2d0f28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.header-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 var(--color-foreground, #2d0f28);
+}
+.cart-label {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.cart-count-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-foreground, #2d0f28);
+  color: #ffffff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(45, 15, 40, 0.6);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background-color: var(--color-cream, #fffbf2);
+  border-right: 4px solid var(--color-foreground, #2d0f28);
+  z-index: 9999;
+  padding: 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+}
+.mobile-menu-drawer.active {
+  transform: translateX(0);
+}
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-foreground, #2d0f28);
+}
+.mobile-menu-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.mobile-nav-link {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+}
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

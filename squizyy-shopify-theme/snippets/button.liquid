@@ -1,0 +1,30 @@
+{%- comment -%}
+  Renders a branded Squizyy button.
+  Accepts:
+  - text: {String} Button text
+  - url: {String} Optional link URL (renders <a> if present, else <button>)
+  - type: {String} 'primary' (default), 'outline', 'secondary'
+  - class: {String} Additional classes
+  - id: {String} Element ID
+  - attr: {String} Additional HTML attributes
+{%- endcomment -%}
+
+{%- if url != blank -%}
+  <a
+    href="{{ url }}"
+    class="button-primary {% if type == 'outline' %}button-outline{% elsif type == 'secondary' %}button-secondary{% endif %} {{ class }}"
+    {% if id != blank %}id="{{ id }}"{% endif %}
+    {{ attr }}
+  >
+    {{ text }}
+  </a>
+{%- else -%}
+  <button
+    type="button"
+    class="button-primary {% if type == 'outline' %}button-outline{% elsif type == 'secondary' %}button-secondary{% endif %} {{ class }}"
+    {% if id != blank %}id="{{ id }}"{% endif %}
+    {{ attr }}
+  >
+    {{ text }}
+  </button>
+{%- endif -%}

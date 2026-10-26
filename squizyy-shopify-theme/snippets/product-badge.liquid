@@ -1,0 +1,38 @@
+{%- comment -%}
+  Renders a product badge (e.g. "HOT DEAL", "BESTSELLER", "NEW", "SAVE $X").
+  Accepts:
+  - text: {String} Badge text
+  - type: {String} 'sale', 'featured', or 'neutral'
+{%- endcomment -%}
+
+{%- if text != blank -%}
+  <span class="product-badge product-badge--{{ type | default: 'sale' }}">
+    {{ text }}
+  </span>
+
+  <style>
+  .product-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full, 9999px);
+    font-family: var(--font-secondary, 'Azeret Mono', monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--color-dark-brown, #2b1408);
+  }
+  .product-badge--sale {
+    background-color: var(--color-accent-purple, #ca9af1);
+    color: var(--color-dark-brown, #2b1408);
+  }
+  .product-badge--featured {
+    background-color: var(--color-accent-green, #176537);
+    color: #fff;
+  }
+  .product-badge--neutral {
+    background-color: var(--color-cream, #fffbf2);
+    color: var(--color-dark-brown, #2b1408);
+  }
+  </style>
+{%- endif -%}

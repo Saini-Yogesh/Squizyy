@@ -1,0 +1,89 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Squizyy Shopify Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Squizyy / Drizzy Team",
+    "theme_documentation_url": "https://getdrizzy.co",
+    "theme_support_url": "https://getdrizzy.co"
+  },
+  {
+    "name": "Brand Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "Background Color",
+        "default": "#f8ebd7"
+      },
+      {
+        "type": "color",
+        "id": "color_fg",
+        "label": "Foreground Text Color",
+        "default": "#2d0f28"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Cream Card Background",
+        "default": "#fffbf2"
+      },
+      {
+        "type": "color",
+        "id": "color_purple",
+        "label": "Accent Purple",
+        "default": "#ca9af1"
+      },
+      {
+        "type": "color",
+        "id": "color_green",
+        "label": "Accent Green",
+        "default": "#036e2c"
+      }
+    ]
+  },
+  {
+    "name": "Cart & Shipping",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold (in cents)",
+        "default": 4999,
+        "info": "4999 = $49.99 USD"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_message",
+        "label": "Free Shipping Message",
+        "default": "Add another bottle for free shipping!"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_unlocked",
+        "label": "Unlocked Free Shipping Message",
+        "default": "You've unlocked FREE standard shipping!"
+      }
+    ]
+  },
+  {
+    "name": "Social Media Links",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      }
+    ]
+  }
+]

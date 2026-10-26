@@ -1,0 +1,175 @@
+{%- comment -%}
+  Cream Accordion Box with Top Cream Drip Divider
+{%- endcomment -%}
+
+<section class="faq-section" style="background-color: {{ section.settings.bg_color | default: '#ca9af1' }};">
+  <!-- Drip Transition Top -->
+  <div class="faq-drip-top">
+    <img src="{{ 'cream-drip.svg' | asset_url }}" alt="" class="faq-drip-img" aria-hidden="true">
+  </div>
+
+  <div class="faq-container container">
+    <div class="faq-header">
+      <h2 class="faq-title">{{ section.settings.heading | default: 'FREQUENTLY ASKED QUESTIONS' }}</h2>
+      <p class="faq-sub">Got questions about drizzling? We've got answers.</p>
+    </div>
+
+    <div class="faq-accordion-list">
+      <div class="faq-item">
+        <button type="button" class="faq-toggle" data-accordion-toggle>
+          <span>Does it separate or need stirring?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Nope! Thanks to the unique fat profile of 100% Australian high-oleic peanuts and our proprietary cold-milling process, Drizzy maintains its silky drizzle consistency without needing a knife or aggressive stirring. Just give the bottle a gentle shake before use!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-toggle" data-accordion-toggle>
+          <span>Do I need to refrigerate Drizzy?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>No refrigeration needed! In fact, we recommend storing Drizzy in your pantry at room temperature. Storing it in the fridge will cause the natural peanut fats to firm up and make it harder to squeeze.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-toggle" data-accordion-toggle>
+          <span>What are High-Oleic Peanuts?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>High-oleic peanuts are a natural variety of peanut rich in monounsaturated oleic acid (the same healthy fatty acid found in extra virgin olive oil and avocados). They are naturally sweeter, more aromatic, and stay fresh up to 10x longer than normal peanuts without added preservatives.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-toggle" data-accordion-toggle>
+          <span>Is there any palm oil, added sugar, or hydrogenated oils?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Never. Drizzy contains exactly two ingredients: 99.2% Australian High-Oleic Peanuts and 0.8% Australian Sea Salt. That’s it. Zero palm oil, zero cane sugar, zero artificial additives.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-toggle" data-accordion-toggle>
+          <span>How does the squeeze cap work?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-body">
+          <p>Our custom flip-top cap features an engineered silicone membrane valve. It opens when you squeeze the bottle and instantly reseals cleanly when pressure stops, preventing drips, leaks, and crusty residue around the nozzle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-section {
+  position: relative;
+  padding: 0 0 6rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.faq-drip-top {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 4rem;
+}
+.faq-drip-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.faq-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.75rem 0;
+  text-transform: uppercase;
+}
+.faq-sub {
+  font-size: 1.125rem;
+  opacity: 0.85;
+  margin: 0;
+}
+.faq-accordion-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.faq-item {
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+  overflow: hidden;
+}
+.faq-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: none;
+  border: none;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  color: var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  text-align: left;
+}
+.faq-body {
+  padding: 0 2rem 1.75rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  display: none;
+}
+.faq-item.open .faq-body {
+  display: block;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-icon {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "FREQUENTLY ASKED QUESTIONS"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ca9af1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product FAQ"
+    }
+  ]
+}
+{% endschema %}

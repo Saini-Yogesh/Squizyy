@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "hero": {
+      "type": "contest-hero",
+      "settings": {
+        "heading": "Win a Trip to Australia",
+        "description": "Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + $2,000 USD spending money."
+      }
+    },
+    "details": {
+      "type": "contest-details",
+      "settings": {
+        "heading": "Here's What You're Playing For"
+      }
+    },
+    "instructions": {
+      "type": "contest-instructions",
+      "settings": {
+        "heading": "How to Enter"
+      }
+    },
+    "draw": {
+      "type": "contest-draw",
+      "settings": {
+        "heading": "Enter the Draw"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "details",
+    "instructions",
+    "draw"
+  ]
+}

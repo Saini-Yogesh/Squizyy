@@ -1,0 +1,122 @@
+{%- comment -%}
+  Premium Peanuts Sourcing Feature Section
+{%- endcomment -%}
+
+<section class="premium-peanuts-section">
+  <div class="premium-peanuts-container container">
+    <div class="peanuts-card">
+      <div class="peanuts-img-col">
+        <img src="{{ 'nuts.png' | asset_url }}" alt="Australian High-Oleic Peanuts" class="peanuts-photo">
+      </div>
+      <div class="peanuts-content-col">
+        <div class="peanuts-aussie-badge">
+          <img src="{{ 'aussie.png' | asset_url }}" alt="" width="24" height="24">
+          <span>GROWN IN KINGAROY, QUEENSLAND</span>
+        </div>
+        <h2 class="peanuts-title">{{ section.settings.heading | default: 'PREMIUM PEANUTS. NOTHING ELSE.' }}</h2>
+        <p class="peanuts-desc">
+          We spent years searching the globe for the sweetest, most aromatic peanuts on earth. We found them in Kingaroy, Australia, where rich volcanic soil and sunny days produce nuts naturally packed with healthy oleic acid.
+        </p>
+
+        <ul class="peanuts-points">
+          <li><strong>Naturally Sweet:</strong> We don't need sugar because Aussie peanuts taste incredible on their own.</li>
+          <li><strong>Stay Drizzle-able:</strong> High-oleic nuts naturally resist hardening and rancidity without added chemical preservatives.</li>
+          <li><strong>Direct From Farmers:</strong> Sustainable farming partnerships that honor the land.</li>
+        </ul>
+
+        <div class="peanuts-cta-wrap">
+          <button type="button" class="button-primary" data-open-cart>Try It Risk-Free</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.premium-peanuts-section {
+  padding: 4rem 0 6rem;
+}
+.peanuts-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  overflow: hidden;
+  box-shadow: 0 12px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 1024px) {
+  .peanuts-card {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+.peanuts-img-col {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+}
+.peanuts-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.peanuts-content-col {
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.peanuts-aussie-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #036e2c);
+  margin-bottom: 0.75rem;
+}
+.peanuts-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.05;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+.peanuts-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0 0 1.5rem 0;
+}
+.peanuts-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+.peanuts-cta-wrap {
+  margin-top: auto;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Premium Peanuts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "PREMIUM PEANUTS. NOTHING ELSE."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Peanuts"
+    }
+  ]
+}
+{% endschema %}

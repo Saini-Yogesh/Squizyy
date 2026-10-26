@@ -1,0 +1,66 @@
+{%- comment -%}
+  Dual-Track Infinite Marquee Announcement Bar
+{%- endcomment -%}
+
+<div class="announcement-bar-wrapper">
+  <div class="announcement-track">
+    <div class="announcement-content animate-marquee">
+      {%- for i in (1..6) -%}
+        <div class="announcement-item">
+          <span>PEANUT BUTTER DRIZZLE</span>
+          <img src="{{ 'Union.svg' | asset_url }}" alt="" class="announcement-icon" width="20" height="20">
+          <span>NO SPREADING</span>
+          <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" class="announcement-icon" width="20" height="20">
+          <span>NO STIRRING</span>
+          <img src="{{ 'Union.svg' | asset_url }}" alt="" class="announcement-icon" width="20" height="20">
+          <span>HIGH OLEIC PEANUTS</span>
+          <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" class="announcement-icon" width="20" height="20">
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+.announcement-bar-wrapper {
+  background-color: var(--color-foreground, #2d0f28);
+  color: #ffffff;
+  padding: 0.65rem 0;
+  overflow: hidden;
+  border-bottom: 2px solid var(--color-foreground, #2d0f28);
+  user-select: none;
+}
+.announcement-track {
+  display: flex;
+  overflow: hidden;
+}
+.announcement-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.announcement-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

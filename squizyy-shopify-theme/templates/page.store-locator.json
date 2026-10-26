@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "store_locator": {
+      "type": "store-locator",
+      "settings": {
+        "heading": "Find a store near you",
+        "subheading": "Pick up a bottle of Drizzy at your favorite local grocer.",
+        "search_placeholder": "Search by city, state, or zip code..."
+      }
+    }
+  },
+  "order": [
+    "store_locator"
+  ]
+}

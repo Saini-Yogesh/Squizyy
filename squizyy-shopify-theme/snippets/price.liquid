@@ -1,0 +1,67 @@
+{%- comment -%}
+  Renders product price or compare-at price.
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - price: {Number} Custom price in cents (optional)
+  - compare_at_price: {Number} Custom compare at price in cents (optional)
+  - show_badges: {Boolean} Whether to show savings badge (optional)
+{%- endcomment -%}
+
+{%- liquid
+  assign target = product.selected_or_first_available_variant | default: product
+  assign price = price | default: target.price | default: 1999
+  assign compare_at_price = compare_at_price | default: target.compare_at_price
+  assign available = target.available | default: true
+-%}
+
+<div class="price-component {% if compare_at_price > price %}price--on-sale{% endif %}">
+  <div class="price-container">
+    <span class="price-item price-item--regular">
+      {{ price | money }}
+    </span>
+    {%- if compare_at_price > price -%}
+      <s class="price-item price-item--compare">
+        {{ compare_at_price | money }}
+      </s>
+    {%- endif -%}
+  </div>
+
+  {%- if show_badges and compare_at_price > price -%}
+    {%- assign savings = compare_at_price | minus: price -%}
+    <span class="badge badge--sale">
+      Save {{ savings | money }}
+    </span>
+  {%- endif -%}
+</div>
+
+<style>
+.price-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+}
+.price-container {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.price-item--regular {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-dark-brown, #2b1408);
+}
+.price-item--compare {
+  font-size: 0.875rem;
+  color: rgba(43, 20, 8, 0.5);
+  text-decoration: line-through;
+}
+.badge--sale {
+  background-color: var(--color-accent-green, #176537);
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+</style>

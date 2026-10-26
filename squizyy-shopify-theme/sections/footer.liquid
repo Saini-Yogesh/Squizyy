@@ -1,0 +1,194 @@
+{%- comment -%}
+  Global Brand Footer with Top Drip Divider, Newsletter, Links, and Giant Logo
+{%- endcomment -%}
+
+<footer class="site-footer">
+  <!-- Top Drip Graphic Divider -->
+  <div class="footer-drip-wrap">
+    <img src="{{ 'footer-drip.svg' | asset_url }}" alt="" class="footer-drip-img" aria-hidden="true">
+  </div>
+
+  <div class="footer-inner container">
+    <div class="footer-grid">
+      <!-- Newsletter Card -->
+      <div class="footer-newsletter-card">
+        <h3 class="footer-newsletter-title">GET 10% OFF YOUR FIRST DRIZZLE</h3>
+        <p class="footer-newsletter-desc">Sign up for exclusive drops, recipes, and sweet deals.</p>
+        
+        {% form 'customer', class: 'footer-newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter,footer">
+          <div class="footer-form-wrap">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="Enter your email"
+              required
+              class="footer-input"
+            >
+            <button type="submit" class="button-primary footer-submit-btn">Subscribe</button>
+          </div>
+        {% endform %}
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Shop</h4>
+        <ul class="footer-links-list">
+          <li><a href="{{ routes.all_products_collection_url }}">All Products</a></li>
+          <li><a href="/products/drizzy-peanut-butter">Drizzy Original</a></li>
+          <li><a href="/pages/store-locator">Store Locator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">About</h4>
+        <ul class="footer-links-list">
+          <li><a href="/pages/our-story">Our Story</a></li>
+          <li><a href="/pages/wholesale">Wholesale</a></li>
+          <li><a href="/pages/sproutslaunchwinflightstoaustralia">Sprouts Contest</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">Legal</h4>
+        <ul class="footer-links-list">
+          <li><a href="/pages/rules">Official Rules</a></li>
+          <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Giant Brand Logo Banner -->
+    <div class="footer-giant-logo-wrap">
+      <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="footer-giant-logo">
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} Drizzy Holdings Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.site-footer {
+  position: relative;
+  background-color: var(--color-foreground, #2d0f28);
+  color: #ffffff;
+  padding-bottom: 3rem;
+  margin-top: 4rem;
+}
+.footer-drip-wrap {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px;
+}
+.footer-drip-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.footer-inner {
+  padding-top: 4rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+}
+.footer-newsletter-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.footer-newsletter-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin: 0 0 0.5rem 0;
+}
+.footer-newsletter-desc {
+  font-size: 0.875rem;
+  margin: 0 0 1.25rem 0;
+}
+.footer-form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 480px) {
+  .footer-form-wrap {
+    flex-direction: row;
+  }
+}
+.footer-input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  outline: none;
+}
+.footer-submit-btn {
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+}
+.footer-col-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem 0;
+}
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-links-list a {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.footer-links-list a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+.footer-giant-logo-wrap {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-giant-logo {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

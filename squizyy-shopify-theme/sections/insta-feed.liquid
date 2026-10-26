@@ -1,0 +1,121 @@
+{%- comment -%}
+  Follow @getdrizzy Instagram Carousel Feed with Scroll Arrows
+{%- endcomment -%}
+
+<section class="insta-section">
+  <div class="insta-container container">
+    <div class="insta-header">
+      <div class="insta-title-wrap">
+        <span class="insta-kicker">JOIN THE SQUAD</span>
+        <h2 class="insta-title">FOLLOW @GETDRIZZY</h2>
+      </div>
+
+      <div class="insta-nav-arrows">
+        <button type="button" class="arrow-btn" data-insta-prev aria-label="Previous posts">←</button>
+        <button type="button" class="arrow-btn" data-insta-next aria-label="Next posts">→</button>
+      </div>
+    </div>
+
+    <div class="insta-grid" data-insta-grid>
+      <div class="insta-card">
+        <img src="{{ 'insta-post-1.png' | asset_url }}" alt="Drizzy Instagram post 1" class="insta-img">
+      </div>
+      <div class="insta-card">
+        <img src="{{ 'insta-post-2.png' | asset_url }}" alt="Drizzy Instagram post 2" class="insta-img">
+      </div>
+      <div class="insta-card">
+        <img src="{{ 'insta-post-3.png' | asset_url }}" alt="Drizzy Instagram post 3" class="insta-img">
+      </div>
+      <div class="insta-card">
+        <img src="{{ 'insta-post-4.png' | asset_url }}" alt="Drizzy Instagram post 4" class="insta-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.insta-section {
+  padding: 5rem 0 3rem;
+}
+.insta-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.insta-kicker {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #036e2c);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.insta-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0;
+  text-transform: uppercase;
+}
+.insta-nav-arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+.arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 0 var(--color-foreground, #2d0f28);
+  transition: transform 0.15s ease;
+}
+.arrow-btn:hover {
+  transform: translateY(-2px);
+}
+.insta-grid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+.insta-grid::-webkit-scrollbar {
+  display: none;
+}
+.insta-card {
+  flex: 0 0 280px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl, 24px);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+  scroll-snap-align: start;
+}
+.insta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Instagram Carousel Feed",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Instagram Carousel Feed"
+    }
+  ]
+}
+{% endschema %}

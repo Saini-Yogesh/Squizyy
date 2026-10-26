@@ -1,0 +1,92 @@
+{%- comment -%}
+  Renders the 1x, 2x, 3x, 6x Bottle Selector buttons.
+  Accepts:
+  - product: {Object} Liquid product object
+  - default_tier: {Number} Default selected tier (e.g. 1, 2, 3, 6)
+{%- endcomment -%}
+
+<div class="bottle-selector-snippet" data-bottle-selector>
+  <div class="bottle-selector-grid">
+    <button type="button" class="bottle-tier-btn active" data-bottles="1" data-discount="0">
+      <span class="bottle-tier-count">1-Pack</span>
+      <span class="bottle-tier-label">Standard</span>
+    </button>
+    <button type="button" class="bottle-tier-btn" data-bottles="2" data-discount="10">
+      <span class="bottle-tier-count">2-Pack</span>
+      <span class="bottle-tier-save">Save 10%</span>
+    </button>
+    <button type="button" class="bottle-tier-btn" data-bottles="3" data-discount="15">
+      <span class="bottle-tier-badge">Popular</span>
+      <span class="bottle-tier-count">3-Pack</span>
+      <span class="bottle-tier-save">Save 15%</span>
+    </button>
+    <button type="button" class="bottle-tier-btn" data-bottles="6" data-discount="20">
+      <span class="bottle-tier-badge">Best Value</span>
+      <span class="bottle-tier-count">6-Pack</span>
+      <span class="bottle-tier-save">Save 20%</span>
+    </button>
+  </div>
+</div>
+
+<style>
+.bottle-selector-snippet {
+  margin: 1rem 0;
+}
+.bottle-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .bottle-selector-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.bottle-tier-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 0.5rem;
+  border-radius: var(--radius-xl, 16px);
+  border: 3px solid var(--color-dark-brown, #2b1408);
+  background-color: var(--color-cream, #fffbf2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.bottle-tier-btn.active {
+  background-color: var(--color-accent-purple, #ca9af1);
+  box-shadow: 0 4px 0 var(--color-dark-brown, #2b1408);
+  transform: translateY(-2px);
+}
+.bottle-tier-count {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+}
+.bottle-tier-label {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  color: rgba(43, 20, 8, 0.7);
+}
+.bottle-tier-save {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #176537);
+}
+.bottle-tier-badge {
+  position: absolute;
+  top: -8px;
+  background-color: var(--color-accent-green, #176537);
+  color: #fff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 9999px;
+}
+</style>

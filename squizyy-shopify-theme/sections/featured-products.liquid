@@ -1,0 +1,323 @@
+{%- comment -%}
+  Homepage Featured Product Buy Box Section
+{%- endcomment -%}
+
+{%- assign product = all_products[section.settings.featured_product] | default: collections.all.products.first -%}
+
+<section class="featured-product-section">
+  <div class="featured-product-container container">
+    <div class="featured-product-card">
+      <!-- Media Column -->
+      <div class="featured-media-col">
+        <div class="featured-main-image-wrap">
+          {%- if product and product.featured_image -%}
+            <img
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.title | escape }}"
+              class="featured-main-img"
+              id="FeaturedProductMainImage"
+            >
+          {%- else -%}
+            <img
+              src="{{ 'pdp-image.png' | asset_url }}"
+              alt="Drizzy Original Peanut Butter"
+              class="featured-main-img"
+              id="FeaturedProductMainImage"
+            >
+          {%- endif -%}
+
+          <div class="featured-floating-peanut animate-float">
+            <img src="{{ 'drizzy-peanut-left.png' | asset_url }}" alt="" width="80" height="80">
+          </div>
+        </div>
+      </div>
+
+      <!-- Content & Buy Box Column -->
+      <div class="featured-content-col" data-product-buy-box data-base-price="{{ product.price | default: 1999 | divided_by: 100.0 }}">
+        <div class="featured-badge">AUTHENTIC AUSTRALIAN HIGH-OLEIC</div>
+        
+        <h2 class="featured-title">{{ product.title | default: 'Drizzy Original Drizzle' }}</h2>
+        
+        <div class="featured-price-wrap">
+          <span class="featured-price" data-product-price>{{ product.price | default: 1999 | money }}</span>
+          <s class="featured-compare-price" data-compare-price style="display: none;"></s>
+          <span class="featured-savings-badge" data-savings-badge style="display: none;"></span>
+        </div>
+
+        <p class="featured-desc">
+          {{ product.description | default: '100% Australian High-Oleic Peanuts roasted to golden perfection and milled into the smoothest, most drizzle-able peanut butter on earth. No palm oil. No sugar. Just real peanuts.' }}
+        </p>
+
+        <!-- Bottle Bundle Selector -->
+        <div class="bottle-bundle-selector">
+          <label class="bundle-selector-label">Select Quantity & Save:</label>
+          <div class="bundle-options-grid">
+            <button type="button" class="bundle-btn active" data-bottle-count="1">
+              <span class="btn-count">1 Bottle</span>
+              <span class="btn-sub">Standard</span>
+            </button>
+            <button type="button" class="bundle-btn" data-bottle-count="2">
+              <span class="btn-count">2 Bottles</span>
+              <span class="btn-sub save-text">Save 10%</span>
+            </button>
+            <button type="button" class="bundle-btn" data-bottle-count="3">
+              <span class="btn-badge">Popular</span>
+              <span class="btn-count">3 Bottles</span>
+              <span class="btn-sub save-text">Save 15%</span>
+            </button>
+            <button type="button" class="bundle-btn" data-bottle-count="6">
+              <span class="btn-badge best-val">Best Value</span>
+              <span class="btn-count">6 Bottles</span>
+              <span class="btn-sub save-text">Save 20%</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Purchase Type Toggle -->
+        <div class="purchase-type-options">
+          <label class="purchase-radio-label">
+            <input type="radio" name="purchase_type" value="onetime" checked>
+            <span>One-time purchase</span>
+          </label>
+          <label class="purchase-radio-label">
+            <input type="radio" name="purchase_type" value="subscribe">
+            <span>Subscribe & Save an extra 15%</span>
+          </label>
+        </div>
+
+        <!-- Add to Cart CTA -->
+        <button
+          type="button"
+          class="button-primary featured-add-btn"
+          data-add-to-cart
+          data-add-to-cart-main
+          data-variant-id="{{ product.selected_or_first_available_variant.id | default: 1 }}"
+          data-quantity="1"
+        >
+          <span>Add to Cart — {{ product.price | default: 1999 | money }}</span>
+        </button>
+
+        <!-- Perks List -->
+        <ul class="featured-perks-list">
+          <li>✓ Free shipping on orders over $49.99</li>
+          <li>✓ 100% money-back satisfaction guarantee</li>
+          <li>✓ Ships fresh directly to your doorstep</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.featured-product-section {
+  padding: 5rem 0;
+}
+.featured-product-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  box-shadow: 0 12px 0 var(--color-foreground, #2d0f28);
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .featured-product-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.featured-media-col {
+  position: relative;
+  background-color: #ffffff;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+}
+@media (min-width: 1024px) {
+  .featured-media-col {
+    border-bottom: none;
+    border-right: 4px solid var(--color-foreground, #2d0f28);
+  }
+}
+.featured-main-image-wrap {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+}
+.featured-main-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.featured-floating-peanut {
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  width: 80px;
+}
+.featured-content-col {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.featured-badge {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #036e2c);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+.featured-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.05;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+.featured-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.featured-price {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 2rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.featured-compare-price {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 1.125rem;
+  color: rgba(45, 15, 40, 0.5);
+}
+.featured-savings-badge {
+  background-color: var(--color-accent-green, #036e2c);
+  color: #ffffff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+.featured-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-foreground, #2d0f28);
+  opacity: 0.85;
+  margin: 0 0 2rem 0;
+}
+.bundle-selector-label {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-foreground, #2d0f28);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.bundle-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 480px) {
+  .bundle-options-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.bundle-btn {
+  position: relative;
+  background-color: #ffffff;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-lg);
+  padding: 0.875rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.bundle-btn.active {
+  background-color: var(--color-accent-purple, #ca9af1);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  transform: translateY(-2px);
+}
+.btn-count {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.btn-sub {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.6875rem;
+  color: rgba(45, 15, 40, 0.7);
+}
+.save-text {
+  color: var(--color-accent-green, #036e2c);
+  font-weight: 700;
+}
+.btn-badge {
+  position: absolute;
+  top: -10px;
+  background-color: var(--color-accent-green, #036e2c);
+  color: #ffffff;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+.best-val {
+  background-color: var(--color-foreground, #2d0f28);
+}
+.purchase-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.purchase-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.featured-add-btn {
+  width: 100%;
+  padding: 1.125rem;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.featured-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  opacity: 0.8;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Product to Feature"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product"
+    }
+  ]
+}
+{% endschema %}

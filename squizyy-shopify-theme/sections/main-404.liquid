@@ -1,0 +1,90 @@
+<section class="error-404-section">
+  <div class="error-404-container">
+    <div class="error-404-card">
+      <div class="error-404-mascot">
+        <img src="{{ 'peanut-man.png' | asset_url }}" alt="Drizzy Mascot">
+      </div>
+      <h1 class="error-404-title">404</h1>
+      <h2 class="error-404-subtitle">Page Not Found</h2>
+      <p class="error-404-desc">Looks like you dripped off the map! The page you were looking for doesn't exist or has moved.</p>
+      <a href="{{ routes.root_url }}" class="button-primary error-404-btn">Back to Home</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.error-404-section {
+  background-color: var(--color-background, #fffaf3);
+  padding: 4rem 1rem 6rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+.error-404-container {
+  max-width: 38rem;
+  width: 100%;
+}
+.error-404-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-dark-brown, #2b1408);
+  border-bottom-width: 8px;
+  border-radius: var(--radius-2xl, 32px);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(43, 20, 8, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.error-404-mascot {
+  width: 7rem;
+  height: 7rem;
+}
+.error-404-mascot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.error-404-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-accent-purple, #ca9af1);
+  text-shadow: 2px 2px 0 var(--color-dark-brown, #2b1408);
+  margin: 0;
+}
+.error-404-subtitle {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2b1408);
+  margin: 0;
+}
+.error-404-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(43, 20, 8, 0.85);
+  margin: 0 0 1rem 0;
+  max-width: 32ch;
+}
+.error-404-btn {
+  max-width: 240px;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1.125rem;
+}
+</style>
+
+{% schema %}
+{
+  "name": "404 Error",
+  "settings": [],
+  "presets": [
+    {
+      "name": "404 Error"
+    }
+  ]
+}
+{% endschema %}
