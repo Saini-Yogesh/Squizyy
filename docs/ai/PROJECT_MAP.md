@@ -96,6 +96,7 @@ Squizyy/
 | :--- | :--- | :--- |
 | `npm run dev` | Project Root | Concurrently runs backend server (5000) and frontend client (5173) |
 | `npm run client:build` | Project Root | Runs Vite production build (`client/dist/`) |
+| `npm run theme:check` | Project Root | Validates Shopify theme with zero offenses (`--path squizyy-shopify-theme`) |
 | `npm run doc:verify` | Project Root | Verifies all referenced paths in `PROJECT_MAP.md` and detects doc drift |
 | `npm run build` | `client/` | Vite build command for the frontend |
 | `npm run dev` | `client/` | Starts Vite dev server with proxy to backend |

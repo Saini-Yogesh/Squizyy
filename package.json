@@ -11,6 +11,7 @@
     "server": "npm run dev --prefix server",
     "server:start": "npm start --prefix server",
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "theme:check": "shopify theme check --path squizyy-shopify-theme",
     "doc:verify": "node scripts/verify-ai-docs.js"
   },
   "devDependencies": {
