@@ -26,7 +26,11 @@
     {%- endif -%}
   </div>
 
-  {%- if show_badges and compare_at_price > price -%}
+  {%- if show_badges and available == false -%}
+    <span class="badge badge--sold-out">
+      {{ 'products.product.sold_out' | t | default: 'Sold Out' }}
+    </span>
+  {%- elsif show_badges and compare_at_price > price -%}
     {%- assign savings = compare_at_price | minus: price -%}
     <span class="badge badge--sale">
       Save {{ savings | money }}
@@ -59,6 +63,14 @@
 .badge--sale {
   background-color: var(--color-accent-green, #176537);
   color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.badge--sold-out {
+  background-color: rgba(43, 20, 8, 0.15);
+  color: var(--color-dark-brown, #2b1408);
   padding: 0.2rem 0.5rem;
   border-radius: var(--radius-full, 9999px);
   font-size: 0.75rem;

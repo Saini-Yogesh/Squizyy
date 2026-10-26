@@ -5,34 +5,44 @@
 {%- endcomment -%}
 
 <div class="product-gallery-snippet" data-product-gallery>
-  <div class="gallery-main-frame">
+  <div class="gallery-main-frame pdp-gallery-frame">
     {%- if product.featured_image != blank -%}
       <img
         id="GalleryMainImageSnippet"
         src="{{ product.featured_image | image_url: width: 1000 }}"
         alt="{{ product.title | escape }}"
-        class="gallery-main-img"
+        class="gallery-main-img pdp-main-img"
+        data-pdp-main-image
+        width="{{ product.featured_image.width | default: 1000 }}"
+        height="{{ product.featured_image.height | default: 1000 }}"
       >
     {%- else -%}
       <img
         id="GalleryMainImageSnippet"
-        src="{{ 'bundle-1x.png' | asset_url }}"
+        src="{{ 'pdp-image.png' | asset_url }}"
         alt="{{ product.title | default: 'Drizzy Peanut Butter' | escape }}"
-        class="gallery-main-img"
+        class="gallery-main-img pdp-main-img"
+        data-pdp-main-image
+        width="1023"
+        height="1537"
       >
     {%- endif -%}
+    <div class="pdp-floating-badge animate-float">
+      <img src="{{ 'best-value-sticker.png' | asset_url }}" alt="Best Value" width="80" height="80">
+    </div>
   </div>
 
   {%- if product.images.size > 1 -%}
-    <div class="gallery-thumbnails">
+    <div class="gallery-thumbnails pdp-thumbnails-strip">
       {%- for image in product.images -%}
         <button
           type="button"
-          class="gallery-thumb-btn {% if forloop.first %}active{% endif %}"
+          class="gallery-thumb-btn pdp-thumb-btn {% if forloop.first %}active{% endif %}"
+          data-pdp-thumb
           data-image-src="{{ image | image_url: width: 1000 }}"
           onclick="var m = document.getElementById('GalleryMainImageSnippet'); if(m) m.src = this.dataset.imageSrc; document.querySelectorAll('.gallery-thumb-btn').forEach(function(b){ b.classList.remove('active'); }); this.classList.add('active');"
         >
-          <img src="{{ image | image_url: width: 160, height: 160, crop: 'center' }}" alt="{{ image.alt | escape }}">
+          <img src="{{ image | image_url: width: 160, height: 160, crop: 'center' }}" alt="{{ image.alt | escape }}" width="160" height="160" loading="lazy">
         </button>
       {%- endfor -%}
     </div>

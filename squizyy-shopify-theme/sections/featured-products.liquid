@@ -16,6 +16,9 @@
               alt="{{ product.title | escape }}"
               class="featured-main-img"
               id="FeaturedProductMainImage"
+              width="{{ product.featured_image.width | default: 800 }}"
+              height="{{ product.featured_image.height | default: 800 }}"
+              loading="lazy"
             >
           {%- else -%}
             <img
@@ -23,6 +26,9 @@
               alt="Drizzy Original Peanut Butter"
               class="featured-main-img"
               id="FeaturedProductMainImage"
+              width="1023"
+              height="1537"
+              loading="lazy"
             >
           {%- endif -%}
 

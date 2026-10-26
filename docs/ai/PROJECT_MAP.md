@@ -67,16 +67,25 @@ Squizyy/
 │   ├── vite.config.js                 # Dev server proxy (/api -> localhost:5000)
 │   ├── vercel.json                    # SPA routing rewrites for Vercel deployment
 │   └── package.json                   # Client dependencies and build scripts
-└── server/                            # Backend (Node.js + Express)
-    ├── src/
-    │   ├── config/                    # Database connection (db.js)
-    │   ├── controllers/               # Route handlers (product, form, admin)
-    │   ├── middleware/                # Auth & error handling
-    │   ├── models/                    # Mongoose schemas (Product, Order, Store, etc.)
-    │   ├── routes/                    # Express routers
-    │   ├── services/                  # Business logic & in-memory fallbacks
-    │   └── utils/                     # Backend helper functions
-    └── package.json                   # Server dependencies and scripts
+├── server/                            # Backend (Node.js + Express)
+│   ├── src/
+│   │   ├── config/                    # Database connection (db.js)
+│   │   ├── controllers/               # Route handlers (product, form, admin)
+│   │   ├── middleware/                # Auth & error handling
+│   │   ├── models/                    # Mongoose schemas (Product, Order, Store, etc.)
+│   │   ├── routes/                    # Express routers
+│   │   ├── services/                  # Business logic & in-memory fallbacks
+│   │   └── utils/                     # Backend helper functions
+│   └── package.json                   # Server dependencies and scripts
+└── squizyy-shopify-theme/             # Native Shopify Online Store 2.0 Theme
+    ├── assets/                        # Theme CSS, JS, fonts, and images
+    ├── config/                        # Theme settings schema and defaults
+    ├── layout/                        # Theme layout shells (theme.liquid)
+    ├── locales/                       # Locale translations (en.default.json)
+    ├── sections/                      # Modular Liquid sections (31 sections)
+    ├── snippets/                      # Reusable Liquid snippets (10 snippets)
+    ├── templates/                     # JSON 2.0 templates (11 templates)
+    └── README.md                      # Shopify CLI instructions and guide
 ```
 
 ---

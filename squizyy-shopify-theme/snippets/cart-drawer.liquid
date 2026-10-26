@@ -11,10 +11,7 @@
       <span class="cart-drawer-badge" data-cart-count>{{ cart.item_count }}</span>
     </div>
     <button type="button" class="cart-drawer-close" data-close-cart aria-label="Close cart">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
+      {% render 'icon', name: 'close' %}
     </button>
   </div>
 

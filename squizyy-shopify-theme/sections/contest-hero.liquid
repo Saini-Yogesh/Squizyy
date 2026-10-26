@@ -7,7 +7,7 @@
 
       <!-- Sprouts Logo Badge -->
       <div class="contest-sprouts-badge">
-        <img src="{{ 'Sprouts_Farmers_Market_Logo_4_Vectorized.svg' | asset_url }}" alt="Sprouts Farmers Market">
+        <img src="{{ 'Sprouts_Farmers_Market_Logo_4_Vectorized.svg' | asset_url }}" alt="Sprouts Farmers Market" width="1800" height="468">
       </div>
 
       <a href="#instructions" class="button-primary contest-enter-btn">ENTER</a>
@@ -24,10 +24,11 @@
     <!-- Media Side -->
     <div class="contest-hero-media-col">
       <div class="contest-australia-sticker">
-        <img src="{{ 'Australia_Icon_7cdf6797-9b9e-43cd-8855-bed45dbfad15.png' | asset_url }}" alt="Australia Icon">
+        <img src="{{ 'Australia_Icon_7cdf6797-9b9e-43cd-8855-bed45dbfad15.png' | asset_url }}" alt="Australia Icon" width="1500" height="1500">
       </div>
 
       <div class="contest-video-frame">
+        {%- assign contest_video_url = section.settings.video_url | default: 'https://getdrizzy.co/cdn/shop/videos/c/vp/3bf20797693b4279ad33d2af5e4962c2/3bf20797693b4279ad33d2af5e4962c2.HD-1080p-7.2Mbps-92269433.mp4' -%}
         <video
           playsinline
           muted
@@ -37,8 +38,8 @@
           class="contest-video"
           aria-label="Drizzy USA"
         >
-          <source src="https://getdrizzy.co/cdn/shop/videos/c/vp/3bf20797693b4279ad33d2af5e4962c2/3bf20797693b4279ad33d2af5e4962c2.HD-1080p-7.2Mbps-92269433.mp4" type="video/mp4">
-          <img src="{{ 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url }}" alt="Drizzy USA">
+          <source src="{{ contest_video_url }}" type="video/mp4">
+          <img src="{{ 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url }}" alt="Drizzy USA" width="1100" height="615">
         </video>
       </div>
     </div>
@@ -224,6 +225,11 @@
       "id": "description",
       "label": "Description",
       "default": "Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + $2,000 USD spending money."
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL"
     }
   ],
   "presets": [

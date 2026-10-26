@@ -4,12 +4,12 @@
       {%- if section.settings.image_desktop != blank -%}
         {{ section.settings.image_desktop | image_url: width: 2000 | image_tag: class: 'wholesale-hero-img-desktop', alt: section.settings.heading }}
       {%- else -%}
-        <img src="{{ 'wholesale-hero.png' | asset_url }}" alt="Wholesale banner" class="wholesale-hero-img-desktop">
+        <img src="{{ 'wholesale-hero.png' | asset_url }}" alt="Wholesale banner" class="wholesale-hero-img-desktop" width="1500" height="467">
       {%- endif -%}
       {%- if section.settings.image_mobile != blank -%}
         {{ section.settings.image_mobile | image_url: width: 800 | image_tag: class: 'wholesale-hero-img-mobile', alt: section.settings.heading }}
       {%- else -%}
-        <img src="{{ 'wholesale-hero-mobile.png' | asset_url }}" alt="Wholesale banner mobile" class="wholesale-hero-img-mobile">
+        <img src="{{ 'wholesale-hero-mobile.png' | asset_url }}" alt="Wholesale banner mobile" class="wholesale-hero-img-mobile" width="375" height="489">
       {%- endif -%}
     </div>
 
@@ -29,19 +29,19 @@
     <div class="wholesale-marquee-content">
       {%- for i in (1..3) -%}
         <div class="wholesale-ticker-item">
-          <img src="{{ 'aussie.png' | asset_url }}" alt="" class="wholesale-ticker-icon">
+          <img src="{{ 'aussie.png' | asset_url }}" alt="" class="wholesale-ticker-icon" width="57" height="60">
           <span>Aussie owned</span>
         </div>
         <div class="wholesale-ticker-item">
-          <img src="{{ 'smile.png' | asset_url }}" alt="" class="wholesale-ticker-icon">
+          <img src="{{ 'smile.png' | asset_url }}" alt="" class="wholesale-ticker-icon" width="57" height="60">
           <span>Ultra-Smooth Drizzle</span>
         </div>
         <div class="wholesale-ticker-item">
-          <img src="{{ 'zero-sugar.png' | asset_url }}" alt="" class="wholesale-ticker-icon">
+          <img src="{{ 'zero-sugar.png' | asset_url }}" alt="" class="wholesale-ticker-icon" width="57" height="60">
           <span>Zero added sugar</span>
         </div>
         <div class="wholesale-ticker-item">
-          <img src="{{ 'natural-fuel.png' | asset_url }}" alt="" class="wholesale-ticker-icon">
+          <img src="{{ 'natural-fuel.png' | asset_url }}" alt="" class="wholesale-ticker-icon" width="57" height="60">
           <span>Natural fuel</span>
         </div>
       {%- endfor -%}

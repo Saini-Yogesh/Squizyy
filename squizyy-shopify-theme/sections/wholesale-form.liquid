@@ -6,11 +6,11 @@
         {%- if section.settings.side_image != blank -%}
           {{ section.settings.side_image | image_url: width: 1000 | image_tag: alt: 'Wholesale Drizzy', class: 'wholesale-form-img' }}
         {%- else -%}
-          <img src="{{ 'wholesale-form.png' | asset_url }}" alt="Wholesale Drizzy bottles" class="wholesale-form-img">
+          <img src="{{ 'wholesale-form.png' | asset_url }}" alt="Wholesale Drizzy bottles" class="wholesale-form-img" width="1086" height="1448" loading="lazy">
         {%- endif -%}
       </div>
       <div class="wholesale-form-mascot">
-        <img src="{{ 'peanut-man.png' | asset_url }}" alt="" aria-hidden="true">
+        <img src="{{ 'peanut-man.png' | asset_url }}" alt="" aria-hidden="true" width="518" height="843" loading="lazy">
       </div>
     </div>
 
@@ -114,7 +114,7 @@
   <div class="wholesale-sprouts-container">
     <h2 class="wholesale-sprouts-title">Aug 24, stocked nation-wide at</h2>
     <div class="wholesale-sprouts-logo">
-      <img src="{{ 'sprouts-market.png' | asset_url }}" alt="Sprouts Farmers Market">
+      <img src="{{ 'sprouts-market.png' | asset_url }}" alt="Sprouts Farmers Market" width="750" height="195" loading="lazy">
     </div>
   </div>
 </section>

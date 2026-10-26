@@ -7,32 +7,7 @@
     <div class="pdp-layout-grid">
       <!-- Gallery Column -->
       <div class="pdp-gallery-col">
-        <div class="pdp-gallery-frame">
-          <img
-            src="{{ product.featured_image | image_url: width: 1000 }}"
-            alt="{{ product.title | escape }}"
-            class="pdp-main-img"
-            data-pdp-main-image
-          >
-          <div class="pdp-floating-badge animate-float">
-            <img src="{{ 'best-value-sticker.png' | asset_url }}" alt="Best Value" width="80" height="80">
-          </div>
-        </div>
-
-        {%- if product.images.size > 1 -%}
-          <div class="pdp-thumbnails-strip">
-            {%- for image in product.images -%}
-              <button
-                type="button"
-                class="pdp-thumb-btn {% if forloop.first %}active{% endif %}"
-                data-pdp-thumb
-                data-image-src="{{ image | image_url: width: 1000 }}"
-              >
-                <img src="{{ image | image_url: width: 150, height: 150, crop: 'center' }}" alt="{{ image.alt | escape }}" width="70" height="70">
-              </button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
+        {% render 'product-gallery', product: product %}
       </div>
 
       <!-- Buy Box Column -->
@@ -62,26 +37,7 @@
             <span class="selector-hint">Stock up & save up to 20%</span>
           </div>
 
-          <div class="bottle-grid">
-            <button type="button" class="bottle-card-btn active" data-bottle-count="1">
-              <span class="b-count">1-Pack</span>
-              <span class="b-note">Standard</span>
-            </button>
-            <button type="button" class="bottle-card-btn" data-bottle-count="2">
-              <span class="b-count">2-Pack</span>
-              <span class="b-save">Save 10%</span>
-            </button>
-            <button type="button" class="bottle-card-btn" data-bottle-count="3">
-              <span class="b-badge">Popular</span>
-              <span class="b-count">3-Pack</span>
-              <span class="b-save">Save 15%</span>
-            </button>
-            <button type="button" class="bottle-card-btn" data-bottle-count="6">
-              <span class="b-badge val-badge">Best Value</span>
-              <span class="b-count">6-Pack</span>
-              <span class="b-save">Save 20%</span>
-            </button>
-          </div>
+          {% render 'bottle-selector', product: product %}
         </div>
 
         <!-- Purchase Subscription Toggle -->

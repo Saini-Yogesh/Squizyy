@@ -2,12 +2,12 @@
   <div class="error-404-container">
     <div class="error-404-card">
       <div class="error-404-mascot">
-        <img src="{{ 'peanut-man.png' | asset_url }}" alt="Drizzy Mascot">
+        <img src="{{ 'peanut-man.png' | asset_url }}" alt="Drizzy Mascot" width="518" height="843">
       </div>
       <h1 class="error-404-title">404</h1>
       <h2 class="error-404-subtitle">Page Not Found</h2>
       <p class="error-404-desc">Looks like you dripped off the map! The page you were looking for doesn't exist or has moved.</p>
-      <a href="{{ routes.root_url }}" class="button-primary error-404-btn">Back to Home</a>
+      {% render 'button', text: 'Back to Home', url: routes.root_url, class: 'error-404-btn' %}
     </div>
   </div>
 </section>

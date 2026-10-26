@@ -4,6 +4,22 @@ All notable architectural changes, system refactorings, and bug fixes are docume
 
 ---
 
+## [2026-10-26] — Native Shopify Online Store 2.0 Theme Migration
+
+### Added
+- **`squizyy-shopify-theme/`**: Complete native Shopify Online Store 2.0 Theme recreating the Squizyy storefront.
+- **Shopify Layout & Assets**:
+  - `layout/theme.liquid`: Master shell with fonts, meta tags, cart drawer, and newsletter popup.
+  - `assets/`: 150+ authentic assets copied from client, alongside `base.css`, `theme.css`, `animations.css`, `responsive.css`, `cart.js`, `product.js`, and `custom.js`.
+- **Commerce Functionality**:
+  - Shopify Ajax Cart API integration (`/cart/add.js`, `/cart/change.js`, `/cart.js`) with slide-out drawer, live item count, and dynamic free-shipping progress meter at $49.99.
+  - Native Shopify Checkout (`/checkout`) integration with variant bottle selector (1x/2x/3x/6x) and one-time vs subscribe & save toggle.
+- **31 Liquid Sections & 10 Snippets**: Modular components covering Homepage, PLP collection, PDP, Cart, Our Story, Store Locator, Wholesale, Contest, FAQs, and Reviews.
+- **11 Online Store 2.0 JSON Templates**: `index.json`, `product.json`, `collection.json`, `cart.json`, `page.json`, `page.our-story.json`, `page.store-locator.json`, `page.wholesale.json`, `page.contest.json`, `page.rules.json`, and `404.json`.
+- **`MIGRATION_PROGRESS.md` & `squizyy-shopify-theme/README.md`**: Complete migration tracking board and development documentation.
+
+---
+
 ## [2026-10-19] — AI Memory & Documentation System Implementation
 
 ### Added

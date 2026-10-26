@@ -30,7 +30,9 @@
     {%- endif -%}
 
     {%- if product.compare_at_price > product.price -%}
-      <span class="product-card-sale-badge">SALE</span>
+      <div class="product-card-sale-badge">
+        {% render 'product-badge', text: 'SALE', type: 'sale' %}
+      </div>
     {%- endif -%}
   </a>
 
@@ -49,10 +51,7 @@
     </h3>
 
     <div class="product-card-price-row">
-      <span class="product-price">{{ product.price | money }}</span>
-      {%- if product.compare_at_price > product.price -%}
-        <s class="product-compare-price">{{ product.compare_at_price | money }}</s>
-      {%- endif -%}
+      {% render 'price', product: product, show_badges: false %}
     </div>
 
     <button
