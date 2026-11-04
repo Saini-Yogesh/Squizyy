@@ -4,10 +4,10 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "heading": "THE WORLD’S FIRST DRIZZLE-ABLE PEANUT BUTTER",
-        "subheading": "No stirring. No spreading. Made from 100% Australian high-oleic peanuts.",
-        "button_label": "Grab Your Bottle",
-        "button_link": "/collections/all"
+        "heading": "All-Natural Peanut Butter You Can Squeeze",
+        "rating_text": "Loved by Thousands of Aussies!",
+        "button_label": "BUY DRIZZY PEANUT BUTTER NOW",
+        "shipping_text": "FREE SHIPPING ON ORDERS $49.99+"
       }
     },
     "ticker": {

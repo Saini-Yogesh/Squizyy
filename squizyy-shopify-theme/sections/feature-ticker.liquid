@@ -1,60 +1,190 @@
 {%- comment -%}
-  Continuous Brand Pillar Marquee Ticker
+  Brand Highlights Ticker Marquee
+  Faithfully ported from client/src/components/sections/FeatureTicker.jsx & FeatureTicker.module.css
 {%- endcomment -%}
 
-<section class="ticker-section">
-  <div class="ticker-track">
-    <div class="ticker-content animate-marquee">
-      {%- for i in (1..4) -%}
+<div id="shopify-section-logos-marquee" class="shopify-section">
+  <section class="ticker-section" aria-label="Brand Highlights">
+    <div class="ticker-wrapper">
+      <!-- Track 1 -->
+      <div class="ticker-track">
         <div class="ticker-item">
-          <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
-          <span>HIGH IN PROTEIN</span>
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">AUSSIE-OWNED</p>
         </div>
         <div class="ticker-item">
-          <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
-          <span>ZERO ADDED SUGAR</span>
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
         </div>
         <div class="ticker-item">
-          <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
-          <span>NO PALM OIL</span>
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
         </div>
         <div class="ticker-item">
-          <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" class="ticker-icon" width="28" height="28">
-          <span>100% AUSSIE PEANUTS</span>
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
         </div>
-      {%- endfor -%}
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">AUSSIE-OWNED</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+      </div>
+
+      <!-- Track 2 (Duplicate for seamless loop) -->
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">AUSSIE-OWNED</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_10_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">AUSSIE-OWNED</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-2.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="{{ 'image_11_Vectorized_-1.svg' | asset_url }}" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
 .ticker-section {
-  background-color: var(--color-accent-purple, #ca9af1);
+  background-color: var(--color-background, #f8ebd7);
   color: var(--color-foreground, #2d0f28);
-  padding: 1.25rem 0;
+  padding: 2rem 0;
   overflow: hidden;
-  border-top: 3px solid var(--color-foreground, #2d0f28);
-  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  position: relative;
+  border-top: 1px solid rgba(45, 15, 40, 0.08);
+  border-bottom: 1px solid rgba(45, 15, 40, 0.08);
+}
+.ticker-wrapper {
+  display: flex;
+  overflow: hidden;
   user-select: none;
+  width: 100%;
 }
 .ticker-track {
   display: flex;
-  overflow: hidden;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: tickerLoop 28s linear infinite;
+}
+.ticker-wrapper:hover .ticker-track {
+  animation-play-state: paused;
+}
+@keyframes tickerLoop {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
 .ticker-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding-right: 3rem;
+  gap: 1rem;
+  padding-right: 3.75rem;
+}
+.ticker-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .ticker-icon-wrapper {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+.ticker-icon-img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ticker-item-title {
   font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.2;
   text-transform: uppercase;
   white-space: nowrap;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0;
 }
-.ticker-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
+@media (min-width: 1024px) {
+  .ticker-item-title {
+    font-size: 1.5rem;
+  }
 }
 </style>
 

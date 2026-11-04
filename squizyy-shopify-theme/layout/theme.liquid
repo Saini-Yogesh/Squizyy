@@ -12,6 +12,38 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
+    <!-- Brand Typography Assets (Shopify CDN Hosted) -->
+    <style>
+      @font-face {
+        font-family: 'Champ Black';
+        src: url("{{ 'Champ-Black.otf' | asset_url }}") format('opentype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Azeret Mono';
+        src: url("{{ 'AzeretMono-VariableFont.ttf' | asset_url }}") format('truetype');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url("{{ 'inter_n4.b2a3f24c19b4de56e8871f609e73ca7f6d2e2bb9.woff2' | asset_url }}") format('woff2');
+        font-weight: 400 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url("{{ 'inter_n7.02711e6b374660cfc7915d1afc1c204e633421e4.woff2' | asset_url }}") format('woff2');
+        font-weight: 600 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
     <!-- CSS Bundles -->
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}

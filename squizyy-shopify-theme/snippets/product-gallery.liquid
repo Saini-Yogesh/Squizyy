@@ -1,103 +1,343 @@
 {%- comment -%}
-  Renders the interactive Product Gallery with main image frame and thumbnail selector.
+  Renders the authentic Product Gallery (PDP) matching ProductGallery.jsx & ProductGallery.module.css
   Accepts:
   - product: {Object} Liquid product object
 {%- endcomment -%}
 
-<div class="product-gallery-snippet" data-product-gallery>
-  <div class="gallery-main-frame pdp-gallery-frame">
-    {%- if product.featured_image != blank -%}
-      <img
-        id="GalleryMainImageSnippet"
-        src="{{ product.featured_image | image_url: width: 1000 }}"
-        alt="{{ product.title | escape }}"
-        class="gallery-main-img pdp-main-img"
-        data-pdp-main-image
-        width="{{ product.featured_image.width | default: 1000 }}"
-        height="{{ product.featured_image.height | default: 1000 }}"
-      >
-    {%- else -%}
-      <img
-        id="GalleryMainImageSnippet"
-        src="{{ 'pdp-image.png' | asset_url }}"
-        alt="{{ product.title | default: 'Drizzy Peanut Butter' | escape }}"
-        class="gallery-main-img pdp-main-img"
-        data-pdp-main-image
-        width="1023"
-        height="1537"
-      >
-    {%- endif -%}
-    <div class="pdp-floating-badge animate-float">
-      <img src="{{ 'best-value-sticker.png' | asset_url }}" alt="Best Value" width="80" height="80">
+{%- assign default_img_1 = 'USADRIZZYFRONTcopy.jpg' | asset_url -%}
+{%- assign default_img_2 = 'DRIZZY12302.jpg' | asset_url -%}
+{%- assign default_img_3 = 'DRIZZY13034.jpg' | asset_url -%}
+{%- assign default_img_4 = 'DRIZZY13132.jpg' | asset_url -%}
+{%- assign default_img_5 = 'DRIZZY12496.jpg' | asset_url -%}
+{%- assign default_img_6 = 'DRIZZY12791.jpg' | asset_url -%}
+{%- assign default_img_7 = 'DRIZZY12951.jpg' | asset_url -%}
+{%- assign default_img_8 = 'DRIZZY12237.jpg' | asset_url -%}
+{%- assign default_img_9 = 'USADRIZZYBACKcopy.jpg' | asset_url -%}
+{%- assign default_img_10 = 'USADRIZZYGOODcopy.jpg' | asset_url -%}
+{%- assign default_img_11 = 'USADRIZZYHOWTOcopy.jpg' | asset_url -%}
+
+{%- if product.handle contains 'case' or product.handle contains 'food-services' -%}
+  {%- assign default_img_1 = 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url -%}
+  {%- assign default_img_2 = 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url -%}
+  {%- assign default_img_3 = 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824_1.png' | asset_url -%}
+  {%- assign default_img_4 = 'Screenshot_2026-08-21_at_10.32.56_am_1.png' | asset_url -%}
+  {%- assign default_img_5 = default_img_1 -%}
+  {%- assign default_img_6 = default_img_2 -%}
+  {%- assign default_img_7 = default_img_3 -%}
+  {%- assign default_img_8 = default_img_4 -%}
+  {%- assign default_img_9 = default_img_1 -%}
+  {%- assign default_img_10 = default_img_2 -%}
+  {%- assign default_img_11 = default_img_3 -%}
+{%- endif -%}
+
+<div class="pdp-gallery-wrapper" data-product-gallery>
+  <!-- Desktop Layout: Large Top Hero Card + 2-Column Square Sub-Grid -->
+  <div class="pdp-desktop-grid">
+    <div class="pdp-main-hero">
+      {%- if product != blank and product.featured_image != blank -%}
+        <img
+          id="PdpDesktopHeroImg"
+          src="{{ product.featured_image | image_url: width: 1000 }}"
+          alt="{{ product.title | escape }}"
+          class="pdp-main-hero-img"
+          width="1000"
+          height="1000"
+          loading="eager"
+        >
+      {%- else -%}
+        <img
+          id="PdpDesktopHeroImg"
+          src="{{ default_img_1 }}"
+          alt="Drizzy Squeezy Peanut Butter"
+          class="pdp-main-hero-img"
+          width="1000"
+          height="1000"
+          loading="eager"
+        >
+      {%- endif -%}
+    </div>
+
+    <!-- 2-Column Square Grid for All Subsequent Photos -->
+    <div class="pdp-sub-grid">
+      {%- if product != blank and product.images.size > 1 -%}
+        {%- for img in product.images offset: 1 -%}
+          <div class="pdp-sub-card">
+            <img
+              src="{{ img | image_url: width: 600 }}"
+              alt="{{ img.alt | default: 'Drizzy view' | escape }}"
+              class="pdp-sub-card-img"
+              width="600"
+              height="600"
+              loading="lazy"
+            >
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_2 }}" alt="Drizzy On Kitchen Counter" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_3 }}" alt="Drizzy Lifestyle Drizzle" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_4 }}" alt="Drizzy Bottle Squeeze" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_5 }}" alt="Drizzy With Berries" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_6 }}" alt="Drizzy On Waffle" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_7 }}" alt="Drizzy In Pantry" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_8 }}" alt="Drizzy Cap Close-Up" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_9 }}" alt="Drizzy Nutrition Facts" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_10 }}" alt="Drizzy Good Stuff" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+        <div class="pdp-sub-card">
+          <img src="{{ default_img_11 }}" alt="Drizzy How To Squeeze" class="pdp-sub-card-img" width="600" height="600" loading="lazy">
+        </div>
+      {%- endif -%}
     </div>
   </div>
 
-  {%- if product.images.size > 1 -%}
-    <div class="gallery-thumbnails pdp-thumbnails-strip">
-      {%- for image in product.images -%}
-        <button
-          type="button"
-          class="gallery-thumb-btn pdp-thumb-btn {% if forloop.first %}active{% endif %}"
-          data-pdp-thumb
-          data-image-src="{{ image | image_url: width: 1000 }}"
-          onclick="var m = document.getElementById('GalleryMainImageSnippet'); if(m) m.src = this.dataset.imageSrc; document.querySelectorAll('.gallery-thumb-btn').forEach(function(b){ b.classList.remove('active'); }); this.classList.add('active');"
+  <!-- Mobile Layout: Large Top Card + Horizontal Scrollable Thumbnail Strip -->
+  <div class="pdp-mobile-view">
+    <div class="pdp-mobile-hero">
+      {%- if product != blank and product.featured_image != blank -%}
+        <img
+          id="PdpMobileHeroImg"
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          alt="{{ product.title | escape }}"
+          class="pdp-mobile-hero-img"
+          width="800"
+          height="800"
+          loading="eager"
         >
-          <img src="{{ image | image_url: width: 160, height: 160, crop: 'center' }}" alt="{{ image.alt | escape }}" width="160" height="160" loading="lazy">
-        </button>
-      {%- endfor -%}
+      {%- else -%}
+        <img
+          id="PdpMobileHeroImg"
+          src="{{ default_img_1 }}"
+          alt="Drizzy Squeezy Peanut Butter"
+          class="pdp-mobile-hero-img"
+          width="800"
+          height="800"
+          loading="eager"
+        >
+      {%- endif -%}
     </div>
-  {%- endif -%}
+
+    <!-- Scrollable Thumbnails Strip -->
+    <div class="pdp-mobile-strip">
+      {%- if product != blank and product.images.size > 0 -%}
+        {%- for img in product.images -%}
+          <button
+            type="button"
+            class="pdp-thumb-btn {% if forloop.first %}pdp-thumb-active{% else %}pdp-thumb-inactive{% endif %}"
+            aria-label="Thumbnail {{ forloop.index }}"
+            onclick="changePdpMobileImage(this, '{{ img | image_url: width: 800 }}')"
+          >
+            <img src="{{ img | image_url: width: 140, height: 140, crop: 'center' }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+          </button>
+        {%- endfor -%}
+      {%- else -%}
+        <button type="button" class="pdp-thumb-btn pdp-thumb-active" aria-label="Thumbnail 1" onclick="changePdpMobileImage(this, '{{ default_img_1 }}')">
+          <img src="{{ default_img_1 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 2" onclick="changePdpMobileImage(this, '{{ default_img_2 }}')">
+          <img src="{{ default_img_2 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 3" onclick="changePdpMobileImage(this, '{{ default_img_3 }}')">
+          <img src="{{ default_img_3 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 4" onclick="changePdpMobileImage(this, '{{ default_img_4 }}')">
+          <img src="{{ default_img_4 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 5" onclick="changePdpMobileImage(this, '{{ default_img_5 }}')">
+          <img src="{{ default_img_5 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 6" onclick="changePdpMobileImage(this, '{{ default_img_6 }}')">
+          <img src="{{ default_img_6 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 7" onclick="changePdpMobileImage(this, '{{ default_img_7 }}')">
+          <img src="{{ default_img_7 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 8" onclick="changePdpMobileImage(this, '{{ default_img_8 }}')">
+          <img src="{{ default_img_8 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 9" onclick="changePdpMobileImage(this, '{{ default_img_9 }}')">
+          <img src="{{ default_img_9 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 10" onclick="changePdpMobileImage(this, '{{ default_img_10 }}')">
+          <img src="{{ default_img_10 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+        <button type="button" class="pdp-thumb-btn pdp-thumb-inactive" aria-label="Thumbnail 11" onclick="changePdpMobileImage(this, '{{ default_img_11 }}')">
+          <img src="{{ default_img_11 }}" alt="" class="pdp-thumb-img" width="70" height="70" loading="lazy">
+        </button>
+      {%- endif -%}
+    </div>
+  </div>
 </div>
 
+<script>
+  function changePdpMobileImage(btn, newSrc) {
+    var hero = document.getElementById('PdpMobileHeroImg');
+    if (hero) hero.src = newSrc;
+    var btns = document.querySelectorAll('.pdp-mobile-strip .pdp-thumb-btn');
+    btns.forEach(function(b) {
+      b.classList.remove('pdp-thumb-active');
+      b.classList.add('pdp-thumb-inactive');
+    });
+    btn.classList.remove('pdp-thumb-inactive');
+    btn.classList.add('pdp-thumb-active');
+  }
+</script>
+
 <style>
-.product-gallery-snippet {
+.pdp-gallery-wrapper {
   width: 100%;
 }
-.gallery-main-frame {
+.pdp-desktop-grid {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .pdp-desktop-grid {
+    display: flex;
+  }
+}
+.pdp-main-hero {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background-color: var(--color-cream, #fffbf2);
-  border: 4px solid var(--color-dark-brown, #2b1408);
-  border-bottom-width: 8px;
-  border-radius: var(--radius-2xl, 32px);
+  border-radius: 28px;
+  border: 3px solid var(--border-color, #2d0f28);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(43, 20, 8, 0.12);
+  background-color: #ffffff;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
   box-sizing: border-box;
 }
-.gallery-main-img {
+.pdp-main-hero-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  display: block;
 }
-.gallery-thumbnails {
+.pdp-sub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+.pdp-sub-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  border: 3px solid var(--border-color, #2d0f28);
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
   display: flex;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
-.gallery-thumb-btn {
+.pdp-sub-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+.pdp-sub-card:hover .pdp-sub-card-img {
+  transform: scale(1.05);
+}
+.pdp-mobile-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .pdp-mobile-view {
+    display: none;
+  }
+}
+.pdp-mobile-hero {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  border: 3px solid var(--border-color, #2d0f28);
+  overflow: hidden;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
+  box-sizing: border-box;
+}
+.pdp-mobile-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.pdp-mobile-strip {
+  display: flex;
+  gap: 0.625rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0.25rem 0;
+}
+.pdp-mobile-strip::-webkit-scrollbar {
+  display: none;
+}
+.pdp-thumb-btn {
+  flex-shrink: 0;
   width: 4.5rem;
   height: 4.5rem;
-  border-radius: var(--radius-lg, 12px);
-  border: 2px solid var(--color-dark-brown, #2b1408);
-  background-color: var(--color-cream, #fffbf2);
-  padding: 4px;
+  border-radius: var(--radius-md, 10px);
+  border: 2px solid var(--border-muted, rgba(45, 15, 40, 0.15));
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: all var(--transition-fast, 0.15s ease);
   cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
+  padding: 0;
 }
-.gallery-thumb-btn.active {
-  border-color: var(--color-accent-purple, #ca9af1);
+@media (min-width: 640px) {
+  .pdp-thumb-btn {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+.pdp-thumb-active {
+  border-color: var(--border-color, #2d0f28);
   box-shadow: 0 0 0 2px var(--color-accent-purple, #ca9af1);
+  opacity: 1;
+  transform: scale(0.96);
 }
-.gallery-thumb-btn img {
+.pdp-thumb-inactive {
+  opacity: 0.6;
+}
+.pdp-thumb-inactive:hover {
+  opacity: 1;
+}
+.pdp-thumb-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  display: block;
 }
 </style>

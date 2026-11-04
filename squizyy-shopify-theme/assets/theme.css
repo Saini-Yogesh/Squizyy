@@ -37,29 +37,58 @@
 :root {
   --color-background: #f8ebd7;
   --color-foreground: #2d0f28;
-  --color-dark-brown: #2b1408;
+  --color-dark-brown: #2d0f28;
+  --color-brown: #894031;
+  --color-light-brown: #d4a373;
   --color-cream: #fffbf2;
+  --color-cream-light: #fff9ef;
   --color-accent-purple: #ca9af1;
+  --color-accent-purple-light: #f4eaff;
+  --color-accent-purple-hover: #b885e3;
   --color-accent-green: #036e2c;
+  --color-accent-yellow: #ffe8b3;
   --color-border: #2d0f28;
 
-  --font-primary: 'Champ Black', serif, -apple-system, BlinkMacSystemFont;
-  --font-secondary: 'Azeret Mono', monospace, -apple-system, BlinkMacSystemFont;
+  --border-color: #2d0f28;
+  --border-muted: rgba(45, 15, 40, 0.15);
+  --border-dashed: rgba(45, 15, 40, 0.25);
+  --border-width-sm: 1px;
+  --border-width-md: 2px;
+  --border-width-lg: 3px;
+  --border-width-xl: 4px;
 
+  --font-primary: 'Champ Black', serif, -apple-system, BlinkMacSystemFont;
+  --font-champ: 'Champ Black', serif, -apple-system, BlinkMacSystemFont;
+  --font-secondary: 'Azeret Mono', monospace, -apple-system, BlinkMacSystemFont;
+  --font-mono: 'Azeret Mono', monospace, -apple-system, BlinkMacSystemFont;
+  --font-body: 'Inter', sans-serif, -apple-system, BlinkMacSystemFont;
+
+  --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-2xl: 32px;
+  --radius-3xl: 40px;
   --radius-full: 9999px;
+  --radius-pill: 9999px;
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
 
   --border-thick: 3px solid var(--color-foreground);
   --border-card: 4px solid var(--color-foreground);
+  --shadow-sm: 0 1px 3px rgba(45, 15, 40, 0.08);
+  --shadow-md: 0 4px 12px rgba(45, 15, 40, 0.12);
+  --shadow-lg: 0 10px 25px rgba(45, 15, 40, 0.15);
   --shadow-chunky: 0 4px 0 var(--color-foreground);
   --shadow-chunky-hover: 0 6px 0 var(--color-foreground);
+  --shadow-pill: 0 4px 0 #2d0f28;
+  --shadow-pill-hover: 0 6px 0 #2d0f28;
   --shadow-modal: 0 20px 40px rgba(45, 15, 40, 0.25);
 
   --container-max-width: 1440px;
+  --page-max-width: 87.5rem;
   --page-gutter: 1.5rem;
 }
 

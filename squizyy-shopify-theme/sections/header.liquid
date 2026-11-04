@@ -1,161 +1,407 @@
 {%- comment -%}
-  Sticky Navigation Header with Centered Logo & Cart Drawer Trigger
+  Header / Navbar with Centered Logo, "BUY DRIZZY NOW" Button, & Ajax Cart Trigger
+  Faithfully ported from client/src/components/layout/Navbar.jsx & Navbar.module.css
 {%- endcomment -%}
 
-<header class="site-header">
-  <div class="header-container container">
-    <!-- Mobile Hamburger Toggle -->
-    <button type="button" class="header-menu-btn hidden-desktop" data-mobile-menu-toggle aria-label="Open menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
+{%- assign main_product = nil -%}
+{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- elsif collections.all.products.first != blank -%}
+  {%- assign main_product = collections.all.products.first -%}
+{%- endif -%}
 
-    <!-- Desktop Navigation Links Left -->
-    <nav class="header-nav header-nav-left hidden-mobile hidden-tablet">
-      <a href="{{ routes.all_products_collection_url }}" class="nav-link">Shop</a>
-      <a href="/pages/our-story" class="nav-link">Our Story</a>
-      <a href="/pages/store-locator" class="nav-link">Store Locator</a>
-    </nav>
+{%- if main_product != blank and main_product.url != blank -%}
+  {%- assign buy_now_url = main_product.url -%}
+{%- else -%}
+  {%- assign buy_now_url = routes.all_products_collection_url -%}
+{%- endif -%}
 
-    <!-- Center Brand Logo -->
-    <div class="header-logo-wrap">
-      <a href="{{ routes.root_url }}" class="header-logo-link">
-        <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="header-logo" width="140" height="42">
-      </a>
-    </div>
+{%- assign our_story_url = '/pages/our-story' -%}
+{%- if pages['our-story'].title != blank -%}
+  {%- assign our_story_url = pages['our-story'].url -%}
+{%- elsif pages['about-us'].title != blank -%}
+  {%- assign our_story_url = pages['about-us'].url -%}
+{%- elsif pages['about'].title != blank -%}
+  {%- assign our_story_url = pages['about'].url -%}
+{%- endif -%}
 
-    <!-- Right Navigation & Cart Trigger -->
-    <div class="header-nav-right">
-      <nav class="header-nav hidden-mobile hidden-tablet">
-        <a href="/pages/wholesale" class="nav-link">Wholesale</a>
-        <a href="/pages/sproutslaunchwinflightstoaustralia" class="nav-link">Win Flights</a>
-      </nav>
+{%- assign store_locator_url = '/pages/store-locator' -%}
+{%- if pages['store-locator'].title != blank -%}
+  {%- assign store_locator_url = pages['store-locator'].url -%}
+{%- elsif pages['stockists'].title != blank -%}
+  {%- assign store_locator_url = pages['stockists'].url -%}
+{%- elsif pages['find-in-store'].title != blank -%}
+  {%- assign store_locator_url = pages['find-in-store'].url -%}
+{%- endif -%}
 
-      <button type="button" class="header-cart-btn" data-open-cart aria-label="Open cart">
-        <span class="cart-label hidden-mobile">Cart</span>
-        <div class="cart-icon-wrap">
-          {% render 'icon', name: 'cart' %}
-          <span class="cart-count-badge" data-cart-count>{{ cart.item_count }}</span>
+{%- assign wholesale_url = '/pages/wholesale' -%}
+{%- if pages['wholesale'].title != blank -%}
+  {%- assign wholesale_url = pages['wholesale'].url -%}
+{%- endif -%}
+
+{%- assign contest_url = '/pages/sproutslaunchwinflightstoaustralia' -%}
+{%- if pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
+  {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
+{%- elsif pages['sprouts-launch-win-flights-to-australia'].title != blank -%}
+  {%- assign contest_url = pages['sprouts-launch-win-flights-to-australia'].url -%}
+{%- elsif pages['contest'].title != blank -%}
+  {%- assign contest_url = pages['contest'].url -%}
+{%- elsif pages['win-flights-to-australia'].title != blank -%}
+  {%- assign contest_url = pages['win-flights-to-australia'].url -%}
+{%- endif -%}
+
+{%- assign rules_url = '/pages/rules' -%}
+{%- if pages['rules'].title != blank -%}
+  {%- assign rules_url = pages['rules'].url -%}
+{%- elsif pages['official-rules'].title != blank -%}
+  {%- assign rules_url = pages['official-rules'].url -%}
+{%- elsif pages['sweepstakes-rules'].title != blank -%}
+  {%- assign rules_url = pages['sweepstakes-rules'].url -%}
+{%- endif -%}
+
+<div class="site-nav-wrapper">
+  <header class="site-navbar" role="banner">
+    <div class="nav-inner">
+      <div class="nav-container container">
+        <div class="nav-bar">
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            type="button"
+            class="nav-mobile-toggle"
+            data-mobile-menu-toggle
+            aria-label="Open navigation menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z"
+                fill="#2D0F28"
+              />
+            </svg>
+          </button>
+
+          <!-- Mobile Center Brand Logo -->
+          <a href="{{ routes.root_url }}" class="nav-mobile-logo" aria-label="Drizzy USA">
+            <img
+              src="{{ 'drizzy-dark-logo.svg' | asset_url }}"
+              alt="Drizzy"
+              class="nav-mobile-logo-img"
+              width="140"
+              height="30"
+              loading="eager"
+            >
+          </a>
+
+          <!-- Mobile Actions (Cart Trigger) -->
+          <div class="nav-mobile-actions">
+            <button
+              type="button"
+              class="nav-cart-trigger-mobile"
+              data-open-cart
+              aria-label="Cart with {{ cart.item_count }} items"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+                <path
+                  d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+                <path
+                  d="M2.25 3.75H5.25L7.5 16.5H19.5L21.75 6.75H6"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+              </svg>
+              <span class="nav-cart-badge" data-cart-count>{{ cart.item_count }}</span>
+            </button>
+          </div>
+
+          <!-- Desktop Full Navigation -->
+          <nav class="nav-desktop" aria-label="Main Navigation">
+            <!-- Left Nav Links -->
+            <div class="nav-group-left">
+              <a href="{{ routes.root_url }}" class="nav-link">Home</a>
+              <a href="{{ our_story_url }}" class="nav-link">Our Story</a>
+              <a href="{{ store_locator_url }}" class="nav-link">Stockists</a>
+            </div>
+
+            <!-- Center Brand Logo -->
+            <a href="{{ routes.root_url }}" class="nav-desktop-logo" aria-label="Drizzy USA">
+              <img
+                src="{{ 'drizzy-dark-logo.svg' | asset_url }}"
+                alt="Drizzy"
+                class="nav-desktop-logo-img"
+                width="140"
+                height="46"
+                loading="eager"
+              >
+            </a>
+
+            <!-- Right Links & Actions -->
+            <div class="nav-group-right">
+              <a href="{{ wholesale_url }}" class="nav-link">Wholesale</a>
+              <a href="{{ buy_now_url }}" class="nav-buy-now-btn">BUY DRIZZY NOW</a>
+
+              <!-- Desktop Cart Trigger -->
+              <button
+                type="button"
+                class="nav-cart-trigger-desktop"
+                data-open-cart
+                aria-label="Cart with {{ cart.item_count }} items"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <path
+                    d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2.25 3.75H5.25L7.5 16.5H19.5L21.75 6.75H6"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="nav-cart-badge" data-cart-count>{{ cart.item_count }}</span>
+              </button>
+            </div>
+          </nav>
         </div>
-      </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<!-- Mobile Navigation Drawer -->
-<div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
-<div class="mobile-menu-drawer" data-mobile-menu>
-  <div class="mobile-menu-header">
-    <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="mobile-menu-logo" width="120" height="36">
-    <button type="button" class="mobile-menu-close" data-mobile-menu-toggle aria-label="Close menu">✕</button>
+  <!-- Mobile Drawer Menu Overlay -->
+  <div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu-drawer" data-mobile-menu>
+    <div class="mobile-menu-header">
+      <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="mobile-menu-logo" width="120" height="36">
+      <button type="button" class="mobile-menu-close" data-mobile-menu-toggle aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="{{ routes.root_url }}" class="mobile-nav-link">Home</a>
+      <a href="{{ our_story_url }}" class="mobile-nav-link">Our Story</a>
+      <a href="{{ store_locator_url }}" class="mobile-nav-link">Stockists</a>
+      <a href="{{ wholesale_url }}" class="mobile-nav-link">Wholesale</a>
+      <a href="{{ contest_url }}" class="mobile-nav-link">Win Flights to Australia</a>
+      <a href="{{ rules_url }}" class="mobile-nav-link">Official Rules</a>
+      <a href="{{ buy_now_url }}" class="mobile-buy-now-btn">BUY DRIZZY NOW</a>
+    </nav>
   </div>
-  <nav class="mobile-menu-nav">
-    <a href="{{ routes.all_products_collection_url }}" class="mobile-nav-link">Shop</a>
-    <a href="/pages/our-story" class="mobile-nav-link">Our Story</a>
-    <a href="/pages/store-locator" class="mobile-nav-link">Store Locator</a>
-    <a href="/pages/wholesale" class="mobile-nav-link">Wholesale</a>
-    <a href="/pages/sproutslaunchwinflightstoaustralia" class="mobile-nav-link">Win Flights to Australia</a>
-    <a href="/pages/rules" class="mobile-nav-link">Official Rules</a>
-  </nav>
 </div>
 
 <style>
-.site-header {
+.site-nav-wrapper {
   position: sticky;
   top: 0;
   z-index: 990;
-  background-color: var(--color-background, #f8ebd7);
-  border-bottom: 3px solid var(--color-foreground, #2d0f28);
-  padding: 1rem 0;
+  width: 100%;
 }
-.header-container {
+.site-navbar {
+  width: 100%;
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  transition: transform var(--transition-normal, 0.25s ease);
+}
+.nav-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+@media (min-width: 1024px) {
+  .nav-inner {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+.nav-container {
+  padding: 0 1rem;
+  display: flex;
+}
+@media (min-width: 1024px) {
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+}
+.nav-bar {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header-nav {
+.nav-mobile-toggle {
   display: flex;
+  justify-content: center;
   align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.25rem;
+  color: var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+.nav-mobile-logo {
+  display: block;
+  outline: none;
+  border: none;
+}
+.nav-mobile-logo-img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-logo {
+    display: none;
+  }
+}
+.nav-mobile-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-actions {
+    display: none;
+  }
+}
+.nav-desktop {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
   gap: 2rem;
 }
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+  }
+}
+.nav-group-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+}
+.nav-desktop-logo {
+  display: block;
+  padding: 0 1rem;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+}
+.nav-desktop-logo-img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-group-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+}
 .nav-link {
+  display: block;
   font-family: var(--font-primary, 'Champ Black', serif);
   font-size: 1.125rem;
   text-transform: uppercase;
   color: var(--color-foreground, #2d0f28);
-  position: relative;
-  transition: transform 0.15s ease;
+  transition: opacity 0.15s ease;
+  text-decoration: none;
 }
 .nav-link:hover {
-  transform: translateY(-2px);
+  opacity: 0.75;
 }
-.header-logo-wrap {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.header-logo {
-  height: 42px;
-  width: auto;
-  object-fit: contain;
-}
-.header-menu-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-foreground, #2d0f28);
-  padding: 0.25rem;
-}
-.header-nav-right {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-.header-cart-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: var(--color-accent-purple, #ca9af1);
-  border: 2px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-full);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  box-shadow: 0 3px 0 var(--color-foreground, #2d0f28);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.header-cart-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 var(--color-foreground, #2d0f28);
-}
-.cart-label {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: var(--color-foreground, #2d0f28);
-}
-.cart-icon-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.cart-count-badge {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background-color: var(--color-foreground, #2d0f28);
-  color: #ffffff;
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  width: 18px;
-  height: 18px;
-  border-radius: var(--radius-full);
+.nav-buy-now-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.0625rem;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-buy-now-btn:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+}
+.nav-buy-now-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+.nav-cart-trigger-desktop {
+  margin-left: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-accent-purple, #ca9af1);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.nav-cart-trigger-desktop:hover {
+  transform: scale(1.05);
+}
+.nav-cart-trigger-mobile {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.375rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-accent-purple, #ca9af1);
+  cursor: pointer;
+}
+.nav-cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-foreground, #2d0f28);
+  color: var(--color-cream, #fffbf2);
+  font-size: 0.625rem;
+  font-weight: 700;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  border: 1px solid var(--color-cream, #fffbf2);
 }
 .mobile-menu-overlay {
   position: fixed;
@@ -177,7 +423,7 @@
   bottom: 0;
   width: 80%;
   max-width: 320px;
-  background-color: var(--color-cream, #fffbf2);
+  background-color: var(--color-background, #f8ebd7);
   border-right: 4px solid var(--color-foreground, #2d0f28);
   z-index: 9999;
   padding: 1.5rem;
@@ -201,17 +447,38 @@
   font-size: 1.5rem;
   font-weight: 900;
   cursor: pointer;
+  color: var(--color-foreground, #2d0f28);
 }
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 .mobile-nav-link {
   font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-muted, rgba(45, 15, 40, 0.15));
   color: var(--color-foreground, #2d0f28);
+  text-decoration: none;
+}
+.mobile-buy-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-decoration: none;
 }
 </style>
 

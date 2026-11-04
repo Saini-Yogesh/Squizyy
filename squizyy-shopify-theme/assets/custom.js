@@ -4,11 +4,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Drawer Navigation
-  const menuToggle = document.querySelector('[data-mobile-menu-toggle]');
+  const menuToggles = document.querySelectorAll('[data-mobile-menu-toggle]');
   const mobileMenu = document.querySelector('[data-mobile-menu]');
   const mobileMenuOverlay = document.querySelector('[data-mobile-menu-overlay]');
 
-  if (menuToggle && mobileMenu) {
+  if (menuToggles.length > 0 && mobileMenu) {
     const toggleMenu = () => {
       const isOpen = mobileMenu.classList.contains('active');
       if (isOpen) {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-    menuToggle.addEventListener('click', toggleMenu);
+    menuToggles.forEach((btn) => btn.addEventListener('click', toggleMenu));
     if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', toggleMenu);
   }
 

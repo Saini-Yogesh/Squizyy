@@ -52,8 +52,15 @@ class SquizyyCart {
         e.preventDefault();
         const variantId = addBtn.getAttribute('data-variant-id');
         const quantity = parseInt(addBtn.getAttribute('data-quantity') || '1', 10);
-        if (variantId) {
+        if (variantId && !variantId.startsWith('4400000000')) {
           this.addItem(variantId, quantity, addBtn);
+        } else {
+          const productLink = addBtn.closest('.product-card')?.querySelector('a')?.href;
+          if (productLink) {
+            window.location.href = productLink;
+          } else {
+            alert('Please import products into your Shopify Admin catalog first.');
+          }
         }
       }
 
@@ -125,19 +132,31 @@ class SquizyyCart {
         body: JSON.stringify({ id: variantId, quantity })
       });
 
-      if (!res.ok) throw new Error('Add to cart failed');
-      const item = await res.json();
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.description || 'Add to cart failed');
+      }
       await this.refresh();
       this.open();
     } catch (err) {
       console.error('Add to cart error:', err);
-      alert('Could not add item to cart. Please try again.');
+      alert(err.message || 'Could not add item to cart. Please try again.');
     } finally {
       if (buttonEl) {
         buttonEl.removeAttribute('disabled');
         buttonEl.innerHTML = buttonEl.dataset.originalText || 'Add to Cart';
       }
     }
+  }
+
+  escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   async updateItem(line, quantity) {
@@ -201,14 +220,21 @@ class SquizyyCart {
     let html = '';
     cart.items.forEach((item, index) => {
       const line = index + 1;
+      const imageUrl = (item.featured_image && item.featured_image.url)
+        ? item.featured_image.url
+        : (item.image ? item.image : '');
+      const imageTag = imageUrl
+        ? `<img src="${imageUrl}" alt="${this.escapeHtml(item.title)}" width="80" height="80">`
+        : `<div class="cart-item-placeholder" style="width:80px;height:80px;display:flex;align-items:center;justify-content:center;background:#f4eaff;border-radius:12px;font-size:2rem;">🥜</div>`;
+
       html += `
         <div class="cart-drawer-item" data-line="${line}">
           <div class="cart-item-image">
-            <img src="${item.featured_image.url}" alt="${item.title}" width="80" height="80">
+            ${imageTag}
           </div>
           <div class="cart-item-info">
-            <h4 class="cart-item-title">${item.product_title}</h4>
-            ${item.variant_title ? `<p class="cart-item-variant">${item.variant_title}</p>` : ''}
+            <h4 class="cart-item-title">${this.escapeHtml(item.product_title || item.title)}</h4>
+            ${item.variant_title && item.variant_title !== 'Default Title' ? `<p class="cart-item-variant">${this.escapeHtml(item.variant_title)}</p>` : ''}
             <div class="cart-item-price">${this.formatMoney(item.final_line_price)}</div>
             
             <div class="cart-item-controls">

@@ -4,7 +4,44 @@ All notable architectural changes, system refactorings, and bug fixes are docume
 
 ---
 
-## [2026-10-27] — Shopify Theme Check Compliance & Zero-Offense Hardening
+## [2026-11-05] — Storefront Full-System Audit, Typography & Cart Robustness Hardening
+
+### Fixed & Improved
+- **Zero-404 Page Handle Resiliency (`header.liquid` & `footer.liquid`)**: Added multi-alias handle resolution for all custom pages (`sprouts-launch-win-flights-to-australia`, `stockists`, `find-in-store`, `about-us`, `official-rules`, `sweepstakes-rules`), ensuring internal links resolve dynamically regardless of whether pages were titled with spaces or hyphens.
+- **Robust Ajax Cart Drawer (`assets/cart.js`)**: Protected against null image references (`item.featured_image?.url || item.image`) with fallback placeholder peanut icon to prevent JS errors if products are imported without images. Added HTML escaping (`escapeHtml`) to prevent script injection in cart titles and variant text.
+- **Shopify CDN Self-Hosted Brand Fonts (`layout/theme.liquid`)**: Added direct Liquid `asset_url` `@font-face` bindings for `Champ Black`, `Azeret Mono`, and `Inter` (regular & bold), eliminating reliance on external Google Fonts and ensuring instant, zero-flicker typography across all devices.
+- **Cart Page Image Fallbacks (`sections/main-cart.liquid`)**: Added safe fallback hierarchy (`item.image` -> `item.product.featured_image` -> `'DRIZZY12302.jpg' | asset_url`) so full-page cart table never renders broken image placeholders.
+- **Collection Fallback Navigation (`sections/main-collection.liquid`)**: Updated fallback product cards to link directly to respective product detail pages (`/products/drizzy-squeezy-peanut-butter-19-4-oz` and `/products/food-services-pack-6-units`) avoiding dummy variant ID add-to-cart attempts before catalog ingestion.
+- **CSV Data Integrity (`shopify-products-import.csv`)**: Resolved CSV parsing shift where `Variant Compare At Price` received boolean `"TRUE"`, aligning all 49 standard Shopify columns with accurate pricing ($9.99 and $37.50).
+- **Verified Theme Deployment**: Pushed all updates live to dev store `squizyy-dev.myshopify.com` (Theme #`187576582232`). Passed `npm run theme:check` with 0 offenses across 57 files and `npm run doc:verify` with 0 warnings.
+
+---
+
+## [2026-11-04] — Authentic UI Restoration & Zero-404 Dynamic Route Resolution
+
+### Fixed
+- **Authentic Product Gallery & Fallback Images**: Restored authentic 11 high-resolution product photos (`USADRIZZYFRONTcopy.jpg`, `DRIZZY12302.jpg`, `DRIZZY13034.jpg`, `DRIZZY13132.jpg`, `DRIZZY12496.jpg`, etc.) in `snippets/product-gallery.liquid` with desktop 2-column square subgrid and mobile scrollable thumbnail strip.
+- **Authentic Featured Product Section**: Replaced generic buy box in `sections/featured-products.liquid` with authentic warm brown section (`#894031`), floating peanuts, 5-thumbnail compact gallery with interactive switching, 5-star review score, 3 checkmark bullet items, and "BUY DRIZZY PEANUT BUTTER NOW" CTA.
+- **Collection Fallback Cards**: Added authentic product cards to `sections/main-collection.liquid` so collection pages gracefully display Drizzy Squeezy Peanut Butter and Food Services Pack with secondary hover image swap when Shopify catalog items are empty.
+- **Footer Drip Preceding Section Overlap**: Replaced `position: absolute; transform: translateY(-98%);` with natural document flow (`position: relative; line-height: 0; width: 100%;`) in `sections/footer.liquid`. This completely eliminated the 420px solid cream SVG overlapping and slicing into previous section content (e.g. InstaFeed cards, timeline, FAQs) across all pages.
+- **Footer Section Gap**: Removed extraneous `margin-top: 5rem` / `margin-top: 7rem` on `.footer-section`, restoring the seamless visual transition between page content and the pastel footer gradient.
+- **Footer Layout Alignment**: Ported 1:1 CSS from `Footer.module.css` for form fields, full-width `button-primary` button, and responsive column layouts.
+- **Zero-404 Dynamic Routing**: Implemented dynamic Liquid product and page resolution across `sections/header.liquid`, `sections/hero.liquid`, `sections/announcement-bar.liquid`, `sections/footer.liquid`, and `sections/marquee-cards.liquid`. Product links dynamically resolve to the main product handle, fallback to `collections.all.products.first`, or degrade to collection URL, completely eliminating hardcoded slug 404s.
+- **Mobile Drawer Close Listener**: Updated `assets/custom.js` to query all `[data-mobile-menu-toggle]` triggers with `querySelectorAll`, ensuring both the hamburger and internal close buttons work seamlessly.
+- **Theme Check Zero-Offense Compliance**: Resolved `RemoteAsset` warning in `sections/full-page-media.liquid` by converting external video link to dynamic setting `video_url` with verified fallback (`shopify theme check` passed with 57 files inspected, 0 offenses).
+
+### Refactored
+- **Pixel-Perfect Authentic UI Restoration**: Replaced simplified theme sections with authentic markup and styling ported directly from `client/src/`:
+  - `sections/announcement-bar.liquid`: Restored purple pill infinite marquee with "FREE SHIPPING ON ORDERS $49.99+" and underlined "BUY NOW".
+  - `sections/header.liquid`: Restored authentic 3-column navigation with "BUY DRIZZY NOW" chunky purple button, mobile actions, and cart item counter badge.
+  - `sections/hero.liquid`: Restored authentic overlaid rating (5 purple `#CA9AF1` SVG stars), headline, floating sticker badge, and bottom gradient with "BUY DRIZZY PEANUT BUTTER NOW" CTA button inside the frame.
+  - `sections/feature-ticker.liquid`: Restored cream background and 4 authentic icons/pillars (`AUSSIE-OWNED`, `ULTRA-SMOOTH`, `ZERO ADDED SUGAR`, `NATURAL FUEL`).
+  - `sections/product-comparison.liquid`: Restored "Kiss Your Jar Goodbye, Mwa!" layout with top cream drip graphic, floating peanuts, side bottles, pill badges, and central VS circle.
+  - `sections/features-grid.liquid`: Restored 2-column layout with framed image (`drizzy-1.jpg`), rotated slogan badge overlay, 4 features with authentic SVGs, and "SHOP NOW" CTA.
+  - `sections/full-page-media.liquid`: Restored full-bleed background video with overlaid floating story card and peanut sticker.
+  - `sections/marquee-cards.liquid`: Restored mascot/peanut icon header row, title, subtitle, and CTA button.
+  - `sections/footer.liquid`: Restored pastel background, top drip divider, dual cards ("Sign up & save 10%" and "Get Drizzy with it"), social SVG icons, and giant logo.
+  - `assets/theme.css`: Standardized all semantic tokens, radii, shadows, and font aliases matching `variables.css`.
 
 ### Fixed
 - **Zero-Offense Theme Check Resolution**: Resolved all 61 offenses (50 errors, 11 warnings) across 27 files in `squizyy-shopify-theme/` using `npx shopify theme check` (57 files inspected, 0 offenses found).

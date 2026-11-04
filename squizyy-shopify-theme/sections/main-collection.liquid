@@ -1,23 +1,124 @@
 {%- comment -%}
-  Main Collection Grid (PLP)
+  Main Collection Grid (PLP) — "Shop All Drizzy"
+  Faithfully ported from client/src/pages/Products.jsx, Products.module.css & ProductCard.module.css
 {%- endcomment -%}
 
-<section class="collection-section">
-  <div class="collection-container container">
-    <div class="collection-header">
-      <h1 class="collection-title">{{ collection.title | default: 'All Drizzy Products' }}</h1>
-      {%- if collection.description != blank -%}
-        <div class="collection-desc">{{ collection.description }}</div>
-      {%- endif -%}
+<section class="collection-section" aria-label="All Products">
+  <div class="collection-container">
+    <!-- Header Area -->
+    <div class="collection-header-area">
+      <h1 class="collection-page-title">
+        {{ collection.title | default: 'Shop All Drizzy' }}
+      </h1>
+      <p class="collection-page-subtitle">
+        {{ collection.description | default: '100% natural squeezy peanut butter, straight from Texas runner peanuts.' }}
+      </p>
     </div>
 
+    <!-- Product Grid -->
     {%- paginate collection.products by 12 -%}
-      <div class="collection-grid">
-        {%- for product in collection.products -%}
-          {% render 'product-card', product: product %}
+      <div class="collection-products-grid">
+        {%- if collection.products.size > 0 -%}
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
         {%- else -%}
-          <p class="collection-empty">No products found in this collection.</p>
-        {%- endfor -%}
+          <!-- Authentic Fallback Product 1: Drizzy Squeezy Peanut Butter 19.4 Oz -->
+          <div class="product-card" data-product-card>
+            <div class="product-card-inner">
+              <a
+                href="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                class="product-card-image-link"
+                aria-label="View details for Drizzy Squeezy Peanut Butter 19.4 Oz"
+              >
+                <div class="product-card-image-container">
+                  <img
+                    src="{{ 'DRIZZY12302.jpg' | asset_url }}"
+                    alt="Drizzy Squeezy Peanut Butter 19.4 Oz"
+                    class="product-card-primary-img"
+                    loading="eager"
+                    width="400"
+                    height="533"
+                  >
+                  <img
+                    src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
+                    alt=""
+                    class="product-card-hover-img"
+                    loading="lazy"
+                    width="400"
+                    height="533"
+                  >
+                </div>
+              </a>
+
+              <div class="product-card-info">
+                <a href="/products/drizzy-squeezy-peanut-butter-19-4-oz" class="product-card-title">
+                  Drizzy Squeezy Peanut Butter 19.4 Oz
+                </a>
+                <div class="product-card-price">
+                  $9.99
+                </div>
+              </div>
+
+              <div class="product-card-actions">
+                <a
+                  href="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                  class="button-primary product-card-btn"
+                >
+                  <span>ADD TO CART</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Authentic Fallback Product 2: Food Services Case Pack (6 units) -->
+          <div class="product-card" data-product-card>
+            <div class="product-card-inner">
+              <a
+                href="/products/food-services-pack-6-units"
+                class="product-card-image-link"
+                aria-label="View details for Food Services Case Pack (6 units)"
+              >
+                <div class="product-card-image-container">
+                  <img
+                    src="{{ 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url }}"
+                    alt="Food Services Case Pack (6 units)"
+                    class="product-card-primary-img"
+                    loading="eager"
+                    width="400"
+                    height="533"
+                  >
+                  <img
+                    src="{{ 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url }}"
+                    alt=""
+                    class="product-card-hover-img"
+                    loading="lazy"
+                    width="400"
+                    height="533"
+                  >
+                </div>
+              </a>
+
+              <div class="product-card-info">
+                <a href="/products/food-services-pack-6-units" class="product-card-title">
+                  Food Services Case Pack (6 units)
+                </a>
+                <div class="product-card-price">
+                  $37.50
+                </div>
+              </div>
+
+              <div class="product-card-actions">
+                <a
+                  href="/products/food-services-pack-6-units"
+                  class="button-primary product-card-btn"
+                >
+                  <span>ADD TO CART</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
       </div>
 
       {%- if paginate.pages > 1 -%}
@@ -31,45 +132,191 @@
 
 <style>
 .collection-section {
-  padding: 4rem 0 6rem;
-}
-.collection-header {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 3.5rem;
-}
-.collection-title {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--color-foreground, #2d0f28);
-  margin: 0 0 1rem 0;
-  text-transform: uppercase;
-}
-.collection-desc {
-  font-size: 1.125rem;
-  color: var(--color-foreground, #2d0f28);
-  opacity: 0.85;
-}
-.collection-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  position: relative;
+  background-color: var(--color-cream, #fffbf2);
+  color: var(--color-dark-brown, #2b1408);
+  padding: 2.5rem 1rem 5rem;
 }
 @media (min-width: 640px) {
-  .collection-grid {
+  .collection-section {
+    padding: 3.5rem 1.5rem 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .collection-section {
+    padding: 4.5rem 2rem 7rem;
+  }
+}
+.collection-container {
+  margin: 0 auto;
+  max-width: var(--page-max-width, 87.5rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+.collection-header-area {
+  margin-bottom: 2.5rem;
+}
+.collection-page-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 2.25rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2d0f28);
+  margin: 0 0 0.5rem 0;
+}
+@media (min-width: 640px) {
+  .collection-page-title {
+    font-size: 3rem;
+  }
+}
+.collection-page-subtitle {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  color: rgba(43, 20, 8, 0.75);
+  margin: 0;
+}
+.collection-products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .collection-products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 1024px) {
-  .collection-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .collection-products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
   }
 }
-.collection-empty {
-  grid-column: 1 / -1;
+.product-card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.product-card-inner {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.product-card-image-link {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  border: 2px solid var(--border-color, #2d0f28);
+  border-radius: var(--radius-lg, 16px);
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
+  display: block;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .product-card-image-link {
+    border-width: 3px;
+    border-radius: 22px;
+  }
+}
+.product-card-image-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.product-card-primary-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
+  display: block;
+}
+.product-card-hover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0;
+  display: block;
+}
+.product-card-image-link:hover .product-card-primary-img {
+  opacity: 0;
+}
+.product-card-image-link:hover .product-card-hover-img {
+  opacity: 1;
+}
+.product-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  z-index: 2;
+  margin-top: 0.25rem;
+}
+.product-card-title {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark-brown, #2d0f28);
+  text-decoration: none;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (min-width: 640px) {
+  .product-card-title {
+    font-size: 1rem;
+  }
+}
+.product-card-title:hover {
+  text-decoration: underline;
+}
+.product-card-price {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark-brown, #2d0f28);
+}
+@media (min-width: 640px) {
+  .product-card-price {
+    font-size: 1rem;
+  }
+}
+.product-card-actions {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+.product-card-btn {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .product-card-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+.collection-pagination {
+  margin-top: 3rem;
   text-align: center;
-  font-size: 1.25rem;
-  padding: 4rem 0;
 }
 </style>
 

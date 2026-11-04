@@ -13,7 +13,7 @@
       <!-- Buy Box Column -->
       <div class="pdp-buy-col">
         <div class="pdp-badge-top">100% AUSTRALIAN HIGH-OLEIC PEANUTS</div>
-        <h1 class="pdp-title">{{ product.title }}</h1>
+        <h1 class="pdp-title">{{ product.title | default: 'Drizzy Squeezy Peanut Butter 19.4 Oz' }}</h1>
 
         <div class="pdp-rating-row">
           <div class="pdp-stars">★★★★★</div>
@@ -21,13 +21,13 @@
         </div>
 
         <div class="pdp-price-row">
-          <span class="pdp-price" data-product-price>{{ product.price | money }}</span>
+          <span class="pdp-price" data-product-price>{{ product.price | default: 999 | money }}</span>
           <s class="pdp-compare-price" data-compare-price style="display: none;"></s>
           <span class="pdp-savings-badge" data-savings-badge style="display: none;"></span>
         </div>
 
         <div class="pdp-short-desc">
-          {{ product.description }}
+          {{ product.description | default: '100% natural squeezy peanut butter, straight from American runner peanuts. Ultra-smooth, drizzlable, and packed with 7g of protein per serve. No added sugar, no palm oil, and zero mess.' }}
         </div>
 
         <!-- Quantity / Bottle Tier Selector -->
@@ -65,7 +65,7 @@
           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
           data-quantity="1"
         >
-          <span>Add to Cart — {{ product.price | money }}</span>
+          <span>Add to Cart — {{ product.price | default: 999 | money }}</span>
         </button>
 
         <!-- Product Value Perks -->

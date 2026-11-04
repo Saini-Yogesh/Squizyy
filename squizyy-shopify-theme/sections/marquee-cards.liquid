@@ -1,58 +1,310 @@
 {%- comment -%}
-  "Life's Better With Drizzy" Mascot & Peanut Strip
+  Brand Philosophy & Mascot Icon Row ("Life's Better With Drizzy")
+  Faithfully ported from client/src/components/sections/MarqueeCards.jsx & MarqueeCards.module.css
 {%- endcomment -%}
 
-<section class="marquee-strip-section">
-  <div class="marquee-strip-track">
-    <div class="marquee-strip-content animate-marquee-reverse">
-      {%- for i in (1..6) -%}
-        <div class="strip-item">
-          <span>LIFE'S BETTER WITH DRIZZY</span>
-          <img src="{{ 'mascot-cream.svg' | asset_url }}" alt="" class="strip-mascot" width="36" height="36">
-          <span>ALWAYS FRESH</span>
-          <img src="{{ 'peanut-cream.svg' | asset_url }}" alt="" class="strip-peanut" width="30" height="30">
+{%- assign main_product = nil -%}
+{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- elsif collections.all.products.first != blank -%}
+  {%- assign main_product = collections.all.products.first -%}
+{%- endif -%}
+
+{%- if main_product != blank and main_product.url != blank -%}
+  {%- assign buy_now_url = main_product.url -%}
+{%- else -%}
+  {%- assign buy_now_url = routes.all_products_collection_url -%}
+{%- endif -%}
+
+<div id="shopify-section-marquee-cards" class="shopify-section">
+  <section class="marquee-cards-section" aria-label="Brand Philosophy">
+    <div class="marquee-cards-container">
+      <!-- Header row with mascot & peanut icons -->
+      <div class="marquee-cards-header-row">
+        <!-- Mobile icon left -->
+        <div class="marquee-cards-icon-mobile">
+          <img
+            src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+            class="marquee-cards-icon-img"
+            loading="lazy"
+          >
         </div>
-      {%- endfor -%}
+
+        <!-- Desktop alternating row left -->
+        <div class="marquee-cards-icon-group-desktop">
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Center Heading -->
+        <h3 class="marquee-cards-title">
+          {{ section.settings.title | default: "LIFE'S BETTER WITH DRIZZY" }}
+        </h3>
+
+        <!-- Desktop alternating row right -->
+        <div class="marquee-cards-icon-group-desktop">
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="{{ 'mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg' | asset_url }}" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Mobile icon right -->
+        <div class="marquee-cards-icon-mobile">
+          <img
+            src="{{ 'peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png' | asset_url }}"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+            class="marquee-cards-icon-img"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <p class="marquee-cards-subtitle">
+        {{ section.settings.subtitle | default: 'Adding joy to your day so that you actually get the most out of a healthy, age-old pantry staple loved by all.' }}
+      </p>
+
+      <div class="marquee-cards-cta-wrapper">
+        <a href="{{ section.settings.button_link | default: buy_now_url }}" class="marquee-cards-cta-button">
+          {{ section.settings.button_label | default: 'BUY DRIZZY PEANUT BUTTER NOW' }}
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <style>
-.marquee-strip-section {
-  background-color: var(--color-foreground, #2d0f28);
-  color: var(--color-cream, #fffbf2);
-  padding: 1.5rem 0;
+.marquee-cards-section {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 3rem 1rem;
   overflow: hidden;
-  user-select: none;
-  border-top: 3px solid var(--color-foreground, #2d0f28);
-  border-bottom: 3px solid var(--color-foreground, #2d0f28);
 }
-.marquee-strip-track {
+@media (min-width: 1024px) {
+  .marquee-cards-section {
+    padding: 4.5rem 1rem;
+  }
+}
+.marquee-cards-container {
   display: flex;
-  overflow: hidden;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: center;
+  box-sizing: border-box;
 }
-.strip-item {
+@media (min-width: 1024px) {
+  .marquee-cards-container {
+    gap: 3rem;
+  }
+}
+.marquee-cards-header-row {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding-right: 2rem;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-header-row {
+    gap: 2.5rem;
+  }
+}
+.marquee-cards-icon-mobile {
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-mobile {
+    display: none;
+  }
+}
+.marquee-cards-icon-group-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-group-desktop {
+    display: flex;
+  }
+}
+.marquee-cards-icon-item {
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-item {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}
+.marquee-cards-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.marquee-cards-title {
   font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.75rem;
+  color: var(--color-foreground, #2d0f28);
+  font-size: 28px;
+  line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0 0.5rem;
 }
-.strip-mascot,
-.strip-peanut {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+@media (min-width: 640px) {
+  .marquee-cards-title {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-title {
+    font-size: 46px;
+  }
+}
+.marquee-cards-subtitle {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 13px;
+  max-width: 580px;
+  color: rgba(45, 15, 40, 0.9);
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+  line-height: 1.6;
+}
+@media (min-width: 640px) {
+  .marquee-cards-subtitle {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-subtitle {
+    font-size: 15px;
+  }
+}
+.marquee-cards-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.marquee-cards-cta-button {
+  display: inline-flex;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--radius-full, 9999px);
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  line-height: 1;
+  padding: 1.1rem 2.25rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.marquee-cards-cta-button:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.marquee-cards-cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 640px) {
+  .marquee-cards-cta-button {
+    width: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-cta-button {
+    font-size: 19px;
+  }
 }
 </style>
 
 {% schema %}
 {
   "name": "Marquee Cards Strip",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "LIFE'S BETTER WITH DRIZZY"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Adding joy to your day so that you actually get the most out of a healthy, age-old pantry staple loved by all."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "BUY DRIZZY PEANUT BUTTER NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
   "presets": [
     {
       "name": "Marquee Cards Strip"

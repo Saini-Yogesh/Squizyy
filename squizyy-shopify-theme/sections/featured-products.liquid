@@ -1,312 +1,726 @@
 {%- comment -%}
-  Homepage Featured Product Buy Box Section
+  Homepage Featured Product Section — "The Ultimate Breakfast Power-Up"
+  Faithfully ported from client/src/components/product/FeaturedProductSection.jsx & FeaturedProductSection.module.css
 {%- endcomment -%}
 
-{%- assign product = all_products[section.settings.featured_product] | default: collections.all.products.first -%}
+{%- assign main_product = nil -%}
+{%- if section.settings.featured_product != blank and all_products[section.settings.featured_product].title != blank -%}
+  {%- assign main_product = all_products[section.settings.featured_product] -%}
+{%- elsif all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- elsif collections.all.products.first != blank -%}
+  {%- assign main_product = collections.all.products.first -%}
+{%- endif -%}
 
-<section class="featured-product-section">
-  <div class="featured-product-container container">
-    <div class="featured-product-card">
-      <!-- Media Column -->
-      <div class="featured-media-col">
-        <div class="featured-main-image-wrap">
-          {%- if product and product.featured_image -%}
-            <img
-              src="{{ product.featured_image | image_url: width: 800 }}"
-              alt="{{ product.title | escape }}"
-              class="featured-main-img"
-              id="FeaturedProductMainImage"
-              width="{{ product.featured_image.width | default: 800 }}"
-              height="{{ product.featured_image.height | default: 800 }}"
-              loading="lazy"
-            >
-          {%- else -%}
-            <img
-              src="{{ 'pdp-image.png' | asset_url }}"
-              alt="Drizzy Original Peanut Butter"
-              class="featured-main-img"
-              id="FeaturedProductMainImage"
-              width="1023"
-              height="1537"
-              loading="lazy"
-            >
-          {%- endif -%}
+{%- if main_product != blank and main_product.url != blank -%}
+  {%- assign product_url = main_product.url -%}
+  {%- assign product_price = main_product.price | money -%}
+{%- else -%}
+  {%- assign product_url = '/products/drizzy-squeezy-peanut-butter-19-4-oz' -%}
+  {%- assign product_price = '$9.99' -%}
+{%- endif -%}
 
-          <div class="featured-floating-peanut animate-float">
-            <img src="{{ 'drizzy-peanut-left.png' | asset_url }}" alt="" width="80" height="80">
+<div class="featured-product-wrapper">
+  <section class="featured-product-section" aria-label="Featured Product">
+    <!-- Floating Peanuts Background Elements -->
+    <div class="featured-peanut-1" aria-hidden="true">
+      <img
+        src="{{ 'drizzy-peanut-left.png' | asset_url }}"
+        alt=""
+        width="105"
+        height="105"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-2" aria-hidden="true">
+      <img
+        src="{{ 'drizzy-peanut-left.png' | asset_url }}"
+        alt=""
+        width="137"
+        height="137"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-3" aria-hidden="true">
+      <img
+        src="{{ 'peanut-small.png' | asset_url }}"
+        alt=""
+        width="67"
+        height="67"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-4" aria-hidden="true">
+      <img
+        src="{{ 'peanut-small.png' | asset_url }}"
+        alt=""
+        width="90"
+        height="90"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Main Product Content -->
+    <div class="featured-product-content">
+      <div class="featured-product-container">
+        <div class="featured-layout-row">
+          <!-- Left Column: Compact Media Gallery -->
+          <div class="featured-gallery-col">
+            <div class="compact-gallery-wrapper">
+              <div class="compact-gallery-inner">
+                <div class="compact-gallery-content">
+                  <!-- Thumbnail Strip (left on desktop, bottom on mobile) -->
+                  <div class="compact-thumb-strip">
+                    {%- if main_product != blank and main_product.images.size > 0 -%}
+                      {%- for img in main_product.images limit: 5 -%}
+                        <button
+                          type="button"
+                          class="compact-thumb-btn {% if forloop.first %}thumb-active{% else %}thumb-inactive{% endif %}"
+                          aria-label="Thumbnail {{ forloop.index }}"
+                          onclick="changeFeaturedMainImage(this, '{{ img | image_url: width: 800 }}')"
+                        >
+                          <img
+                            src="{{ img | image_url: width: 120, height: 120, crop: 'center' }}"
+                            alt="{{ img.alt | default: 'Drizzy Bottle View' | escape }}"
+                            class="compact-thumb-img"
+                            width="64"
+                            height="64"
+                            loading="lazy"
+                          >
+                        </button>
+                      {%- endfor -%}
+                    {%- else -%}
+                      <button
+                        type="button"
+                        class="compact-thumb-btn thumb-active"
+                        aria-label="Thumbnail 1"
+                        onclick="changeFeaturedMainImage(this, '{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}')"
+                      >
+                        <img
+                          src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
+                          alt="Drizzy Bottle Front"
+                          class="compact-thumb-img"
+                          width="64"
+                          height="64"
+                          loading="lazy"
+                        >
+                      </button>
+                      <button
+                        type="button"
+                        class="compact-thumb-btn thumb-inactive"
+                        aria-label="Thumbnail 2"
+                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY12302.jpg' | asset_url }}')"
+                      >
+                        <img
+                          src="{{ 'DRIZZY12302.jpg' | asset_url }}"
+                          alt="Drizzy On Kitchen Counter"
+                          class="compact-thumb-img"
+                          width="64"
+                          height="64"
+                          loading="lazy"
+                        >
+                      </button>
+                      <button
+                        type="button"
+                        class="compact-thumb-btn thumb-inactive"
+                        aria-label="Thumbnail 3"
+                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY13034.jpg' | asset_url }}')"
+                      >
+                        <img
+                          src="{{ 'DRIZZY13034.jpg' | asset_url }}"
+                          alt="Drizzy Drizzle Action"
+                          class="compact-thumb-img"
+                          width="64"
+                          height="64"
+                          loading="lazy"
+                        >
+                      </button>
+                      <button
+                        type="button"
+                        class="compact-thumb-btn thumb-inactive"
+                        aria-label="Thumbnail 4"
+                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY13132.jpg' | asset_url }}')"
+                      >
+                        <img
+                          src="{{ 'DRIZZY13132.jpg' | asset_url }}"
+                          alt="Drizzy Bottle Squeeze"
+                          class="compact-thumb-img"
+                          width="64"
+                          height="64"
+                          loading="lazy"
+                        >
+                      </button>
+                      <button
+                        type="button"
+                        class="compact-thumb-btn thumb-inactive"
+                        aria-label="Thumbnail 5"
+                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY12496.jpg' | asset_url }}')"
+                      >
+                        <img
+                          src="{{ 'DRIZZY12496.jpg' | asset_url }}"
+                          alt="Drizzy With Berries"
+                          class="compact-thumb-img"
+                          width="64"
+                          height="64"
+                          loading="lazy"
+                        >
+                      </button>
+                    {%- endif -%}
+                  </div>
+
+                  <!-- Active Image Card -->
+                  <div class="compact-main-card">
+                    {%- if main_product != blank and main_product.featured_image -%}
+                      <img
+                        id="FeaturedSectionMainImg"
+                        src="{{ main_product.featured_image | image_url: width: 800 }}"
+                        alt="{{ main_product.title | escape }}"
+                        class="compact-main-img"
+                        width="800"
+                        height="800"
+                        loading="eager"
+                      >
+                    {%- else -%}
+                      <img
+                        id="FeaturedSectionMainImg"
+                        src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
+                        alt="Drizzy Squeezy Peanut Butter"
+                        class="compact-main-img"
+                        width="800"
+                        height="800"
+                        loading="eager"
+                      >
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Authentic Buy Box -->
+          <div class="featured-buybox-col">
+            <!-- 5-Star Aussie Reviews -->
+            <div class="featured-reviews-rating">
+              <div class="featured-stars-row" aria-label="5 stars rating">
+                {%- for i in (1..5) -%}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                {%- endfor -%}
+              </div>
+              <span class="featured-rating-text">5.0 Based on 984 Aussie Reviews</span>
+            </div>
+
+            <!-- Product Title & Serving Size -->
+            <div class="featured-title-area">
+              <h2 class="featured-product-title">
+                The Ultimate<br>Breakfast Power-Up
+              </h2>
+              <div class="featured-serving-size">
+                19.4 oz (550g)
+              </div>
+            </div>
+
+            <!-- Dotted Divider -->
+            <div class="featured-dashed-divider"></div>
+
+            <!-- Price Display -->
+            <div class="featured-price-display">
+              <span>{{ product_price }}</span>
+            </div>
+
+            <!-- Dotted Divider -->
+            <div class="featured-dashed-divider"></div>
+
+            <!-- 3 Authentic Feature Bullet Items with Checkmarks -->
+            <div class="featured-feature-list">
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  Simply shake, squeeze and drizzle.
+                </div>
+              </div>
+
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  100% Pure American roasted peanuts with a splash of peanut oil. No palm oil, no junk.
+                </div>
+              </div>
+
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  7g of protein per serve for everything you love and anything you crave.
+                </div>
+              </div>
+            </div>
+
+            <!-- Add to Cart / Buy Now Action Button -->
+            <a
+              href="{{ product_url }}"
+              class="button-primary featured-cta-link"
+            >
+              BUY DRIZZY PEANUT BUTTER NOW
+            </a>
+
+            <!-- Free Shipping Subtext -->
+            <div class="featured-shipping-note">
+              FREE SHIPPING ON ORDERS $49.99+
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Content & Buy Box Column -->
-      <div class="featured-content-col" data-product-buy-box data-base-price="{{ product.price | default: 1999 | divided_by: 100.0 }}">
-        <div class="featured-badge">AUTHENTIC AUSTRALIAN HIGH-OLEIC</div>
-        
-        <h2 class="featured-title">{{ product.title | default: 'Drizzy Original Drizzle' }}</h2>
-        
-        <div class="featured-price-wrap">
-          <span class="featured-price" data-product-price>{{ product.price | default: 1999 | money }}</span>
-          <s class="featured-compare-price" data-compare-price style="display: none;"></s>
-          <span class="featured-savings-badge" data-savings-badge style="display: none;"></span>
-        </div>
-
-        <p class="featured-desc">
-          {{ product.description | default: '100% Australian High-Oleic Peanuts roasted to golden perfection and milled into the smoothest, most drizzle-able peanut butter on earth. No palm oil. No sugar. Just real peanuts.' }}
-        </p>
-
-        <!-- Bottle Bundle Selector -->
-        <div class="bottle-bundle-selector">
-          <label class="bundle-selector-label">Select Quantity & Save:</label>
-          <div class="bundle-options-grid">
-            <button type="button" class="bundle-btn active" data-bottle-count="1">
-              <span class="btn-count">1 Bottle</span>
-              <span class="btn-sub">Standard</span>
-            </button>
-            <button type="button" class="bundle-btn" data-bottle-count="2">
-              <span class="btn-count">2 Bottles</span>
-              <span class="btn-sub save-text">Save 10%</span>
-            </button>
-            <button type="button" class="bundle-btn" data-bottle-count="3">
-              <span class="btn-badge">Popular</span>
-              <span class="btn-count">3 Bottles</span>
-              <span class="btn-sub save-text">Save 15%</span>
-            </button>
-            <button type="button" class="bundle-btn" data-bottle-count="6">
-              <span class="btn-badge best-val">Best Value</span>
-              <span class="btn-count">6 Bottles</span>
-              <span class="btn-sub save-text">Save 20%</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Purchase Type Toggle -->
-        <div class="purchase-type-options">
-          <label class="purchase-radio-label">
-            <input type="radio" name="purchase_type" value="onetime" checked>
-            <span>One-time purchase</span>
-          </label>
-          <label class="purchase-radio-label">
-            <input type="radio" name="purchase_type" value="subscribe">
-            <span>Subscribe & Save an extra 15%</span>
-          </label>
-        </div>
-
-        <!-- Add to Cart CTA -->
-        <button
-          type="button"
-          class="button-primary featured-add-btn"
-          data-add-to-cart
-          data-add-to-cart-main
-          data-variant-id="{{ product.selected_or_first_available_variant.id | default: 1 }}"
-          data-quantity="1"
-        >
-          <span>Add to Cart — {{ product.price | default: 1999 | money }}</span>
-        </button>
-
-        <!-- Perks List -->
-        <ul class="featured-perks-list">
-          <li>✓ Free shipping on orders over $49.99</li>
-          <li>✓ 100% money-back satisfaction guarantee</li>
-          <li>✓ Ships fresh directly to your doorstep</li>
-        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<script>
+  function changeFeaturedMainImage(btn, newSrc) {
+    var mainImg = document.getElementById('FeaturedSectionMainImg');
+    if (mainImg) {
+      mainImg.src = newSrc;
+    }
+    var btns = document.querySelectorAll('.compact-thumb-btn');
+    btns.forEach(function(b) {
+      b.classList.remove('thumb-active');
+      b.classList.add('thumb-inactive');
+    });
+    btn.classList.remove('thumb-inactive');
+    btn.classList.add('thumb-active');
+  }
+</script>
 
 <style>
+.featured-product-wrapper {
+  position: relative;
+  width: 100%;
+}
 .featured-product-section {
-  padding: 5rem 0;
-}
-.featured-product-card {
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: var(--color-cream, #fffbf2);
-  border: 4px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-2xl, 32px);
-  box-shadow: 0 12px 0 var(--color-foreground, #2d0f28);
+  position: relative;
+  background-color: var(--color-brown, #894031);
+  color: var(--color-cream, #fffbf2);
+  padding-bottom: 3rem;
   overflow: hidden;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
 }
-@media (min-width: 1024px) {
-  .featured-product-card {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 640px) {
+  .featured-product-section {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
   }
 }
-.featured-media-col {
+@media (min-width: 1024px) {
+  .featured-product-section {
+    padding-bottom: 5rem;
+  }
+}
+.featured-peanut-1 {
+  display: none;
+  position: absolute;
+  width: 105px;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+  left: -12px;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-2 {
+  display: none;
+  position: absolute;
+  width: 137px;
+  bottom: 25%;
+  transform: translateY(25%) rotate(-120deg);
+  right: -42px;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-3 {
+  display: none;
+  position: absolute;
+  width: 67px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-7deg);
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-4 {
+  display: none;
+  position: absolute;
+  width: 90px;
+  top: 55%;
+  transform: translateY(-55%) rotate(18deg);
+  right: 2rem;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (min-width: 1024px) {
+  .featured-peanut-1,
+  .featured-peanut-2,
+  .featured-peanut-3,
+  .featured-peanut-4 {
+    display: block;
+  }
+}
+.featured-product-content {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   position: relative;
-  background-color: #ffffff;
-  padding: 3rem;
+  z-index: 10;
+}
+@media (min-width: 1024px) {
+  .featured-product-content {
+    padding-top: 2rem;
+  }
+}
+.featured-product-container {
+  max-width: 1054px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.featured-layout-row {
+  position: relative;
+  z-index: 10;
   display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .featured-layout-row {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+}
+.featured-gallery-col {
+  display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+  flex-direction: column;
+  gap: 1rem;
 }
 @media (min-width: 1024px) {
-  .featured-media-col {
-    border-bottom: none;
-    border-right: 4px solid var(--color-foreground, #2d0f28);
+  .featured-gallery-col {
+    width: 50%;
   }
 }
-.featured-main-image-wrap {
+.compact-gallery-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.compact-gallery-inner {
   position: relative;
-  max-width: 420px;
-  width: 100%;
-}
-.featured-main-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-.featured-floating-peanut {
-  position: absolute;
-  bottom: 0;
-  left: -20px;
-  width: 80px;
-}
-.featured-content-col {
-  padding: 3rem 2.5rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
-.featured-badge {
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-accent-green, #036e2c);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
-}
-.featured-title {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  line-height: 1.05;
-  color: var(--color-foreground, #2d0f28);
-  margin: 0 0 1rem 0;
-  text-transform: uppercase;
-}
-.featured-price-wrap {
+.compact-gallery-content {
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  width: 100%;
 }
-.featured-price {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 2rem;
-  color: var(--color-foreground, #2d0f28);
+@media (min-width: 1024px) {
+  .compact-gallery-content {
+    display: block;
+    position: relative;
+    padding-left: 88px;
+    gap: 0;
+  }
 }
-.featured-compare-price {
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 1.125rem;
-  color: rgba(45, 15, 40, 0.5);
+.compact-thumb-strip {
+  position: relative;
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  gap: 0.5rem;
 }
-.featured-savings-badge {
-  background-color: var(--color-accent-green, #036e2c);
-  color: #ffffff;
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-full);
+.compact-thumb-strip::-webkit-scrollbar {
+  display: none;
 }
-.featured-desc {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-foreground, #2d0f28);
-  opacity: 0.85;
-  margin: 0 0 2rem 0;
+@media (min-width: 768px) {
+  .compact-thumb-strip {
+    height: 5rem;
+  }
 }
-.bundle-selector-label {
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-weight: 700;
-  font-size: 0.875rem;
-  color: var(--color-foreground, #2d0f28);
+@media (min-width: 1024px) {
+  .compact-thumb-strip {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 72px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.compact-thumb-btn {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-md, 10px);
+  border: 2px solid var(--border-muted, rgba(45, 15, 40, 0.15));
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: all var(--transition-fast, 0.15s ease);
+  cursor: pointer;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .compact-thumb-btn {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+.thumb-active {
+  border-color: var(--border-color, #2d0f28);
+  box-shadow: 0 0 0 2px var(--color-accent-purple, #ca9af1);
+  opacity: 1;
+  transform: scale(0.96);
+}
+.thumb-inactive {
+  opacity: 0.6;
+}
+.thumb-inactive:hover {
+  opacity: 1;
+}
+.compact-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  margin-bottom: 0.75rem;
 }
-.bundle-options-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-@media (min-width: 480px) {
-  .bundle-options-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.bundle-btn {
-  position: relative;
+.compact-main-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  border: 3px solid var(--border-color, #2d0f28);
   background-color: #ffffff;
-  border: 2px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-lg);
-  padding: 0.875rem 0.5rem;
+  padding: 1.5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(45, 15, 40, 0.12));
+  overflow: hidden;
+  box-sizing: border-box;
 }
-.bundle-btn.active {
-  background-color: var(--color-accent-purple, #ca9af1);
-  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
-  transform: translateY(-2px);
+.compact-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
-.btn-count {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1rem;
-  color: var(--color-foreground, #2d0f28);
-}
-.btn-sub {
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.6875rem;
-  color: rgba(45, 15, 40, 0.7);
-}
-.save-text {
-  color: var(--color-accent-green, #036e2c);
-  font-weight: 700;
-}
-.btn-badge {
-  position: absolute;
-  top: -10px;
-  background-color: var(--color-accent-green, #036e2c);
-  color: #ffffff;
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.625rem;
-  font-weight: 700;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-full);
-}
-.best-val {
-  background-color: var(--color-foreground, #2d0f28);
-}
-.purchase-type-options {
+.featured-buybox-col {
   display: flex;
+  width: 100%;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  align-items: flex-start;
 }
-.purchase-radio-label {
+@media (min-width: 1024px) {
+  .featured-buybox-col {
+    width: 50%;
+    padding: 0.5rem 0;
+  }
+}
+.featured-reviews-rating {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.875rem;
-  cursor: pointer;
 }
-.featured-add-btn {
+.featured-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--color-accent-purple, #ca9af1);
+}
+.featured-rating-text {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  font-weight: 700;
+}
+@media (min-width: 640px) {
+  .featured-rating-text {
+    font-size: 0.875rem;
+  }
+}
+.featured-title-area {
+  margin-top: 0.75rem;
+}
+.featured-product-title {
+  font-size: 2.125rem;
+  line-height: 1.05;
+  color: var(--color-cream, #fffbf2);
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  text-transform: uppercase;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .featured-product-title {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-product-title {
+    font-size: 3.125rem;
+  }
+}
+.featured-serving-size {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 1rem;
+  color: var(--color-cream, #fffbf2);
+  padding-top: 0.25rem;
+}
+@media (min-width: 640px) {
+  .featured-serving-size {
+    font-size: 1.125rem;
+  }
+}
+.featured-dashed-divider {
   width: 100%;
-  padding: 1.125rem;
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
+  border-top: 1px dashed rgba(248, 235, 215, 0.4);
+  margin-top: 1.25rem;
 }
-.featured-perks-list {
+@media (min-width: 1024px) {
+  .featured-dashed-divider {
+    margin-top: 1.5rem;
+  }
+}
+.featured-price-display {
+  font-size: 1.75rem;
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  line-height: 1;
+  margin-top: 1.25rem;
+  color: var(--color-cream, #fffbf2);
+}
+@media (min-width: 640px) {
+  .featured-price-display {
+    font-size: 2.125rem;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-price-display {
+    margin-top: 1.5rem;
+  }
+}
+.featured-feature-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.8125rem;
-  opacity: 0.8;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .featured-feature-list {
+    margin-top: 1.5rem;
+  }
+}
+.featured-feature-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .featured-feature-item {
+    align-items: center;
+  }
+}
+.featured-check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+@media (min-width: 640px) {
+  .featured-check-icon {
+    margin-top: 0;
+  }
+}
+.featured-feature-text {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  line-height: 1.5;
+}
+@media (min-width: 640px) {
+  .featured-feature-text {
+    font-size: 0.875rem;
+  }
+}
+.featured-cta-link {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .featured-cta-link {
+    margin-top: 2.5rem;
+    font-size: 1.1875rem;
+  }
+}
+.featured-shipping-note {
+  width: 100%;
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 </style>
 
@@ -317,7 +731,7 @@
     {
       "type": "product",
       "id": "featured_product",
-      "label": "Product to Feature"
+      "label": "Featured Product"
     }
   ],
   "presets": [
