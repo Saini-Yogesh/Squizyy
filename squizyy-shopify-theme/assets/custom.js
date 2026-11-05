@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalClose) modalClose.addEventListener('click', closeModal);
 
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+      if (e.target === modal || e.target.id === 'RetroModalDismiss') closeModal();
     });
 
     if (modalLauncher) {
@@ -111,47 +111,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form || form.dataset.ajaxAttached) return;
     form.dataset.ajaxAttached = 'true';
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', (e) => {
       if (!form.checkValidity()) return;
       e.preventDefault();
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'SUBSCRIBING...';
+      const formData = new FormData(form);
+      const actionUrl = form.getAttribute('action') || '/contact';
+
+      // 1. Instantly display the discount code on-screen with zero redirect
+      if (form.classList.contains('footer-form')) {
+        form.innerHTML = `
+          <div class="footer-success-box">
+            <p class="footer-status-success">🎉 Sweet! Check your email for your 10% discount code.</p>
+            <div class="footer-discount-pill">
+              <span class="footer-discount-label">USE CODE:</span>
+              <strong class="footer-discount-code">WELCOME10</strong>
+              <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+            </div>
+          </div>
+        `;
+      } else if (form.classList.contains('retro-newsletter-form')) {
+        form.innerHTML = `
+          <div class="screen-success-box">
+            <div class="screen-success-emoji">🎉</div>
+            <h3 class="screen-success-title">YOU'RE IN!</h3>
+            <div class="screen-discount-pill">
+              <span>USE CODE: <strong>WELCOME10</strong></span>
+              <button type="button" class="screen-copy-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+            </div>
+            <p class="screen-fine-print">Copy code at checkout to save 10%.</p>
+          </div>
+        `;
       }
 
+      // 2. Submit data to Shopify in the background without following redirects to /challenge
       try {
-        const formData = new FormData(form);
-        const actionUrl = form.getAttribute('action') || '/contact';
-
-        await fetch(actionUrl, {
+        fetch(actionUrl, {
           method: 'POST',
           body: formData,
-          headers: { 'Accept': 'text/html' }
-        });
-
-        if (form.classList.contains('footer-form')) {
-          form.innerHTML = `
-            <div class="footer-success-box">
-              <p class="footer-status-success">🎉 Sweet! Check your email for your 10% discount code.</p>
-              <div class="footer-discount-pill">
-                <span class="footer-discount-label">USE CODE:</span>
-                <strong class="footer-discount-code">WELCOME10</strong>
-                <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
-              </div>
-            </div>
-          `;
-        } else if (form.classList.contains('retro-newsletter-form')) {
-          form.innerHTML = `
-            <div style="margin-top: 1rem; text-align: center;">
-              <p style="font-family: var(--font-secondary, monospace); font-size: 0.875rem; color: #036e2c; font-weight: 700; margin: 0 0 0.5rem 0;">🎉 Sweet! You're in!</p>
-              <p style="font-family: var(--font-secondary, monospace); font-size: 0.8125rem; color: #2d0f28; margin: 0;">Use discount code <strong>WELCOME10</strong> at checkout.</p>
-            </div>
-          `;
-        }
+          mode: 'no-cors',
+          credentials: 'same-origin'
+        }).catch(() => {});
       } catch (err) {
-        form.submit();
+        // Silently ignore so user is never redirected to /challenge
       }
     });
   };

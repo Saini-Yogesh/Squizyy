@@ -1,42 +1,81 @@
 {%- comment -%}
-  Retro TV Newsletter Modal Popup & Peeking Mascot Launcher
+  Authentic Retro TV Newsletter Modal Popup & Peeking Bottle
+  Faithfully ported from client/src/components/layout/NewsletterModal.jsx & NewsletterModal.module.css
 {%- endcomment -%}
 
-<div id="RetroNewsletterModal" class="retro-modal-overlay">
-  <div class="retro-modal-card">
-    <button type="button" id="RetroModalClose" class="retro-modal-close" aria-label="Close modal">✕</button>
-    
-    <!-- TV Mascot Frame -->
-    <div class="retro-tv-screen">
-      <img src="{{ 'story-tv.png' | asset_url }}" alt="Retro Drizzy TV" class="retro-tv-img" width="1500" height="1065" loading="lazy">
+<div id="RetroNewsletterModal" class="retro-modal-overlay" role="dialog" aria-modal="true" aria-label="Get 10% Off Promotion">
+  <div class="retro-modal-stage">
+    <!-- Top Peeking Bottle behind TV -->
+    <div class="peeking-bottle">
+      <img
+        src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
+        alt="Drizzy Bottle"
+        class="peeking-bottle-img"
+        width="500"
+        height="500"
+        loading="lazy"
+      >
     </div>
 
-    <div class="retro-modal-body">
-      <h3 class="retro-modal-title">Get 10% Off Your First Drizzle</h3>
-      <p class="retro-modal-desc">
-        Drop your email below for 10% off your first order, secret recipes, and early access to drops.
-      </p>
+    <!-- TV Frame Stage -->
+    <div class="tv-frame">
+      <!-- Close Button on top-right -->
+      <button type="button" id="RetroModalClose" class="retro-tv-close-btn" aria-label="Close dialog">✕</button>
 
-      {% form 'customer', class: 'retro-newsletter-form' %}
-        <input type="hidden" name="contact[tags]" value="newsletter,popup">
-        {% if form.posted_successfully? %}
-          <p class="retro-form-success">🎉 Sweet! Check your email for your 10% discount code.</p>
-        {% else %}
-          {% if form.errors %}
-            <p class="retro-form-error">{{ form.errors | default_errors }}</p>
-          {% endif %}
-          <div class="retro-form-input-wrap">
-            <input
-              type="email"
-              name="contact[email]"
-              placeholder="Enter your email"
-              required
-              class="retro-form-input"
-            >
-            <button type="submit" class="button-primary retro-form-submit">Claim 10% Off</button>
-          </div>
-        {% endif %}
-      {% endform %}
+      <!-- TV Screen Cutout Area (Form sits directly inside the screen) -->
+      <div class="screen-cutout">
+        <!-- Vintage Scanlines Overlay -->
+        <div class="screen-scanlines"></div>
+
+        <div class="screen-form-box">
+          <h2 class="screen-title">GET 10% OFF YOUR FIRST SQUEEZE</h2>
+          <p class="screen-subtitle">Join for new drops, exclusive deals and dangerously good peanut butter content.</p>
+
+          {% form 'customer', class: 'retro-newsletter-form' %}
+            <input type="hidden" name="contact[tags]" value="newsletter,popup">
+            {%- if form.posted_successfully? -%}
+              <div class="screen-success-box">
+                <div class="screen-success-emoji">🎉</div>
+                <h3 class="screen-success-title">YOU'RE IN!</h3>
+                <div class="screen-discount-pill">
+                  <span>USE CODE: <strong>WELCOME10</strong></span>
+                  <button type="button" class="screen-copy-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+                </div>
+                <p class="screen-fine-print">Copy code at checkout to save 10%.</p>
+              </div>
+            {%- else -%}
+              {%- if form.errors -%}
+                <p class="screen-form-error">{{ form.errors | default_errors }}</p>
+              {%- endif -%}
+              <div class="screen-form-fields">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  placeholder="Email Address"
+                  required
+                  class="screen-input"
+                  aria-label="Email Address"
+                >
+                <button type="submit" class="screen-submit-btn">GIVE ME 10% OFF!</button>
+              </div>
+              <button type="button" class="screen-dismiss-btn" id="RetroModalDismiss">NOT RIGHT NOW</button>
+              <p class="screen-fine-print">Get 10% off on your first order. By subscribing you agree to receive marketing communications.</p>
+            {%- endif -%}
+          {% endform %}
+        </div>
+      </div>
+
+      <!-- Vintage TV Graphic Overlay Frame -->
+      <div class="tv-graphic-overlay">
+        <img
+          src="{{ 'story-tv.png' | asset_url }}"
+          alt="Retro Drizzy TV"
+          class="tv-graphic-img"
+          width="1500"
+          height="1065"
+          loading="lazy"
+        >
+      </div>
     </div>
   </div>
 </div>
@@ -53,92 +92,337 @@
 .retro-modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(45, 15, 40, 0.7);
-  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0.75rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 .retro-modal-overlay.active {
   opacity: 1;
   visibility: visible;
 }
-.retro-modal-card {
+.retro-modal-stage {
   position: relative;
-  background-color: var(--color-cream, #fffbf2);
-  border: 4px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 16px 0 var(--color-foreground, #2d0f28);
-  max-width: 480px;
+  z-index: 10;
   width: 100%;
-  padding: 2.5rem 2rem 2rem;
-  text-align: center;
-}
-.retro-modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--color-accent-purple, #ca9af1);
-  border: 2px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-full);
-  width: 32px;
-  height: 32px;
+  max-width: 580px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  cursor: pointer;
 }
-.retro-tv-screen {
-  max-width: 180px;
-  margin: 0 auto 1.5rem;
+@media (min-width: 640px) {
+  .retro-modal-stage {
+    max-width: 640px;
+  }
 }
-.retro-tv-img {
+.peeking-bottle {
+  width: 6rem;
+  margin-bottom: -2.25rem;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .peeking-bottle {
+    width: 8rem;
+    margin-bottom: -3.25rem;
+  }
+}
+.peeking-bottle-img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
+  border-radius: var(--radius-pill, 9999px);
 }
-.retro-modal-title {
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.75rem;
-  line-height: 1.1;
+.tv-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1167 / 829;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.retro-tv-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 30;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
   color: var(--color-foreground, #2d0f28);
-  margin: 0 0 0.75rem 0;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
-.retro-modal-desc {
-  font-size: 0.875rem;
-  color: rgba(45, 15, 40, 0.8);
-  margin: 0 0 1.5rem 0;
-  line-height: 1.5;
+@media (min-width: 640px) {
+  .retro-tv-close-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+  }
 }
-.retro-form-input-wrap {
+.retro-tv-close-btn:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+.screen-cutout {
+  position: absolute;
+  top: 6.5%;
+  bottom: 9.9%;
+  left: 1.5%;
+  right: 22.5%;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: #fffbf2;
+  background: radial-gradient(ellipse at center, #6b2e1f 0%, #38120b 60%, #200806 100%);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
 }
-.retro-form-input {
+@media (min-width: 640px) {
+  .screen-cutout {
+    border-radius: 28px;
+    padding: 1.25rem 1.5rem;
+  }
+}
+.screen-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 1px, transparent 1px, transparent 3px);
+}
+.screen-form-box {
+  position: relative;
+  z-index: 10;
   width: 100%;
-  padding: 0.875rem 1.25rem;
-  border-radius: var(--radius-full);
-  border: 2px solid var(--color-foreground, #2d0f28);
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.screen-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #fffbf2;
+  line-height: 1.15;
+  margin: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .screen-title {
+    font-size: 1.35rem;
+  }
+}
+.screen-subtitle {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.625rem;
+  color: rgba(248, 235, 215, 0.9);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  line-height: 1.25;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .screen-subtitle {
+    font-size: 0.75rem;
+    margin-top: 0.375rem;
+  }
+}
+.retro-newsletter-form {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+@media (min-width: 640px) {
+  .retro-newsletter-form {
+    margin-top: 0.75rem;
+  }
+}
+.screen-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .screen-form-fields {
+    gap: 0.5rem;
+  }
+}
+.screen-input {
+  width: 100%;
   background-color: #ffffff;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  color: var(--color-foreground, #2d0f28);
   font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.875rem;
+  font-size: 0.6875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
   outline: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  box-sizing: border-box;
 }
-.retro-form-input:focus {
+@media (min-width: 640px) {
+  .screen-input {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.875rem;
+  }
+}
+.screen-input:focus {
   border-color: var(--color-accent-purple, #ca9af1);
-  box-shadow: 0 0 0 3px rgba(202, 154, 241, 0.4);
+  box-shadow: 0 0 0 2px var(--color-accent-purple, #ca9af1);
 }
-.retro-form-submit {
+.screen-submit-btn {
   width: 100%;
-  padding: 0.875rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .screen-submit-btn {
+    font-size: 0.875rem;
+    padding: 0.6rem 1.25rem;
+  }
+}
+.screen-submit-btn:hover {
+  background-color: #d4acf5;
+  transform: translateY(-1px);
+}
+.screen-dismiss-btn {
+  margin-top: 0.35rem;
+  font-size: 0.5625rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(248, 235, 215, 0.8);
+  text-decoration: underline;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.screen-dismiss-btn:hover {
+  color: #fffbf2;
+}
+.screen-fine-print {
+  margin-top: 0.25rem;
+  font-size: 0.4375rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  color: rgba(248, 235, 215, 0.6);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+@media (min-width: 640px) {
+  .screen-fine-print {
+    font-size: 0.5625rem;
+    margin-top: 0.375rem;
+  }
+}
+.tv-graphic-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+.tv-graphic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.screen-success-box {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  animation: fadeIn 0.3s ease;
+  width: 100%;
+}
+.screen-success-emoji {
+  font-size: 1.5rem;
+}
+@media (min-width: 640px) {
+  .screen-success-emoji {
+    font-size: 2rem;
+  }
+}
+.screen-success-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
   font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-accent-purple, #ca9af1);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .screen-success-title {
+    font-size: 1.35rem;
+  }
+}
+.screen-discount-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1.5px dashed var(--color-accent-purple, #ca9af1);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.6875rem;
+  color: #fffbf2;
+}
+.screen-copy-btn {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 1px solid var(--color-foreground, #2d0f28);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.625rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.screen-copy-btn:hover {
+  background-color: #d4acf5;
 }
 .newsletter-launcher-wrap {
   position: fixed;
