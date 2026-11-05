@@ -95,17 +95,17 @@ const Footer = () => {
               )}
             </div>
 
-            {/* Card 2: Get Drizzy with it */}
+            {/* Card 2: Get Squizyy with it */}
             <div className={styles.linksCard}>
               <h2 className={styles.linksTitle}>
-                Get Drizzy with it
+                Get Squizyy with it
               </h2>
               <div className={styles.linksGrid}>
                 <div className={styles.navCol}>
                   <ul className={styles.navList}>
                     <li>
-                      <Link to="/products/drizzy-squeezy-peanut-butter-19-4-oz" className={styles.footerLink}>
-                        Shop Drizzy
+                      <Link to="/products/squizyy-squeezy-peanut-butter-19-4-oz" className={styles.footerLink}>
+                        Shop Squizyy
                       </Link>
                     </li>
                     <li>
@@ -160,7 +160,7 @@ const Footer = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://www.instagram.com/getdrizzy/"
+                        href="https://www.instagram.com/squizyy/"
                         className={styles.socialIconLink}
                         aria-label="Instagram"
                       >
@@ -173,7 +173,7 @@ const Footer = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://www.linkedin.com/company/drizzypeanuts/"
+                        href="https://www.linkedin.com/company/squizyypeanuts/"
                         className={styles.socialIconLink}
                         aria-label="LinkedIn"
                       >
@@ -186,7 +186,7 @@ const Footer = () => {
                       <a
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="https://www.tiktok.com/@getdrizzypeanuts"
+                        href="https://www.tiktok.com/@squizyypeanuts"
                         className={styles.socialIconLink}
                         aria-label="TikTok"
                       >
@@ -208,14 +208,14 @@ const Footer = () => {
           <div className={styles.bottomSection}>
             <div style={{ width: '100%', padding: '0 0.5rem' }}>
               <img
-                src="/assets/images/drizzy-dark-logo.svg"
-                alt="DRIZZY"
+                src="/assets/images/squizyy-dark-logo.svg"
+                alt="SQUIZYY"
                 className={styles.brandLogoImg}
                 loading="lazy"
               />
             </div>
             <div className={styles.copyright}>
-              © Drizzy Pty Limited, 2026. All Rights Reserved.
+              © Squizyy Pty Limited, 2026. All Rights Reserved.
             </div>
           </div>
         </div>

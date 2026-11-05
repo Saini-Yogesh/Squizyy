@@ -43,10 +43,10 @@ const Navbar = () => {
               </button>
 
               {/* Mobile Center Brand Logo */}
-              <Link to="/" className={styles.mobileLogo} aria-label="Drizzy USA logo">
+              <Link to="/" className={styles.mobileLogo} aria-label="Squizyy USA logo">
                 <img
-                  src="/assets/images/drizzy-dark-logo.svg"
-                  alt="Drizzy USA"
+                  src="/assets/images/squizyy-dark-logo.svg"
+                  alt="Squizyy USA"
                   className={styles.mobileLogoImg}
                 />
               </Link>
@@ -67,10 +67,10 @@ const Navbar = () => {
                 </div>
 
                 {/* Center Brand Logo */}
-                <Link to="/" className={styles.desktopLogo} aria-label="Drizzy USA logo">
+                <Link to="/" className={styles.desktopLogo} aria-label="Squizyy USA logo">
                   <img
-                    src="/assets/images/drizzy-dark-logo.svg"
-                    alt="Drizzy USA"
+                    src="/assets/images/squizyy-dark-logo.svg"
+                    alt="Squizyy USA"
                     className={styles.desktopLogoImg}
                   />
                 </Link>
@@ -82,10 +82,10 @@ const Navbar = () => {
                   </NavLink>
 
                   <Link
-                    to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                    to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                     className={styles.buyNowBtn}
                   >
-                    BUY DRIZZY NOW
+                    BUY SQUIZYY NOW
                   </Link>
 
                   {/* Desktop Cart Trigger */}
@@ -192,11 +192,11 @@ const Navbar = () => {
                 Wholesale
               </Link>
               <Link
-                to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                 onClick={() => setMobileMenuOpen(false)}
                 className={styles.mobileBuyNow}
               >
-                Buy Drizzy Now
+                Buy Squizyy Now
               </Link>
             </nav>
           </div>

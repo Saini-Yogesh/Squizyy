@@ -17,12 +17,12 @@ const FullPageMedia = () => {
             poster="/assets/images/f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg"
           >
             <source
-              src="https://getdrizzy.co/cdn/shop/videos/c/vp/f8c9f00eee0542fe9b97a3f8467190b6/f8c9f00eee0542fe9b97a3f8467190b6.HD-1080p-4.8Mbps-91858336.mp4"
+              src="https://squizyy.com/cdn/shop/videos/c/vp/f8c9f00eee0542fe9b97a3f8467190b6/f8c9f00eee0542fe9b97a3f8467190b6.HD-1080p-4.8Mbps-91858336.mp4"
               type="video/mp4"
             />
             <img
               src="/assets/images/f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg"
-              alt="Drizzy Texas Peanut Harvesting"
+              alt="Squizyy Texas Peanut Harvesting"
               className={styles.bgVideo}
             />
           </video>
@@ -59,15 +59,15 @@ const FullPageMedia = () => {
                   to="/pages/our-story"
                   className={styles.ctaLink}
                 >
-                  LEARN MORE ABOUT DRIZZY
+                  LEARN MORE ABOUT SQUIZYY
                 </Link>
               </div>
 
               {/* Floating peanut graphic */}
               <div className={styles.peanutSticker}>
                 <img
-                  src="/assets/images/drizzy-peanut-left.png"
-                  alt="Drizzy Peanut"
+                  src="/assets/images/squizyy-peanut-left.png"
+                  alt="Squizyy Peanut"
                   className={styles.peanutImg}
                   loading="lazy"
                 />

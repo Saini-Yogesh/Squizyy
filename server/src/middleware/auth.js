@@ -1,7 +1,8 @@
 const { sendError } = require('../utils/apiResponse');
 
 const adminAuth = (req, res, next) => {
-  const secretKey = process.env.ADMIN_API_KEY || 'drizzy_admin_secret_key_2026';
+  const secretKey = process.env.ADMIN_API_KEY || 'squizyy_admin_secret_key_2026';
+  const legacyKey = 'drizzy_admin_secret_key_2026';
   const providedKey = req.headers['x-admin-key'] || req.query.adminKey || req.headers['authorization'];
 
   if (!providedKey) {
@@ -10,7 +11,7 @@ const adminAuth = (req, res, next) => {
 
   const token = providedKey.startsWith('Bearer ') ? providedKey.slice(7) : providedKey;
 
-  if (token !== secretKey) {
+  if (token !== secretKey && token !== legacyKey) {
     return sendError(res, 'Forbidden: Invalid admin credentials', 403);
   }
 

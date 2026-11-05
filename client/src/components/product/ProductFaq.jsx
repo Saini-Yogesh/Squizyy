@@ -3,32 +3,32 @@ import styles from './ProductFaq.module.css';
 
 const faqs = [
   {
-    q: 'What is Drizzy?',
-    a: 'Drizzy is 100% natural peanut butter, made from American peanuts and a splash of peanut oil. We filled a squeeze bottle so you no longer have to deal with the pains of a jar. Drizzy has no added sugar, no palm oil and no stabilizers. Just shake, squeeze and drizzle.',
+    q: 'What is Squizyy?',
+    a: 'Squizyy is 100% natural peanut butter, made from American peanuts and a splash of peanut oil. We filled a squeeze bottle so you no longer have to deal with the pains of a jar. Squizyy has no added sugar, no palm oil and no stabilizers. Just shake, squeeze and drizzle.',
   },
   {
-    q: 'Where can I buy Drizzy?',
-    a: 'You can buy Drizzy right here on our official website, nationwide at Sprouts Farmers Market stores, and on Amazon.',
+    q: 'Where can I buy Squizyy?',
+    a: 'You can buy Squizyy right here on our official website, nationwide at Sprouts Farmers Market stores, and on Amazon.',
   },
   {
-    q: 'Is Drizzy vegan & gluten-free?',
-    a: 'Yes! Drizzy contains only 100% American roasted peanuts and peanut oil. It is naturally vegan, gluten-free, dairy-free, and non-GMO.',
+    q: 'Is Squizyy vegan & gluten-free?',
+    a: 'Yes! Squizyy contains only 100% American roasted peanuts and peanut oil. It is naturally vegan, gluten-free, dairy-free, and non-GMO.',
   },
   {
-    q: 'Does Drizzy contain palm oil, added sugar or stabilizers?',
+    q: 'Does Squizyy contain palm oil, added sugar or stabilizers?',
     a: 'Never. We never use palm oils, hydrogenated fats, added sugars, or emulsifiers. Only pure peanuts and peanut oil.',
   },
   {
-    q: 'Why do I need to shake Drizzy?',
-    a: 'Because Drizzy has zero artificial stabilizers or emulsifiers, natural peanut oils will naturally separate to the top. A quick 5-second shake blends it back into an ultra-smooth drizzle!',
+    q: 'Why do I need to shake Squizyy?',
+    a: 'Because Squizyy has zero artificial stabilizers or emulsifiers, natural peanut oils will naturally separate to the top. A quick 5-second shake blends it back into an ultra-smooth drizzle!',
   },
   {
-    q: 'How should I store Drizzy?',
-    a: 'Store Drizzy at room temperature in your pantry with the cap facing up. Do not refrigerate, as cold temperatures will harden natural peanut butter.',
+    q: 'How should I store Squizyy?',
+    a: 'Store Squizyy at room temperature in your pantry with the cap facing up. Do not refrigerate, as cold temperatures will harden natural peanut butter.',
   },
   {
     q: 'My order arrived damaged. What should I do?',
-    a: 'Shoot an email to support@getdrizzy.co with a photo of the package and your order number. We will send you a replacement immediately, hassle-free!',
+    a: 'Shoot an email to support@squizyy.com with a photo of the package and your order number. We will send you a replacement immediately, hassle-free!',
   },
 ];
 

@@ -1,7 +1,7 @@
 {
-  "name": "drizzy-server",
+  "name": "squizyy-server",
   "version": "1.0.0",
-  "description": "Drizzy Full-Stack Backend API with Express and Mongoose",
+  "description": "Squizyy Full-Stack Backend API with Express and Mongoose",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

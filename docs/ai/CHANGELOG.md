@@ -1,6 +1,38 @@
-# Architecture & System Changelog — Squizyy / Drizzy
+# Architecture & System Changelog — Squizyy
 
 All notable architectural changes, system refactorings, and bug fixes are documented in this file.
+
+---
+
+## [2026-11-05] — Complete Brand Identity Transformation: "Drizzy" to "squizyy"
+
+### Full-System Rebrand (Theme, React SPA, Node Server, Catalog)
+- **Authentic Champ Black Vector Wordmark (`squizyy-dark-logo.svg` & `squizyy-white-logo.svg`)**: Replaced all legacy Drizzy wordmarks with authentic `squizyy` vector bezier typography generated from the original Champ Black typeface using `opentype.js`. Updated navbar, header, footer, mobile drawer, social preview OG/Twitter cards, and browser favicons.
+- **Shopify Online Store 2.0 Theme (`squizyy-shopify-theme/`)**:
+  - Rebranded 37 Liquid sections, snippets, templates, and config files across the theme.
+  - Updated all visible branding, headings, button CTAs ("BUY SQUIZYY NOW", "BUY SQUIZYY PEANUT BUTTER NOW"), copy, image alts, and metadata.
+  - Rebranded product handles to `squizyy-squeezy-peanut-butter-19-4-oz` with backward-compatible fallbacks for legacy URLs.
+  - Duplicated all image assets to `SQUIZYY*` and `squizyy-*` aliases to satisfy Shopify Theme Check asset validation.
+  - Deployed live to production store `squizyy-store.myshopify.com` (Theme ID: `#144876961855`).
+- **React Frontend SPA (`client/src/`)**:
+  - Rebranded 32 files including `index.html` (document title `Squizyy™ | The Squeezy Peanut Butter - No Jars, No Knives, No Mess`, meta descriptions, OG/Twitter tags).
+  - Updated `Navbar.jsx`, `Footer.jsx`, `ComparisonTable.jsx`, `FeaturedProductSection.jsx`, `Hero.jsx`, `GoodStuffOnly.jsx`, `FeaturesGrid.jsx`, `FullPageMedia.jsx`, `OurStory.jsx`, `Wholesale.jsx`, `StoreLocator.jsx`, `SproutsContest.jsx`, `Rules.jsx`, and `PrivacyPolicy.jsx`.
+  - Migrated cart storage to `squizyy_cart_v1` with seamless fallback read for existing `drizzy_cart_v1` user sessions.
+  - Migrated admin session key to `squizyy_admin_key`.
+- **Node.js Express Backend (`server/src/`)**:
+  - Rebranded server entry point, database connection messages, error responses, and seed data (`Squizyy Squeezy Peanut Butter 19.4 Oz`).
+  - Updated admin auth middleware (`server/src/middleware/auth.js`) to support `squizyy_admin_secret_key_2026` while maintaining backward-compatible support for legacy tokens.
+- **Shopify Product Catalog (`shopify-products-import.csv`)**:
+  - Rebranded handle to `squizyy-squeezy-peanut-butter-19-4-oz`, Vendor to `Squizyy`, Title to `Squizyy Squeezy Peanut Butter 19.4 Oz`, and SKUs to `SQUIZYY-PB-001` and `SQUIZYY-CASE-006`.
+- **Package & Root Configs**:
+  - Renamed monorepo packages to `squizyy`, `squizyy-client`, and `squizyy-server`.
+- **Verification & Integrity Checks**:
+  - `npm run client:build`: 0 errors (13.44s, 1692 modules).
+  - `npm run theme:check`: 0 offenses across 57 files.
+  - `npm run doc:verify`: 54 paths verified, 0 warnings.
+  - `npm run theme:push`: Live on production store `#144876961855`.
+  - `npm run theme:test`: All 7 core routes returned HTTP 200 OK.
+  - Brand Scanner: 0 unintended visible references to Drizzy across the entire codebase.
 
 ---
 

@@ -26,7 +26,7 @@
                     {%- elsif item.product.featured_image != blank -%}
                       <img src="{{ item.product.featured_image | image_url: width: 160 }}" alt="{{ item.title | escape }}" width="80" height="80">
                     {%- else -%}
-                      <img src="{{ 'DRIZZY12302.jpg' | asset_url }}" alt="{{ item.title | escape }}" width="80" height="80">
+                      <img src="{{ 'SQUIZYY12302.jpg' | asset_url }}" alt="{{ item.title | escape }}" width="80" height="80">
                     {%- endif -%}
                   </div>
                   <div class="cart-row-details">
@@ -87,7 +87,7 @@
       <div class="cart-empty-view">
         <div class="cart-empty-icon">🥜</div>
         <h2 class="cart-empty-heading">Your cart is currently empty!</h2>
-        <p class="cart-empty-text">Looks like you haven't added any bottles of Drizzy yet.</p>
+        <p class="cart-empty-text">Looks like you haven't added any bottles of Squizyy yet.</p>
         <a href="{{ routes.all_products_collection_url }}" class="button-primary cart-empty-btn">Shop All Products</a>
       </div>
     {%- endif -%}

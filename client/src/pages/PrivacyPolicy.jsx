@@ -11,9 +11,9 @@ const PrivacyPolicy = () => {
 
         <div className={styles.card}>
           <div>
-            <h2 className={styles.sectionTitle}>Welcome to Drizzy!</h2>
+            <h2 className={styles.sectionTitle}>Welcome to Squizyy!</h2>
             <p style={{ margin: 0 }}>
-              Your privacy is important to us. This Privacy Policy explains how <strong>Drizzy</strong> (“we”, “our”, or “us”) collects, uses, and protects the personal information you share when you interact with our website, online store, or any other digital service operated by Drizzy.
+              Your privacy is important to us. This Privacy Policy explains how <strong>Squizyy</strong> (“we”, “our”, or “us”) collects, uses, and protects the personal information you share when you interact with our website, online store, or any other digital service operated by Squizyy.
             </p>
           </div>
 
@@ -63,8 +63,8 @@ const PrivacyPolicy = () => {
             <h2 className={styles.sectionTitle}>5. Contact Us</h2>
             <p style={{ margin: 0 }}>
               If you have any questions about this Privacy Policy, please reach out to us at{' '}
-              <a href="mailto:hello@getdrizzy.co" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                hello@getdrizzy.co
+              <a href="mailto:hello@squizyy.com" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
+                hello@squizyy.com
               </a>.
             </p>
           </div>

@@ -4,10 +4,10 @@
 {%- endcomment -%}
 
 {%- assign main_product = nil -%}
-{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}

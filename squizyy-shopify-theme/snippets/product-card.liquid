@@ -1,12 +1,12 @@
 {%- comment -%}
-  Authentic Drizzy Product Card
+  Authentic Squizyy Product Card
   Faithfully ported from client/src/components/product/ProductCard.jsx & ProductCard.module.css
   Accepts:
   - product: {Object} Shopify Product Liquid object
 {%- endcomment -%}
 
-{%- assign primary_img = 'DRIZZY12302.jpg' | asset_url -%}
-{%- assign hover_img = 'USADRIZZYFRONTcopy.jpg' | asset_url -%}
+{%- assign primary_img = 'SQUIZYY12302.jpg' | asset_url -%}
+{%- assign hover_img = 'USASQUIZYYFRONTcopy.jpg' | asset_url -%}
 
 {%- if product.handle contains 'case' or product.handle contains 'food-services' -%}
   {%- assign primary_img = 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url -%}
@@ -22,8 +22,8 @@
   {%- endif -%}
 {%- endif -%}
 
-{%- assign card_url = product.url | default: '/products/drizzy-squeezy-peanut-butter-19-4-oz' -%}
-{%- assign card_title = product.title | default: 'Drizzy Squeezy Peanut Butter 19.4 Oz' -%}
+{%- assign card_url = product.url | default: '/products/squizyy-squeezy-peanut-butter-19-4-oz' -%}
+{%- assign card_title = product.title | default: 'Squizyy Squeezy Peanut Butter 19.4 Oz' -%}
 {%- assign card_price = product.price | default: 999 | money -%}
 
 <div class="product-card" data-product-card>

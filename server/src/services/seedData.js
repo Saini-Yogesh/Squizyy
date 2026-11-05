@@ -1,8 +1,8 @@
 const productsData = [
   {
-    name: 'Drizzy Squeezy Peanut Butter 19.4 Oz',
-    slug: 'drizzy-squeezy-peanut-butter-19-4-oz',
-    description: 'Drizzy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life. No jars. No knives. No mess. Sourced exclusively from Texas for a deeper roast and a smoother drizzle you won\'t find in supermarkets.',
+    name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
+    slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
+    description: 'Squizyy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life. No jars. No knives. No mess. Sourced exclusively from Texas for a deeper roast and a smoother drizzle you won\'t find in supermarkets.',
     price: 999, // $9.99
     compareAtPrice: 999,
     category: 'Peanut Butter',
@@ -11,12 +11,12 @@ const productsData = [
     rating: 4.9,
     reviewsCount: 1042,
     images: [
-      '/assets/images/USADRIZZYFRONTcopy_1.jpg',
-      '/assets/images/USADRIZZYBACKcopy_1.jpg',
-      '/assets/images/USADRIZZYHOWTOcopy_1.jpg',
-      '/assets/images/USADRIZZYGOODcopy_1.jpg',
-      '/assets/images/DRIZZY12302_1.jpg',
-      '/assets/images/DRIZZY13034_1.jpg',
+      '/assets/images/USASQUIZYYFRONTcopy_1.jpg',
+      '/assets/images/USASQUIZYYBACKcopy_1.jpg',
+      '/assets/images/USASQUIZYYHOWTOcopy_1.jpg',
+      '/assets/images/USASQUIZYYGOODcopy_1.jpg',
+      '/assets/images/SQUIZYY12302_1.jpg',
+      '/assets/images/SQUIZYY13034_1.jpg',
       '/assets/images/pdp-image.png'
     ],
     details: {
@@ -72,7 +72,7 @@ const productsData = [
     variants: [
       {
         title: 'Default Title',
-        sku: 'DRIZZY-PB-001-USA',
+        sku: 'SQUIZYY-PB-001-USA',
         price: 999,
         compareAtPrice: 999,
         available: true,
@@ -93,7 +93,7 @@ const productsData = [
     reviewsCount: 88,
     images: [
       '/assets/images/6_bottles.png',
-      '/assets/images/DRIZZY13152_copy.jpg',
+      '/assets/images/SQUIZYY13152_copy.jpg',
       '/assets/images/pdp-image.png'
     ],
     details: {
@@ -119,7 +119,7 @@ const productsData = [
     variants: [
       {
         title: 'Case Pack (6 Units)',
-        sku: 'DRIZZY-FS-006-USA',
+        sku: 'SQUIZYY-FS-006-USA',
         price: 3750,
         compareAtPrice: 4200,
         available: true,
@@ -218,7 +218,7 @@ const storesData = [
 
 const reviewsData = [
   {
-    productSlug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+    productSlug: 'squizyy-squeezy-peanut-butter-19-4-oz',
     author: 'Sarah M.',
     rating: 5,
     title: 'Never buying a jar again!',
@@ -227,16 +227,16 @@ const reviewsData = [
     location: 'Austin, TX'
   },
   {
-    productSlug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+    productSlug: 'squizyy-squeezy-peanut-butter-19-4-oz',
     author: 'Liam O.',
     rating: 5,
     title: 'Discovered in Bondi, so glad it is in the US now',
-    content: 'Been having Drizzy in Australia for years. The roast profile on this Texas peanut version is genuinely richer and the consistency is sheer perfection.',
+    content: 'Been having Squizyy in Australia for years. The roast profile on this Texas peanut version is genuinely richer and the consistency is sheer perfection.',
     verified: true,
     location: 'Sydney / New York'
   },
   {
-    productSlug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+    productSlug: 'squizyy-squeezy-peanut-butter-19-4-oz',
     author: 'Jessica T.',
     rating: 5,
     title: 'The cleanest drizzle ever',
@@ -245,7 +245,7 @@ const reviewsData = [
     location: 'Los Angeles, CA'
   },
   {
-    productSlug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+    productSlug: 'squizyy-squeezy-peanut-butter-19-4-oz',
     author: 'Marcus K.',
     rating: 5,
     title: 'Real peanuts, incredible flavor',
@@ -254,7 +254,7 @@ const reviewsData = [
     location: 'Dallas, TX'
   },
   {
-    productSlug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+    productSlug: 'squizyy-squeezy-peanut-butter-19-4-oz',
     author: 'Chloe P.',
     rating: 5,
     title: 'Best gym fuel ever',

@@ -88,7 +88,7 @@ const submitContest = async (data) => {
 };
 
 // Reviews
-const getReviews = async (productSlug = 'drizzy-squeezy-peanut-butter-19-4-oz') => {
+const getReviews = async (productSlug = 'squizyy-squeezy-peanut-butter-19-4-oz') => {
   if (getIsConnected()) {
     try {
       const reviews = await Review.find({ productSlug }).sort({ createdAt: -1 });

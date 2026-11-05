@@ -97,11 +97,11 @@ const StoreLocator = () => {
 
   return (
     <div className={styles.page}>
-      <section className={styles.section} aria-label="Find Drizzy in stores">
+      <section className={styles.section} aria-label="Find Squizyy in stores">
         <div className={styles.container}>
           {/* Header */}
           <h1 className={styles.heading}>
-            Locate Drizzy near you
+            Locate Squizyy near you
           </h1>
 
           {/* Nationwide Banner */}
@@ -172,7 +172,7 @@ const StoreLocator = () => {
                         {addressText}
                       </p>
                       <div className={styles.storeMeta}>
-                        <span>{store.phone || '(800) DRIZZY-PB'}</span>
+                        <span>{store.phone || '(800) SQUIZYY-PB'}</span>
                         <span>{store.hours || '7:00 AM - 10:00 PM Daily'}</span>
                       </div>
                     </div>
@@ -221,7 +221,7 @@ const StoreLocator = () => {
 
               <div className={styles.counterBadgeWrapper}>
                 <div className={styles.counterBadge}>
-                  📍 {stores.length} Retail Locations Stocking Drizzy
+                  📍 {stores.length} Retail Locations Stocking Squizyy
                 </div>
               </div>
             </div>

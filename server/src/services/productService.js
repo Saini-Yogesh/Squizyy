@@ -36,8 +36,8 @@ const getProductBySlug = async (slug) => {
   }
 
   // Alias compatibility
-  const targetSlug = cleanSlug === 'drizzy-peanut-drizzle' 
-    ? 'drizzy-squeezy-peanut-butter-19-4-oz' 
+  const targetSlug = cleanSlug === 'squizyy-peanut-drizzle' 
+    ? 'squizyy-squeezy-peanut-butter-19-4-oz' 
     : cleanSlug;
 
   const found = memoryProducts.find(p => p.slug === targetSlug || p.id === cleanSlug || p._id === cleanSlug);

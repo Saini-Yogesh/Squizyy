@@ -65,7 +65,7 @@ const Wholesale = () => {
             {/* Overlapping Hero Card */}
             <div className={styles.heroCard}>
               <h1 className={styles.heroTitle}>
-                Partner with Drizzy
+                Partner with Squizyy
               </h1>
               <p className={styles.heroDesc}>
                 Partner with a brand that values quality and simplicity. Tell us about your store and let's grow together.
@@ -134,7 +134,7 @@ const Wholesale = () => {
         </section>
       </div>
 
-      {/* 3. Customer Form (Be one of the first to stock Drizzy) */}
+      {/* 3. Customer Form (Be one of the first to stock Squizyy) */}
       <div id="shopify-section-wholesale-form" className="shopify-section">
         <section className={styles.formSection}>
           <div className={styles.formContainer}>
@@ -143,7 +143,7 @@ const Wholesale = () => {
               <div className={styles.formImageFrame}>
                 <img
                   src="/assets/images/wholesale-form.png"
-                  alt="Wholesale Drizzy bottles"
+                  alt="Wholesale Squizyy bottles"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
@@ -160,7 +160,7 @@ const Wholesale = () => {
             {/* Right Form Card */}
             <div className={styles.formCard}>
               <h2 className={styles.formHeading}>
-                Be one of the first to stock Drizzy.
+                Be one of the first to stock Squizyy.
               </h2>
               <div style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(43, 20, 8, 0.9)' }}>
                 <p style={{ margin: 0 }}>

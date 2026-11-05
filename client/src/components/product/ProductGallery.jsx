@@ -5,17 +5,17 @@ const ProductGallery = ({ images = [], mode = 'compact' }) => {
   const [activeImage, setActiveImage] = useState(0);
 
   const defaultImages = [
-    '/assets/images/USADRIZZYFRONTcopy.jpg',
-    '/assets/images/DRIZZY12302.jpg',
-    '/assets/images/DRIZZY13034.jpg',
-    '/assets/images/DRIZZY13132.jpg',
-    '/assets/images/DRIZZY12496.jpg',
-    '/assets/images/DRIZZY12791.jpg',
-    '/assets/images/DRIZZY12951.jpg',
-    '/assets/images/DRIZZY12237.jpg',
-    '/assets/images/USADRIZZYBACKcopy.jpg',
-    '/assets/images/USADRIZZYGOODcopy.jpg',
-    '/assets/images/USADRIZZYHOWTOcopy.jpg',
+    '/assets/images/USASQUIZYYFRONTcopy.jpg',
+    '/assets/images/SQUIZYY12302.jpg',
+    '/assets/images/SQUIZYY13034.jpg',
+    '/assets/images/SQUIZYY13132.jpg',
+    '/assets/images/SQUIZYY12496.jpg',
+    '/assets/images/SQUIZYY12791.jpg',
+    '/assets/images/SQUIZYY12951.jpg',
+    '/assets/images/SQUIZYY12237.jpg',
+    '/assets/images/USASQUIZYYBACKcopy.jpg',
+    '/assets/images/USASQUIZYYGOODcopy.jpg',
+    '/assets/images/USASQUIZYYHOWTOcopy.jpg',
   ];
 
   const galleryImages = images && images.length > 0 ? images : defaultImages;
@@ -30,7 +30,7 @@ const ProductGallery = ({ images = [], mode = 'compact' }) => {
           <div className={styles.pdpMainHero}>
             <img
               src={galleryImages[0]}
-              alt="Drizzy Squeezy Peanut Butter"
+              alt="Squizyy Squeezy Peanut Butter"
               className={styles.pdpMainHeroImg}
               loading="eager"
             />
@@ -45,7 +45,7 @@ const ProductGallery = ({ images = [], mode = 'compact' }) => {
               >
                 <img
                   src={img}
-                  alt={`Drizzy view ${idx + 2}`}
+                  alt={`Squizyy view ${idx + 2}`}
                   className={styles.pdpSubCardImg}
                   loading="lazy"
                 />
@@ -59,7 +59,7 @@ const ProductGallery = ({ images = [], mode = 'compact' }) => {
           <div className={styles.pdpMobileHero}>
             <img
               src={galleryImages[activeImage] || galleryImages[0]}
-              alt="Drizzy Squeezy Peanut Butter"
+              alt="Squizyy Squeezy Peanut Butter"
               className={styles.pdpMobileHeroImg}
               loading="eager"
             />
@@ -122,7 +122,7 @@ const ProductGallery = ({ images = [], mode = 'compact' }) => {
           <div className={styles.compactMainCard}>
             <img
               src={galleryImages[activeImage] || galleryImages[0]}
-              alt="Drizzy Squeezy Peanut Butter"
+              alt="Squizyy Squeezy Peanut Butter"
               className={styles.compactMainImg}
               loading="eager"
             />

@@ -2,13 +2,13 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
-const STORAGE_KEY = 'drizzy_cart_v1';
+const STORAGE_KEY = 'squizyy_cart_v1';
 const FREE_SHIPPING_THRESHOLD_CENTS = 4999; // $49.99
 
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('drizzy_cart_v1');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
       ? Math.round(rawPrice * 0.9) 
       : rawPrice;
 
-    const itemId = `${product.slug || product._id || 'drizzy-pb'}-${bottleCount}-${purchaseType}-${purchaseType === 'subscription' ? deliveryFrequency : ''}`;
+    const itemId = `${product.slug || product._id || 'squizyy-pb'}-${bottleCount}-${purchaseType}-${purchaseType === 'subscription' ? deliveryFrequency : ''}`;
 
     setItems(prevItems => {
       const existingIndex = prevItems.findIndex(i => i.id === itemId);
@@ -48,10 +48,10 @@ export const CartProvider = ({ children }) => {
       } else {
         const newItem = {
           id: itemId,
-          productId: product._id || product.slug || 'drizzy-pb',
-          slug: product.slug || 'drizzy-squeezy-peanut-butter-19-4-oz',
-          title: product.name || 'Drizzy Squeezy Peanut Butter',
-          name: product.name || 'Drizzy Squeezy Peanut Butter',
+          productId: product._id || product.slug || 'squizyy-pb',
+          slug: product.slug || 'squizyy-squeezy-peanut-butter-19-4-oz',
+          title: product.name || 'Squizyy Squeezy Peanut Butter',
+          name: product.name || 'Squizyy Squeezy Peanut Butter',
           variantTitle: `${bottleCount}x Bottle${bottleCount > 1 ? 's' : ''}`,
           bottleCount,
           price: unitPrice,

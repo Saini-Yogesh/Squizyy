@@ -7,10 +7,10 @@ import styles from './Products.module.css';
 const defaultFallbackProducts = [
   {
     id: '8932474355883',
-    slug: 'drizzy-squeezy-peanut-butter-19-4-oz',
-    name: 'Drizzy Squeezy Peanut Butter 19.4 Oz',
+    slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
+    name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
     price: 999,
-    images: ['/assets/images/DRIZZY12302.jpg', '/assets/images/USADRIZZYFRONTcopy.jpg'],
+    images: ['/assets/images/SQUIZYY12302.jpg', '/assets/images/USASQUIZYYFRONTcopy.jpg'],
   },
   {
     id: '8932545495211',
@@ -55,7 +55,7 @@ const Products = () => {
         <section className={styles.section} aria-label="All Products">
           <div className={styles.container}>
             <div className={styles.headerArea}>
-              <h1 className={styles.pageTitle}>Shop All Drizzy</h1>
+              <h1 className={styles.pageTitle}>Shop All Squizyy</h1>
               <p className={styles.pageSubtitle}>
                 100% natural squeezy peanut butter, straight from Texas runner peanuts.
               </p>

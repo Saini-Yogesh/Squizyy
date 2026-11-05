@@ -8,7 +8,7 @@ const ComparisonTable = () => {
         {/* Floating peanut left */}
         <div className={styles.peanutLeft}>
           <img
-            src="/assets/images/drizzy-peanut-left.png"
+            src="/assets/images/squizyy-peanut-left.png"
             alt=""
             loading="lazy"
           />
@@ -18,7 +18,7 @@ const ComparisonTable = () => {
         <div className={styles.bottleLeft}>
           <img
             src="/assets/images/product-bottle-left.png"
-            alt="Drizzy Bottle"
+            alt="Squizyy Bottle"
             loading="lazy"
           />
         </div>
@@ -26,7 +26,7 @@ const ComparisonTable = () => {
         {/* Floating peanut right */}
         <div className={styles.peanutRight}>
           <img
-            src="/assets/images/drizzy-peanut-left.png"
+            src="/assets/images/squizyy-peanut-left.png"
             alt=""
             loading="lazy"
           />
@@ -65,7 +65,7 @@ const ComparisonTable = () => {
             </h2>
 
             <div className={styles.vsRow}>
-              {/* Left (Drizzy) perks */}
+              {/* Left (Squizyy) perks */}
               <div className={styles.leftPerks}>
                 <div className={styles.pillBadge}>
                   PERFECTLY SMOOTH

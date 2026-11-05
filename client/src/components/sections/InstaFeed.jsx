@@ -8,49 +8,49 @@ const reels = [
     img: '/assets/images/timeline-3.jpg',
     badge: null,
     caption: 'ME! 🇦🇺 Five m...',
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '2',
     img: '/assets/images/7197cdc3c5194c39804a834f7b97aebd.thumbnail.0000000000.jpg',
     badge: null,
     caption: '"Go where the wind takes you"\nMe:',
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '3',
-    img: '/assets/images/DRIZZY13132.jpg',
+    img: '/assets/images/SQUIZYY13132.jpg',
     badge: null,
     caption: null,
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '4',
     img: '/assets/images/insta-post-1.png',
     badge: null,
-    caption: 'Come with us to watch Drizzy launch',
-    link: 'https://instagram.com/getdrizzy',
+    caption: 'Come with us to watch Squizyy launch',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '5',
     img: '/assets/images/insta-post-2.png',
     badge: 'Yo-Chi Frozen Yogurt',
     caption: null,
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '6',
     img: '/assets/images/insta-post-3.png',
     badge: null,
     caption: null,
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
   {
     id: '7',
     img: '/assets/images/insta-post-4.png',
     badge: null,
     caption: null,
-    link: 'https://instagram.com/getdrizzy',
+    link: 'https://instagram.com/squizyy',
   },
 ];
 
@@ -88,7 +88,7 @@ const InstaFeed = () => {
           {/* Section Header */}
           <div className={styles.header}>
             <h2 className={styles.heading}>
-              Follow @getdrizzy
+              Follow @squizyy
             </h2>
           </div>
 
@@ -131,11 +131,11 @@ const InstaFeed = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.reelCard}
-                  aria-label={reel.caption || 'Drizzy Instagram reel'}
+                  aria-label={reel.caption || 'Squizyy Instagram reel'}
                 >
                   <img
                     src={reel.img}
-                    alt={reel.caption || 'Drizzy Instagram post'}
+                    alt={reel.caption || 'Squizyy Instagram post'}
                     className={styles.reelImage}
                     loading="lazy"
                   />

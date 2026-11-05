@@ -6,10 +6,10 @@
 {%- assign main_product = nil -%}
 {%- if section.settings.featured_product != blank and all_products[section.settings.featured_product].title != blank -%}
   {%- assign main_product = all_products[section.settings.featured_product] -%}
-{%- elsif all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- elsif all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}
@@ -18,7 +18,7 @@
   {%- assign product_url = main_product.url -%}
   {%- assign product_price = main_product.price | money -%}
 {%- else -%}
-  {%- assign product_url = '/products/drizzy-squeezy-peanut-butter-19-4-oz' -%}
+  {%- assign product_url = '/products/squizyy-squeezy-peanut-butter-19-4-oz' -%}
   {%- assign product_price = '$9.99' -%}
 {%- endif -%}
 
@@ -27,7 +27,7 @@
     <!-- Floating Peanuts Background Elements -->
     <div class="featured-peanut-1" aria-hidden="true">
       <img
-        src="{{ 'drizzy-peanut-left.png' | asset_url }}"
+        src="{{ 'squizyy-peanut-left.png' | asset_url }}"
         alt=""
         width="105"
         height="105"
@@ -36,7 +36,7 @@
     </div>
     <div class="featured-peanut-2" aria-hidden="true">
       <img
-        src="{{ 'drizzy-peanut-left.png' | asset_url }}"
+        src="{{ 'squizyy-peanut-left.png' | asset_url }}"
         alt=""
         width="137"
         height="137"
@@ -83,7 +83,7 @@
                         >
                           <img
                             src="{{ img | image_url: width: 120, height: 120, crop: 'center' }}"
-                            alt="{{ img.alt | default: 'Drizzy Bottle View' | escape }}"
+                            alt="{{ img.alt | default: 'Squizyy Bottle View' | escape }}"
                             class="compact-thumb-img"
                             width="64"
                             height="64"
@@ -96,11 +96,11 @@
                         type="button"
                         class="compact-thumb-btn thumb-active"
                         aria-label="Thumbnail 1"
-                        onclick="changeFeaturedMainImage(this, '{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}')"
+                        onclick="changeFeaturedMainImage(this, '{{ 'USASQUIZYYFRONTcopy.jpg' | asset_url }}')"
                       >
                         <img
-                          src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
-                          alt="Drizzy Bottle Front"
+                          src="{{ 'USASQUIZYYFRONTcopy.jpg' | asset_url }}"
+                          alt="Squizyy Bottle Front"
                           class="compact-thumb-img"
                           width="64"
                           height="64"
@@ -111,11 +111,11 @@
                         type="button"
                         class="compact-thumb-btn thumb-inactive"
                         aria-label="Thumbnail 2"
-                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY12302.jpg' | asset_url }}')"
+                        onclick="changeFeaturedMainImage(this, '{{ 'SQUIZYY12302.jpg' | asset_url }}')"
                       >
                         <img
-                          src="{{ 'DRIZZY12302.jpg' | asset_url }}"
-                          alt="Drizzy On Kitchen Counter"
+                          src="{{ 'SQUIZYY12302.jpg' | asset_url }}"
+                          alt="Squizyy On Kitchen Counter"
                           class="compact-thumb-img"
                           width="64"
                           height="64"
@@ -126,11 +126,11 @@
                         type="button"
                         class="compact-thumb-btn thumb-inactive"
                         aria-label="Thumbnail 3"
-                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY13034.jpg' | asset_url }}')"
+                        onclick="changeFeaturedMainImage(this, '{{ 'SQUIZYY13034.jpg' | asset_url }}')"
                       >
                         <img
-                          src="{{ 'DRIZZY13034.jpg' | asset_url }}"
-                          alt="Drizzy Drizzle Action"
+                          src="{{ 'SQUIZYY13034.jpg' | asset_url }}"
+                          alt="Squizyy Drizzle Action"
                           class="compact-thumb-img"
                           width="64"
                           height="64"
@@ -141,11 +141,11 @@
                         type="button"
                         class="compact-thumb-btn thumb-inactive"
                         aria-label="Thumbnail 4"
-                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY13132.jpg' | asset_url }}')"
+                        onclick="changeFeaturedMainImage(this, '{{ 'SQUIZYY13132.jpg' | asset_url }}')"
                       >
                         <img
-                          src="{{ 'DRIZZY13132.jpg' | asset_url }}"
-                          alt="Drizzy Bottle Squeeze"
+                          src="{{ 'SQUIZYY13132.jpg' | asset_url }}"
+                          alt="Squizyy Bottle Squeeze"
                           class="compact-thumb-img"
                           width="64"
                           height="64"
@@ -156,11 +156,11 @@
                         type="button"
                         class="compact-thumb-btn thumb-inactive"
                         aria-label="Thumbnail 5"
-                        onclick="changeFeaturedMainImage(this, '{{ 'DRIZZY12496.jpg' | asset_url }}')"
+                        onclick="changeFeaturedMainImage(this, '{{ 'SQUIZYY12496.jpg' | asset_url }}')"
                       >
                         <img
-                          src="{{ 'DRIZZY12496.jpg' | asset_url }}"
-                          alt="Drizzy With Berries"
+                          src="{{ 'SQUIZYY12496.jpg' | asset_url }}"
+                          alt="Squizyy With Berries"
                           class="compact-thumb-img"
                           width="64"
                           height="64"
@@ -185,8 +185,8 @@
                     {%- else -%}
                       <img
                         id="FeaturedSectionMainImg"
-                        src="{{ 'USADRIZZYFRONTcopy.jpg' | asset_url }}"
-                        alt="Drizzy Squeezy Peanut Butter"
+                        src="{{ 'USASQUIZYYFRONTcopy.jpg' | asset_url }}"
+                        alt="Squizyy Squeezy Peanut Butter"
                         class="compact-main-img"
                         width="800"
                         height="800"
@@ -290,7 +290,7 @@
               href="{{ product_url }}"
               class="button-primary featured-cta-link"
             >
-              BUY DRIZZY PEANUT BUTTER NOW
+              BUY SQUIZYY PEANUT BUTTER NOW
             </a>
 
             <!-- Free Shipping Subtext -->

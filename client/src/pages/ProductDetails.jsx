@@ -9,14 +9,14 @@ import { useCart } from '../context/CartContext';
 import styles from './ProductDetails.module.css';
 
 const fallbackProduct = {
-  name: 'Drizzy Squeezy Peanut Butter 19.4 Oz',
-  slug: 'drizzy-squeezy-peanut-butter-19-4-oz',
+  name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
+  slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
   price: 999,
   images: [
-    '/assets/images/DRIZZY12302.jpg',
-    '/assets/images/USADRIZZYFRONTcopy.jpg',
-    '/assets/images/DRIZZY13132.jpg',
-    '/assets/images/DRIZZY12386.jpg',
+    '/assets/images/SQUIZYY12302.jpg',
+    '/assets/images/USASQUIZYYFRONTcopy.jpg',
+    '/assets/images/SQUIZYY13132.jpg',
+    '/assets/images/SQUIZYY12386.jpg',
   ],
   bottleOptions: [
     { quantity: 1, title: '1 Bottle', price: 999, perBottle: '$9.99/bottle', savingsPercent: '0%', badge: null },
@@ -41,7 +41,7 @@ const ProductDetails = () => {
     let isMounted = true;
     setLoading(true);
 
-    getProductBySlug(slug || 'drizzy-squeezy-peanut-butter-19-4-oz')
+    getProductBySlug(slug || 'squizyy-squeezy-peanut-butter-19-4-oz')
       .then((data) => {
         if (!isMounted) return;
         const currentProduct = data || fallbackProduct;
@@ -77,7 +77,7 @@ const ProductDetails = () => {
     return (
       <div className={styles.loadingContainer}>
         <div className={styles.loadingSpinner} />
-        <p className={styles.loadingText}>Loading Drizzy...</p>
+        <p className={styles.loadingText}>Loading Squizyy...</p>
       </div>
     );
   }
@@ -130,7 +130,7 @@ const ProductDetails = () => {
               <div className={styles.premiumImageFrame}>
                 <img
                   src="/assets/images/pdp-image.png"
-                  alt="Drizzy in cart with peanuts"
+                  alt="Squizyy in cart with peanuts"
                   className={styles.premiumImg}
                   loading="lazy"
                 />
@@ -195,7 +195,7 @@ const ProductDetails = () => {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={styles.premiumCtaBtn}
                 >
-                  BUY DRIZZY PEANUT BUTTER NOW
+                  BUY SQUIZYY PEANUT BUTTER NOW
                 </button>
                 <div className={styles.shippingCaption}>
                   FREE SHIPPING ON ORDERS $49.99+
@@ -271,7 +271,7 @@ const ProductDetails = () => {
             <div className={styles.videoCard}>
               <img
                 src="/assets/images/7197cdc3c5194c39804a834f7b97aebd.thumbnail.0000000000_1.jpg"
-                alt="Customer enjoying Drizzy"
+                alt="Customer enjoying Squizyy"
                 className={styles.videoCardImg}
                 loading="lazy"
               />

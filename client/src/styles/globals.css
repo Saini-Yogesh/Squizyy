@@ -31,9 +31,9 @@ body {
   color: var(--color-foreground);
 }
 
-/* Authentic Drizzy Chunky Pill Button - Universal Class */
+/* Authentic Squizyy Chunky Pill Button - Universal Class */
 .button-primary,
-.btn-drizzy-primary {
+.btn-squizyy-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,26 +54,26 @@ body {
 }
 
 .button-primary:hover,
-.btn-drizzy-primary:hover {
+.btn-squizyy-primary:hover {
   background-color: var(--color-accent-purple-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
 }
 
 .button-primary:active,
-.btn-drizzy-primary:active {
+.btn-squizyy-primary:active {
   transform: translateY(1px);
   border-bottom-width: 2px;
 }
 
 .button-primary:disabled,
-.btn-drizzy-primary:disabled {
+.btn-squizyy-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.btn-drizzy-secondary {
+.btn-squizyy-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +91,7 @@ body {
   text-decoration: none;
 }
 
-.btn-drizzy-secondary:hover {
+.btn-squizyy-secondary:hover {
   background-color: #3f1638;
   transform: translateY(-2px);
 }

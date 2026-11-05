@@ -113,7 +113,7 @@ const submitReview = async (req, res, next) => {
       title: title ? title.trim() : 'Loved it!',
       content: content.trim(),
       location: location ? location.trim() : 'Verified Buyer',
-      productSlug: productSlug || 'drizzy-squeezy-peanut-butter-19-4-oz'
+      productSlug: productSlug || 'squizyy-squeezy-peanut-butter-19-4-oz'
     });
 
     return sendSuccess(res, newReview, 'Thank you for your review!', 201);
@@ -138,8 +138,8 @@ const checkout = async (req, res, next) => {
 
     // Sanitize item details and enforce minimum quantities
     const validatedItems = items.map(item => ({
-      productId: item.productId || item.slug || 'drizzy-pb',
-      title: item.title || item.name || 'Drizzy Squeezy Peanut Butter',
+      productId: item.productId || item.slug || 'squizyy-pb',
+      title: item.title || item.name || 'Squizyy Squeezy Peanut Butter',
       bottleCount: Math.max(1, parseInt(item.bottleCount, 10) || 1),
       unitPrice: Math.max(0, parseInt(item.price || item.unitPrice, 10) || 999),
       quantity: Math.max(1, parseInt(item.quantity, 10) || 1),

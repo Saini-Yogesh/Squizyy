@@ -19,8 +19,8 @@ const ProductCard = ({ product }) => {
     }, 400);
   };
 
-  const primaryImage = product.images?.[0] || '/assets/images/DRIZZY12302.jpg';
-  const hoverImage = product.images?.[1] || product.images?.[0] || '/assets/images/USADRIZZYFRONTcopy.jpg';
+  const primaryImage = product.images?.[0] || '/assets/images/SQUIZYY12302.jpg';
+  const hoverImage = product.images?.[1] || product.images?.[0] || '/assets/images/USASQUIZYYFRONTcopy.jpg';
 
   return (
     <div className={styles.card}>

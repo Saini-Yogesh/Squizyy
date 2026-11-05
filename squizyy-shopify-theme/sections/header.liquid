@@ -1,13 +1,13 @@
 {%- comment -%}
-  Header / Navbar with Centered Logo, "BUY DRIZZY NOW" Button, & Ajax Cart Trigger
+  Header / Navbar with Centered Logo, "BUY SQUIZYY NOW" Button, & Ajax Cart Trigger
   Faithfully ported from client/src/components/layout/Navbar.jsx & Navbar.module.css
 {%- endcomment -%}
 
 {%- assign main_product = nil -%}
-{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}
@@ -82,10 +82,10 @@
           </button>
 
           <!-- Mobile Center Brand Logo -->
-          <a href="{{ routes.root_url }}" class="nav-mobile-logo" aria-label="Drizzy USA">
+          <a href="{{ routes.root_url }}" class="nav-mobile-logo" aria-label="Squizyy USA">
             <img
-              src="{{ 'drizzy-dark-logo.svg' | asset_url }}"
-              alt="Drizzy"
+              src="{{ 'squizyy-dark-logo.svg' | asset_url }}"
+              alt="Squizyy"
               class="nav-mobile-logo-img"
               width="140"
               height="30"
@@ -129,10 +129,10 @@
             </div>
 
             <!-- Center Brand Logo -->
-            <a href="{{ routes.root_url }}" class="nav-desktop-logo" aria-label="Drizzy USA">
+            <a href="{{ routes.root_url }}" class="nav-desktop-logo" aria-label="Squizyy USA">
               <img
-                src="{{ 'drizzy-dark-logo.svg' | asset_url }}"
-                alt="Drizzy"
+                src="{{ 'squizyy-dark-logo.svg' | asset_url }}"
+                alt="Squizyy"
                 class="nav-desktop-logo-img"
                 width="140"
                 height="46"
@@ -143,7 +143,7 @@
             <!-- Right Links & Actions -->
             <div class="nav-group-right">
               <a href="{{ wholesale_url }}" class="nav-link">Wholesale</a>
-              <a href="{{ buy_now_url }}" class="nav-buy-now-btn">BUY DRIZZY NOW</a>
+              <a href="{{ buy_now_url }}" class="nav-buy-now-btn">BUY SQUIZYY NOW</a>
 
               <!-- Desktop Cart Trigger -->
               <button
@@ -181,7 +181,7 @@
   <!-- Mobile Navigation Drawer -->
   <div class="mobile-menu-drawer" data-mobile-menu>
     <div class="mobile-menu-header">
-      <img src="{{ 'drizzy-dark-logo.svg' | asset_url }}" alt="Drizzy" class="mobile-menu-logo" width="120" height="36">
+      <img src="{{ 'squizyy-dark-logo.svg' | asset_url }}" alt="Squizyy" class="mobile-menu-logo" width="120" height="36">
       <button type="button" class="mobile-menu-close" data-mobile-menu-toggle aria-label="Close menu">✕</button>
     </div>
     <nav class="mobile-menu-nav">
@@ -195,7 +195,7 @@
       {%- if rules_url != blank -%}
         <a href="{{ rules_url }}" class="mobile-nav-link">Official Rules</a>
       {%- endif -%}
-      <a href="{{ buy_now_url }}" class="mobile-buy-now-btn">BUY DRIZZY NOW</a>
+      <a href="{{ buy_now_url }}" class="mobile-buy-now-btn">BUY SQUIZYY NOW</a>
     </nav>
   </div>
 </div>

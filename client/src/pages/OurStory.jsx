@@ -137,7 +137,7 @@ const OurStory = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                       {openPopup === 'queensland' ? (
                         <p className={styles.modalParagraph}>
-                          From a small peanut farm in Queensland to kitchens across Australia, this is where Drizzy was born—and where our story first took root.
+                          From a small peanut farm in Queensland to kitchens across Australia, this is where Squizyy was born—and where our story first took root.
                         </p>
                       ) : (
                         <p className={styles.modalParagraph}>
@@ -257,7 +257,7 @@ const OurStory = () => {
                       <img src="/assets/images/peanut-tiny.png" alt="" aria-hidden="true" style={{ width: '1.5rem', height: '1.5rem' }} />
                     </div>
                     <p className={styles.timelineParagraph}>
-                      You guys know peanuts. We know drizzle. So we took American-grown peanuts and gave them the Drizzy treatment.
+                      You guys know peanuts. We know drizzle. So we took American-grown peanuts and gave them the Squizyy treatment.
                     </p>
                     <p className={styles.timelineParagraph}>
                       America is the home of peanut butter, after all. We spent months finding the perfect American counterpart to our Kingaroy roots.
@@ -283,7 +283,7 @@ const OurStory = () => {
                       </h3>
                     </div>
                     <p className={styles.timelineParagraph}>
-                      A few months after launching in Australia, we packed our bags, packed the Drizzy and moved to America.
+                      A few months after launching in Australia, we packed our bags, packed the Squizyy and moved to America.
                     </p>
                     <p className={styles.timelineParagraph}>
                       Now our little Aussie peanut butter brand is hitting shelves in nearly 500 stores across the USA at Sprouts. Yeah. We're still processing it too.

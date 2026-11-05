@@ -34,8 +34,8 @@ const FeaturesGrid = () => {
           <div className={styles.imageCol}>
             <div className={styles.imageFrame}>
               <img
-                src="/assets/images/drizzy-1.jpg"
-                alt="Drizzy squeezy bottle in action"
+                src="/assets/images/squizyy-1.jpg"
+                alt="Squizyy squeezy bottle in action"
                 className={styles.mainImage}
                 loading="lazy"
               />
@@ -45,7 +45,7 @@ const FeaturesGrid = () => {
             <div className={styles.sloganBadge}>
               <img
                 src="/assets/images/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png"
-                alt="Drizzy Slogan Badge"
+                alt="Squizyy Slogan Badge"
                 className={styles.sloganImg}
                 loading="lazy"
               />
@@ -86,10 +86,10 @@ const FeaturesGrid = () => {
               {/* CTA Button */}
               <div className={styles.ctaBox}>
                 <Link
-                  to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                  to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                   className={styles.ctaButton}
                 >
-                  BUY DRIZZY PEANUT BUTTER NOW
+                  BUY SQUIZYY PEANUT BUTTER NOW
                 </Link>
                 <p className={styles.shippingNote}>
                   FREE SHIPPING ON ORDERS $49.99+

@@ -8,7 +8,7 @@
   "cart": {
     "title": "Your Cart",
     "empty": "Your cart is empty",
-    "shop_now": "Shop Drizzy",
+    "shop_now": "Shop Squizyy",
     "subtotal": "Subtotal",
     "checkout": "Proceed to Checkout",
     "view_cart": "View Cart",
@@ -29,7 +29,7 @@
     }
   },
   "newsletter": {
-    "heading": "Get 10% Off Your First Drizzle",
+    "heading": "Get 10% Off Your First Squeeze",
     "subheading": "Drop your email below for 10% off your first order, secret recipes, and early access to drops.",
     "placeholder": "Enter your email",
     "submit": "Claim 10% Off",

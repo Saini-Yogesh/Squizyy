@@ -10,7 +10,7 @@ const NewsletterModal = () => {
 
   useEffect(() => {
     // Automatically open once per session after 2.5 seconds if not closed yet
-    const hasSeen = sessionStorage.getItem('drizzy_popup_seen');
+    const hasSeen = sessionStorage.getItem('squizyy_popup_seen');
     if (!hasSeen) {
       const timer = setTimeout(() => {
         setIsOpen(true);
@@ -21,7 +21,7 @@ const NewsletterModal = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    sessionStorage.setItem('drizzy_popup_seen', 'true');
+    sessionStorage.setItem('squizyy_popup_seen', 'true');
   };
 
   const handleSubmit = async (e) => {
@@ -72,8 +72,8 @@ const NewsletterModal = () => {
             {/* Top Bottle Peeking out behind TV */}
             <div className={styles.peekingBottle}>
               <img
-                src="/assets/images/USADRIZZYFRONTcopy.jpg"
-                alt="Drizzy Bottle"
+                src="/assets/images/USASQUIZYYFRONTcopy.jpg"
+                alt="Squizyy Bottle"
                 className={styles.bottleImg}
               />
             </div>

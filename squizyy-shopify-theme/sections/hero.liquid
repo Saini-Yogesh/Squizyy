@@ -4,10 +4,10 @@
 {%- endcomment -%}
 
 {%- assign main_product = nil -%}
-{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}
@@ -26,7 +26,7 @@
         <!-- Desktop Hero Background Graphic -->
         <img
           src="{{ 'hero-bg.png' | asset_url }}"
-          alt="Drizzy squeezy peanut butter hero banner"
+          alt="Squizyy squeezy peanut butter hero banner"
           class="hero-bg-desktop"
           width="1440"
           height="600"
@@ -36,7 +36,7 @@
         <!-- Mobile Hero Background Graphic -->
         <img
           src="{{ 'hero-bg-mobile.png' | asset_url }}"
-          alt="Drizzy squeezy peanut butter hero mobile banner"
+          alt="Squizyy squeezy peanut butter hero mobile banner"
           class="hero-bg-mobile"
           width="600"
           height="800"
@@ -82,7 +82,7 @@
         <!-- Bottom CTA & Shipping Badge Overlay -->
         <div class="hero-bottom-content">
           <a href="{{ section.settings.button_link | default: buy_now_url }}" class="hero-cta-link">
-            {{ section.settings.button_label | default: 'BUY DRIZZY PEANUT BUTTER NOW' }}
+            {{ section.settings.button_label | default: 'BUY SQUIZYY PEANUT BUTTER NOW' }}
           </a>
           <p class="hero-shipping-badge">
             {{ section.settings.shipping_text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}
@@ -345,7 +345,7 @@
       "type": "text",
       "id": "button_label",
       "label": "Button Label",
-      "default": "BUY DRIZZY PEANUT BUTTER NOW"
+      "default": "BUY SQUIZYY PEANUT BUTTER NOW"
     },
     {
       "type": "url",

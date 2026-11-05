@@ -4,9 +4,9 @@
     <div class="wholesale-form-img-col">
       <div class="wholesale-form-img-frame">
         {%- if section.settings.side_image != blank -%}
-          {{ section.settings.side_image | image_url: width: 1000 | image_tag: alt: 'Wholesale Drizzy', class: 'wholesale-form-img' }}
+          {{ section.settings.side_image | image_url: width: 1000 | image_tag: alt: 'Wholesale Squizyy', class: 'wholesale-form-img' }}
         {%- else -%}
-          <img src="{{ 'wholesale-form.png' | asset_url }}" alt="Wholesale Drizzy bottles" class="wholesale-form-img" width="1086" height="1448" loading="lazy">
+          <img src="{{ 'wholesale-form.png' | asset_url }}" alt="Wholesale Squizyy bottles" class="wholesale-form-img" width="1086" height="1448" loading="lazy">
         {%- endif -%}
       </div>
       <div class="wholesale-form-mascot">
@@ -16,7 +16,7 @@
 
     <!-- Right Column: Form Card -->
     <div class="wholesale-form-card">
-      <h2 class="wholesale-form-heading">{{ section.settings.heading | default: 'Be one of the first to stock Drizzy.' }}</h2>
+      <h2 class="wholesale-form-heading">{{ section.settings.heading | default: 'Be one of the first to stock Squizyy.' }}</h2>
       <div class="wholesale-form-subtext">
         <p>We're partnering with select stores who care about quality, natural products and seriously smooth peanut butter.</p>
         <p>Tell us where you're from and we'll be in touch.</p>
@@ -363,7 +363,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Be one of the first to stock Drizzy."
+      "default": "Be one of the first to stock Squizyy."
     },
     {
       "type": "image_picker",

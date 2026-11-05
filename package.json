@@ -1,8 +1,8 @@
 {
-  "name": "drizzy",
+  "name": "squizyy",
   "version": "1.0.0",
   "private": true,
-  "description": "Drizzy 1:1 Full-Stack Application (Client + Server)",
+  "description": "Squizyy 1:1 Full-Stack Application (Client + Server)",
   "scripts": {
     "dev": "concurrently -n \"SERVER,CLIENT\" -c \"yellow.bold,magenta.bold\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
     "start": "concurrently -n \"SERVER,CLIENT\" -c \"yellow.bold,magenta.bold\" \"npm run dev --prefix server\" \"npm run dev --prefix client\"",

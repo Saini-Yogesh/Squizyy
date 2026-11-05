@@ -23,7 +23,7 @@ const AnnouncementBar = () => {
                 {items.slice(0, 3).map((item, idx) => (
                   <Link
                     key={idx}
-                    to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                    to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                     className={styles.trackItem}
                   >
                     <span className={styles.itemIcon}>
@@ -46,7 +46,7 @@ const AnnouncementBar = () => {
                 {items.slice(0, 3).map((item, idx) => (
                   <Link
                     key={`dup-${idx}`}
-                    to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                    to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                     className={styles.trackItem}
                   >
                     <span className={styles.itemIcon}>
@@ -75,7 +75,7 @@ const AnnouncementBar = () => {
                 {items.map((item, idx) => (
                   <Link
                     key={idx}
-                    to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                    to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                     className={styles.trackItem}
                   >
                     <span className={styles.desktopIcon}>
@@ -99,7 +99,7 @@ const AnnouncementBar = () => {
                 {items.map((item, idx) => (
                   <Link
                     key={`desktop-dup-${idx}`}
-                    to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                    to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                     className={styles.trackItem}
                   >
                     <span className={styles.desktopIcon}>

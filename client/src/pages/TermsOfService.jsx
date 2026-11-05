@@ -11,9 +11,9 @@ const TermsOfService = () => {
 
         <div className={styles.card}>
           <div>
-            <h2 className={styles.sectionTitle}>Welcome to Drizzy!</h2>
+            <h2 className={styles.sectionTitle}>Welcome to Squizyy!</h2>
             <p style={{ margin: 0 }}>
-              These Terms of Service (“Terms”) govern your access to and use of our website, online store, and any related services operated by Drizzy (“we”, “our”, or “us”).
+              These Terms of Service (“Terms”) govern your access to and use of our website, online store, and any related services operated by Squizyy (“we”, “our”, or “us”).
               By visiting our site or making a purchase, you agree to these Terms. Please read them carefully before using our services.
             </p>
           </div>
@@ -39,8 +39,8 @@ const TermsOfService = () => {
             <h2 className={styles.sectionTitle}>3. Shipping and Delivery</h2>
             <p style={{ margin: 0 }}>
               Delivery times are estimates and may vary based on your location. If your order arrives damaged or missing, please contact us within 7 days of delivery at{' '}
-              <a href="mailto:hello@getdrizzy.co" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                hello@getdrizzy.co
+              <a href="mailto:hello@squizyy.com" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
+                hello@squizyy.com
               </a>.
             </p>
           </div>
@@ -56,8 +56,8 @@ const TermsOfService = () => {
             <h2 className={styles.sectionTitle}>5. Contact Us</h2>
             <p style={{ margin: 0 }}>
               Questions about the Terms of Service should be sent to{' '}
-              <a href="mailto:hello@getdrizzy.co" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                hello@getdrizzy.co
+              <a href="mailto:hello@squizyy.com" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
+                hello@squizyy.com
               </a>.
             </p>
           </div>

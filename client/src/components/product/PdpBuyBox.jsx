@@ -29,7 +29,7 @@ const PdpBuyBox = ({
     <div className={styles.buyBox}>
       {/* Title */}
       <h1 className={styles.title}>
-        {product?.name || 'Drizzy Squeezy Peanut Butter 19.4 Oz'}
+        {product?.name || 'Squizyy Squeezy Peanut Butter 19.4 Oz'}
       </h1>
 
       {/* Subtitle */}
@@ -187,11 +187,11 @@ const PdpBuyBox = ({
           </button>
           {openAccordion === 'description' && (
             <div className={styles.accordionContent}>
-              <p>Drizzy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life.</p>
+              <p>Squizyy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life.</p>
               <p style={{ marginTop: '0.5rem' }}>
                 No jars. No knives. No mess. Just shake, squeeze and drizzle over toast, oats, smoothies, fruit or straight into your mouth.
               </p>
-              <p style={{ fontWeight: 'bold', marginTop: '0.75rem', textTransform: 'uppercase' }}>Why Drizzy™:</p>
+              <p style={{ fontWeight: 'bold', marginTop: '0.75rem', textTransform: 'uppercase' }}>Why Squizyy™:</p>
               <ul className={styles.bulletList}>
                 <li>Squeeze bottle = zero mess</li>
                 <li>Smooth, drizzlable consistency</li>

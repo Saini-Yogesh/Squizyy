@@ -12,7 +12,7 @@ const Hero = () => {
             {/* Desktop Hero Background Graphic */}
             <img
               src="/assets/images/hero-bg.png"
-              alt="Drizzy squeezy peanut butter hero banner"
+              alt="Squizyy squeezy peanut butter hero banner"
               className={styles.bgDesktop}
               loading="eager"
             />
@@ -20,7 +20,7 @@ const Hero = () => {
             {/* Mobile Hero Background Graphic */}
             <img
               src="/assets/images/hero-bg-mobile.png"
-              alt="Drizzy squeezy peanut butter hero mobile banner"
+              alt="Squizyy squeezy peanut butter hero mobile banner"
               className={styles.bgMobile}
               loading="eager"
             />
@@ -70,10 +70,10 @@ const Hero = () => {
             {/* Bottom CTA & Subtitle */}
             <div className={styles.bottomContent}>
               <Link
-                to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                 className={styles.ctaLink}
               >
-                BUY DRIZZY PEANUT BUTTER NOW
+                BUY SQUIZYY PEANUT BUTTER NOW
               </Link>
               <p className={styles.shippingBadge}>
                 FREE SHIPPING ON ORDERS $49.99+

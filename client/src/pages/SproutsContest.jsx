@@ -97,11 +97,11 @@ const SproutsContest = () => {
               <div className={styles.heroLegalNote}>
                 <p style={{ margin: 0 }}>
                   <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26.{' '}
-                  <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Drizzy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
+                  <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
                   <a href="/pages/rules" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                    https://getdrizzy.co/pages/rules
+                    https://squizyy.com/pages/rules
                   </a>{' '}
-                  for details. Sponsor: Drizzy Holdings Inc., 90 Park Ave., NY, NY 10016.
+                  for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
                 </p>
               </div>
             </div>
@@ -124,15 +124,15 @@ const SproutsContest = () => {
                   loop
                   className={styles.videoElement}
                   poster="/assets/images/Screenshot_2026-08-21_at_10.32.56_am.png"
-                  aria-label="Drizzy USA"
+                  aria-label="Squizyy USA"
                 >
                   <source
-                    src="https://getdrizzy.co/cdn/shop/videos/c/vp/3bf20797693b4279ad33d2af5e4962c2/3bf20797693b4279ad33d2af5e4962c2.HD-1080p-7.2Mbps-92269433.mp4"
+                    src="https://squizyy.com/cdn/shop/videos/c/vp/3bf20797693b4279ad33d2af5e4962c2/3bf20797693b4279ad33d2af5e4962c2.HD-1080p-7.2Mbps-92269433.mp4"
                     type="video/mp4"
                   />
                   <img
                     src="/assets/images/Screenshot_2026-08-21_at_10.32.56_am.png"
-                    alt="Drizzy USA"
+                    alt="Squizyy USA"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </video>
@@ -231,7 +231,7 @@ const SproutsContest = () => {
               <div className={styles.instructionsFrame}>
                 <img
                   src="/assets/images/shutterstock_2623398413.jpg"
-                  alt="Drizzy Fan with peanut butter"
+                  alt="Squizyy Fan with peanut butter"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
@@ -244,7 +244,7 @@ const SproutsContest = () => {
               </h2>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1.5rem', fontFamily: "var(--font-secondary, 'Azeret Mono')", fontSize: '1rem' }}>
-                <span>Buy Drizzy (In-store or via sprouts.com)</span>
+                <span>Buy Squizyy (In-store or via sprouts.com)</span>
                 <img
                   src="/assets/images/Sprouts_Farmers_Market_Logo_4_Vectorized.svg"
                   alt="Sprouts logo"
@@ -265,10 +265,10 @@ const SproutsContest = () => {
               {/* Step 2 */}
               <div className={styles.stepBlock}>
                 <h3 className={styles.stepHeading}>
-                  2. Buy Drizzy at Sprouts
+                  2. Buy Squizyy at Sprouts
                 </h3>
                 <p className={styles.stepBody}>
-                  Purchase at least one bottle of Drizzy at Sprouts between August 24 and September 20, 2026.
+                  Purchase at least one bottle of Squizyy at Sprouts between August 24 and September 20, 2026.
                 </p>
               </div>
 
@@ -278,7 +278,7 @@ const SproutsContest = () => {
                   3. Keep your receipt
                 </h3>
                 <p className={styles.stepBody}>
-                  Hold onto your receipt! You'll need it to enter. If you purchased online, your digital receipt will be in your email inbox showing your Drizzy purchase.
+                  Hold onto your receipt! You'll need it to enter. If you purchased online, your digital receipt will be in your email inbox showing your Squizyy purchase.
                 </p>
               </div>
 
@@ -322,7 +322,7 @@ const SproutsContest = () => {
               <div className={styles.drawMascotCol}>
                 <img
                   src="/assets/images/man.svg"
-                  alt="Drizzy Man Mascot"
+                  alt="Squizyy Man Mascot"
                   style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
                 />
               </div>
@@ -491,7 +491,7 @@ const SproutsContest = () => {
                             style={{ marginTop: '3px', width: '1rem', height: '1rem', accentColor: 'var(--color-dark-brown, #2b1408)' }}
                           />
                           <span style={{ fontSize: '12px', fontFamily: "var(--font-secondary, 'Azeret Mono')", color: 'var(--color-dark-brown, #2b1408)', lineHeight: 1.5 }}>
-                            Sign me up to receive updates and sweet deals from Drizzy!
+                            Sign me up to receive updates and sweet deals from Squizyy!
                           </span>
                         </label>
                       </div>
@@ -523,11 +523,11 @@ const SproutsContest = () => {
                     </a>
                   </p>
                   <p style={{ margin: 0 }}>
-                    <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26. <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Drizzy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
+                    <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26. <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
                     <a href="/pages/rules" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                      https://getdrizzy.co/pages/rules
+                      https://squizyy.com/pages/rules
                     </a>{' '}
-                    for details. Sponsor: Drizzy Holdings Inc., 90 Park Ave., NY, NY 10016.
+                    for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
                   </p>
                 </div>
               </div>

@@ -98,7 +98,7 @@ const CartDrawer = () => {
                 type="button"
                 onClick={() => {
                   closeCart();
-                  navigate('/products/drizzy-squeezy-peanut-butter-19-4-oz');
+                  navigate('/products/squizyy-squeezy-peanut-butter-19-4-oz');
                 }}
                 className={`button-primary ${styles.startSqueezingBtn}`}
               >

@@ -8,7 +8,7 @@ const FeaturedProductSection = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    getProductBySlug('drizzy-squeezy-peanut-butter-19-4-oz')
+    getProductBySlug('squizyy-squeezy-peanut-butter-19-4-oz')
       .then((data) => {
         if (data) setProduct(data);
       })
@@ -21,7 +21,7 @@ const FeaturedProductSection = () => {
         {/* Floating Peanuts Background Elements */}
         <div className={styles.floatingPeanut1} aria-hidden="true">
           <img
-            src="/assets/images/drizzy-peanut-left.png"
+            src="/assets/images/squizyy-peanut-left.png"
             alt=""
             loading="lazy"
           />
@@ -29,7 +29,7 @@ const FeaturedProductSection = () => {
 
         <div className={styles.floatingPeanut2} aria-hidden="true">
           <img
-            src="/assets/images/drizzy-peanut-left.png"
+            src="/assets/images/squizyy-peanut-left.png"
             alt=""
             loading="lazy"
           />
@@ -157,10 +157,10 @@ const FeaturedProductSection = () => {
 
                 {/* Add to Cart / Buy Now Action Button */}
                 <Link
-                  to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+                  to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
                   className={`button-primary ${styles.ctaLink}`}
                 >
-                  BUY DRIZZY PEANUT BUTTER NOW
+                  BUY SQUIZYY PEANUT BUTTER NOW
                 </Link>
 
                 {/* Free Shipping Subtext */}

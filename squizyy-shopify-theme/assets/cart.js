@@ -210,8 +210,8 @@ class SquizyyCart {
         <div class="cart-drawer-empty">
           <div class="cart-drawer-empty-icon">🥜</div>
           <p class="cart-drawer-empty-title">Your cart is empty!</p>
-          <p class="cart-drawer-empty-desc">Grab a bottle of Drizzy and kiss your spoon goodbye.</p>
-          <a href="/collections/all" class="button-primary button-small" style="margin-top: 1rem;">Shop Drizzy</a>
+          <p class="cart-drawer-empty-desc">Grab a bottle of Squizyy and kiss your spoon goodbye.</p>
+          <a href="/collections/all" class="button-primary button-small" style="margin-top: 1rem;">Shop Squizyy</a>
         </div>
       `;
       return;

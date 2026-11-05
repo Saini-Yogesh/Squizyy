@@ -38,7 +38,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Root test route
 app.get('/', (req, res) => {
-  res.json({ success: true, message: 'Drizzy API Server is running', status: 'ok' });
+  res.json({ success: true, message: 'Squizyy API Server is running', status: 'ok' });
 });
 
 // Health check

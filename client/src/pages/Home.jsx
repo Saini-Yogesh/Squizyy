@@ -30,7 +30,7 @@ const Home = () => {
       {/* 6. Full Page Media (Texas Quality Story & Video) */}
       <FullPageMedia />
 
-      {/* 7. Marquee Cards (Life's Better With Drizzy) */}
+      {/* 7. Marquee Cards (Life's Better With Squizyy) */}
       <MarqueeCards />
 
       {/* 8. Instagram Community Feed */}

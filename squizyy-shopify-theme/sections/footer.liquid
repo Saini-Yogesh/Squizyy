@@ -4,10 +4,10 @@
 {%- endcomment -%}
 
 {%- assign main_product = nil -%}
-{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}
@@ -143,17 +143,17 @@
           {% endform %}
         </div>
 
-        <!-- Card 2: Get Drizzy with it -->
+        <!-- Card 2: Get Squizyy with it -->
         <div class="footer-links-card">
           <h2 class="footer-links-title">
-            Get Drizzy with it
+            Get Squizyy with it
           </h2>
           <div class="footer-links-grid">
             <!-- Col 1: Shop & About -->
             <div class="footer-nav-col">
               <ul class="footer-nav-list">
                 <li>
-                  <a href="{{ buy_now_url }}" class="footer-nav-link">Shop Drizzy</a>
+                  <a href="{{ buy_now_url }}" class="footer-nav-link">Shop Squizyy</a>
                 </li>
                 <li>
                   <a href="{{ our_story_url }}" class="footer-nav-link">Our Story</a>
@@ -197,7 +197,7 @@
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.instagram.com/getdrizzy/"
+                    href="https://www.instagram.com/squizyy/"
                     class="footer-social-icon-link"
                     aria-label="Instagram"
                   >
@@ -210,7 +210,7 @@
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.linkedin.com/company/drizzypeanuts/"
+                    href="https://www.linkedin.com/company/squizyypeanuts/"
                     class="footer-social-icon-link"
                     aria-label="LinkedIn"
                   >
@@ -223,7 +223,7 @@
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.tiktok.com/@getdrizzypeanuts"
+                    href="https://www.tiktok.com/@getsquizyypeanuts"
                     class="footer-social-icon-link"
                     aria-label="TikTok"
                   >
@@ -245,8 +245,8 @@
       <div class="footer-bottom-section">
         <div class="footer-logo-box">
           <img
-            src="{{ 'drizzy-dark-logo.svg' | asset_url }}"
-            alt="DRIZZY"
+            src="{{ 'squizyy-dark-logo.svg' | asset_url }}"
+            alt="SQUIZYY"
             class="footer-brand-logo-img"
             width="242"
             height="37"
@@ -254,7 +254,7 @@
           >
         </div>
         <div class="footer-copyright">
-          &copy; {{ 'now' | date: '%Y' }} Drizzy Pty Limited. All Rights Reserved.
+          &copy; {{ 'now' | date: '%Y' }} Squizyy Pty Limited. All Rights Reserved.
         </div>
       </div>
     </div>

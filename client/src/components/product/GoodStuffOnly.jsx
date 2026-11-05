@@ -27,7 +27,7 @@ const GoodStuffOnly = () => {
           <div className={styles.centerBottleBox}>
             <img
               src="/assets/images/features-bg-2.png"
-              alt="Good Stuff Drizzy Bottle"
+              alt="Good Stuff Squizyy Bottle"
               className={styles.centerBottleImg}
             />
           </div>
@@ -69,7 +69,7 @@ const GoodStuffOnly = () => {
           <div className={styles.mobileBottleBox}>
             <img
               src="/assets/images/features-bg-mobile.png"
-              alt="Good Stuff Drizzy Bottle"
+              alt="Good Stuff Squizyy Bottle"
               className={styles.mobileBottleImg}
             />
           </div>

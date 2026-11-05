@@ -4,10 +4,10 @@
 {%- endcomment -%}
 
 {%- assign main_product = nil -%}
-{%- if all_products['drizzy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-squeezy-peanut-butter-19-4-oz'] -%}
-{%- elsif all_products['drizzy-peanut-butter'].title != blank -%}
-  {%- assign main_product = all_products['drizzy-peanut-butter'] -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
 {%- elsif collections.all.products.first != blank -%}
   {%- assign main_product = collections.all.products.first -%}
 {%- endif -%}
@@ -52,7 +52,7 @@
 
       <div class="store-actions-row">
         <a href="{{ buy_now_url }}" class="button-primary store-btn-primary">
-          <span>BUY DRIZZY ONLINE</span>
+          <span>BUY SQUIZYY ONLINE</span>
         </a>
         <a href="{{ wholesale_url }}" class="store-btn-secondary">
           <span>WHOLESALE INQUIRIES</span>
@@ -60,7 +60,7 @@
       </div>
 
       <div class="store-grocer-note">
-        <p>Are you a retail buyer, grocer, or cafe owner? <a href="{{ wholesale_url }}">Contact our wholesale team</a> to stock Drizzy early.</p>
+        <p>Are you a retail buyer, grocer, or cafe owner? <a href="{{ wholesale_url }}">Contact our wholesale team</a> to stock Squizyy early.</p>
       </div>
     </div>
   </div>

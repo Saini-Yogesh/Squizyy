@@ -77,7 +77,7 @@ const MarqueeCards = () => {
 
             {/* Center Heading */}
             <h3 className={styles.title}>
-              LIFE'S BETTER WITH DRIZZY
+              LIFE'S BETTER WITH SQUIZYY
             </h3>
 
             {/* Desktop alternating row right */}
@@ -153,10 +153,10 @@ const MarqueeCards = () => {
 
           <div className={styles.ctaWrapper}>
             <Link
-              to="/products/drizzy-squeezy-peanut-butter-19-4-oz"
+              to="/products/squizyy-squeezy-peanut-butter-19-4-oz"
               className={styles.ctaButton}
             >
-              BUY DRIZZY PEANUT BUTTER NOW
+              BUY SQUIZYY PEANUT BUTTER NOW
             </Link>
           </div>
         </div>

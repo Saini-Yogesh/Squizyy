@@ -12,7 +12,7 @@ const Rules = () => {
 
         <div className={styles.card}>
           <h2 className={styles.subheading}>
-            DRIZZY SPROUTS LAUNCH SWEEPSTAKES
+            SQUIZYY SPROUTS LAUNCH SWEEPSTAKES
           </h2>
           <h3 className={styles.subheading} style={{ fontSize: '1.125rem' }}>
             OFFICIAL RULES
@@ -31,11 +31,11 @@ const Rules = () => {
           </ul>
 
           <p>
-            <strong>SPONSOR:</strong> Drizzy Pty Limited, 90 Park Avenue, New York, NY 10016 (“Sponsor”).
+            <strong>SPONSOR:</strong> Squizyy Pty Limited, 90 Park Avenue, New York, NY 10016 (“Sponsor”).
           </p>
 
           <p>
-            <strong>ELIGIBILITY:</strong> The Drizzy Sprouts Launch Sweepstakes (the “Sweepstakes”) is open to legal U.S. residents of the fifty (50) United States (including the District of Columbia) who are eighteen (18) years of age or older at the time of entry and have reached the age of majority in their respective states of residence. Employees of Sponsor, Sprouts Farmers Market, and their immediate families are not eligible.
+            <strong>ELIGIBILITY:</strong> The Squizyy Sprouts Launch Sweepstakes (the “Sweepstakes”) is open to legal U.S. residents of the fifty (50) United States (including the District of Columbia) who are eighteen (18) years of age or older at the time of entry and have reached the age of majority in their respective states of residence. Employees of Sponsor, Sprouts Farmers Market, and their immediate families are not eligible.
           </p>
 
           <p>
@@ -48,14 +48,14 @@ const Rules = () => {
 
           <div style={{ paddingLeft: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <p>
-              <strong>1. Purchase Entry:</strong> Set up an account with Sprouts Farmers Market stores. Purchase a bottle of Drizzy Peanut Butter 19.4 oz at any participating Sprouts location. Visit{' '}
+              <strong>1. Purchase Entry:</strong> Set up an account with Sprouts Farmers Market stores. Purchase a bottle of Squizyy Peanut Butter 19.4 oz at any participating Sprouts location. Visit{' '}
               <Link to="/pages/sproutslaunchwinflightstoaustralia" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                https://getdrizzy.co/pages/sproutslaunchwinflightstoaustralia
+                https://squizyy.com/pages/sproutslaunchwinflightstoaustralia
               </Link>
               , upload your receipt photo or digital receipt, and submit your entry.
             </p>
             <p>
-              <strong>2. Alternative Method of Entry (AMOE) — No Purchase Necessary:</strong> Hand-print your full name, mailing address, date of birth, email address, and phone number on a 3” x 5” card and mail it in a stamped envelope to: Drizzy Sprouts Launch Sweepstakes, 936 SW 1st Avenue, PMB 180, Miami, FL 33130.
+              <strong>2. Alternative Method of Entry (AMOE) — No Purchase Necessary:</strong> Hand-print your full name, mailing address, date of birth, email address, and phone number on a 3” x 5” card and mail it in a stamped envelope to: Squizyy Sprouts Launch Sweepstakes, 936 SW 1st Avenue, PMB 180, Miami, FL 33130.
             </p>
             <p style={{ fontSize: '11px', fontFamily: "var(--font-secondary, 'Azeret Mono')", color: 'rgba(43, 20, 8, 0.8)' }}>
               Limit one (1) entry per person total across all entry methods combined during the Sweepstakes Period.

@@ -5,7 +5,7 @@ import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
   const [adminKey, setAdminKey] = useState(
-    () => localStorage.getItem('drizzy_admin_key') || 'drizzy_admin_secret_key_2026'
+    () => localStorage.getItem('squizyy_admin_key') || localStorage.getItem('drizzy_admin_key') || 'squizyy_admin_secret_key_2026'
   );
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [stats, setStats] = useState(null);
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
       const data = await getAdminStats(adminKey);
       setStats(data);
       setIsAuthenticated(true);
-      localStorage.setItem('drizzy_admin_key', adminKey);
+      localStorage.setItem('squizyy_admin_key', adminKey);
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid Admin Secret Key. Access Denied.');
       setIsAuthenticated(false);
@@ -79,7 +79,7 @@ const AdminDashboard = () => {
                 className={styles.loginInput}
               />
               <span className={styles.hintText}>
-                Default: drizzy_admin_secret_key_2026
+                Default: squizyy_admin_secret_key_2026
               </span>
             </div>
 
@@ -119,12 +119,13 @@ const AdminDashboard = () => {
             Backend Management Console
           </span>
           <h1 className={styles.dashboardHeading}>
-            Drizzy Admin Portal
+            Squizyy Admin Portal
           </h1>
         </div>
         <button
           onClick={() => {
             setIsAuthenticated(false);
+            localStorage.removeItem('squizyy_admin_key');
             localStorage.removeItem('drizzy_admin_key');
           }}
           className={styles.signOutBtn}

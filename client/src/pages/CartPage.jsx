@@ -81,10 +81,10 @@ const CartPage = () => {
             Order Confirmed!
           </h1>
           <p className={styles.confirmedId}>
-            Order ID: <strong>{orderConfirmed.orderNumber || orderConfirmed._id || 'DRIZZY-ORDER'}</strong>
+            Order ID: <strong>{orderConfirmed.orderNumber || orderConfirmed._id || 'SQUIZYY-ORDER'}</strong>
           </p>
           <p className={styles.confirmedBody}>
-            Thank you, {orderConfirmed.customer?.firstName || customer.firstName}! Your delicious Drizzy peanut butter is being prepared for shipment. A confirmation email has been sent to {orderConfirmed.customer?.email || customer.email}.
+            Thank you, {orderConfirmed.customer?.firstName || customer.firstName}! Your delicious Squizyy peanut butter is being prepared for shipment. A confirmation email has been sent to {orderConfirmed.customer?.email || customer.email}.
           </p>
           <Link
             to="/"
