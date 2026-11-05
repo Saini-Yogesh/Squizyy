@@ -72,21 +72,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Store Locator Search Filter
-  const storeSearch = document.getElementById('StoreLocatorSearch');
-  const storeList = document.getElementById('StoreLocatorList');
-  if (storeSearch && storeList) {
-    storeSearch.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase().trim();
-      const cards = storeList.querySelectorAll('.store-card');
-      cards.forEach(card => {
-        const text = card.textContent.toLowerCase();
-        if (text.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+  // 4. Global Accordion Controller (Single-Open / Exclusive Accordion)
+  document.addEventListener('click', (e) => {
+    const toggle = e.target.closest('[data-accordion-toggle]');
+    if (!toggle) return;
+
+    e.preventDefault();
+    const currentItem = toggle.closest('.faq-item') || toggle.closest('.accordion-item');
+    if (!currentItem) return;
+
+    const parentList = currentItem.closest('.faq-accordion-list') || currentItem.closest('.pdp-accordions') || currentItem.parentElement;
+    const isAlreadyOpen = currentItem.classList.contains('open');
+
+    // Close all other open sibling items in the same container
+    if (parentList) {
+      const allSiblings = parentList.querySelectorAll('.faq-item, .accordion-item');
+      allSiblings.forEach((sibling) => {
+        if (sibling !== currentItem) {
+          sibling.classList.remove('open');
+          const siblingToggle = sibling.querySelector('[data-accordion-toggle]');
+          if (siblingToggle) siblingToggle.setAttribute('aria-expanded', 'false');
         }
       });
+    }
+
+    // Toggle current item: if already open, close it; if closed, open it
+    if (isAlreadyOpen) {
+      currentItem.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      currentItem.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // 5. Ajax Newsletter Form Enhancement (Footer & Popup)
+  const setupNewsletterForm = (form) => {
+    if (!form || form.dataset.ajaxAttached) return;
+    form.dataset.ajaxAttached = 'true';
+
+    form.addEventListener('submit', async (e) => {
+      if (!form.checkValidity()) return;
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'SUBSCRIBING...';
+      }
+
+      try {
+        const formData = new FormData(form);
+        const actionUrl = form.getAttribute('action') || '/contact';
+
+        await fetch(actionUrl, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'text/html' }
+        });
+
+        if (form.classList.contains('footer-form')) {
+          form.innerHTML = `
+            <div class="footer-success-box">
+              <p class="footer-status-success">🎉 Sweet! Check your email for your 10% discount code.</p>
+              <div class="footer-discount-pill">
+                <span class="footer-discount-label">USE CODE:</span>
+                <strong class="footer-discount-code">WELCOME10</strong>
+                <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+              </div>
+            </div>
+          `;
+        } else if (form.classList.contains('retro-newsletter-form')) {
+          form.innerHTML = `
+            <div style="margin-top: 1rem; text-align: center;">
+              <p style="font-family: var(--font-secondary, monospace); font-size: 0.875rem; color: #036e2c; font-weight: 700; margin: 0 0 0.5rem 0;">🎉 Sweet! You're in!</p>
+              <p style="font-family: var(--font-secondary, monospace); font-size: 0.8125rem; color: #2d0f28; margin: 0;">Use discount code <strong>WELCOME10</strong> at checkout.</p>
+            </div>
+          `;
+        }
+      } catch (err) {
+        form.submit();
+      }
     });
-  }
+  };
+
+  document.querySelectorAll('.footer-form, .retro-newsletter-form').forEach(setupNewsletterForm);
 });

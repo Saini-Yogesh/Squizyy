@@ -132,8 +132,19 @@
   padding: 0 2rem 1.75rem;
   font-size: 0.95rem;
   line-height: 1.6;
-  opacity: 0.85;
+  color: rgba(45, 15, 40, 0.85);
   display: none;
+  animation: faqFadeIn 0.22s ease-out;
+}
+@keyframes faqFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .faq-item.open .faq-body {
   display: block;
@@ -145,7 +156,9 @@
   font-family: var(--font-secondary, 'Azeret Mono', monospace);
   font-size: 1.5rem;
   font-weight: 700;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+  user-select: none;
 }
 </style>
 

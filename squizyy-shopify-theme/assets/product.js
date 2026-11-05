@@ -56,16 +56,6 @@ class SquizyyProduct {
         }
       });
     });
-
-    const accordions = document.querySelectorAll('[data-accordion-toggle]');
-    accordions.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const item = toggle.closest('.accordion-item');
-        if (item) {
-          item.classList.toggle('open');
-        }
-      });
-    });
   }
 
   updateCalculation() {

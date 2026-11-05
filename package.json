@@ -12,6 +12,10 @@
     "server:start": "npm start --prefix server",
     "install:all": "npm install && npm install --prefix server && npm install --prefix client",
     "theme:check": "shopify theme check --path squizyy-shopify-theme",
+    "theme:push": "shopify theme push --path squizyy-shopify-theme --store=squizyy-store.myshopify.com --theme=144876961855 --allow-live --nodelete",
+    "theme:dev": "shopify theme dev --path squizyy-shopify-theme --store=squizyy-store.myshopify.com",
+    "theme:test": "node scripts/test-live-store.js",
+    "theme:audit": "node scripts/test-theme-links.js",
     "doc:verify": "node scripts/verify-ai-docs.js"
   },
   "devDependencies": {

@@ -41,7 +41,7 @@
   {%- assign wholesale_url = pages['wholesale'].url -%}
 {%- endif -%}
 
-{%- assign contest_url = '/pages/sproutslaunchwinflightstoaustralia' -%}
+{%- assign contest_url = nil -%}
 {%- if pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
   {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
 {%- elsif pages['sprouts-launch-win-flights-to-australia'].title != blank -%}
@@ -52,7 +52,7 @@
   {%- assign contest_url = pages['win-flights-to-australia'].url -%}
 {%- endif -%}
 
-{%- assign rules_url = '/pages/rules' -%}
+{%- assign rules_url = nil -%}
 {%- if pages['rules'].title != blank -%}
   {%- assign rules_url = pages['rules'].url -%}
 {%- elsif pages['official-rules'].title != blank -%}
@@ -189,8 +189,12 @@
       <a href="{{ our_story_url }}" class="mobile-nav-link">Our Story</a>
       <a href="{{ store_locator_url }}" class="mobile-nav-link">Stockists</a>
       <a href="{{ wholesale_url }}" class="mobile-nav-link">Wholesale</a>
-      <a href="{{ contest_url }}" class="mobile-nav-link">Win Flights to Australia</a>
-      <a href="{{ rules_url }}" class="mobile-nav-link">Official Rules</a>
+      {%- if contest_url != blank -%}
+        <a href="{{ contest_url }}" class="mobile-nav-link">Win Flights to Australia</a>
+      {%- endif -%}
+      {%- if rules_url != blank -%}
+        <a href="{{ rules_url }}" class="mobile-nav-link">Official Rules</a>
+      {%- endif -%}
       <a href="{{ buy_now_url }}" class="mobile-buy-now-btn">BUY DRIZZY NOW</a>
     </nav>
   </div>
