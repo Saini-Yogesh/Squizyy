@@ -4,6 +4,136 @@ All notable architectural changes, system refactorings, and bug fixes are docume
 
 ---
 
+## [2026-11-06] — Wholesale Hero & Times Square Visual Rebranding + Shopify Cart Discount Integration
+
+### 1. Wholesale Hero Visual Rebranding (`wholesale-hero.png` & `wholesale-hero-mobile.png`):
+- Cleanly inpainted the old brand text across all 10 shelf bottles (5 front-row bottles and 5 back-row bottles) using distance transform inpainting to seamlessly preserve the authentic paper texture and label lighting curvature.
+- Stamped bold brand purple typography `SQUIZYY` and overlaid precision-calibrated holographic dripping "S" stickers (`sticker.png`) on all bottle positions.
+- Generated responsive desktop and mobile assets in both Shopify theme and client directories.
+
+### 2. Times Square Photo Rebranding (`timeline-3.jpg`):
+- Fully transformed all 4 brand elements in the iconic Times Square street photograph:
+  1. **Skyscraper Vertical Banner**: Inpainted legacy typography and stamped vertical `SQUIZYY` matching the building's perspective tilt.
+  2. **Times Square Billboard Bottle**: Inpainted the label on the upside-down bottle, rendered `SQUIZYY` with matching angle, and overlaid the dripping "S" holographic badge.
+  3. **Billboard Headline**: Rebranded `DRIZZY™` to italic slanted `SQUIZYY™` with peanut butter drip naturally positioned.
+  4. **Handheld Bottle in Foreground**: Inpainted label banner, rendered `SQUIZYY`, and aligned the mini holographic sticker.
+
+### 3. Shopify Dynamic Cart Discount Integration:
+- Added a native discount code input and apply button to [`squizyy-shopify-theme/snippets/cart-drawer.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/cart-drawer.liquid).
+- Wired [`squizyy-shopify-theme/assets/cart.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/cart.js) to store discount codes in `localStorage` and pass them directly to Shopify checkout via `/checkout?discount=CODE`.
+
+### 4. Codebase Token Hygiene:
+- Removed leftover legacy storage keys (`drizzy_cart_v1`, `drizzy_admin_key`) in [`CartContext.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/context/CartContext.jsx) and [`AdminDashboard.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/pages/AdminDashboard.jsx).
+- Cleaned legacy comment in [`newsletter-modal.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/newsletter-modal.liquid).
+
+---
+
+## [2026-11-06] — 1:1 Scale & Styling Alignment with getdrizzy.co Reference
+
+### 1. Retro TV Modal Scale, Cutout & Delicious Screen Background:
+- **Root Cause of Scale Mismatch**: The modal stage was constrained to `max-width: 640px` (too small on desktop viewports) and lacked the signature mouth-watering peanut butter drizzle background inside the TV glass, with an extraneous peeking bottle above the TV.
+- **Resolution**:
+  - Expanded `.retro-modal-stage` to `max-width: 860px` (desktop), `720px` (tablet), `94vw` (mobile) to match the commanding viewport presence on `getdrizzy.co`.
+  - Removed top peeking bottle so the vintage TV set stands cleanly as the sole focal modal.
+  - Aligned `.screen-cutout` to the exact physical hole of `story-tv.png` (`top: 9.6%`, `bottom: 14.7%`, `left: 6.7%`, `right: 25.1%`).
+  - Generated and integrated high-resolution food photography background [`retro-tv-screen-bg.jpg`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/retro-tv-screen-bg.jpg): features a squeeze bottle nozzle at top center dispensing a glossy drizzle stream onto a fresh stack of fluffy pancakes at the bottom right, with warm cocoa-brown negative space on the left for crisp white typography.
+  - Aligned typography, pill button (`"Give me 10% off!"`), and subtle dismiss link (`"Not right now"`).
+
+### 2. Circular Holographic Sticker Rebrand:
+- Replaced legacy sticker asset [`sticker.png`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/sticker.png) with authentic circular holographic rainbow metallic sheen:
+  - Concentric black rings.
+  - Text along arc: `"SHAKE. SQUEEZE. SQUIZYY."`.
+  - Center: Bold organic dripping **"S"** with peanut butter drips.
+- Synchronized across Shopify theme and React client.
+- Deployed and live on Shopify theme `#144876961855`.
+
+---
+
+## [2026-11-06] — Live Theme Deployment: Authentic Retro TV Newsletter Modal & Rebranded Slogan Badge
+
+### 1. Retro TV Modal UI Alignment (Image 1 Fix):
+- **Issue**: The previous theme build rendered a plain card with a small retro TV at the top with an empty/blank screen cutout, detached from the form inputs and titled "Get 10% Off Your First Drizzle".
+- **Resolution**:
+  - Aligned [`squizyy-shopify-theme/snippets/newsletter-modal.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/newsletter-modal.liquid) with the authentic React design ([`client/src/components/layout/NewsletterModal.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/components/layout/NewsletterModal.jsx)).
+  - The TV is now the modal stage with exact screen coordinates (`top: 6.5%`, `bottom: 9.9%`, `left: 1.5%`, `right: 22.5%`) containing the headline `"GET 10% OFF YOUR FIRST SQUEEZE"`, scanlines, email input, instant code copy pill (`WELCOME10`), and peeking top Squizyy bottle.
+  - Deployed live to Shopify theme `#144876961855`.
+
+### 2. Holographic Slogan Badge Rebrand (Image 2 Fix):
+- **Issue**: The live store was serving the legacy badge `"SHAKE. SQUEEZE. DRIZZLE"` with a peanut in place of the "I".
+- **Resolution**:
+  - Replaced [`squizyy-shopify-theme/assets/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png) and [`client/public/assets/images/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/public/assets/images/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png) with the high-resolution holographic badge `"SHAKE. SQUEEZE. SQUIZYY."` (peanut in place of "I").
+  - Uploaded and verified on Shopify CDN.
+
+### 3. Indian Sourcing Copy Localization:
+- Updated [`squizyy-shopify-theme/sections/full-page-media.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/full-page-media.liquid) and [`client/src/components/sections/FullPageMedia.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/components/sections/FullPageMedia.jsx) from "Sourced from Texas" to "Sourced from Saurashtra, Gujarat, India".
+
+---
+
+## [2026-11-06] — Shopify Modern CSV Importer Schema Synchronization
+
+### Issue Resolution: "Status isn't valid. Set the status as active, draft, or archived":
+- **Root Cause**: The previous CSV export adhered to the legacy 2018 format where `Handle` was column 0 and `Status` was trailing. Shopify's current native product importer expects the modern 61-column specification where `Title` is column 0, `URL handle` is column 1, and `Status` (`Active`) is strictly positioned at column 8. Because of column misalignment, Shopify was attempting to parse `Option1 Value` (`Default Title`) as the status.
+- **Resolution**:
+  - Rebuilt [`shopify-products-import.csv`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/shopify-products-import.csv) against the official Shopify template (`c:\Users\yoges\Downloads\product_template (1).csv`).
+  - Generated ready-to-upload copy directly in the user's Downloads folder: [`c:\Users\yoges\Downloads\squizyy-products-import.csv`](file:///c:/Users/yoges/Downloads/squizyy-products-import.csv).
+  - Maintained authentic Indian pricing: Single bottle `₹349.00` (compare `₹399.00`), 6-pack case `₹1,699.00` (compare `₹2,199.00`) with `Status: Active`.
+
+---
+
+## [2026-11-06] — Zero-Reload Newsletter & Hash-Scroll Prevention Fix
+
+### Root Cause Analysis & Resolution for "Unnecessary Reload & UI Scroll":
+- **Root Cause 1 (`action="/contact#contact_form"`)**: Shopify's native `{% form 'customer' %}` tag automatically targets `/contact#contact_form`. When submitted natively by the browser, Shopify processed the request and redirected the page with hash `#contact_form`, which caused the browser to reload and automatically jump/scroll down to the footer.
+- **Root Cause 2 (Duplicate `id="contact_form"`)**: The footer newsletter card container had `id="contact_form"`, making it the scroll destination for any contact form submission.
+- **Root Cause 3 (Script Timing & Missing Capture)**: `custom.js` was relying on `DOMContentLoaded`, which risked race conditions if interactions occurred before script execution.
+- **The Fix**:
+  - Implemented an inline, synchronous global submission handler `window.handleNewsletterSubmit(event, form)` in `layout/theme.liquid` executing before DOM parsing with `event.preventDefault()` and `return false`.
+  - Added inline `onsubmit="return window.handleNewsletterSubmit(event, this);"` directly to both the Retro TV modal form (`newsletter-modal.liquid`) and the footer newsletter form (`footer.liquid`).
+  - Added a global capture-phase listener `document.addEventListener('submit', ..., true)` in `custom.js`.
+  - Renamed the outer card in `footer.liquid` to `id="footer_newsletter_card"` to eliminate duplicate IDs.
+  - Added URL hash sanitizer in `<head>` using `history.replaceState` and `scrollRestoration = 'manual'` to suppress any scroll jump if `#contact_form` is encountered.
+  - Pushed live to theme `#144876961855`.
+
+---
+
+## [2026-11-05] — Indian Startup Localization (INR / ₹), Dynamic Pricing & Rebranded Visual Assets
+
+### 1. Indian Startup Currency & Dynamic Shopify Store Configuration
+- **Native Shopify Price & Currency Integration**:
+  - Replaced all hardcoded USD (`$`) values across Liquid templates with dynamic Shopify money filters (`| money`). The store now automatically synchronizes with any store currency set in Shopify Admin (`Settings -> Store details -> Store currency -> INR`).
+  - Implemented dynamic Indian currency delimiter format (`Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' })`) in `cart.js`, `product.js`, `formatters.js`, and `CartContext.jsx`.
+  - Configured shipping threshold to `₹499.00` (`49900` in paise) across `settings_schema.json`, `settings_data.json`, `theme.liquid`, and announcement marquee.
+- **Product Catalog Localization (`shopify-products-import.csv` & Seed Data)**:
+  - Single Bottle (350g): Price `₹349.00`, Compare At `₹399.00`, SKU `SQUIZYY-PB-350G`.
+  - Case Pack (6 units): Price `₹1,699.00`, Compare At `₹2,199.00`, SKU `SQUIZYY-CASE-006`.
+  - Origin updated: 100% Saurashtra, Gujarat Indian high-oleic runner peanuts with Himalayan pink salt.
+- **Regional Copy & Fulfillment Localization**:
+  - Replaced Australian/US references with authentic Indian context:
+    - Express delivery via Delhivery, Blue Dart & DTDC across India (2-4 business days).
+    - FSSAI compliance and 100% plant-based quality assurance.
+    - Legal copyright: `Squizyy Foods India Private Limited`.
+
+### 2. High-Resolution Visual Asset Rebranding & Inpainting
+- **"SHAKE. SQUEEZE. SQUIZYY." Slogan Sticker Badge**:
+  - Rebranded `Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png` from "DRIZZLE" to "SQUIZYY." with authentic vertical peanut shell serving as the letter "I" (SQU[peanut]ZYY.) and preserved holographic iridescent pastel pill border.
+- **Bottle Packshot & PDP Studio Retouching**:
+  - Deployed `SQUIZYY` labeled bottle imagery: `pdp-image.png`, `USASQUIZYYFRONTcopy.jpg`, `1_bottle.png`, `2_bottle.png`, `3_bottle.png`, `6_bottles.png`, `our-story.png`, `squizyy-1.jpg`, `product-bottle-left.png`, `social_strip_preview.png`, and lifestyle gallery photos (`SQUIZYY12302.jpg`, etc.).
+
+### 3. Newsletter & Customer Data Architecture
+- **Instant Discount UX**:
+  - Enhanced popup and footer newsletter forms with AJAX submission: on submit, code `WELCOME10` is displayed instantly on-screen with a 1-click "COPY" button.
+  - Eliminated redirect to Shopify's `/challenge` captcha page by suppressing full-page POST navigation.
+  - Subscribers and wholesale inquiries are cleanly directed to **Shopify Admin -> Customers** (with tags) and notification emails.
+
+### 4. Verification & Live Deployment
+- `npm run client:build`: 0 errors (9.83s, 1692 modules).
+- `npm run theme:check`: 57 files inspected, 0 offenses.
+- `npm run doc:verify`: 54 paths verified, 0 warnings.
+- `npm run theme:push`: Live on production store `squizyy-store.myshopify.com` (`#144876961855`).
+- `npm run theme:test`: All 7 core endpoints returned HTTP 200 OK.
+
+---
+
 ## [2026-11-05] — Complete Brand Identity Transformation: "Drizzy" to "squizyy"
 
 ### Full-System Rebrand (Theme, React SPA, Node Server, Catalog)

@@ -24,8 +24,8 @@ function generateLogo(text, fontSize = 42, color = '#2C1329') {
 </svg>`;
 }
 
-const darkLogo = generateLogo('squizyy', 42, '#2C1329');
-const whiteLogo = generateLogo('squizyy', 42, '#FFFBF2');
+const darkLogo = generateLogo('Squizyy', 42, '#2C1329');
+const whiteLogo = generateLogo('Squizyy', 42, '#FFFBF2');
 
 const targets = [
   path.join(__dirname, '..', 'squizyy-shopify-theme', 'assets', 'squizyy-dark-logo.svg'),

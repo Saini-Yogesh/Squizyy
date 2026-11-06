@@ -5,7 +5,7 @@ import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
   const [adminKey, setAdminKey] = useState(
-    () => localStorage.getItem('squizyy_admin_key') || localStorage.getItem('drizzy_admin_key') || 'squizyy_admin_secret_key_2026'
+    () => localStorage.getItem('squizyy_admin_key') || 'squizyy_admin_secret_key_2026'
   );
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [stats, setStats] = useState(null);
@@ -126,7 +126,6 @@ const AdminDashboard = () => {
           onClick={() => {
             setIsAuthenticated(false);
             localStorage.removeItem('squizyy_admin_key');
-            localStorage.removeItem('drizzy_admin_key');
           }}
           className={styles.signOutBtn}
         >
@@ -404,13 +403,13 @@ const AdminDashboard = () => {
                         {prod.name}
                       </h3>
                       <span style={{ fontSize: '12px', color: 'rgba(43, 20, 8, 0.7)' }}>
-                        Current Base Price: ${(prod.price / 100).toFixed(2)}
+                        Current Base Price: ₹{(prod.price / 100).toFixed(2)}
                       </span>
                     </div>
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontWeight: 700 }}>$</span>
+                    <span style={{ fontWeight: 700 }}>₹</span>
                     <input
                       type="number"
                       step="0.01"

@@ -67,11 +67,11 @@ const Rules = () => {
               <strong>PRIZES AND APPROXIMATE RETAIL VALUE (“ARV”):</strong> One (1) winner will be randomly selected to receive:
             </p>
             <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <li>Round-trip, economy-class airfare for winner and one (1) guest to Sydney, Australia (ARV: $2,780).</li>
-              <li>A Visa® gift card in the amount of $2,000 intended for lodging, food, and other travel expenses (ARV: $2,000).</li>
+              <li>Round-trip, economy-class airfare for winner and one (1) guest to Sydney, Australia (ARV: ₹2,30,000).</li>
+              <li>A Visa® gift card in the amount of ₹2,00,000 intended for lodging, food, and other travel expenses (ARV: ₹2,00,000).</li>
             </ul>
             <p style={{ fontFamily: "var(--font-primary, 'Champ Black')", fontSize: '1.125rem', textTransform: 'uppercase', color: 'var(--color-dark-brown, #2b1408)' }}>
-              Total ARV of Prize Package: $4,780.
+              Total ARV of Prize Package: ₹4,30,000.
             </p>
           </div>
 

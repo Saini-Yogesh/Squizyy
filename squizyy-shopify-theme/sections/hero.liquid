@@ -47,7 +47,7 @@
         <div class="hero-sticker-wrapper">
           <img
             src="{{ 'sticker.png' | asset_url }}"
-            alt="100% natural Aussie peanut butter badge"
+            alt="100% natural Indian peanut butter badge"
             class="hero-sticker-img"
             width="512"
             height="512"
@@ -71,7 +71,7 @@
                 </svg>
               {%- endfor -%}
             </div>
-            <p class="hero-rating-text">{{ section.settings.rating_text | default: 'Loved by Thousands of Aussies!' }}</p>
+            <p class="hero-rating-text">{{ section.settings.rating_text | default: 'Loved by Thousands Across India!' }}</p>
           </div>
 
           <h1 class="hero-heading">
@@ -85,7 +85,7 @@
             {{ section.settings.button_label | default: 'BUY SQUIZYY PEANUT BUTTER NOW' }}
           </a>
           <p class="hero-shipping-badge">
-            {{ section.settings.shipping_text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}
+            {{ section.settings.shipping_text | default: 'FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+' }}
           </p>
         </div>
       </div>
@@ -339,7 +339,7 @@
       "type": "text",
       "id": "rating_text",
       "label": "Rating Text",
-      "default": "Loved by Thousands of Aussies!"
+      "default": "Loved by Thousands Across India!"
     },
     {
       "type": "text",
@@ -356,7 +356,7 @@
       "type": "text",
       "id": "shipping_text",
       "label": "Shipping Text",
-      "default": "FREE SHIPPING ON ORDERS $49.99+"
+      "default": "FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+"
     }
   ],
   "presets": [

@@ -5,9 +5,9 @@
     "color_cream": "#fffbf2",
     "color_purple": "#ca9af1",
     "color_green": "#036e2c",
-    "free_shipping_threshold": 4999,
-    "free_shipping_message": "Add another bottle for free shipping!",
-    "free_shipping_unlocked": "You've unlocked FREE standard shipping!",
+    "free_shipping_threshold": 49900,
+    "free_shipping_message": "Add another bottle for FREE delivery across India!",
+    "free_shipping_unlocked": "You've unlocked FREE shipping across India!",
     "social_instagram": "https://instagram.com/getsquizyy",
     "social_tiktok": "https://tiktok.com/@getsquizyy"
   }

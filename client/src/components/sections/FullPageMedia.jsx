@@ -5,7 +5,7 @@ import styles from './FullPageMedia.module.css';
 const FullPageMedia = () => {
   return (
     <div id="shopify-section-full-page-media" className="shopify-section">
-      <section className={styles.section} aria-label="Texas Sourcing Story">
+      <section className={styles.section} aria-label="Quality Peanut Sourcing Story">
         <div className={styles.mediaFrame}>
           {/* Background Media */}
           <video
@@ -22,7 +22,7 @@ const FullPageMedia = () => {
             />
             <img
               src="/assets/images/f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg"
-              alt="Squizyy Texas Peanut Harvesting"
+              alt="Squizyy High-Oleic Peanut Harvesting"
               className={styles.bgVideo}
             />
           </video>
@@ -36,11 +36,11 @@ const FullPageMedia = () => {
                 </h3>
 
                 <p className={styles.paragraph}>
-                  We source exclusively from Texas for a deeper roast and a smoother drizzle you won't find in supermarket jars.
+                  We source exclusively from Saurashtra, Gujarat for a deeper roast and a smoother drizzle you won't find in supermarket jars.
                 </p>
 
                 <h4 className={styles.subheading}>
-                  Using the 'Runner' Peanut
+                  Using the Indian 'Runner' Peanut
                 </h4>
 
                 <p className={styles.paragraph}>
@@ -48,7 +48,7 @@ const FullPageMedia = () => {
                 </p>
 
                 <div className={styles.dashedDivider}>
-                  SOURCED FROM TEXAS
+                  SOURCED FROM GUJARAT, INDIA
                 </div>
 
                 <div className={styles.dashedDivider}>

@@ -89,7 +89,7 @@ const FeaturedProductSection = () => {
                     The Ultimate<br />Breakfast Power-Up
                   </h2>
                   <div className={styles.servingSize}>
-                    19.4 oz (550g)
+                    350g
                   </div>
                 </div>
 
@@ -98,7 +98,7 @@ const FeaturedProductSection = () => {
 
                 {/* Price Display */}
                 <div className={styles.priceDisplay}>
-                  <span>$9.99</span>
+                  <span>₹349.00</span>
                 </div>
 
                 {/* Dotted Divider */}
@@ -165,7 +165,7 @@ const FeaturedProductSection = () => {
 
                 {/* Free Shipping Subtext */}
                 <div className={styles.shippingNote}>
-                  FREE SHIPPING ON ORDERS $49.99+
+                  FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+
                 </div>
               </div>
             </div>

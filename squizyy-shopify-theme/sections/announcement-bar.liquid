@@ -18,6 +18,9 @@
   {%- assign buy_now_url = routes.all_products_collection_url -%}
 {%- endif -%}
 
+{%- assign shipping_threshold_money = settings.free_shipping_threshold | money | default: '₹499' -%}
+{%- assign default_shipping_text = 'FREE DELIVERY ACROSS INDIA ON ORDERS ' | append: shipping_threshold_money | append: '+' -%}
+
 <div class="announcement-wrapper">
   <section class="announcement-section" aria-label="Announcement">
     <div class="announcement-container">
@@ -35,7 +38,7 @@
                   {%- endif -%}
                 </span>
                 <div class="announcement-item-text">
-                  <span>{{ section.settings.text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}</span>
+                  <span>{{ section.settings.text | default: default_shipping_text }}</span>
                   <span class="announcement-buy-now">{{ section.settings.link_text | default: 'BUY NOW' }}</span>
                 </div>
               </a>
@@ -52,7 +55,7 @@
                   {%- endif -%}
                 </span>
                 <div class="announcement-item-text">
-                  <span>{{ section.settings.text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}</span>
+                  <span>{{ section.settings.text | default: default_shipping_text }}</span>
                   <span class="announcement-buy-now">{{ section.settings.link_text | default: 'BUY NOW' }}</span>
                 </div>
               </a>
@@ -76,7 +79,7 @@
                   {%- endif -%}
                 </span>
                 <div class="announcement-item-text">
-                  <span>{{ section.settings.text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}</span>
+                  <span>{{ section.settings.text | default: default_shipping_text }}</span>
                   <span class="announcement-buy-now">{{ section.settings.link_text | default: 'BUY NOW' }}</span>
                 </div>
               </a>
@@ -94,7 +97,7 @@
                   {%- endif -%}
                 </span>
                 <div class="announcement-item-text">
-                  <span>{{ section.settings.text | default: 'FREE SHIPPING ON ORDERS $49.99+' }}</span>
+                  <span>{{ section.settings.text | default: default_shipping_text }}</span>
                   <span class="announcement-buy-now">{{ section.settings.link_text | default: 'BUY NOW' }}</span>
                 </div>
               </a>
@@ -229,7 +232,7 @@
       "type": "text",
       "id": "text",
       "label": "Announcement Text",
-      "default": "FREE SHIPPING ON ORDERS $49.99+"
+      "default": "FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+"
     },
     {
       "type": "text",

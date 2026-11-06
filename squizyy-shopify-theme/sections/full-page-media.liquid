@@ -6,7 +6,7 @@
 {%- assign our_story_url = pages['our-story'].url | default: '/pages/our-story' -%}
 
 <div id="shopify-section-full-page-media" class="shopify-section">
-  <section class="media-section" aria-label="Texas Sourcing Story">
+  <section class="media-section" aria-label="Quality Peanut Sourcing Story">
     <div class="media-frame">
       {%- assign media_video_url = section.settings.video_url | default: 'https://squizyy.co/cdn/shop/videos/c/vp/f8c9f00eee0542fe9b97a3f8467190b6/f8c9f00eee0542fe9b97a3f8467190b6.HD-1080p-4.8Mbps-91858336.mp4' -%}
       <!-- Background Media Video / Poster -->
@@ -24,7 +24,7 @@
         >
         <img
           src="{{ 'f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg' | asset_url }}"
-          alt="Squizyy Texas Peanut Harvesting"
+          alt="Squizyy High-Oleic Peanut Harvesting"
           class="media-bg-video"
           width="1100"
           height="615"
@@ -41,11 +41,11 @@
             </h3>
 
             <p class="media-story-p">
-              {{ section.settings.paragraph_1 | default: "We source exclusively from Texas for a deeper roast and a smoother drizzle you won't find in supermarket jars." }}
+              {{ section.settings.paragraph_1 | default: "We source exclusively from Saurashtra, Gujarat for a deeper roast and a smoother drizzle you won't find in supermarket jars." }}
             </p>
 
             <h4 class="media-story-subheading">
-              {{ section.settings.subheading | default: "Using the 'Runner' Peanut" }}
+              {{ section.settings.subheading | default: "Using the Indian 'Runner' Peanut" }}
             </h4>
 
             <p class="media-story-p">
@@ -53,7 +53,7 @@
             </p>
 
             <div class="media-dashed-divider">
-              SOURCED FROM TEXAS
+              SOURCED FROM GUJARAT, INDIA
             </div>
 
             <div class="media-dashed-divider">
@@ -295,13 +295,13 @@
       "type": "textarea",
       "id": "paragraph_1",
       "label": "Paragraph 1",
-      "default": "We source exclusively from Texas for a deeper roast and a smoother drizzle you won't find in supermarket jars."
+      "default": "We source exclusively from Saurashtra, Gujarat for a deeper roast and a smoother drizzle you won't find in supermarket jars."
     },
     {
       "type": "text",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Using the 'Runner' Peanut"
+      "default": "Using the Indian 'Runner' Peanut"
     },
     {
       "type": "textarea",

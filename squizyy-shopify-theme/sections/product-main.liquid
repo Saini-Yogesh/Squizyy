@@ -12,22 +12,22 @@
 
       <!-- Buy Box Column -->
       <div class="pdp-buy-col">
-        <div class="pdp-badge-top">100% AUSTRALIAN HIGH-OLEIC PEANUTS</div>
-        <h1 class="pdp-title">{{ product.title | default: 'Squizyy Squeezy Peanut Butter 19.4 Oz' }}</h1>
+        <div class="pdp-badge-top">100% INDIAN HIGH-OLEIC PEANUTS</div>
+        <h1 class="pdp-title">{{ product.title | default: 'Squizyy Squeezy Peanut Butter 350g' }}</h1>
 
         <div class="pdp-rating-row">
           <div class="pdp-stars">★★★★★</div>
-          <span class="pdp-rating-score">4.9 / 5.0 (1,000+ Reviews)</span>
+          <span class="pdp-rating-score">4.9 / 5.0 (1,250+ Reviews)</span>
         </div>
 
         <div class="pdp-price-row">
-          <span class="pdp-price" data-product-price>{{ product.price | default: 999 | money }}</span>
+          <span class="pdp-price" data-product-price>{{ product.price | default: 34900 | money }}</span>
           <s class="pdp-compare-price" data-compare-price style="display: none;"></s>
           <span class="pdp-savings-badge" data-savings-badge style="display: none;"></span>
         </div>
 
         <div class="pdp-short-desc">
-          {{ product.description | default: '100% natural squeezy peanut butter, straight from American runner peanuts. Ultra-smooth, drizzlable, and packed with 7g of protein per serve. No added sugar, no palm oil, and zero mess.' }}
+          {{ product.description | default: '100% natural squeezy peanut butter, straight from Gujarat high-oleic runner peanuts. Ultra-smooth, drizzlable, and packed with 7g of protein per serve. No added sugar, no palm oil, and zero mess.' }}
         </div>
 
         <!-- Quantity / Bottle Tier Selector -->
@@ -65,22 +65,22 @@
           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
           data-quantity="1"
         >
-          <span>Add to Cart — {{ product.price | default: 999 | money }}</span>
+          <span>Add to Cart — {{ product.price | default: 34900 | money }}</span>
         </button>
 
         <!-- Product Value Perks -->
         <div class="pdp-trust-perks">
           <div class="trust-perk-item">
             <span class="perk-icon">🚚</span>
-            <span>Free Shipping Over $49.99</span>
+            <span>Free Delivery Over {{ settings.free_shipping_threshold | money | default: '₹499' }}</span>
           </div>
           <div class="trust-perk-item">
             <span class="perk-icon">✨</span>
             <span>Zero Stirring, Zero Mess Guaranteed</span>
           </div>
           <div class="trust-perk-item">
-            <span class="perk-icon">🇦🇺</span>
-            <span>100% Kingaroy Aussie Peanuts</span>
+            <span class="perk-icon">🇮🇳</span>
+            <span>100% Saurashtra Indian Peanuts</span>
           </div>
         </div>
 
@@ -92,18 +92,18 @@
               <span class="accordion-icon">+</span>
             </button>
             <div class="accordion-content">
-              <p><strong>Ingredients:</strong> 100% Australian High-Oleic Peanuts (99.2%), Australian Sea Salt (0.8%).</p>
+              <p><strong>Ingredients:</strong> 100% Indian High-Oleic Peanuts (99.2%), Himalayan Pink Salt (0.8%). FSSAI Certified.</p>
               <p><strong>Nutrition:</strong> 7g Protein per 2 Tbsp (32g). 0g Added Sugar. Gluten-Free. Vegan friendly.</p>
             </div>
           </div>
 
           <div class="accordion-item">
             <button type="button" class="accordion-toggle" data-accordion-toggle>
-              <span>How To Drizzle</span>
+              <span>How To Squeeze</span>
               <span class="accordion-icon">+</span>
             </button>
             <div class="accordion-content">
-              <p>Simply give the bottle a light shake, flip open the mess-free cap, and squeeze! Drizzle over warm pancakes, sliced apples, morning oats, ice cream, or straight into your mouth.</p>
+              <p>Simply give the bottle a light shake, flip open the mess-free precision cap, and squeeze! Drizzle over warm dosas, rotis, toast, morning oats, smoothies, fruits, or straight into your mouth.</p>
             </div>
           </div>
 
@@ -113,7 +113,7 @@
               <span class="accordion-icon">+</span>
             </button>
             <div class="accordion-content">
-              <p>Orders ship within 24-48 business hours via USPS / UPS. If you aren't 100% obsessed with your first bottle, let us know within 30 days for a full refund — no return required.</p>
+              <p>Orders ship within 24-48 business hours via Delhivery, Blue Dart & DTDC express courier. Delivered across India within 2-4 business days. If you aren't 100% obsessed with your first bottle, let us know within 30 days for a full refund — no return required.</p>
             </div>
           </div>
         </div>

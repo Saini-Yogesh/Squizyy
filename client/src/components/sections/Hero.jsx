@@ -29,7 +29,7 @@ const Hero = () => {
             <div className={styles.stickerWrapper}>
               <img
                 src="/assets/images/sticker.png"
-                alt="100% natural Aussie peanut butter badge"
+                alt="100% natural Squizyy peanut butter badge"
                 className={styles.stickerImg}
                 loading="eager"
               />
@@ -59,7 +59,7 @@ const Hero = () => {
                     </svg>
                   ))}
                 </div>
-                <p className={styles.ratingText}>Loved by Thousands of Aussies!</p>
+                <p className={styles.ratingText}>Loved by Thousands Across India!</p>
               </div>
 
               <h1 className={styles.heading}>
@@ -76,7 +76,7 @@ const Hero = () => {
                 BUY SQUIZYY PEANUT BUTTER NOW
               </Link>
               <p className={styles.shippingBadge}>
-                FREE SHIPPING ON ORDERS $49.99+
+                FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+
               </p>
             </div>
           </div>

@@ -8,15 +8,15 @@ const defaultFallbackProducts = [
   {
     id: '8932474355883',
     slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
-    name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
-    price: 999,
+    name: 'Squizyy Squeezy Peanut Butter 350g',
+    price: 34900,
     images: ['/assets/images/SQUIZYY12302.jpg', '/assets/images/USASQUIZYYFRONTcopy.jpg'],
   },
   {
     id: '8932545495211',
     slug: 'food-services-pack-6-units',
     name: 'Food Services Case Pack (6 units)',
-    price: 3750,
+    price: 169900,
     images: ['/assets/images/Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png'],
   },
 ];
@@ -57,7 +57,7 @@ const Products = () => {
             <div className={styles.headerArea}>
               <h1 className={styles.pageTitle}>Shop All Squizyy</h1>
               <p className={styles.pageSubtitle}>
-                100% natural squeezy peanut butter, straight from Texas runner peanuts.
+                100% natural squeezy peanut butter, straight from roasted Indian runner peanuts.
               </p>
             </div>
 

@@ -18,7 +18,7 @@
   <!-- Free Shipping Meter -->
   <div class="cart-shipping-meter">
     <p id="ShippingProgressText" class="shipping-progress-text">
-      Add <strong>$29.99</strong> more for <strong>FREE Shipping!</strong>
+      Add <strong>₹150.00</strong> more for <strong>FREE Delivery!</strong>
     </p>
     <div class="shipping-progress-track">
       <div id="ShippingProgressFill" class="shipping-progress-fill" style="width: 0%;"></div>
@@ -38,6 +38,13 @@
     </div>
     <p class="cart-drawer-tax-note">Taxes and shipping calculated at checkout.</p>
     
+    <!-- Discount Code Input -->
+    <div class="cart-drawer-discount-row">
+      <input type="text" id="CartDrawerDiscountInput" class="cart-discount-input" placeholder="Promo / Discount Code" aria-label="Promo or discount code">
+      <button type="button" id="CartDrawerDiscountApply" class="cart-discount-apply-btn">Apply</button>
+    </div>
+    <div id="CartDrawerDiscountMsg" class="cart-discount-msg" style="display: none;"></div>
+
     <div class="cart-drawer-actions">
       <a href="/checkout" class="button-primary cart-checkout-btn">
         <span>Proceed to Checkout</span>
@@ -287,7 +294,60 @@
 .cart-drawer-tax-note {
   font-size: 0.75rem;
   color: rgba(45, 15, 40, 0.6);
-  margin: 0 0 1.25rem 0;
+  margin: 0 0 1rem 0;
+}
+.cart-drawer-discount-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.cart-discount-input {
+  flex: 1;
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  color: var(--color-foreground, #2d0f28);
+  outline: none;
+}
+.cart-discount-input:focus {
+  border-color: var(--color-accent-purple, #ca9af1);
+  box-shadow: 0 0 0 2px rgba(202, 154, 241, 0.4);
+}
+.cart-discount-apply-btn {
+  padding: 0.625rem 1rem;
+  background-color: var(--color-foreground, #2d0f28);
+  color: #ffffff;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.cart-discount-apply-btn:hover {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-discount-msg {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.cart-discount-msg.success {
+  color: #036e2c;
+  background-color: #e6f4ea;
+}
+.cart-discount-msg.error {
+  color: #c5221f;
+  background-color: #fce8e6;
 }
 .cart-drawer-actions {
   display: flex;

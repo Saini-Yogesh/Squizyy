@@ -48,21 +48,21 @@
       {
         "type": "number",
         "id": "free_shipping_threshold",
-        "label": "Free Shipping Threshold (in cents)",
-        "default": 4999,
-        "info": "4999 = $49.99 USD"
+        "label": "Free Shipping Threshold (in paise / cents)",
+        "default": 49900,
+        "info": "49900 = \u20b9499.00 INR (Store Currency)"
       },
       {
         "type": "text",
         "id": "free_shipping_message",
         "label": "Free Shipping Message",
-        "default": "Add another bottle for free shipping!"
+        "default": "Add another bottle for FREE delivery across India!"
       },
       {
         "type": "text",
         "id": "free_shipping_unlocked",
         "label": "Unlocked Free Shipping Message",
-        "default": "You've unlocked FREE standard shipping!"
+        "default": "You've unlocked FREE shipping across India!"
       }
     ]
   },

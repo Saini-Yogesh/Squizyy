@@ -11,13 +11,18 @@ class SquizyyCart {
     this.cartSubtotalEl = document.getElementById('CartDrawerSubtotal');
     this.shippingBarFill = document.getElementById('ShippingProgressFill');
     this.shippingBarText = document.getElementById('ShippingProgressText');
-    this.shippingThreshold = parseInt(window.themeSettings?.freeShippingThreshold || 4999, 10);
+    this.shippingThreshold = parseInt(window.themeSettings?.freeShippingThreshold || 49900, 10);
+    this.discountInput = document.getElementById('CartDrawerDiscountInput');
+    this.discountApplyBtn = document.getElementById('CartDrawerDiscountApply');
+    this.discountMsg = document.getElementById('CartDrawerDiscountMsg');
+    this.checkoutBtn = document.querySelector('.cart-checkout-btn');
 
     this.init();
   }
 
   init() {
     this.bindEvents();
+    this.initDiscount();
     this.refresh();
   }
 
@@ -81,6 +86,55 @@ class SquizyyCart {
         this.updateItem(line, 0);
       }
     });
+  }
+
+  initDiscount() {
+    const savedDiscount = localStorage.getItem('squizyy_discount') || '';
+    if (savedDiscount) {
+      if (this.discountInput) this.discountInput.value = savedDiscount;
+      this.updateCheckoutUrl(savedDiscount);
+      if (this.discountMsg) {
+        this.discountMsg.textContent = `Promo code "${savedDiscount}" will be applied at checkout.`;
+        this.discountMsg.className = 'cart-discount-msg success';
+        this.discountMsg.style.display = 'block';
+      }
+    }
+
+    if (this.discountApplyBtn && this.discountInput) {
+      this.discountApplyBtn.addEventListener('click', () => {
+        const code = this.discountInput.value.trim().toUpperCase();
+        if (code) {
+          localStorage.setItem('squizyy_discount', code);
+          this.updateCheckoutUrl(code);
+          if (this.discountMsg) {
+            this.discountMsg.textContent = `Promo code "${code}" will be applied at checkout.`;
+            this.discountMsg.className = 'cart-discount-msg success';
+            this.discountMsg.style.display = 'block';
+          }
+        } else {
+          localStorage.removeItem('squizyy_discount');
+          this.updateCheckoutUrl('');
+          if (this.discountMsg) {
+            this.discountMsg.style.display = 'none';
+          }
+        }
+      });
+      this.discountInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          this.discountApplyBtn.click();
+        }
+      });
+    }
+  }
+
+  updateCheckoutUrl(code) {
+    if (!this.checkoutBtn) return;
+    if (code) {
+      this.checkoutBtn.href = `/checkout?discount=${encodeURIComponent(code)}`;
+    } else {
+      this.checkoutBtn.href = '/checkout';
+    }
   }
 
   isOpen() {
@@ -176,7 +230,18 @@ class SquizyyCart {
   }
 
   formatMoney(cents) {
-    return '$' + (cents / 100).toFixed(2);
+    if (isNaN(cents) || cents == null) return '₹0.00';
+    const format = window.themeSettings?.moneyFormat || '₹{{amount}}';
+    const amountVal = (cents / 100).toLocaleString('en-IN', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+    const amountNoDecimalsVal = Math.round(cents / 100).toLocaleString('en-IN');
+    return format
+      .replace(/\{\{\s*amount\s*\}\}/g, amountVal)
+      .replace(/\{\{\s*amount_no_decimals\s*\}\}/g, amountNoDecimalsVal)
+      .replace(/\{\{\s*amount_with_comma_separator\s*\}\}/g, amountVal)
+      .replace(/\{\{\s*amount_no_decimals_with_comma_separator\s*\}\}/g, amountNoDecimalsVal);
   }
 
   render(cart) {

@@ -30,15 +30,15 @@ const NewsletterModal = () => {
     setStatus({ loading: true, success: false, message: '' });
     try {
       await subscribeNewsletter(email, 'retro_tv_popup_10');
-      setStatus({ loading: false, success: true, message: 'USE CODE: SQUEEZE10 FOR 10% OFF!' });
+      setStatus({ loading: false, success: true, message: 'USE CODE: WELCOME10 FOR 10% OFF!' });
       setTimeout(() => {
         handleClose();
-      }, 2500);
+      }, 4000);
     } catch {
-      setStatus({ loading: false, success: true, message: 'USE CODE: SQUEEZE10 FOR 10% OFF!' });
+      setStatus({ loading: false, success: true, message: 'USE CODE: WELCOME10 FOR 10% OFF!' });
       setTimeout(() => {
         handleClose();
-      }, 2500);
+      }, 4000);
     }
   };
 
@@ -69,15 +69,6 @@ const NewsletterModal = () => {
 
           {/* Modal TV Stage */}
           <div className={styles.modalContent}>
-            {/* Top Bottle Peeking out behind TV */}
-            <div className={styles.peekingBottle}>
-              <img
-                src="/assets/images/USASQUIZYYFRONTcopy.jpg"
-                alt="Squizyy Bottle"
-                className={styles.bottleImg}
-              />
-            </div>
-
             {/* TV Frame Container */}
             <div className={styles.tvFrame}>
               {/* Close Button on top-right */}
@@ -142,11 +133,11 @@ const NewsletterModal = () => {
                       onClick={handleClose}
                       className={styles.dismissBtn}
                     >
-                      NOT RIGHT NOW
+                      Not right now
                     </button>
 
                     <p className={styles.finePrint}>
-                      Get 10% off on your first order. By subscribing you agree to receive marketing communications.
+                      Get first access to new releases and exclusive deals. Unsubscribe anytime.
                     </p>
                   </div>
                 )}

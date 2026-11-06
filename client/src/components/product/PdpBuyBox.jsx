@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import BottleSelector from './BottleSelector';
+import { formatCurrency } from '../../utils/formatters';
 import styles from './PdpBuyBox.module.css';
 
 const PdpBuyBox = ({
@@ -34,7 +35,7 @@ const PdpBuyBox = ({
 
       {/* Subtitle */}
       <p className={styles.subtitle}>
-        19.4 Oz of peanut butter
+        350g of pure squeezy peanut butter
       </p>
 
       {/* Dashed separator */}
@@ -42,7 +43,7 @@ const PdpBuyBox = ({
 
       {/* Price */}
       <div className={styles.priceDisplay}>
-        ${(calculatedPrice / 100).toFixed(2)}
+        {formatCurrency(calculatedPrice)}
       </div>
 
       {/* Dashed separator */}
@@ -104,7 +105,7 @@ const PdpBuyBox = ({
               </span>
             </div>
             <span className={styles.subCardPrice}>
-              ${(Math.round((selectedOption?.price || 999) * 0.9) / 100).toFixed(2)}
+              {formatCurrency(Math.round((selectedOption?.price || 34900) * 0.9))}
             </span>
           </div>
 
@@ -151,7 +152,7 @@ const PdpBuyBox = ({
               </span>
             </div>
             <span className={styles.subCardPrice}>
-              ${((selectedOption?.price || 999) / 100).toFixed(2)}
+              {formatCurrency(selectedOption?.price || 34900)}
             </span>
           </div>
         </div>
@@ -168,7 +169,7 @@ const PdpBuyBox = ({
           {adding ? 'ADDING...' : 'ADD TO CART'}
         </button>
         <p className={styles.shippingNote}>
-          FREE SHIPPING ON ORDERS OVER $49.99+
+          FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+
         </p>
       </div>
 

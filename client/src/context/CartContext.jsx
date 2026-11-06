@@ -3,12 +3,12 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const CartContext = createContext();
 
 const STORAGE_KEY = 'squizyy_cart_v1';
-const FREE_SHIPPING_THRESHOLD_CENTS = 4999; // $49.99
+const FREE_SHIPPING_THRESHOLD_CENTS = 49900; // ₹499.00 (Indian Rupee)
 
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('drizzy_cart_v1');
+      const saved = localStorage.getItem(STORAGE_KEY);
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];

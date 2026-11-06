@@ -23,8 +23,7 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Temporary / scratch / reference downloads
-scratch/
+# Reference downloads
 getdrizzy/
 getdrizzy_download/
 getdrizzy_screenshots/

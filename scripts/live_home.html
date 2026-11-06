@@ -1,0 +1,4822 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><script data-source-attribution="shopify.exit_interstitial">(()=>{var s=Function.prototype.bind.bind(Function.prototype.call),Wt=(i,c)=>{for(let d=i;d;d=Object.getPrototypeOf(d)){let h=Object.getOwnPropertyDescriptor(d,c);if(h)return h}throw new TypeError(`${c} is not defined`)},a=(i,c)=>s(Wt(i,c).get),H=(i,c)=>s(Wt(i,c).set);var It=s(String.prototype.endsWith),cn=s(String.prototype.slice),S=s(RegExp.prototype.exec),an=/^_(self|top|parent)$/i,ln=/(^|\s)noreferrer(\s|$)/i,Ct=/^(no-referrer(-when-downgrade)?|same-origin|(strict-)?origin(-when-cross-origin)?|unsafe-url)$/i,un=/^(never|default|always|origin-when-crossorigin)$/i,Ft=/^(no-referrer|same-origin|never)$/i,pn=/\s(musical_ly|trill)_|\sBytedanceWebview\//,Tt=i=>It(i,".")?cn(i,0,-1):i,Mt=i=>{let c=Tt(i),d=`.${c}`;return h=>{let _=Tt(h);return _===c||It(_,d)}},Dt=(i,c,d)=>i!==void 0&&(i.protocol==="https:"||i.protocol==="http:")&&i.origin!==c&&!d(i.hostname),nt=(i,c,d)=>i!==null&&S(ln,i)!==null?!0:c!==null&&S(Ct,c)!==null?S(Ft,c)!==null:d,Ht=(i,c)=>S(Ct,i)!==null||S(un,i)!==null?S(Ft,i)!==null:c,W=(i,{metaKey:c,ctrlKey:d,shiftKey:h,button:_})=>i&&S(an,i)===null?i:c||d||h||_===1?"_blank":"",Ut=i=>S(pn,i)!==null;var fn="http://www.w3.org/2000/svg",dn="http://www.w3.org/1999/xlink",ot=["rel","referrerpolicy","download","ping","hreflang","type"],gn=Object.freeze({__proto__:null,metaKey:!1,ctrlKey:!1,shiftKey:!1,button:0});function Kt(i){let c=window;if(c.top!==c)return;let d=document,h=c.navigation,_=location.origin,b=URL,U=a(b.prototype,"href"),$t=a(b.prototype,"origin"),Bt=a(b.prototype,"protocol"),qt=a(b.prototype,"hostname"),Gt=H(b.prototype,"search"),rt=FormData,Yt=URLSearchParams,jt=s(URLSearchParams.prototype.toString),Vt=s(URLSearchParams.prototype.append),st=s(Event.prototype.preventDefault),zt=s(Event.prototype.stopPropagation),ct=s(Event.prototype.stopImmediatePropagation),K=s(Event.prototype.composedPath),Xt=a(Event.prototype,"type"),Jt=a(Event.prototype,"target"),it=typeof SubmitEvent=="function"?a(SubmitEvent.prototype,"submitter"):void 0,Qt=typeof File=="function"?a(File.prototype,"name"):void 0,Zt=a(HTMLButtonElement.prototype,"form"),te=a(HTMLInputElement.prototype,"form"),ee=a(Event.prototype,"cancelable"),at=a(Event.prototype,"defaultPrevented"),ne=a(Event.prototype,"bubbles"),oe=a(Event.prototype,"currentTarget"),re=a(Event.prototype,"eventPhase"),{CAPTURING_PHASE:se}=Event,lt=a(Event.prototype,"cancelBubble"),ce=H(Event.prototype,"cancelBubble"),ie=a(MouseEvent.prototype,"button"),ae=a(MouseEvent.prototype,"metaKey"),le=a(MouseEvent.prototype,"ctrlKey"),ue=a(MouseEvent.prototype,"shiftKey"),pe=h&&a(NavigateEvent.prototype,"destination"),fe=h&&a(NavigationDestination.prototype,"url"),ut=h&&a(NavigateEvent.prototype,"navigationType"),de=h&&a(NavigateEvent.prototype,"formData"),pt=h&&"sourceElement"in NavigateEvent.prototype?a(NavigateEvent.prototype,"sourceElement"):void 0,w=s(Element.prototype.getAttribute),ge=s(Element.prototype.getAttributeNS),$=s(Element.prototype.setAttribute),ye=a(Element.prototype,"localName"),he=a(Element.prototype,"namespaceURI"),me=s(Document.prototype.querySelector),we=s(Document.prototype.querySelectorAll),Ee=a(NodeList.prototype,"length"),_e=s(NodeList.prototype.item),T=a(Node.prototype,"baseURI"),I=a(Node.prototype,"isConnected"),be=s(Document.prototype.createElement),ve=s(HTMLElement.prototype.click),Se=s(c.open),ke=s(location.assign),Ne=s(location.replace),Re=encodeURIComponent,Oe=s(String.prototype.startsWith),ft=s(String.prototype.charCodeAt),dt=s(String.prototype.slice),Le=s(String.prototype.toLowerCase),B=s(c.setTimeout),Pe=s(c.queueMicrotask),Ae=s(c.addEventListener),xe=s(c.removeEventListener),gt=s(EventTarget.prototype.addEventListener),yt=s(EventTarget.prototype.removeEventListener),ht=Object.defineProperties,q=t=>{let e=[],n=[HTMLElement.prototype,SVGElement.prototype,Document.prototype,c];for(let o=0;o<n.length;o+=1)try{e[e.length]={get:a(n[o],t),set:H(n[o],t)}}catch{}return e},We={click:q("onclick"),auxclick:q("onauxclick"),submit:q("onsubmit")},C=WeakMap,Te=WeakSet,G=s(WeakMap.prototype.get),mt=s(WeakMap.prototype.set),wt=s(WeakMap.prototype.delete),Ie=s(WeakSet.prototype.add),Ce=s(WeakSet.prototype.has),Fe=Mt(i.site),Et=Ut(navigator.userAgent),_t=U(new b(i.exitPath,_)),Me=`${_t}?`,R=(t,e)=>{try{let n=new b(t,e);return{href:U(n),origin:$t(n),protocol:Bt(n),hostname:qt(n)}}catch{return}},De=(t,e,n)=>{let o=n?"&noreferrer=1":"";return`${_t}?q=${Re(t.href)}&trigger=${e}${o}`},Y=()=>{let t=we(d,'meta[name="referrer" i][content]'),e=!1;for(let n=0;n<Ee(t);n+=1)e=Ht(w(_e(t,n),"content"),e);return e},j=(t,e,{target:n,noReferrer:o,replaces:r})=>{let u=De(t,e,o);if(n){Se(c,u,n,"noopener");return}(r?Ne:ke)(location,u)},F=t=>Dt(t,_,Fe),M=0,V,z=!1,He=t=>{if(M>0){V=t;return}t()},Ue=t=>{if(M-=1,t&&(z=!0),M>0)return;let e=z?void 0:V;V=void 0,z=!1,e&&e()},Ke=t=>t!==void 0&&Oe(t.href,Me),P=t=>{try{return ye(t)}catch{return}},bt=t=>nt(w(t,"rel"),w(t,"referrerpolicy"),Y()),$e=t=>{let e=pt?pt(t):null,n=e===null?void 0:P(e);return n==="a"||n==="area"?bt(e):Y()},Be=t=>{let e=R(fe(pe(t)));if(Ke(e)){ct(t);return}if(!ee(t)||ut(t)==="traverse"||!F(e)||de(t)!==null)return;st(t);let n={target:"",noReferrer:$e(t),replaces:ut(t)==="replace"};He(()=>j(e,"navigate",n))},A=t=>{let e=w(t,"href");return e===null&&he(t)===fn?ge(t,dn,"href"):e},qe=t=>{let e=K(t);for(let n=0;n<e.length;n+=1){let o=e[n],r=P(o);if(r==="a"||r==="area"){let u=A(o);if(u!==null)return{node:o,href:u}}}},vt=()=>{let t=me(d,"base[target]");return t?w(t,"target"):""},X=t=>w(t,"target")??vt(),Ge=t=>{try{return{metaKey:ae(t),ctrlKey:le(t),shiftKey:ue(t),button:ie(t)}}catch{return}},St=new Te,Ye=t=>{let e=!1,n=()=>{e=!0},o=()=>e||Ce(St,t);return ht(t,{__proto__:null,preventDefault:{__proto__:null,configurable:!0,value:n},defaultPrevented:{__proto__:null,configurable:!0,get:o},returnValue:{__proto__:null,configurable:!0,get:()=>!o(),set:r=>{r||n()}}}),o},je={click:new C,auxclick:new C,submit:new C},Ve=(t,e)=>{let n=We[t],o=je[t],r=[],u=f=>{for(let p=0;p<r.length;p+=1)if(r[p]===f)return!0;return!1},g=(f,p,E)=>{let m=s(E);function D(N){let O=m(this,N);return O===!1&&typeof N=="object"&&N!==null&&Ie(St,N),O}return{target:f,accessor:p,handler:E,wrapper:D,inFlight:0}},v=()=>{for(let f=0;f<e.length;f+=1)for(let p=0;p<n.length;p+=1){let E;try{E=n[p].get(e[f])}catch{continue}if(typeof E=="function"){let m=G(o,e[f]);(!m||m.wrapper!==E)&&(m=g(e[f],n[p],E),n[p].set(e[f],m.wrapper),mt(o,e[f],m)),u(m)||(m.inFlight+=1,r[r.length]=m)}break}};return v(),{wrap:v,unwrap:()=>{for(let f=0;f<r.length;f+=1){let p=r[f];p.inFlight-=1,!(p.inFlight>0)&&(G(o,p.target)===p&&wt(o,p.target),p.accessor.get(p.target)===p.wrapper&&p.accessor.set(p.target,p.handler))}}}},ze=(t,e,n)=>{let o=A(t),r=o===null?void 0:R(o,T(d));if(!F(r))return;let u={target:Et?"":W(X(t),n),noReferrer:bt(t),replaces:!1};return{__proto__:null,inWindow:u.target==="",go:()=>j(r,e,u)}},kt=t=>{let e=A(t);if(e===null||w(t,"download")===null)return!1;let n=R(e,T(d));return n!==void 0&&(n.origin===_||n.protocol==="blob:"||n.protocol==="data:")},Xe=(t,e)=>A(t)!==null&&!kt(t)&&W(X(t),e)==="",Je=(t,e)=>{let n=A(t);if(n===null)return!1;let o=be(d,"a"),r=W(X(t),e);$(o,"href",n),$(o,"target",r||"_self");for(let u=0;u<ot.length;u+=1){let g=w(t,ot[u]);g!==null&&$(o,ot[u],g)}return ve(o),r===""&&!kt(t)},Qe=(t,e,n)=>({__proto__:null,plan:()=>ze(t,e,n),navigatesWindow:()=>Xe(t,n),follow:()=>Je(t,n)}),Nt=(t,e,n)=>{M+=1;let o=K(t),r=o.length-1,u=0,g=!1,v=!1,k=l=>{v||(v=!0,Ue(l))},f=l=>{if(g)return;g=!0;let L=at(t),y=L?void 0:n.plan(),xt=l&&n.follow!==void 0,x;!L&&(y||xt)&&(st(t),x=Ye(t)),y?.readFields!==void 0&&(l?x&&Pe(c,()=>{x()||y.handlerReturned()}):y.readFields()),B(c,()=>{if(!x){k(!at(t)&&n.navigatesWindow());return}if(x()){k(!1);return}if(xt&&(y=n.plan(),!y)){k(n.follow());return}if(y.dropped!==void 0&&y.dropped()){k(!1);return}y.go(),k(y.inWindow)},0)},p=(l,L)=>{for(let y=0;y<o.length;y+=1)if(o[y]===l)return L===se?r-y:o.length+y;return-1},E=()=>{p(oe(t),re(t))<=u&&f(!0)},m=l=>{l===t&&f(!1)},D=Ve(e,o),N=l=>L=>{if(L===t){if(u=l,lt(t)){f(!1);return}D.wrap()}},O=[],tt=[],et=ne(t);if(et){for(let l=0;l<r;l+=1)O[l]=N(r-l),tt[l]=N(o.length+l),gt(o[l],e,O[l],!0),gt(o[l],e,tt[l],!1);Ae(c,e,m,!1)}if(B(c,()=>{if(g||k(!1),g=!0,D.unwrap(),!!et){for(let l=0;l<r;l+=1)yt(o[l],e,O[l],!0),yt(o[l],e,tt[l],!1);xe(c,e,m,!1)}},0),!et){f(!0);return}ht(t,{__proto__:null,stopPropagation:{__proto__:null,configurable:!0,value:()=>{E(),zt(t)}},stopImmediatePropagation:{__proto__:null,configurable:!0,value:()=>{f(!0),ct(t)}},cancelBubble:{__proto__:null,configurable:!0,get:()=>lt(t),set:l=>{l&&E(),ce(t,l)}}})},J=new C,Ze=(t,e)=>{let n=K(t);for(let o=0;o<n.length;o+=1){let r=n[o],u=P(r);if(u==="button"||u==="input"){mt(J,r,e),B(c,()=>wt(J,r),0);return}}},Rt=t=>{let e=Xt(t),n=Ge(t);if(!n||e==="auxclick"&&n.button!==1)return;e==="click"&&Ze(t,n);let o=qe(t);!o||!F(R(o.href,T(d)))||Nt(t,e,Qe(o.node,e,n))},Q=(t,e,n,o)=>(e?w(e,n):null)??w(t,o),Ot=(t,e)=>Le(Q(t,e,"formmethod","method")??""),Lt=(t,e,n)=>W(Q(t,e,"formtarget","target")??vt(),n),Pt=(t,e)=>{let n=Ot(t,e);if(n==="post"||n==="dialog")return;let o=Q(t,e,"formaction","action");if(o===null||o==="")return;let r=R(o,T(d));return F(r)?r:void 0},tn=(t,e)=>{if((e&&(P(e)==="button"?Zt:te)(e))===t)try{return new rt(t,e)}catch{}return new rt(t)},Z=t=>{let e="",n=0;for(let o=0;o<t.length;o+=1){let r=ft(t,o);(r===13||r===10)&&(e+=`${dt(t,n,o)}\r
+`,r===13&&ft(t,o+1)===10&&(o+=1),n=o+1)}return n===0?t:e+dt(t,n)},en=t=>{try{return Z(Qt(t))}catch{return""}},At=(t,e,n)=>{try{let o=new b(n.href),r=new Yt;for(let u of tn(t,e)){let g=u[1];Vt(r,Z(u[0]),typeof g=="string"?Z(g):en(g))}return Gt(o,`?${jt(r)}`),R(U(o))??n}catch{return n}},nn=(t,e,n)=>{if(!I(t))return;let o=Pt(t,e);if(!o)return;let r,u=!1,g=()=>{r=At(t,e,o),I(t)||(u=!0)},v={target:Et?"":Lt(t,e,n),noReferrer:nt(w(t,"rel"),null,Y()),replaces:!1};return{__proto__:null,inWindow:v.target==="",go:()=>j(r??At(t,e,o),"submit",v),readFields:g,handlerReturned:()=>{I(t)?g():u=!0},dropped:()=>u}},on=(t,e,n)=>I(t)&&Ot(t,e)!=="dialog"&&Lt(t,e,n)==="",rn=(t,e,n)=>({__proto__:null,plan:()=>nn(t,e,n),navigatesWindow:()=>on(t,e,n)}),sn=t=>{if(!t.isTrusted)return;let e=Jt(t);if(P(e)!=="form")return;let n=it?it(t):null;if(!Pt(e,n))return;let o=(n&&G(J,n))??gn;Nt(t,"submit",rn(e,n,o))};h?.addEventListener("navigate",Be,!0),c.addEventListener("click",Rt,!0),c.addEventListener("auxclick",Rt,!0),c.addEventListener("submit",sn,!0)}Kt({"site":"squizyy-store.myshopify.com","exitPath":"\/url"});})();
+//# sourceURL=exit-interstitial.js
+</script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f8ebd7">
+
+    <title>
+  Just try Squizyy!
+</title><link rel="canonical" href="https://squizyy-store.myshopify.com/">
+
+<meta property="og:site_name" content="Squizyy">
+<meta property="og:url" content="https://squizyy-store.myshopify.com/">
+<meta property="og:title" content="Just try Squizyy!">
+<meta property="og:type" content="website">
+<meta property="og:description" content=""><meta property="og:image" content="http://squizyy-store.myshopify.com/cdn/shop/files/wholesale-hero-mobile.webp?v=1793873134">
+  <meta property="og:image:secure_url" content="https://squizyy-store.myshopify.com/cdn/shop/files/wholesale-hero-mobile.webp?v=1793873134">
+  <meta property="og:image:width" content="375">
+  <meta property="og:image:height" content="489"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Just try Squizyy!">
+<meta name="twitter:description" content="">
+<link rel="icon" type="image/svg+xml" href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663">
+      <link rel="apple-touch-icon" href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663"><!-- Brand Typography Assets (Shopify CDN Hosted) -->
+    <style>
+      @font-face {
+        font-family: 'Champ Black';
+        src: url("//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Champ-Black.otf?v=3892180265799515211793872663") format('opentype');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Azeret Mono';
+        src: url("//squizyy-store.myshopify.com/cdn/shop/t/2/assets/AzeretMono-VariableFont.ttf?v=159920456175308537081793872663") format('truetype');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url("//squizyy-store.myshopify.com/cdn/shop/t/2/assets/inter_n4.b2a3f24c19b4de56e8871f609e73ca7f6d2e2bb9.woff2?v=86560110980689511001793872663") format('woff2');
+        font-weight: 400 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Inter';
+        src: url("//squizyy-store.myshopify.com/cdn/shop/t/2/assets/inter_n7.02711e6b374660cfc7915d1afc1c204e633421e4.woff2?v=166179665259747124441793872663") format('woff2');
+        font-weight: 600 900;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- CSS Bundles -->
+    <link href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/base.css?v=167561575428962649631793872663" rel="stylesheet" type="text/css" media="all" />
+    <link href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/theme.css?v=154458083632652969691793872664" rel="stylesheet" type="text/css" media="all" />
+    <link href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/animations.css?v=44931878314171910871793872663" rel="stylesheet" type="text/css" media="all" />
+    <link href="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/responsive.css?v=112656472421516970551793872664" rel="stylesheet" type="text/css" media="all" />
+
+    <script>
+      window.themeSettings = {
+        freeShippingThreshold: 49900,
+        moneyFormat: "Rs. {{amount}}"
+      };
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+      // Strip any unwanted #contact_form hash from URL to prevent automatic page jump/scroll
+      if (window.location.hash === '#contact_form' || window.location.hash === '#ContactForm') {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+        window.scrollTo(0, 0);
+      }
+
+      // Global zero-reload AJAX newsletter form submission handler
+      window.handleNewsletterSubmit = function(event, form) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        if (!form) return false;
+
+        var emailInput = form.querySelector('input[type="email"], input[name="contact[email]"]');
+        var email = emailInput ? emailInput.value.trim() : '';
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+          if (emailInput) {
+            emailInput.focus();
+            emailInput.style.borderColor = '#ff4d4f';
+          }
+          return false;
+        }
+
+        // 1. Immediately render the 10% discount code on screen with zero reload
+        if (form.classList.contains('retro-newsletter-form')) {
+          form.innerHTML = `
+            <div class="screen-success-box">
+              <div class="screen-success-emoji">🎉</div>
+              <h3 class="screen-success-title">YOU'RE IN!</h3>
+              <div class="screen-discount-pill">
+                <span>USE CODE: <strong>WELCOME10</strong></span>
+                <button type="button" class="screen-copy-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+              </div>
+              <p class="screen-fine-print">Copy code at checkout to save 10%.</p>
+            </div>
+          `;
+          var modal = document.getElementById('RetroNewsletterModal');
+          if (modal) modal.classList.add('active');
+        } else if (form.classList.contains('footer-form')) {
+          form.innerHTML = `
+            <div class="footer-success-box">
+              <p class="footer-status-success">🎉 Sweet! Here is your 10% discount code:</p>
+              <div class="footer-discount-pill">
+                <span class="footer-discount-label">USE CODE:</span>
+                <strong class="footer-discount-code">WELCOME10</strong>
+                <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';" aria-label="Copy discount code">COPY</button>
+              </div>
+            </div>
+          `;
+        }
+
+        // 2. Submit lead in the background to Shopify without redirecting or reloading
+        try {
+          var formData = new FormData(form);
+          var actionUrl = form.getAttribute('action') || '/contact';
+          fetch(actionUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors',
+            credentials: 'same-origin'
+          }).catch(function() {});
+        } catch (err) {}
+
+        // 3. Mark as seen in storage
+        try {
+          localStorage.setItem('squizyy_newsletter_seen', 'true');
+        } catch (e) {}
+
+        return false;
+      };
+    </script>
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script><meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/68953604159/digital_wallets/dialog">
+<link rel="ucp" href="/.well-known/ucp" version="2026-08-25"><script async="async" src="/checkouts/internal/preloads.js?locale=en-IN"></script>
+<script id="shopify-features" type="application/json">{"accessToken":"396c89499b46487837392abd8ef6074b","betas":["rich-media-storefront-analytics"],"domain":"squizyy-store.myshopify.com","predictiveSearch":true,"shopId":68953604159,"locale":"en"}</script>
+<script>var Shopify = Shopify || {};
+Shopify.shop = "u4xvac-s0.myshopify.com";
+Shopify.locale = "en";
+Shopify.currency = {"active":"INR","rate":"1.0"};
+Shopify.country = "IN";
+Shopify.theme = {"name":"Squizyy","id":144876961855,"schema_name":"Squizyy Shopify Theme","schema_version":"1.0.0","theme_store_id":null,"role":"main"};
+Shopify.theme.handle = "null";
+Shopify.theme.style = {"id":null,"handle":null};
+Shopify.cdnHost = "squizyy-store.myshopify.com/cdn";
+Shopify.routes = Shopify.routes || {};
+Shopify.routes.root = "/";
+Shopify.shopJsCdnBaseUrl = "https://cdn.shopify.com/shopifycloud/shop-js";
+Shopify.SignInWithShop = Shopify.SignInWithShop || {};
+Shopify.SignInWithShop.User = Shopify.SignInWithShop.User || {};
+Shopify.SignInWithShop.User.recognized = false;</script>
+<script type="module">!function(o){(o.Shopify=o.Shopify||{}).modules=!0}(window);</script>
+<script>!function(o){function n(){var o=[];function n(){o.push(Array.prototype.slice.apply(arguments))}return n.q=o,n}var t=o.Shopify=o.Shopify||{};t.loadFeatures=n(),t.autoloadFeatures=n()}(window);</script>
+<script>
+  window.Shopify = window.Shopify || {};
+  window.Shopify.SignInWithShop = window.Shopify.SignInWithShop || {};
+  window.Shopify.SignInWithShop.assetMetrics = { sampleRate: 0.25 };
+  window.Shopify.SignInWithShop.eligible = true;
+</script>
+<script id="shop-js-analytics" type="application/json">{"pageType":"index"}</script>
+<script defer="defer" async type="module" src="https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js"></script>
+<script type="module">
+  await import("https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js");
+
+  window.Shopify.SignInWithShop?.initShopCartSync?.({"fedCMEnabled":true,"windoidEnabled":true,"backendHost":"c3F1aXp5eS1zdG9yZS5teXNob3BpZnkuY29t"});
+
+</script>
+<script>
+  window.Shopify = window.Shopify || {};
+  if (!window.Shopify.featureAssets) window.Shopify.featureAssets = {};
+  window.Shopify.featureAssets['shop-js'] = {"avatar":["modules/v2/loader.avatar.en.esm.js"],"checkout-modal":["modules/v2/loader.checkout-modal.en.esm.js"],"init-customer-accounts-sign-up":["modules/v2/loader.init-customer-accounts-sign-up.en.esm.js"],"init-customer-accounts":["modules/v2/loader.init-customer-accounts.en.esm.js"],"init-fed-cm":["modules/v2/loader.init-fed-cm.en.esm.js"],"init-shop-cart-sync":["modules/v2/loader.init-shop-cart-sync.en.esm.js"],"init-shop-email-lookup-coordinator":["modules/v2/loader.init-shop-email-lookup-coordinator.en.esm.js"],"init-shop-for-new-customer-accounts":["modules/v2/loader.init-shop-for-new-customer-accounts.en.esm.js"],"init-shop-user-recognition":["modules/v2/loader.init-shop-user-recognition.en.esm.js"],"init-windoid":["modules/v2/loader.init-windoid.en.esm.js"],"lead-capture":["modules/v2/loader.lead-capture.en.esm.js"],"listener":["modules/v2/loader.listener.en.esm.js"],"pay-button":["modules/v2/loader.pay-button.en.esm.js"],"payment-terms":["modules/v2/loader.payment-terms.en.esm.js"],"shop-button":["modules/v2/loader.shop-button.en.esm.js"],"shop-cart-sync":["modules/v2/loader.shop-cart-sync.en.esm.js"],"shop-cash-offers":["modules/v2/loader.shop-cash-offers.en.esm.js"],"shop-follow-button":["modules/v2/loader.shop-follow-button.en.esm.js"],"shop-login-button":["modules/v2/loader.shop-login-button.en.esm.js"],"shop-login":["modules/v2/loader.shop-login.en.esm.js"],"shop-toast-manager":["modules/v2/loader.shop-toast-manager.en.esm.js"],"shop-user-recognition":["modules/v2/loader.shop-user-recognition.en.esm.js"]};
+</script>
+<script id="__st">var __st={"a":68953604159,"offset":19800,"reqid":"e39a96de-2dc2-46f9-903c-3a90a99b9b24-1793904757","pageurl":"squizyy-store.myshopify.com\/","u":"249159aa0763","p":"home"};</script>
+<script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+<script id="captcha-bootstrap">!function(){'use strict';const t='contact',e='account',n='new_comment',o=[[t,t],['blogs',n],['comments',n],[t,'customer']],c=[[e,'customer_login'],[e,'guest_login'],[e,'recover_customer_password'],[e,'create_customer']],r=t=>t.map((([t,e])=>`form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),a=t=>()=>t?[...document.querySelectorAll(t)].map((t=>t.form)):[];function s(){const t=[...o],e=r(t);return a(e)}const i='password',u='form_key',d=['recaptcha-v3-token','g-recaptcha-response','h-captcha-response',i],f=()=>{try{return window.sessionStorage}catch{return}},m='__shopify_v',_=t=>t.elements[u];function p(t,e,n=!1){try{const o=window.sessionStorage,c=JSON.parse(o.getItem(e)),{data:r}=function(t){const{data:e,action:n}=t;return t[m]||n?{data:e,action:n}:{data:t,action:n}}(c);for(const[e,n]of Object.entries(r))t.elements[e]&&(t.elements[e].value=n);n&&o.removeItem(e)}catch(o){console.error('form repopulation failed',{error:o})}}const l='form_type',E='cptcha';function T(t){t.dataset[E]=!0}const w=window,h=w.document,L='Shopify',v='ce_forms',y='captcha';let A=!1;((t,e)=>{const n=(g='f06e6c50-85a8-45c8-87d0-21a2b65856fe',I='https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.3.iife.js',D={infoText:'Protected by hCaptcha',privacyText:'Privacy',termsText:'Terms'},(t,e,n)=>{const o=w[L][v],c=o.bindForm;if(c)return c(t,g,e,D).then(n);var r;o.q.push([[t,g,e,D],n]),r=I,A||(h.body.append(Object.assign(h.createElement('script'),{id:'captcha-provider',async:!0,src:r})),A=!0)});var g,I,D;w[L]=w[L]||{},w[L][v]=w[L][v]||{},w[L][v].q=[],w[L][y]=w[L][y]||{},w[L][y].protect=function(t,e){n(t,void 0,e),T(t)},Object.freeze(w[L][y]),function(t,e,n,w,h,L){const[v,y,A,g]=function(t,e,n){const i=e?o:[],u=t?c:[],d=[...i,...u],f=r(d),m=r(i),_=r(d.filter((([t,e])=>n.includes(e))));return[a(f),a(m),a(_),s()]}(w,h,L),I=t=>{const e=t.target;return e instanceof HTMLFormElement?e:e&&e.form},D=t=>v().includes(t);t.addEventListener('submit',(t=>{const e=I(t);if(!e)return;const n=D(e)&&!e.dataset.hcaptchaBound&&!e.dataset.recaptchaBound,o=_(e),c=g().includes(e)&&(!o||!o.value);(n||c)&&t.preventDefault(),c&&!n&&(function(t){try{if(!f())return;!function(t){const e=f();if(!e)return;const n=_(t);if(!n)return;const o=n.value;o&&e.removeItem(o)}(t);const e=Array.from(Array(32),(()=>Math.random().toString(36)[2])).join('');!function(t,e){_(t)||t.append(Object.assign(document.createElement('input'),{type:'hidden',name:u})),t.elements[u].value=e}(t,e),function(t,e){const n=f();if(!n)return;const o=[...t.querySelectorAll(`input[type='${i}']`)].map((({name:t})=>t)),c=[...d,...o],r={};for(const[a,s]of new FormData(t).entries())c.includes(a)||(r[a]=s);n.setItem(e,JSON.stringify({[m]:1,action:t.action,data:r}))}(t,e)}catch(e){console.error('failed to persist form',e)}}(e),e.submit())}));const S=(t,e)=>{t&&!t.dataset[E]&&(n(t,e.some((e=>e===t))),T(t))};for(const o of['focusin','change'])t.addEventListener(o,(t=>{const e=I(t);D(e)&&S(e,y())}));const B=e.get('form_key'),M=e.get(l),P=B&&M;t.addEventListener('DOMContentLoaded',(()=>{const t=y();if(P)for(const e of t)e.elements[l].value===M&&p(e,B);[...new Set([...A(),...v().filter((t=>'true'===t.dataset.shopifyCaptcha))])].forEach((e=>S(e,t)))}))}(h,new URLSearchParams(w.location.search),n,t,e,['guest_login'])})(!0,!0)}();</script>
+<script integrity="sha256-FYHzja/5XSmzkjz6zHj7s4rACJGFuVoYZdumgoO2Ecs=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//squizyy-store.myshopify.com/cdn/shopifycloud/storefront/assets/storefront/load_feature-ed94c51f.js" crossorigin="anonymous"></script>
+<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//squizyy-store.myshopify.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script><script id="shopify-origin-trials" async="async" integrity="sha256-YSmWUz/d+OnYYvMB8Rea/mSvxjGHQPsJQmWeX4moyZg=" src="//cdn.shopify.com/shopifycloud/storefront/assets/storefront/origin_trials-e8afbaf1.js" crossorigin="anonymous" onload="window.__shopifyOriginTrialsDone = true" onerror="window.__shopifyOriginTrialsDone = true"></script>
+<script>(()=>{var d="shopify:webmcp_adapter_loaded",n=Symbol.for("shopify.webmcp_adapter_loading");function s(c,a,{win:r=window,doc:o=document}={}){function p(){try{return r.localStorage.getItem(d)==="true"}catch{return!1}}function l(){try{r.localStorage.setItem(d,"true")}catch{}}function u(){return typeof(o.modelContext||r.navigator?.modelContext)?.registerTool=="function"}function f(){if(r[n]||!u())return;let t=o.head||o.getElementsByTagName("head")[0];if(!t)return;let e=o.createElement("script");e.type="module",e.crossOrigin="anonymous",a&&(e.integrity=a),e.src=c,e.addEventListener("load",l,{once:!0}),e.addEventListener("error",()=>{r[n]=!1},{once:!0}),t.appendChild(e),r[n]=!0}function _(t){let e=o.getElementById("shopify-origin-trials");if(!e||r.__shopifyOriginTrialsDone){t();return}e.addEventListener("load",t,{once:!0}),e.addEventListener("error",t,{once:!0})}function i(){_(()=>r.setTimeout(f,0))}function m(){o.addEventListener("DOMContentLoaded",i,{once:!0})}p()?i():m()}s("\/\/squizyy-store.myshopify.com\/cdn\/shopifycloud\/storefront\/assets\/storefront\/webmcp-54c687b6.js","sha256-5kNm6ku3yVQgaW8DNOK1E8HlUoBFVQFhsBTVHwnwcjA=");})();
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.dynamic.init">var Shopify=Shopify||{};Shopify.PaymentButton=Shopify.PaymentButton||{isStorefrontPortableWallets:!0,init:function(){window.Shopify.PaymentButton.init=function(){};var t=document.createElement("script");t.src="https://squizyy-store.myshopify.com/cdn/shopifycloud/portable-wallets/latest/portable-wallets.en.js",t.type="module",document.head.appendChild(t)}};
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.buyer_consent">
+  function portableWalletsHideBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.add("hidden"),t.setAttribute("aria-hidden","true"),n.removeEventListener("click",e))}function portableWalletsShowBuyerConsent(e){var t=document.getElementById("shopify-buyer-consent"),n=document.getElementById("shopify-subscription-policy-button");t&&n&&(t.classList.remove("hidden"),t.removeAttribute("aria-hidden"),n.addEventListener("click",e))}window.Shopify?.PaymentButton&&(window.Shopify.PaymentButton.hideBuyerConsent=portableWalletsHideBuyerConsent,window.Shopify.PaymentButton.showBuyerConsent=portableWalletsShowBuyerConsent);
+</script>
+<script data-source-attribution="shopify.dynamic_checkout.cart.bootstrap">document.addEventListener("DOMContentLoaded",(function(){function t(){return document.querySelector("shopify-accelerated-checkout-cart, shopify-accelerated-checkout")}if(t())Shopify.PaymentButton.init();else{new MutationObserver((function(e,n){t()&&(Shopify.PaymentButton.init(),n.disconnect())})).observe(document.body,{childList:!0,subtree:!0})}}));
+</script>
+
+<script id="shopify-cfh-end">window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>
+  <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+<script>
+  window.__TREKKIE_SHIM_QUEUE = window.__TREKKIE_SHIM_QUEUE || [];
+</script>
+<script>(function(){var wpmLoader=function(){"use strict";var e=/Googlebot|Storebot-Google|bingbot|Baiduspider|YandexBot|DuckDuckBot|Slurp|facebookexternalhit|Twitterbot|LinkedInBot|Applebot|AdsBot-Google|Mediapartners-Google|APIs-Google|PetalBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|Acunetix|PerplexityBot|Perplexity-User/i,t=/bytedance/i;function i(){try{var e=document.cookie;if(!e||"string"!=typeof e)return;for(var t=0,i=e.split(";");t<i.length;t++){var n=i[t],r=n.indexOf("=");if(-1!==r){var o=n.slice(0,r).trim();if(o){var a=void 0;try{a=decodeURIComponent(o)}catch(e){a=o}if("_shopify_s"===a){var d=n.slice(r+1).trim();try{return decodeURIComponent(d)}catch(e){return d}}}}}return}catch(e){return}}function n(e){try{"undefined"!=typeof console&&"function"==typeof console.warn&&console.warn(e)}catch(e){}}function r(e,t){return"string"==typeof e&&e.length>0&&e.length<=t?e:void 0}function o(e){var t;switch(null==(t=null==e?void 0:e.navigation)?void 0:t.type){case 0:return"navigate";case 1:return"reload";case 2:return"back_forward";default:return}}function a(){var e,t,i;try{var n=null==(i=null==(t=null==(e=self.ShopifyAnalytics)?void 0:e.lib)?void 0:t.trekkie)?void 0:i.state;return"awaiting-consent"===n||"initialized"===n?n:void 0}catch(e){return}}return function(d,s,u,l){var c=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{};try{var p=c.trekkieShim;!0!==p&&"true"!==p||null!=window.__TREKKIE_SHIM_QUEUE||(window.__TREKKIE_SHIM_QUEUE=[])}catch(e){}var f,v,h,y,g=(v=(f={modern:/Edge?\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Firefox\/(1{2}[4-9]|1[2-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Chrom(ium|e)\/(9{2}|\d{3,})\.\d+(\.\d+|)|(Maci|X1{2}).+ Version\/(15\.\d+|(1[6-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(9{2}|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(15[._]\d+|(1[6-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Android.+Firefox\/(15\d|1[6-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|SamsungBrowser\/([2-9]\d|\d{3,})\.\d+/,legacy:/Edge?\/(1[6-9]|[2-9]\d|\d{3,})\.\d+(\.\d+|)|Firefox\/(5[4-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)|Chrom(ium|e)\/(5[1-9]|[6-9]\d|\d{3,})\.\d+(\.\d+|)([\d.]+$|.*Safari\/(?![\d.]+ Edge\/[\d.]+$))|(Maci|X1{2}).+ Version\/(10\.\d+|(1[1-9]|[2-9]\d|\d{3,})\.\d+)([,.]\d+|)( \(\w+\)|)( Mobile\/\w+|) Safari\/|Chrome.+OPR\/(3[89]|[4-9]\d|\d{3,})\.\d+\.\d+|(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS|CPU iPad OS)[ +]+(10[._]\d+|(1[1-9]|[2-9]\d|\d{3,})[._]\d+)([._]\d+|)|Android:?[ /-](14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})(\.\d+|)(\.\d+|)|Mobile Safari.+OPR\/([89]\d|\d{3,})\.\d+\.\d+|Android.+Firefox\/(15\d|1[6-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+Chrom(ium|e)\/(14[89]|1[5-9]\d|[2-9]\d{2}|\d{4,})\.\d+(\.\d+|)|Android.+(UC? ?Browser|UCWEB|U3)[ /]?(15\.([5-9]|\d{2,})|(1[6-9]|[2-9]\d|\d{3,})\.\d+)\.\d+|SamsungBrowser\/(5\.\d+|([6-9]|\d{2,})\.\d+)|Android.+MQ{2}Browser\/(14(\.(9|\d{2,})|)|(1[5-9]|[2-9]\d|\d{3,})(\.\d+|))(\.\d+|)|K[Aa][Ii]OS\/(3\.\d+|([4-9]|\d{2,})\.\d+)(\.\d+|)/}).modern,h=f.legacy,(y=navigator.userAgent).match(e)?"bot":y.match(v)?"modern":y.match(h)?"legacy":y.match(t)?"bot":"unknown"),m=function(e){var t,i,n=r(e,128);try{var a=window.performance,d=null==(t=null==a?void 0:a.getEntriesByType)?void 0:t.call(a,"navigation")[0];if(!d)return{requestId:n,navigationType:o(a)};var s="type"in d?r(d.type,64):void 0,u="serverTiming"in d&&Array.isArray(d.serverTiming)?d.serverTiming:[];return{requestId:null!=n?n:r(null==(i=u.find(function(e){return"requestID"===e.name}))?void 0:i.description,128),navigationType:s}}catch(e){return{requestId:n}}}(c.requestId),w=function(e){var t=e.version,r=e.browserTarget,o=e.surface,a=e.shopId,d=e.monorailEndpoint,s=window.location.href;return{emit:function(e){var u=e.status,l=e.errorMsg,c=e.failureReason,p=e.useKeepaliveFallback,f=void 0!==p&&p,v=e.navigationType,h=e.pagehidePersisted,y=e.requestId,g=e.trekkieState;if(d){var m,w;try{var b=(new Date).getTime();m=JSON.stringify({metadata:{event_sent_at_ms:b},events:[{schema_id:"web_pixels_manager_load/3.3",payload:{version:t,bundle_target:r,page_url:s,status:u,surface:o,error_msg:l,failure_reason:c,navigation_type:v,pagehide_persisted:h,request_id:y,trekkie_state:g,shop_id:a,visit_token:i()},metadata:{event_created_at_ms:b}}]})}catch(e){return}try{if("function"==typeof window.navigator.sendBeacon&&-1===(w=window.navigator.userAgent).indexOf("iPhone; CPU iPhone OS 12_")&&-1===w.indexOf("iPad; CPU OS 12_")&&-1===w.indexOf("iPod touch; CPU iPhone OS 12_")&&window.navigator.sendBeacon.bind(window.navigator)(d,m))return}catch(e){}if(f)try{"function"==typeof window.fetch&&window.fetch(d,{method:"POST",headers:{"Content-Type":"text/plain"},body:m,keepalive:!0}).catch(function(){})}catch(e){}else try{var _=new XMLHttpRequest;_.open("POST",d,!0),_.setRequestHeader("Content-Type","text/plain"),_.send(m)}catch(e){n("[Web Pixels Manager] Got an unhandled error while logging to Monorail.")}}else n("[Web Pixels Manager] No Monorail endpoint provided, skipping logging.")}}}({version:u,browserTarget:g,surface:d.surface,shopId:d.shopId,monorailEndpoint:d.monorailEndpoint});if(Boolean(null==(_=null==(b=window.Shopify)?void 0:b.analytics)?void 0:_.replayQueue))w.emit({status:"setup-skipped",errorMsg:"replay queue already initialized."});else{var b,_;w.emit({status:"setup-started"}),window.Shopify=window.Shopify||{};var S=window.Shopify;S.analytics=S.analytics||{};var P=S.analytics;P.replayQueue=[],P.publish=function(e,t,i){return P.replayQueue.push([e,t,i]),!0};try{self.performance.mark("wpm:start")}catch(e){}var k,C="modern"===g?"modern":"legacy",E=(null!=l?l:{modern:"",legacy:""})[C],I=[(k={baseUrl:s,hashVersion:u,buildTarget:C}).baseUrl,"/wpm","/b",k.hashVersion,"modern"===k.buildTarget?"m":"l",".js"].join(""),O=!1,T=!1;try{c.browserTarget=g,function(){O=!0;try{window.addEventListener("pagehide",M)}catch(e){O=!1}}(),R(function(){try{R(x)}catch(e){D(e)}}),w.emit({status:"loading",requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()})}catch(e){D(e)}}function U(){var e;if(q(),!function(){var e,t;return Boolean(null==(t=null==(e=window.Shopify)?void 0:e.analytics)?void 0:t.initialized)}()){var t,i,n;try{if("function"!=typeof(null==(e=window.webPixelsManager)?void 0:e.init))return void A();if(!(null!==(n=i=t=window.webPixelsManager.init(d))&&"function"!=typeof n&&Object(n)===n&&"publish"in i&&"function"==typeof i.publish&&"publishCustomEvent"in i&&"function"==typeof i.publishCustomEvent&&"visitor"in i&&"function"==typeof i.visitor))return void A()}catch(e){return void A(e)}var r=window.Shopify.analytics;r.replayQueue.forEach(function(e){var i=e[0],n=e[1],r=e[2];t.publishCustomEvent(i,n,r)}),r.replayQueue=[],r.publish=t.publishCustomEvent,r.visitor=t.visitor,r.initialized=!0}}function A(e){B("manager_api_unavailable",void 0===e?void 0:Q(e))}function x(){B("script_load_failed","".concat(I," has failed to load"))}function B(e,t){T||(T=!0,q(),w.emit({status:"failed",errorMsg:t,failureReason:e,requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()}))}function M(e){O&&(q(),w.emit({status:"pagehide-while-loading",useKeepaliveFallback:!0,pagehidePersisted:e.persisted,requestId:m.requestId,navigationType:m.navigationType,trekkieState:a()}))}function q(){O=!1;try{window.removeEventListener("pagehide",M)}catch(e){}}function R(e){var t;!function(e){var t=e.src,i=e.async,n=void 0===i||i,r=e.onload,o=e.onerror,a=e.sri,d=e.scriptDataAttributes,s=void 0===d?{}:d,u=document.createElement("script"),l=document.querySelector("head"),c=document.querySelector("body");if(u.async=n,u.src=t,a&&(u.integrity=a,u.crossOrigin="anonymous"),s)for(var p in s)if(Object.prototype.hasOwnProperty.call(s,p))try{u.dataset[p]=String(s[p])}catch(e){}if(r&&u.addEventListener("load",r),o&&u.addEventListener("error",o),l)l.appendChild(u);else{if(!c)throw new Error("Did not find a head or body element to append the script");c.appendChild(u)}}({src:I,async:!0,onload:U,onerror:e,sri:(t=E,"string"==typeof t&&/^sha384-[A-Za-z0-9+/=]+$/.test(t)?E:""),scriptDataAttributes:c})}function D(e){B("script_append_failed",Q(e))}function Q(e){return e instanceof Error?e.message:"Unknown error"}}}();wpmLoader({shopId: 68953604159,storefrontBaseUrl: "https://squizyy-store.myshopify.com",extensionsBaseUrl: "https://extensions.shopifycdn.com/cdn/shopifycloud/web-pixels-manager",monorailEndpoint: "https://squizyy-store.myshopify.com/.well-known/shopify/monorail/unstable/produce_batch",surface: "storefront-renderer",enabledBetaFlags: ["7b21cf0b","b13923a8","4c64608a","08197dfb"],webPixelsConfigList: [{"id":"shopify-app-pixel","configuration":"{}","eventPayloadVersion":"v1","runtimeContext":"STRICT","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"APP","privacyPurposes":["ANALYTICS","MARKETING"]},{"id":"shopify-custom-pixel","eventPayloadVersion":"v1","runtimeContext":"LAX","scriptVersion":"0530","apiClientId":"shopify-pixel","type":"CUSTOM","privacyPurposes":["ANALYTICS","MARKETING"]}],isMerchantRequest: false,initData: {"shop":{"name":"Squizyy","paymentSettings":{"currencyCode":"INR"},"myshopifyDomain":"u4xvac-s0.myshopify.com","countryCode":"IN","storefrontUrl":"https:\/\/squizyy-store.myshopify.com"},"customer":null,"cart":null,"checkout":null,"productVariants":[],"products":[{"id":"8501383921727","handle":"squizyy-squeezy-peanut-butter-19-4-oz","isCollective":null,"title":null,"type":null,"untranslatedTitle":null,"url":null,"vendor":null,"remoteShopId":null,"variants":[{"id":"44401144758335","image":null,"price":null,"sku":null,"title":null,"untranslatedTitle":null}]}],"purchasingCompany":null},},"https://squizyy-store.myshopify.com/cdn","4e7a7028w708d11bfpd22fc97dm92febe21",{"modern":"","legacy":""},{"trekkieShim":true,"agentContext":true,"apiClientId":"580111","facebookCapiEnabled":"false","themeId":"144876961855","themePublished":"true","eventMetadataId":"78e38488-3c9c-4190-9793-76814e97cafc","pageType":"home","shopId":"68953604159","storefrontBaseUrl":"https:\/\/squizyy-store.myshopify.com","extensionBaseUrl":"https:\/\/extensions.shopifycdn.com\/cdn\/shopifycloud\/web-pixels-manager","surface":"storefront-renderer","enabledBetaFlags":"[\"7b21cf0b\", \"b13923a8\", \"4c64608a\", \"08197dfb\"]","isMerchantRequest":"false","hashVersion":"4e7a7028w708d11bfpd22fc97dm92febe21","publish":"custom","events":"[[\"page_viewed\",{}]]"});})();</script><script>
+  window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+  window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+  window.ShopifyAnalytics.meta.currency = 'INR';
+  var meta = {"page":{"pageType":"home","requestId":"e39a96de-2dc2-46f9-903c-3a90a99b9b24-1793904757"}};
+  for (var attr in meta) {
+    window.ShopifyAnalytics.meta[attr] = meta[attr];
+  }
+</script>
+<script class="analytics">
+  (function () {
+    var customDocumentWrite = function(content) {
+      var jquery = null;
+
+      if (window.jQuery) {
+        jquery = window.jQuery;
+      } else if (window.Checkout && window.Checkout.$) {
+        jquery = window.Checkout.$;
+      }
+
+      if (jquery) {
+        jquery('body').append(content);
+      }
+    };
+
+    var hasLoggedConversion = function(token) {
+      if (token) {
+        return document.cookie.indexOf('loggedConversion=' + token) !== -1;
+      }
+      return false;
+    }
+
+    var setCookieIfConversion = function(token) {
+      if (token) {
+        var twoMonthsFromNow = new Date(Date.now());
+        twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+        document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
+      }
+    }
+
+    var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+    window.ShopifyAnalytics.lib.trekkie = window.trekkie;
+    if (trekkie.integrations) {
+      return;
+    }
+    trekkie.methods = [
+      'identify',
+      'page',
+      'ready',
+      'track',
+      'trackForm',
+      'trackLink'
+    ];
+    trekkie.factory = function(method) {
+      return function() {
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift(method);
+        trekkie.push(args);
+        if (method == 'track' || method == 'page') {
+          var pageUrl;
+          try {
+            pageUrl = window.location.href;
+          } catch (e) {}
+          var pageReferrer;
+          try {
+            pageReferrer = document.referrer;
+          } catch (e) {}
+          try {
+            if (window.__TREKKIE_SHIM_QUEUE == null) {
+              window.__TREKKIE_SHIM_QUEUE = [];
+            }
+            window.__TREKKIE_SHIM_QUEUE.push({
+              from: 'trekkie-stub',
+              method: method,
+              args: args.slice(1),
+              pageContext: {
+                url: pageUrl,
+                referrer: pageReferrer
+              }
+            });
+          } catch (e) {
+            // no-op
+          }
+        }
+        return trekkie;
+      };
+    };
+    for (var i = 0; i < trekkie.methods.length; i++) {
+      var key = trekkie.methods[i];
+      trekkie[key] = trekkie.factory(key);
+    }
+    trekkie.load = function(config) {
+      trekkie.config = config || {};
+      trekkie.config.initialDocumentCookie = document.cookie;
+      
+    };
+    trekkie.load(
+      {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":68953604159,"isMerchantRequest":null,"themeId":144876961855,"themeCityHash":"17024558734934501120","contentLanguage":"en","currency":"INR","eventMetadataId":"78e38488-3c9c-4190-9793-76814e97cafc"},"isServerSideCookieWritingEnabled":true,"monorailRegion":"shop_domain","enabledBetaFlags":["7b21cf0b","b13923a8","4c64608a"]},"Session Attribution":{},"S2S":{"facebookCapiEnabled":false,"source":"trekkie-storefront-renderer","apiClientId":580111}}
+    );
+
+    var loaded = false;
+    trekkie.ready(function() {
+      if (loaded) return;
+      loaded = true;
+
+      window.ShopifyAnalytics.lib = window.trekkie;
+
+      var originalDocumentWrite = document.write;
+      document.write = customDocumentWrite;
+      try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+      document.write = originalDocumentWrite;
+
+      var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
+      var token = match? match[1]: undefined;
+      if (!hasLoggedConversion(token)) {
+        setCookieIfConversion(token);
+        
+      }
+    });
+
+    window.ShopifyAnalytics.lib.page(null,{"pageType":"home","requestId":"e39a96de-2dc2-46f9-903c-3a90a99b9b24-1793904757","shopifyEmitted":true});
+
+    var eventsListenerScript = document.createElement('script');
+    eventsListenerScript.async = true;
+    eventsListenerScript.src = "//squizyy-store.myshopify.com/cdn/shopifycloud/storefront/assets/shop_events_listener-819172a8.js";
+    document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+})();</script>
+<script
+  defer
+  src="https://squizyy-store.myshopify.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-3.15.1.min.js"
+  data-application="storefront-renderer"
+  data-shop-id="68953604159"
+  data-render-region="gcp-asia-southeast1"
+  data-page-type="index"
+  data-theme-instance-id="144876961855"
+  data-theme-name="Squizyy Shopify Theme"
+  data-theme-version="1.0.0"
+  data-monorail-region="shop_domain"
+  data-resource-timing-sampling-rate="10"
+  data-shs="true"
+  data-shs-beacon="true"
+  data-shs-export-with-fetch="true"
+  data-shs-logs-sample-rate="1"
+  data-shs-beacon-endpoint="https://squizyy-store.myshopify.com/api/collect"
+></script>
+<meta name="shopify-y" content="5d54a23e-60f2-408a-9ed9-eb551e03b0ef" data-expiration="1825462357000"><meta name="shopify-s" content="ea572899-2f36-4d92-b123-1ccb0b645cda" data-expiration="1793906557000"><meta name="request-id" content="e39a96de-2dc2-46f9-903c-3a90a99b9b24-1793904757"        >
+</head>
+
+  <body class="template-index page-home">
+    <a class="skip-to-content-link button" href="#MainContent">
+      Skip to content
+    </a>
+
+    <div class="page-wrapper">
+      <div id="shopify-section-announcement-bar" class="shopify-section"><div class="announcement-wrapper">
+  <section class="announcement-section" aria-label="Announcement">
+    <div class="announcement-container">
+      <!-- Mobile View Marquee Pill -->
+      <div class="announcement-mobile-marquee">
+        <div class="announcement-track-wrapper">
+          <div class="announcement-track"><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a></div>
+          <div class="announcement-track" aria-hidden="true"><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a></div>
+        </div>
+      </div>
+
+      <!-- Desktop View Marquee Pill -->
+      <div class="announcement-desktop-marquee">
+        <div class="announcement-track-wrapper">
+          <div class="announcement-track"><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a></div>
+          <div class="announcement-track" aria-hidden="true"><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Union.svg?v=180093896305711597611793872663" alt="" width="80" height="80" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="announcement-track-item">
+                <span class="announcement-item-icon announcement-desktop-icon"><img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_edb0d5dd-b629-429d-a3b9-ec4c93589cbb.png?v=59297732398788463881793872664" alt="" width="80" height="73" loading="eager"></span>
+                <div class="announcement-item-text">
+                  <span>FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+</span>
+                  <span class="announcement-buy-now">BUY NOW</span>
+                </div>
+              </a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.announcement-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 25;
+}
+.announcement-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 1rem 0 0 0;
+}
+.announcement-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--container-max-width, 1440px);
+  padding: 0 1rem;
+}
+@media (min-width: 1024px) {
+  .announcement-container {
+    padding: 0 1.5rem;
+  }
+}
+.announcement-mobile-marquee {
+  display: block;
+  text-transform: uppercase;
+  padding: 0.375rem 0;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border-radius: var(--radius-pill, 9999px);
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .announcement-mobile-marquee {
+    display: none;
+  }
+}
+.announcement-desktop-marquee {
+  display: none;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  border-radius: var(--radius-pill, 9999px);
+  background-color: var(--color-accent-purple, #ca9af1);
+}
+@media (min-width: 1024px) {
+  .announcement-desktop-marquee {
+    display: block;
+  }
+}
+.announcement-track-wrapper {
+  display: flex;
+  white-space: nowrap;
+}
+.announcement-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  min-width: 100%;
+  gap: 1rem;
+  animation: announcement-marquee 44s linear infinite;
+}
+.announcement-track-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: var(--color-foreground, #2d0f28);
+}
+.announcement-item-icon {
+  display: flex;
+  align-items: center;
+  width: 18px;
+  height: auto;
+  flex-shrink: 0;
+}
+.announcement-item-icon img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.announcement-desktop-icon {
+  width: 23px;
+  height: auto;
+  flex-shrink: 0;
+}
+.announcement-item-text {
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.625rem;
+  line-height: 1;
+  font-weight: 500;
+}
+@media (min-width: 1024px) {
+  .announcement-item-text {
+    font-size: 0.75rem;
+  }
+}
+.announcement-buy-now {
+  text-decoration: underline;
+  font-weight: 700;
+}
+@keyframes announcement-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
+
+</div>
+      <div id="shopify-section-header" class="shopify-section"><div class="site-nav-wrapper">
+  <header class="site-navbar" role="banner">
+    <div class="nav-inner">
+      <div class="nav-container container">
+        <div class="nav-bar">
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            type="button"
+            class="nav-mobile-toggle"
+            data-mobile-menu-toggle
+            aria-label="Open navigation menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 18H20C20.55 18 21 17.55 21 17C21 16.45 20.55 16 20 16H4C3.45 16 3 16.45 3 17C3 17.55 3.45 18 4 18ZM4 13H20C20.55 13 21 12.55 21 12C21 11.45 20.55 11 20 11H4C3.45 11 3 11.45 3 12C3 12.55 3.45 13 4 13ZM3 7C3 7.55 3.45 8 4 8H20C20.55 8 21 7.55 21 7C21 6.45 20.55 6 20 6H4C3.45 6 3 6.45 3 7Z"
+                fill="#2D0F28"
+              />
+            </svg>
+          </button>
+
+          <!-- Mobile Center Brand Logo -->
+          <a href="/" class="nav-mobile-logo" aria-label="Squizyy USA">
+            <img
+              src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-dark-logo.svg?v=121728289826033611171793899072"
+              alt="Squizyy"
+              class="nav-mobile-logo-img"
+              width="140"
+              height="30"
+              loading="eager"
+            >
+          </a>
+
+          <!-- Mobile Actions (Cart Trigger) -->
+          <div class="nav-mobile-actions">
+            <button
+              type="button"
+              class="nav-cart-trigger-mobile"
+              data-open-cart
+              aria-label="Cart with 0 items"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+                <path
+                  d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+                <path
+                  d="M2.25 3.75H5.25L7.5 16.5H19.5L21.75 6.75H6"
+                  stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                />
+              </svg>
+              <span class="nav-cart-badge" data-cart-count>0</span>
+            </button>
+          </div>
+
+          <!-- Desktop Full Navigation -->
+          <nav class="nav-desktop" aria-label="Main Navigation">
+            <!-- Left Nav Links -->
+            <div class="nav-group-left">
+              <a href="/" class="nav-link">Home</a>
+              <a href="/pages/our-story" class="nav-link">Our Story</a>
+              <a href="/pages/store-locator" class="nav-link">Stockists</a>
+            </div>
+
+            <!-- Center Brand Logo -->
+            <a href="/" class="nav-desktop-logo" aria-label="Squizyy USA">
+              <img
+                src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-dark-logo.svg?v=121728289826033611171793899072"
+                alt="Squizyy"
+                class="nav-desktop-logo-img"
+                width="140"
+                height="46"
+                loading="eager"
+              >
+            </a>
+
+            <!-- Right Links & Actions -->
+            <div class="nav-group-right">
+              <a href="/pages/wholesale" class="nav-link">Wholesale</a>
+              <a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="nav-buy-now-btn">BUY SQUIZYY NOW</a>
+
+              <!-- Desktop Cart Trigger -->
+              <button
+                type="button"
+                class="nav-cart-trigger-desktop"
+                data-open-cart
+                aria-label="Cart with 0 items"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.25 20.25C8.66421 20.25 9 19.9142 9 19.5C9 19.0858 8.66421 18.75 8.25 18.75C7.83579 18.75 7.5 19.0858 7.5 19.5C7.5 19.9142 7.83579 20.25 8.25 20.25Z"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <path
+                    d="M18.75 20.25C19.1642 20.25 19.5 19.9142 19.5 19.5C19.5 19.0858 19.1642 18.75 18.75 18.75C18.3358 18.75 18 19.0858 18 19.5C18 19.9142 18.3358 20.25 18.75 20.25Z"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                  <path
+                    d="M2.25 3.75H5.25L7.5 16.5H19.5L21.75 6.75H6"
+                    stroke="#2D0F28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="nav-cart-badge" data-cart-count>0</span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu Overlay -->
+  <div class="mobile-menu-overlay" data-mobile-menu-overlay></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu-drawer" data-mobile-menu>
+    <div class="mobile-menu-header">
+      <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-dark-logo.svg?v=121728289826033611171793899072" alt="Squizyy" class="mobile-menu-logo" width="120" height="36">
+      <button type="button" class="mobile-menu-close" data-mobile-menu-toggle aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/pages/our-story" class="mobile-nav-link">Our Story</a>
+      <a href="/pages/store-locator" class="mobile-nav-link">Stockists</a>
+      <a href="/pages/wholesale" class="mobile-nav-link">Wholesale</a><a href="/pages/win-flights-to-australia" class="mobile-nav-link">Win Flights to Australia</a><a href="/pages/official-rules" class="mobile-nav-link">Official Rules</a><a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="mobile-buy-now-btn">BUY SQUIZYY NOW</a>
+    </nav>
+  </div>
+</div>
+
+<style>
+.site-nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 990;
+  width: 100%;
+}
+.site-navbar {
+  width: 100%;
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  transition: transform var(--transition-normal, 0.25s ease);
+}
+.nav-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+}
+@media (min-width: 1024px) {
+  .nav-inner {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+.nav-container {
+  padding: 0 1rem;
+  display: flex;
+}
+@media (min-width: 1024px) {
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+}
+.nav-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-mobile-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.25rem;
+  color: var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+.nav-mobile-logo {
+  display: block;
+  outline: none;
+  border: none;
+}
+.nav-mobile-logo-img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-logo {
+    display: none;
+  }
+}
+.nav-mobile-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .nav-mobile-actions {
+    display: none;
+  }
+}
+.nav-desktop {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+  }
+}
+.nav-group-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+}
+.nav-desktop-logo {
+  display: block;
+  padding: 0 1rem;
+  flex-shrink: 0;
+  outline: none;
+  border: none;
+}
+.nav-desktop-logo-img {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-group-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1 1 0%;
+  justify-content: flex-start;
+}
+.nav-link {
+  display: block;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+  transition: opacity 0.15s ease;
+  text-decoration: none;
+}
+.nav-link:hover {
+  opacity: 0.75;
+}
+.nav-buy-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.0625rem;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-buy-now-btn:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+}
+.nav-buy-now-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+.nav-cart-trigger-desktop {
+  margin-left: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-accent-purple, #ca9af1);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.nav-cart-trigger-desktop:hover {
+  transform: scale(1.05);
+}
+.nav-cart-trigger-mobile {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.375rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-accent-purple, #ca9af1);
+  cursor: pointer;
+}
+.nav-cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-foreground, #2d0f28);
+  color: var(--color-cream, #fffbf2);
+  font-size: 0.625rem;
+  font-weight: 700;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  border: 1px solid var(--color-cream, #fffbf2);
+}
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(45, 15, 40, 0.6);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background-color: var(--color-background, #f8ebd7);
+  border-right: 4px solid var(--color-foreground, #2d0f28);
+  z-index: 9999;
+  padding: 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+}
+.mobile-menu-drawer.active {
+  transform: translateX(0);
+}
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-foreground, #2d0f28);
+}
+.mobile-menu-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  color: var(--color-foreground, #2d0f28);
+}
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.mobile-nav-link {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-muted, rgba(45, 15, 40, 0.15));
+  color: var(--color-foreground, #2d0f28);
+  text-decoration: none;
+}
+.mobile-buy-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: 4px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+</style>
+
+
+</div>
+
+      <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+        <div id="shopify-section-template--20242031214655__hero" class="shopify-section"><div id="shopify-section-hero" class="shopify-section">
+  <section class="hero-section">
+    <div class="hero-container container">
+      <!-- Main Hero Frame -->
+      <div class="hero-frame">
+        <!-- Desktop Hero Background Graphic -->
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/hero-bg.png?v=97913820549538321611793872664"
+          alt="Squizyy squeezy peanut butter hero banner"
+          class="hero-bg-desktop"
+          width="1440"
+          height="600"
+          loading="eager"
+        >
+
+        <!-- Mobile Hero Background Graphic -->
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/hero-bg-mobile.png?v=31275814181991328501793872664"
+          alt="Squizyy squeezy peanut butter hero mobile banner"
+          class="hero-bg-mobile"
+          width="600"
+          height="800"
+          loading="eager"
+        >
+
+        <!-- Floating Sticker Graphic -->
+        <div class="hero-sticker-wrapper">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/sticker.png?v=123409110536101715601793872663"
+            alt="100% natural Indian peanut butter badge"
+            class="hero-sticker-img"
+            width="512"
+            height="512"
+            loading="eager"
+          >
+        </div>
+
+        <!-- Bottom Gradient Overlay -->
+        <div class="hero-bottom-gradient"></div>
+
+        <!-- Top Heading + Star Ratings Overlay -->
+        <div class="hero-top-content">
+          <div class="hero-rating-row">
+            <div class="hero-stars-list" aria-label="5 star rating"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M3.16089 13.5124C2.82276 13.6862 2.43989 13.3824 2.50796 12.9944L3.23397 8.8561L0.151933 5.91904C-0.1361 5.64456 0.0129997 5.14269 0.398865 5.08788L4.68503 4.47899L6.59614 0.693267C6.76829 0.352244 7.23464 0.352244 7.40679 0.693267L9.3179 4.47899L13.6041 5.08788C13.9899 5.14269 14.139 5.64456 13.851 5.91904L10.769 8.8561L11.495 12.9944C11.563 13.3824 11.1802 13.6862 10.842 13.5124L7.00146 11.5384L3.16089 13.5124Z"
+                    fill="#CA9AF1"
+                  />
+                </svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M3.16089 13.5124C2.82276 13.6862 2.43989 13.3824 2.50796 12.9944L3.23397 8.8561L0.151933 5.91904C-0.1361 5.64456 0.0129997 5.14269 0.398865 5.08788L4.68503 4.47899L6.59614 0.693267C6.76829 0.352244 7.23464 0.352244 7.40679 0.693267L9.3179 4.47899L13.6041 5.08788C13.9899 5.14269 14.139 5.64456 13.851 5.91904L10.769 8.8561L11.495 12.9944C11.563 13.3824 11.1802 13.6862 10.842 13.5124L7.00146 11.5384L3.16089 13.5124Z"
+                    fill="#CA9AF1"
+                  />
+                </svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M3.16089 13.5124C2.82276 13.6862 2.43989 13.3824 2.50796 12.9944L3.23397 8.8561L0.151933 5.91904C-0.1361 5.64456 0.0129997 5.14269 0.398865 5.08788L4.68503 4.47899L6.59614 0.693267C6.76829 0.352244 7.23464 0.352244 7.40679 0.693267L9.3179 4.47899L13.6041 5.08788C13.9899 5.14269 14.139 5.64456 13.851 5.91904L10.769 8.8561L11.495 12.9944C11.563 13.3824 11.1802 13.6862 10.842 13.5124L7.00146 11.5384L3.16089 13.5124Z"
+                    fill="#CA9AF1"
+                  />
+                </svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M3.16089 13.5124C2.82276 13.6862 2.43989 13.3824 2.50796 12.9944L3.23397 8.8561L0.151933 5.91904C-0.1361 5.64456 0.0129997 5.14269 0.398865 5.08788L4.68503 4.47899L6.59614 0.693267C6.76829 0.352244 7.23464 0.352244 7.40679 0.693267L9.3179 4.47899L13.6041 5.08788C13.9899 5.14269 14.139 5.64456 13.851 5.91904L10.769 8.8561L11.495 12.9944C11.563 13.3824 11.1802 13.6862 10.842 13.5124L7.00146 11.5384L3.16089 13.5124Z"
+                    fill="#CA9AF1"
+                  />
+                </svg><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path
+                    d="M3.16089 13.5124C2.82276 13.6862 2.43989 13.3824 2.50796 12.9944L3.23397 8.8561L0.151933 5.91904C-0.1361 5.64456 0.0129997 5.14269 0.398865 5.08788L4.68503 4.47899L6.59614 0.693267C6.76829 0.352244 7.23464 0.352244 7.40679 0.693267L9.3179 4.47899L13.6041 5.08788C13.9899 5.14269 14.139 5.64456 13.851 5.91904L10.769 8.8561L11.495 12.9944C11.563 13.3824 11.1802 13.6862 10.842 13.5124L7.00146 11.5384L3.16089 13.5124Z"
+                    fill="#CA9AF1"
+                  />
+                </svg></div>
+            <p class="hero-rating-text">Loved by Thousands Across India!</p>
+          </div>
+
+          <h1 class="hero-heading">
+            All-Natural Peanut Butter You Can Squeeze
+          </h1>
+        </div>
+
+        <!-- Bottom CTA & Shipping Badge Overlay -->
+        <div class="hero-bottom-content">
+          <a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="hero-cta-link">
+            BUY SQUIZYY PEANUT BUTTER NOW
+          </a>
+          <p class="hero-shipping-badge">
+            FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.hero-section {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+}
+.hero-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.hero-frame {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  border-radius: var(--radius-2xl, 32px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .hero-frame {
+    height: 700px;
+    padding-top: 3rem;
+    border-radius: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-frame {
+    height: 600px;
+    padding-bottom: 2rem;
+  }
+}
+.hero-bg-desktop {
+  display: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero-bg-mobile {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+@media (min-width: 768px) {
+  .hero-bg-desktop {
+    display: block;
+  }
+  .hero-bg-mobile {
+    display: none;
+  }
+}
+.hero-sticker-wrapper {
+  position: absolute;
+  width: 160px;
+  aspect-ratio: 1 / 1;
+  transform: rotate(10deg);
+  top: 50%;
+  right: 3%;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+@media (min-width: 640px) {
+  .hero-sticker-wrapper {
+    width: 190px;
+    top: 52%;
+    right: 5%;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-sticker-wrapper {
+    width: 220px;
+    top: 54%;
+    right: 6%;
+  }
+}
+.hero-sticker-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.hero-bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(to top, rgba(74, 40, 24, 0.95) 0%, rgba(74, 40, 24, 0.6) 50%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-top-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+.hero-rating-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-stars-list {
+  display: flex;
+  align-items: center;
+  gap: 3.5px;
+}
+.hero-rating-text {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-cream, #fffbf2);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .hero-rating-text {
+    font-size: 14px;
+  }
+}
+.hero-heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  color: var(--color-cream, #fffbf2);
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  margin: 0.25rem 0 0 0;
+  text-align: center;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 640px) {
+  .hero-heading {
+    font-size: 50px;
+    margin-top: 0.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-heading {
+    font-size: 58px;
+  }
+}
+.hero-bottom-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: center;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  padding-bottom: 0.5rem;
+}
+.hero-cta-link {
+  display: inline-flex;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--radius-full, 9999px);
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  line-height: 1;
+  padding: 1rem 2rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.hero-cta-link:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.hero-cta-link:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 640px) {
+  .hero-cta-link {
+    font-size: 18px;
+    width: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-cta-link {
+    font-size: 20px;
+  }
+}
+.hero-shipping-badge {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-cream, #fffbf2);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__ticker" class="shopify-section"><div id="shopify-section-logos-marquee" class="shopify-section">
+  <section class="ticker-section" aria-label="Brand Highlights">
+    <div class="ticker-wrapper">
+      <!-- Track 1 -->
+      <div class="ticker-track">
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_10_Vectorized.svg?v=25110811063965582661793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">100% INDIAN PEANUTS</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-2.svg?v=46163490972083515741793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized.svg?v=25279642348496673701793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-1.svg?v=38630402215372581191793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_10_Vectorized.svg?v=25110811063965582661793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">100% INDIAN PEANUTS</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-2.svg?v=46163490972083515741793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized.svg?v=25279642348496673701793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-1.svg?v=38630402215372581191793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+      </div>
+
+      <!-- Track 2 (Duplicate for seamless loop) -->
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_10_Vectorized.svg?v=25110811063965582661793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">100% INDIAN PEANUTS</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-2.svg?v=46163490972083515741793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized.svg?v=25279642348496673701793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-1.svg?v=38630402215372581191793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_10_Vectorized.svg?v=25110811063965582661793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">100% INDIAN PEANUTS</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-2.svg?v=46163490972083515741793872663" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ULTRA-SMOOTH</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized.svg?v=25279642348496673701793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">ZERO ADDED SUGAR</p>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-icon-wrapper">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-1.svg?v=38630402215372581191793872664" alt="" aria-hidden="true" width="56" height="56" class="ticker-icon-img" loading="lazy">
+          </div>
+          <p class="ticker-item-title">NATURAL FUEL</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.ticker-section {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 2rem 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(45, 15, 40, 0.08);
+  border-bottom: 1px solid rgba(45, 15, 40, 0.08);
+}
+.ticker-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  width: 100%;
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: tickerLoop 28s linear infinite;
+}
+.ticker-wrapper:hover .ticker-track {
+  animation-play-state: paused;
+}
+@keyframes tickerLoop {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 3.75rem;
+}
+.ticker-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .ticker-icon-wrapper {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+.ticker-icon-img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ticker-item-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0;
+}
+@media (min-width: 1024px) {
+  .ticker-item-title {
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__comparison" class="shopify-section"><div class="comparison-wrapper">
+  <section class="comparison-section" aria-label="Product Comparison">
+    <!-- Floating Peanut Left -->
+    <div class="comparison-peanut-left" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-peanut-left.png?v=55399982875104020081793898288"
+        alt=""
+        width="512"
+        height="512"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Product Bottle Left -->
+    <div class="comparison-bottle-left" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/product-bottle-left.png?v=88840257549102490821793900651"
+        alt="Squizyy Bottle"
+        width="750"
+        height="1008"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Floating Peanut Right -->
+    <div class="comparison-peanut-right" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-peanut-left.png?v=55399982875104020081793898288"
+        alt=""
+        width="512"
+        height="512"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Other Product Right (Messy Jars) -->
+    <div class="comparison-other-right" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/other-product-right.png?v=27082405644230175321793872663"
+        alt="Standard Peanut Butter Jars"
+        width="900"
+        height="759"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="comparison-main-wrapper">
+      <!-- Top Cream Dripping Graphic -->
+      <div class="comparison-drip-top">
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/cream-drip.svg?v=121544871373414448541793872663"
+          alt=""
+          class="comparison-drip-desktop"
+          width="1408"
+          height="275"
+          loading="lazy"
+        >
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/cream-drip-mobile.svg?v=177904765774116058851793872663"
+          alt=""
+          class="comparison-drip-mobile"
+          width="336"
+          height="121"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Headline & Comparison Badges -->
+      <div class="comparison-container">
+        <h2 class="comparison-headline">
+          Kiss Your Jar Goodbye, Mwa!
+        </h2>
+
+        <div class="comparison-vs-row">
+          <!-- Left (Squizyy) Perks -->
+          <div class="comparison-left-perks">
+            <div class="comparison-pill-badge">PERFECTLY SMOOTH</div>
+            <div class="comparison-pill-badge">SQUEEZE AND DRIZZLE</div>
+            <div class="comparison-pill-badge">ZERO MESS</div>
+          </div>
+
+          <!-- Center VS Circle -->
+          <div class="comparison-vs-circle" aria-hidden="true">
+            VS
+          </div>
+
+          <!-- Right (Standard Jars) Pain Points -->
+          <div class="comparison-right-pains">
+            <div class="comparison-pill-badge">HARD TO STIR</div>
+            <div class="comparison-pill-badge">SCOOP AND SCRAPE</div>
+            <div class="comparison-pill-badge">SOMEHOW GET IT EVERYWHERE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.comparison-wrapper {
+  position: relative;
+  width: 100%;
+}
+.comparison-section {
+  position: relative;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  padding: 0;
+  overflow: hidden;
+}
+.comparison-peanut-left {
+  display: none;
+  position: absolute;
+  width: 17vw;
+  transform: rotate(-60deg);
+  left: -6vw;
+  top: 16%;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .comparison-peanut-left {
+    display: block;
+  }
+}
+@media (min-width: 1024px) {
+  .comparison-peanut-left {
+    top: 65%;
+  }
+}
+.comparison-bottle-left {
+  position: absolute;
+  width: 58vw;
+  left: 0;
+  top: 20%;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .comparison-bottle-left {
+    width: 35vw;
+    left: -2rem;
+  }
+}
+.comparison-peanut-right {
+  display: none;
+  position: absolute;
+  width: 6.25vw;
+  transform: rotate(-14deg);
+  right: -1.5%;
+  top: 20%;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .comparison-peanut-right {
+    display: block;
+  }
+}
+.comparison-other-right {
+  position: absolute;
+  width: 86vw;
+  right: -10vw;
+  bottom: 10%;
+  z-index: 1;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .comparison-other-right {
+    width: 35vw;
+    right: -0.625rem;
+    bottom: 25%;
+  }
+}
+.comparison-main-wrapper {
+  background-color: var(--color-accent-purple, #ca9af1);
+  width: 100%;
+}
+.comparison-drip-top {
+  width: 100%;
+}
+.comparison-drip-desktop {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .comparison-drip-desktop {
+    display: block;
+  }
+}
+.comparison-drip-mobile {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .comparison-drip-mobile {
+    display: none;
+  }
+}
+.comparison-container {
+  position: relative;
+  max-width: 925px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.75rem;
+  padding: 0 1rem 25vh;
+  z-index: 3;
+}
+@media (min-width: 1024px) {
+  .comparison-container {
+    padding-bottom: 20vh;
+  }
+}
+.comparison-headline {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  color: var(--color-foreground, #2d0f28);
+  font-size: 2.125rem;
+  line-height: 1.05;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  text-transform: uppercase;
+}
+@media (min-width: 640px) {
+  .comparison-headline {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .comparison-headline {
+    font-size: 3.375rem;
+  }
+}
+.comparison-vs-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+@media (min-width: 768px) {
+  .comparison-vs-row {
+    flex-direction: row;
+    gap: 0;
+    margin-top: 4.25rem;
+  }
+}
+.comparison-left-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .comparison-left-perks {
+    align-items: flex-start;
+    flex-basis: 33.333%;
+  }
+}
+.comparison-right-pains {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .comparison-right-pains {
+    align-items: flex-end;
+    flex-basis: 33.333%;
+  }
+}
+.comparison-pill-badge {
+  width: fit-content;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 0.8125rem;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0.625rem 1.25rem;
+  background-color: var(--color-cream, #fffbf2);
+  border-radius: var(--radius-pill, 9999px);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  color: var(--color-foreground, #2d0f28);
+  box-shadow: 0 1px 3px rgba(45, 15, 40, 0.08);
+}
+@media (min-width: 1024px) {
+  .comparison-pill-badge {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+.comparison-vs-circle {
+  margin-top: 1rem;
+  width: 5rem;
+  height: 5rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color-foreground, #2d0f28);
+  color: var(--color-cream, #fffbf2);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.12);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .comparison-vs-circle {
+    margin-top: 0;
+  }
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__featured_product" class="shopify-section"><div class="featured-product-wrapper">
+  <section class="featured-product-section" aria-label="Featured Product">
+    <!-- Floating Peanuts Background Elements -->
+    <div class="featured-peanut-1" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-peanut-left.png?v=55399982875104020081793898288"
+        alt=""
+        width="105"
+        height="105"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-2" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-peanut-left.png?v=55399982875104020081793898288"
+        alt=""
+        width="137"
+        height="137"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-3" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-small.png?v=42165433624693823121793872664"
+        alt=""
+        width="67"
+        height="67"
+        loading="lazy"
+      >
+    </div>
+    <div class="featured-peanut-4" aria-hidden="true">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-small.png?v=42165433624693823121793872664"
+        alt=""
+        width="90"
+        height="90"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Main Product Content -->
+    <div class="featured-product-content">
+      <div class="featured-product-container">
+        <div class="featured-layout-row">
+          <!-- Left Column: Compact Media Gallery -->
+          <div class="featured-gallery-col">
+            <div class="compact-gallery-wrapper">
+              <div class="compact-gallery-inner">
+                <div class="compact-gallery-content">
+                  <!-- Thumbnail Strip (left on desktop, bottom on mobile) -->
+                  <div class="compact-thumb-strip"><button
+                          type="button"
+                          class="compact-thumb-btn thumb-active"
+                          aria-label="Thumbnail 1"
+                          onclick="changeFeaturedMainImage(this, '//squizyy-store.myshopify.com/cdn/shop/files/pdp-image.png?v=1793904314&width=800')"
+                        >
+                          <img
+                            src="//squizyy-store.myshopify.com/cdn/shop/files/pdp-image.png?crop=center&height=120&v=1793904314&width=120"
+                            alt="Squizyy Squeezy Peanut Butter 350g"
+                            class="compact-thumb-img"
+                            width="64"
+                            height="64"
+                            loading="lazy"
+                          >
+                        </button></div>
+
+                  <!-- Active Image Card -->
+                  <div class="compact-main-card"><img
+                        id="FeaturedSectionMainImg"
+                        src="//squizyy-store.myshopify.com/cdn/shop/files/pdp-image.png?v=1793904314&width=800"
+                        alt="Squizyy Squeezy Peanut Butter 350g"
+                        class="compact-main-img"
+                        width="800"
+                        height="800"
+                        loading="eager"
+                      ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Authentic Buy Box -->
+          <div class="featured-buybox-col">
+            <!-- 5-Star Aussie Reviews -->
+            <div class="featured-reviews-rating">
+              <div class="featured-stars-row" aria-label="5 stars rating"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg></div>
+              <span class="featured-rating-text">5.0 Based on 1,250+ Verified Indian Reviews</span>
+            </div>
+
+            <!-- Product Title & Serving Size -->
+            <div class="featured-title-area">
+              <h2 class="featured-product-title">
+                The Ultimate<br>Breakfast Power-Up
+              </h2>
+              <div class="featured-serving-size">
+                19.4 oz (550g)
+              </div>
+            </div>
+
+            <!-- Dotted Divider -->
+            <div class="featured-dashed-divider"></div>
+
+            <!-- Price Display -->
+            <div class="featured-price-display">
+              <span>Rs. 349.00</span>
+            </div>
+
+            <!-- Dotted Divider -->
+            <div class="featured-dashed-divider"></div>
+
+            <!-- 3 Authentic Feature Bullet Items with Checkmarks -->
+            <div class="featured-feature-list">
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  Simply shake, squeeze and drizzle.
+                </div>
+              </div>
+
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  100% Pure American roasted peanuts with a splash of peanut oil. No palm oil, no junk.
+                </div>
+              </div>
+
+              <div class="featured-feature-item">
+                <div class="featured-check-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 10.75C0.75 6.036 0.75 3.679 2.214 2.214C3.68 0.75 6.036 0.75 10.75 0.75C15.464 0.75 17.821 0.75 19.285 2.214C20.75 3.68 20.75 6.036 20.75 10.75C20.75 15.464 20.75 17.821 19.285 19.285C17.822 20.75 15.464 20.75 10.75 20.75C6.036 20.75 3.679 20.75 2.214 19.285C0.75 17.822 0.75 15.464 0.75 10.75Z"
+                      stroke="#F8EBD7"
+                      stroke-width="1.5"
+                    />
+                    <path d="M7.25 11.25L9.25 13.25L14.25 8.25" stroke="#F8EBD7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="featured-feature-text">
+                  7g of protein per serve for everything you love and anything you crave.
+                </div>
+              </div>
+            </div>
+
+            <!-- Add to Cart / Buy Now Action Button -->
+            <a
+              href="/products/squizyy-squeezy-peanut-butter-19-4-oz"
+              class="button-primary featured-cta-link"
+            >
+              BUY SQUIZYY PEANUT BUTTER NOW
+            </a>
+
+            <!-- Free Shipping Subtext -->
+            <div class="featured-shipping-note">
+              FREE DELIVERY ACROSS INDIA ON ORDERS OVER Rs. 499.00+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  function changeFeaturedMainImage(btn, newSrc) {
+    var mainImg = document.getElementById('FeaturedSectionMainImg');
+    if (mainImg) {
+      mainImg.src = newSrc;
+    }
+    var btns = document.querySelectorAll('.compact-thumb-btn');
+    btns.forEach(function(b) {
+      b.classList.remove('thumb-active');
+      b.classList.add('thumb-inactive');
+    });
+    btn.classList.remove('thumb-inactive');
+    btn.classList.add('thumb-active');
+  }
+</script>
+
+<style>
+.featured-product-wrapper {
+  position: relative;
+  width: 100%;
+}
+.featured-product-section {
+  position: relative;
+  background-color: var(--color-brown, #894031);
+  color: var(--color-cream, #fffbf2);
+  padding-bottom: 3rem;
+  overflow: hidden;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+@media (min-width: 640px) {
+  .featured-product-section {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-product-section {
+    padding-bottom: 5rem;
+  }
+}
+.featured-peanut-1 {
+  display: none;
+  position: absolute;
+  width: 105px;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+  left: -12px;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-2 {
+  display: none;
+  position: absolute;
+  width: 137px;
+  bottom: 25%;
+  transform: translateY(25%) rotate(-120deg);
+  right: -42px;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-3 {
+  display: none;
+  position: absolute;
+  width: 67px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-7deg);
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.featured-peanut-4 {
+  display: none;
+  position: absolute;
+  width: 90px;
+  top: 55%;
+  transform: translateY(-55%) rotate(18deg);
+  right: 2rem;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (min-width: 1024px) {
+  .featured-peanut-1,
+  .featured-peanut-2,
+  .featured-peanut-3,
+  .featured-peanut-4 {
+    display: block;
+  }
+}
+.featured-product-content {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+}
+@media (min-width: 1024px) {
+  .featured-product-content {
+    padding-top: 2rem;
+  }
+}
+.featured-product-container {
+  max-width: 1054px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+.featured-layout-row {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  .featured-layout-row {
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+}
+.featured-gallery-col {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .featured-gallery-col {
+    width: 50%;
+  }
+}
+.compact-gallery-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.compact-gallery-inner {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.compact-gallery-content {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .compact-gallery-content {
+    display: block;
+    position: relative;
+    padding-left: 88px;
+    gap: 0;
+  }
+}
+.compact-thumb-strip {
+  position: relative;
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  gap: 0.5rem;
+}
+.compact-thumb-strip::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .compact-thumb-strip {
+    height: 5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .compact-thumb-strip {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 72px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.compact-thumb-btn {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-md, 10px);
+  border: 2px solid var(--border-muted, rgba(45, 15, 40, 0.15));
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: all var(--transition-fast, 0.15s ease);
+  cursor: pointer;
+  padding: 0;
+}
+@media (min-width: 640px) {
+  .compact-thumb-btn {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+.thumb-active {
+  border-color: var(--border-color, #2d0f28);
+  box-shadow: 0 0 0 2px var(--color-accent-purple, #ca9af1);
+  opacity: 1;
+  transform: scale(0.96);
+}
+.thumb-inactive {
+  opacity: 0.6;
+}
+.thumb-inactive:hover {
+  opacity: 1;
+}
+.compact-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.compact-main-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  border: 3px solid var(--border-color, #2d0f28);
+  background-color: #ffffff;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(45, 15, 40, 0.12));
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.compact-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.featured-buybox-col {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .featured-buybox-col {
+    width: 50%;
+    padding: 0.5rem 0;
+  }
+}
+.featured-reviews-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.featured-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--color-accent-purple, #ca9af1);
+}
+.featured-rating-text {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  font-weight: 700;
+}
+@media (min-width: 640px) {
+  .featured-rating-text {
+    font-size: 0.875rem;
+  }
+}
+.featured-title-area {
+  margin-top: 0.75rem;
+}
+.featured-product-title {
+  font-size: 2.125rem;
+  line-height: 1.05;
+  color: var(--color-cream, #fffbf2);
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  text-transform: uppercase;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .featured-product-title {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-product-title {
+    font-size: 3.125rem;
+  }
+}
+.featured-serving-size {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 1rem;
+  color: var(--color-cream, #fffbf2);
+  padding-top: 0.25rem;
+}
+@media (min-width: 640px) {
+  .featured-serving-size {
+    font-size: 1.125rem;
+  }
+}
+.featured-dashed-divider {
+  width: 100%;
+  border-top: 1px dashed rgba(248, 235, 215, 0.4);
+  margin-top: 1.25rem;
+}
+@media (min-width: 1024px) {
+  .featured-dashed-divider {
+    margin-top: 1.5rem;
+  }
+}
+.featured-price-display {
+  font-size: 1.75rem;
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  line-height: 1;
+  margin-top: 1.25rem;
+  color: var(--color-cream, #fffbf2);
+}
+@media (min-width: 640px) {
+  .featured-price-display {
+    font-size: 2.125rem;
+  }
+}
+@media (min-width: 1024px) {
+  .featured-price-display {
+    margin-top: 1.5rem;
+  }
+}
+.featured-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .featured-feature-list {
+    margin-top: 1.5rem;
+  }
+}
+.featured-feature-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .featured-feature-item {
+    align-items: center;
+  }
+}
+.featured-check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+@media (min-width: 640px) {
+  .featured-check-icon {
+    margin-top: 0;
+  }
+}
+.featured-feature-text {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  line-height: 1.5;
+}
+@media (min-width: 640px) {
+  .featured-feature-text {
+    font-size: 0.875rem;
+  }
+}
+.featured-cta-link {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .featured-cta-link {
+    margin-top: 2.5rem;
+    font-size: 1.1875rem;
+  }
+}
+.featured-shipping-note {
+  width: 100%;
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 0.75rem;
+  color: var(--color-cream, #fffbf2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__features_grid" class="shopify-section"><div id="shopify-section-image-with-text" class="shopify-section">
+  <section class="features-section" aria-label="Why Squizyy">
+    <div class="features-container">
+      <!-- Left: Image with Overlaid Slogan Badge -->
+      <div class="features-image-col">
+        <div class="features-image-frame">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-1.jpg?v=53788404923323701021793900646"
+            alt="Squizyy squeezy bottle in action"
+            class="features-main-image"
+            width="1500"
+            height="2250"
+            loading="lazy"
+          >
+        </div>
+
+        <!-- Overlaid Rotated Slogan Badge -->
+        <div class="features-slogan-badge">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Slogan_60f4524c-8b90-43e6-aad4-c9bbd67f0367.png?v=136783050879035409051793902769"
+            alt="Squizyy Slogan Badge"
+            class="features-slogan-img"
+            width="1500"
+            height="577"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- Right: Feature Content -->
+      <div class="features-content-col">
+        <div class="features-content-wrapper">
+          <h2 class="features-heading">
+            Peanut Butter Needed This
+          </h2>
+
+          <div class="features-list">
+            <!-- Feature 1 -->
+            <div class="features-item">
+              <div class="features-icon-box">
+                <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_-2.svg?v=46163490972083515741793872663" alt="" aria-hidden="true" class="features-icon" width="56" height="56" loading="lazy">
+              </div>
+              <div class="features-text-col">
+                <h3 class="features-item-title">DRIZZLE MORE, MESS LESS</h3>
+                <p class="features-item-desc">No sticky spoons, messy jars or peanut butter all over your kitchen.</p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="features-item">
+              <div class="features-icon-box">
+                <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized_f4cc9344-3c26-419e-86a0-e598718196ff.svg?v=162561766803902394421793872663" alt="" aria-hidden="true" class="features-icon" width="56" height="56" loading="lazy">
+              </div>
+              <div class="features-text-col">
+                <h3 class="features-item-title">FUEL FOR YOUR DAY</h3>
+                <p class="features-item-desc">7g protein per serving. Perfect for your oats, bowls, smoothies and snacks.</p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="features-item">
+              <div class="features-icon-box">
+                <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/Group_2.svg?v=113593225569081607161793872664" alt="" aria-hidden="true" class="features-icon" width="56" height="56" loading="lazy">
+              </div>
+              <div class="features-text-col">
+                <h3 class="features-item-title">100% NATURAL, 0% JUNK</h3>
+                <p class="features-item-desc">Just clean ingredients that taste better because they are better.</p>
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="features-item">
+              <div class="features-icon-box">
+                <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/image_11_Vectorized.svg?v=25279642348496673701793872664" alt="" aria-hidden="true" class="features-icon" width="56" height="56" loading="lazy">
+              </div>
+              <div class="features-text-col">
+                <h3 class="features-item-title">NO MORE SNACK REGRET</h3>
+                <p class="features-item-desc">Our American peanuts are a good source of protein, fiber and healthy fats.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="features-cta-box">
+            <a href="/collections/all" class="features-cta-button">
+              SHOP NOW
+            </a>
+            <p class="features-shipping-note">
+              FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.features-section {
+  display: block;
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 3rem 0;
+}
+@media (min-width: 1024px) {
+  .features-section {
+    padding: 5rem 0;
+  }
+}
+.features-container {
+  width: 100%;
+  max-width: 1408px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .features-container {
+    flex-direction: row;
+    gap: 3.75rem;
+    padding: 0 3rem;
+  }
+}
+.features-image-col {
+  position: relative;
+  width: 100%;
+  height: 28rem;
+}
+@media (min-width: 640px) {
+  .features-image-col {
+    height: 34rem;
+  }
+}
+@media (min-width: 1024px) {
+  .features-image-col {
+    width: 48%;
+    height: 48rem;
+  }
+}
+.features-image-frame {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-2xl, 32px);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(45, 15, 40, 0.08);
+}
+.features-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.features-slogan-badge {
+  position: absolute;
+  width: 180px;
+  transform: rotate(-14deg);
+  bottom: 1.5rem;
+  left: -1rem;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+  z-index: 10;
+}
+@media (min-width: 640px) {
+  .features-slogan-badge {
+    width: 210px;
+    left: -1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .features-slogan-badge {
+    width: 240px;
+    left: -2rem;
+  }
+}
+.features-slogan-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.features-content-col {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .features-content-col {
+    width: 52%;
+    min-height: 48rem;
+  }
+}
+.features-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .features-content-wrapper {
+    gap: 2.25rem;
+  }
+}
+.features-heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  color: var(--color-foreground, #2d0f28);
+  font-size: 34px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 640px) {
+  .features-heading {
+    font-size: 44px;
+  }
+}
+@media (min-width: 1024px) {
+  .features-heading {
+    font-size: 54px;
+  }
+}
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+.features-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .features-item {
+    gap: 1.5rem;
+  }
+}
+.features-icon-box {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .features-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+.features-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.features-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+.features-item-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+  font-size: 18px;
+  line-height: 1.15;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .features-item-title {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1024px) {
+  .features-item-title {
+    font-size: 24px;
+  }
+}
+.features-item-desc {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 12px;
+  color: rgba(45, 15, 40, 0.85);
+  line-height: 1.5;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .features-item-desc {
+    font-size: 14px;
+  }
+}
+.features-cta-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.5rem;
+}
+@media (min-width: 1024px) {
+  .features-cta-box {
+    width: auto;
+    align-items: flex-start;
+  }
+}
+.features-cta-button {
+  display: inline-flex;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--radius-full, 9999px);
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  line-height: 1;
+  padding: 1.1rem 2.25rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.features-cta-button:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.features-cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 768px) {
+  .features-cta-button {
+    width: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .features-cta-button {
+    font-size: 20px;
+  }
+}
+.features-shipping-note {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-foreground, #2d0f28);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .features-shipping-note {
+    font-size: 12px;
+  }
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__full_page_media" class="shopify-section"><div id="shopify-section-full-page-media" class="shopify-section">
+  <section class="media-section" aria-label="Texas Sourcing Story">
+    <div class="media-frame"><!-- Background Media Video / Poster -->
+      <video
+        playsinline
+        muted
+        autoplay
+        loop
+        class="media-bg-video"
+        poster="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg?v=70979846253383996701793872663"
+      >
+        <source
+          src="https://squizyy.co/cdn/shop/videos/c/vp/f8c9f00eee0542fe9b97a3f8467190b6/f8c9f00eee0542fe9b97a3f8467190b6.HD-1080p-4.8Mbps-91858336.mp4"
+          type="video/mp4"
+        >
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/f8c9f00eee0542fe9b97a3f8467190b6.thumbnail.0000000000_1.jpg?v=70979846253383996701793872663"
+          alt="Squizyy Texas Peanut Harvesting"
+          class="media-bg-video"
+          width="1100"
+          height="615"
+          loading="lazy"
+        >
+      </video>
+
+      <!-- Overlaid Quality Story Card -->
+      <div class="media-overlay-container">
+        <div class="media-story-card-wrapper">
+          <div class="media-story-card">
+            <h3 class="media-story-heading">
+              Made by People Who Take Quality Very Seriously
+            </h3>
+
+            <p class="media-story-p">
+              We source exclusively from Texas for a deeper roast and a smoother drizzle you won't find in supermarket jars.
+            </p>
+
+            <h4 class="media-story-subheading">
+              Using the 'Runner' Peanut
+            </h4>
+
+            <p class="media-story-p">
+              Known for its high oil content and rich flavor, it's the secret to our ultra-smooth, no-clog drizzle.
+            </p>
+
+            <div class="media-dashed-divider">
+              SOURCED FROM TEXAS
+            </div>
+
+            <div class="media-dashed-divider">
+              NEXT HARVESTING SEASON STARTING OCTOBER 2026
+            </div>
+
+            <a href="/pages/our-story" class="media-cta-link">
+              Read Our Story
+            </a>
+          </div>
+
+          <!-- Floating Peanut Sticker on Card -->
+          <div class="media-peanut-sticker animate-float" aria-hidden="true">
+            <img
+              src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664"
+              alt=""
+              class="media-peanut-img"
+              width="100"
+              height="100"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.media-section {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 2.5rem 1rem;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .media-section {
+    padding: 1.5rem 2rem;
+  }
+}
+.media-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  border-radius: var(--radius-2xl, 24px);
+  overflow: hidden;
+  height: 62.5rem;
+}
+@media (min-width: 1024px) {
+  .media-frame {
+    border-radius: 40px;
+    height: 85vh;
+    min-height: 550px;
+  }
+}
+.media-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.media-overlay-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .media-overlay-container {
+    align-items: center;
+    padding: 2.5rem 4rem;
+  }
+}
+.media-story-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+@media (min-width: 1024px) {
+  .media-story-card-wrapper {
+    max-width: 560px;
+  }
+}
+.media-story-card {
+  background-color: var(--color-cream, #fffbf2);
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2rem 1.5rem;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 16px 36px rgba(45, 15, 40, 0.2);
+  color: var(--color-foreground, #2d0f28);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .media-story-card {
+    padding: 2.5rem;
+    gap: 1.25rem;
+  }
+}
+.media-story-heading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  color: var(--color-foreground, #2d0f28);
+  font-size: 28px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+@media (min-width: 640px) {
+  .media-story-heading {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .media-story-heading {
+    font-size: 38px;
+  }
+}
+.media-story-p {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 13px;
+  color: rgba(45, 15, 40, 0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .media-story-p {
+    font-size: 14px;
+  }
+}
+.media-story-subheading {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0.25rem 0 0 0;
+}
+@media (min-width: 640px) {
+  .media-story-subheading {
+    font-size: 18px;
+  }
+}
+.media-dashed-divider {
+  border-top: 1px dashed rgba(45, 15, 40, 0.4);
+  padding-top: 0.75rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--color-foreground, #2d0f28);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .media-dashed-divider {
+    font-size: 12px;
+  }
+}
+.media-cta-link {
+  display: inline-flex;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--radius-full, 9999px);
+  width: 100%;
+  font-size: 15px;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  line-height: 1;
+  padding: 1rem 1.75rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+.media-cta-link:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.media-cta-link:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 640px) {
+  .media-cta-link {
+    width: auto;
+    font-size: 16px;
+  }
+}
+.media-peanut-sticker {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  width: 100px;
+  top: -70px;
+  right: 10px;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.2));
+  z-index: 5;
+}
+@media (min-width: 1024px) {
+  .media-peanut-sticker {
+    width: 140px;
+    top: auto;
+    bottom: 15%;
+    right: -15%;
+  }
+}
+.media-peanut-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__marquee_cards" class="shopify-section"><div id="shopify-section-marquee-cards" class="shopify-section">
+  <section class="marquee-cards-section" aria-label="Brand Philosophy">
+    <div class="marquee-cards-container">
+      <!-- Header row with mascot & peanut icons -->
+      <div class="marquee-cards-header-row">
+        <!-- Mobile icon left -->
+        <div class="marquee-cards-icon-mobile">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+            class="marquee-cards-icon-img"
+            loading="lazy"
+          >
+        </div>
+
+        <!-- Desktop alternating row left -->
+        <div class="marquee-cards-icon-group-desktop">
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Center Heading -->
+        <h3 class="marquee-cards-title">
+          LIFE'S BETTER WITH SQUIZYY
+        </h3>
+
+        <!-- Desktop alternating row right -->
+        <div class="marquee-cards-icon-group-desktop">
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+          <div class="marquee-cards-icon-item">
+            <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" aria-hidden="true" width="36" height="36" class="marquee-cards-icon-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Mobile icon right -->
+        <div class="marquee-cards-icon-mobile">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/peanut-tiny_4d50f3b6-6cfe-4e9e-8328-52d5470a73a6.png?v=148345604553528969801793872664"
+            alt=""
+            aria-hidden="true"
+            width="32"
+            height="32"
+            class="marquee-cards-icon-img"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <p class="marquee-cards-subtitle">
+        Adding joy to your day so that you actually get the most out of a healthy, age-old pantry staple loved by all.
+      </p>
+
+      <div class="marquee-cards-cta-wrapper">
+        <a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="marquee-cards-cta-button">
+          BUY SQUIZYY PEANUT BUTTER NOW
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.marquee-cards-section {
+  background-color: var(--color-background, #f8ebd7);
+  color: var(--color-foreground, #2d0f28);
+  padding: 3rem 1rem;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-section {
+    padding: 4.5rem 1rem;
+  }
+}
+.marquee-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  align-items: center;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-container {
+    gap: 3rem;
+  }
+}
+.marquee-cards-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-header-row {
+    gap: 2.5rem;
+  }
+}
+.marquee-cards-icon-mobile {
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-mobile {
+    display: none;
+  }
+}
+.marquee-cards-icon-group-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-group-desktop {
+    display: flex;
+  }
+}
+.marquee-cards-icon-item {
+  height: 2rem;
+  width: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .marquee-cards-icon-item {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}
+.marquee-cards-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.marquee-cards-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  color: var(--color-foreground, #2d0f28);
+  font-size: 28px;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+@media (min-width: 640px) {
+  .marquee-cards-title {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-title {
+    font-size: 46px;
+  }
+}
+.marquee-cards-subtitle {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 13px;
+  max-width: 580px;
+  color: rgba(45, 15, 40, 0.9);
+  margin: 0.5rem 0 0 0;
+  text-align: center;
+  line-height: 1.6;
+}
+@media (min-width: 640px) {
+  .marquee-cards-subtitle {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-subtitle {
+    font-size: 15px;
+  }
+}
+.marquee-cards-cta-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.marquee-cards-cta-button {
+  display: inline-flex;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--radius-full, 9999px);
+  width: 100%;
+  font-size: 16px;
+  font-family: var(--font-primary, 'Champ Black', serif);
+  line-height: 1;
+  padding: 1.1rem 2.25rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.marquee-cards-cta-button:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+}
+.marquee-cards-cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 var(--color-foreground, #2d0f28);
+}
+@media (min-width: 640px) {
+  .marquee-cards-cta-button {
+    width: auto;
+  }
+}
+@media (min-width: 1024px) {
+  .marquee-cards-cta-button {
+    font-size: 19px;
+  }
+}
+</style>
+
+
+</div><div id="shopify-section-template--20242031214655__insta_feed" class="shopify-section"><section class="insta-section">
+  <div class="insta-container container">
+    <div class="insta-header">
+      <div class="insta-title-wrap">
+        <span class="insta-kicker">JOIN THE SQUAD</span>
+        <h2 class="insta-title">FOLLOW @GETSQUIZYY</h2>
+      </div>
+
+      <div class="insta-nav-arrows">
+        <button type="button" class="arrow-btn" data-insta-prev aria-label="Previous posts">←</button>
+        <button type="button" class="arrow-btn" data-insta-next aria-label="Next posts">→</button>
+      </div>
+    </div>
+
+    <div class="insta-grid" data-insta-grid>
+      <div class="insta-card">
+        <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/insta-post-1.png?v=87848413269632626801793872663" alt="Squizyy Instagram post 1" class="insta-img" width="336" height="439" loading="lazy">
+      </div>
+      <div class="insta-card">
+        <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/insta-post-2.png?v=150409617841390841331793872663" alt="Squizyy Instagram post 2" class="insta-img" width="336" height="439" loading="lazy">
+      </div>
+      <div class="insta-card">
+        <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/insta-post-3.png?v=18547603567689318531793900646" alt="Squizyy Instagram post 3" class="insta-img" width="336" height="439" loading="lazy">
+      </div>
+      <div class="insta-card">
+        <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/insta-post-4.png?v=149666555667521396201793900646" alt="Squizyy Instagram post 4" class="insta-img" width="336" height="439" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.insta-section {
+  padding: 5rem 0 3rem;
+}
+.insta-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.insta-kicker {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-accent-green, #036e2c);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.insta-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: var(--color-foreground, #2d0f28);
+  margin: 0;
+  text-transform: uppercase;
+}
+.insta-nav-arrows {
+  display: flex;
+  gap: 0.5rem;
+}
+.arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 0 var(--color-foreground, #2d0f28);
+  transition: transform 0.15s ease;
+}
+.arrow-btn:hover {
+  transform: translateY(-2px);
+}
+.insta-grid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+  scrollbar-width: none;
+}
+.insta-grid::-webkit-scrollbar {
+  display: none;
+}
+.insta-card {
+  flex: 0 0 280px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl, 24px);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+  box-shadow: 0 6px 0 var(--color-foreground, #2d0f28);
+  scroll-snap-align: start;
+}
+.insta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
+
+
+</div>
+      </main>
+
+      <div id="shopify-section-footer" class="shopify-section"><footer class="footer-wrapper" role="contentinfo">
+  <section class="footer-section">
+    <!-- Pastel Colorful Gradient Background -->
+    <div class="footer-bg-wrapper">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/footer-bg.png?v=173414587810782437521793872664"
+        alt=""
+        class="footer-bg-image"
+        width="512"
+        height="475"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Dripping Graphic at top of footer -->
+    <div class="footer-drip-wrapper">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/footer-drip.svg?v=17819986771931270441793872664"
+        alt=""
+        class="footer-drip-desktop"
+        width="1440"
+        height="420"
+        loading="lazy"
+      >
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/timeline-drip-mobile.svg?v=65121738348575174801793872663"
+        alt=""
+        class="footer-drip-mobile"
+        width="336"
+        height="109"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Main Footer Cards Container -->
+    <div class="footer-container">
+      <div class="footer-cards-row">
+        <!-- Card 1: Sign up & save 10% -->
+        <div class="footer-newsletter-card" id="footer_newsletter_card">
+          <h2 class="footer-card-title">
+            Sign up &amp; save 10%
+          </h2>
+          <p class="footer-card-subtitle">
+            Subscribe to our newsletter and get first access to new releases &amp; exclusive deals.
+          </p>
+
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="footer-form" onsubmit="return window.handleNewsletterSubmit(event, this);"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" />
+            <input type="hidden" name="contact[tags]" value="newsletter,footer"><input
+                type="email"
+                name="contact[email]"
+                placeholder="Enter email address"
+                required
+                class="footer-input"
+                aria-label="Email address for newsletter"
+              >
+              <button
+                type="submit"
+                class="footer-submit-btn button-primary"
+              >
+                GET MY 10% OFF
+              </button></form>
+        </div>
+
+        <!-- Card 2: Get Squizyy with it -->
+        <div class="footer-links-card">
+          <h2 class="footer-links-title">
+            Get Squizyy with it
+          </h2>
+          <div class="footer-links-grid">
+            <!-- Col 1: Shop & About -->
+            <div class="footer-nav-col">
+              <ul class="footer-nav-list">
+                <li>
+                  <a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="footer-nav-link">Shop Squizyy</a>
+                </li>
+                <li>
+                  <a href="/pages/our-story" class="footer-nav-link">Our Story</a>
+                </li>
+                <li>
+                  <a href="/pages/wholesale" class="footer-nav-link">Wholesale</a>
+                </li><li>
+                  <a href="/pages/win-flights-to-australia" class="footer-nav-link">Win Flights</a>
+                </li></ul>
+            </div>
+
+            <!-- Col 2: Legal & Rules -->
+            <div class="footer-nav-col">
+              <ul class="footer-nav-list">
+                <li>
+                  <a href="/policies/privacy-policy" class="footer-nav-link">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="/policies/terms-of-service" class="footer-nav-link">Terms of Service</a>
+                </li><li>
+                  <a href="/pages/official-rules" class="footer-nav-link">Sweepstakes Rules</a>
+                </li><li>
+                  <a href="/pages/store-locator" class="footer-nav-link">Store Locator</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Col 3: Social Links -->
+            <div class="footer-nav-col">
+              <h3 class="footer-social-heading">Follow Us On</h3>
+              <ul class="footer-social-list">
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.instagram.com/squizyy/"
+                    class="footer-social-icon-link"
+                    aria-label="Instagram"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.8 2H16.2C19.4 2 22 4.6 22 7.8V16.2C22 17.7383 21.3889 19.2135 20.3012 20.3012C19.2135 21.3889 17.7383 22 16.2 22H7.8C4.6 22 2 19.4 2 16.2V7.8C2 6.26174 2.61107 4.78649 3.69878 3.69878C4.78649 2.61107 6.26174 2 7.8 2ZM7.6 4C6.64522 4 5.72955 4.37928 5.05442 5.05442C4.37928 5.72955 4 6.64522 4 7.6V16.4C4 18.39 5.61 20 7.6 20H16.4C17.3548 20 18.2705 19.6207 18.9456 18.9456C19.6207 18.2705 20 17.3548 20 16.4V7.6C20 5.61 18.39 4 16.4 4H7.6ZM17.25 5.5C17.5815 5.5 17.8995 5.6317 18.1339 5.86612C18.3683 6.10054 18.5 6.41848 18.5 6.75C18.5 7.08152 18.3683 7.39946 18.1339 7.63388C17.8995 7.8683 17.5815 8 17.25 8C16.9185 8 16.6005 7.8683 16.3661 7.63388C16.1317 7.39946 16 7.08152 16 6.75C16 6.41848 16.1317 6.10054 16.3661 5.86612C16.6005 5.6317 16.9185 5.5 17.25 5.5ZM12 7C13.3261 7 14.5979 7.52678 15.5355 8.46447C16.4732 9.40215 17 10.6739 17 12C17 13.3261 16.4732 14.5979 15.5355 15.5355C14.5979 16.4732 13.3261 17 12 17C10.6739 17 9.40215 16.4732 8.46447 15.5355C7.52678 14.5979 7 13.3261 7 12C7 10.6739 7.52678 9.40215 8.46447 8.46447C9.40215 7.52678 10.6739 7 12 7ZM12 9C11.2044 9 10.4413 9.31607 9.87868 9.87868C9.31607 10.4413 9 11.2044 9 12C9 12.7956 9.31607 13.5587 9.87868 14.1213C10.4413 14.6839 11.2044 15 12 15C12.7956 15 13.5587 14.6839 14.1213 14.1213C14.6839 13.5587 15 12.7956 15 12C15 11.2044 14.6839 10.4413 14.1213 9.87868C13.5587 9.31607 12.7956 9 12 9Z" fill="#2D0F28"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.linkedin.com/company/squizyypeanuts/"
+                    class="footer-social-icon-link"
+                    aria-label="LinkedIn"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.5 0H1.5C0.67 0 0 0.67 0 1.5V22.5C0 23.33 0.67 24 1.5 24H22.5C23.33 24 24 23.33 24 22.5V1.5C24 0.67 23.33 0 22.5 0ZM7.73 20.39H4.61V9.37H7.73V20.39ZM6.17 8.01C5.17 8.01 4.36 7.2 4.36 6.2C4.36 5.2 5.17 4.39 6.17 4.39C7.17 4.39 7.98 5.2 7.98 6.2C7.98 7.2 7.17 8.01 6.17 8.01ZM20.39 20.39H17.28V14.25C17.28 12.75 16.74 11.73 15.39 11.73C14.36 11.73 13.75 12.42 13.48 13.09C13.38 13.33 13.36 13.67 13.36 14.01V20.39H10.25V9.37H13.24V10.74C13.64 10.12 14.36 9.24 15.96 9.24C17.98 9.24 19.5 10.56 19.5 13.4V20.39H20.39Z" fill="#2D0F28"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://www.tiktok.com/@getsquizyypeanuts"
+                    class="footer-social-icon-link"
+                    aria-label="TikTok"
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.6785 9.57C7.73422 9.428 5.68755 10.4777 4.53855 12.719C2.81555 16.0815 4.23955 21.5835 9.98855 21.5835C15.7386 21.5835 15.9045 16.0275 15.9045 15.4455V8.9375C17.1345 9.71617 18.1712 10.185 19.0145 10.344C19.8589 10.5027 20.3955 10.573 20.6245 10.555V7.317C19.8439 7.223 19.1689 7.04367 18.5996 6.779C17.7451 6.382 16.0515 5.2805 16.0515 3.666C16.0525 3.674 16.0525 3.2575 16.0515 2.4165H12.4925C12.4822 10.3245 12.4822 14.6675 12.4925 15.4455C12.508 16.6125 11.6025 18.2455 9.76755 18.2455C7.93155 18.2455 7.02605 16.614 7.02605 15.562C7.02605 14.918 7.24755 13.9845 8.16205 13.293C8.70455 12.883 9.45705 12.719 10.6785 12.719V9.57Z"
+                        fill="#2D0F28"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giant Centered Logo & Copyright -->
+      <div class="footer-bottom-section">
+        <div class="footer-logo-box">
+          <img
+            src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/squizyy-dark-logo.svg?v=121728289826033611171793899072"
+            alt="SQUIZYY"
+            class="footer-brand-logo-img"
+            width="242"
+            height="37"
+            loading="lazy"
+          >
+        </div>
+        <div class="footer-copyright">
+          &copy; 2026 Squizyy Foods India Private Limited. All Rights Reserved. Crafted with 100% Indian Peanuts.
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<style>
+.footer-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.footer-section {
+  position: relative;
+  width: 100%;
+  color: var(--color-foreground, #2d0f28);
+  padding: 0 0 2.5rem;
+  margin: 0;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .footer-section {
+    padding-bottom: 3.5rem;
+  }
+}
+.footer-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.footer-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.footer-drip-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  line-height: 0;
+}
+.footer-drip-desktop {
+  display: none;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 1024px) {
+  .footer-drip-desktop {
+    display: block;
+  }
+}
+.footer-drip-mobile {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 1024px) {
+  .footer-drip-mobile {
+    display: none;
+  }
+}
+.footer-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--page-max-width, var(--container-max-width, 1400px));
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 1rem 0;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .footer-container {
+    padding: 2rem 1.5rem 0;
+  }
+}
+.footer-cards-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .footer-cards-row {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+.footer-newsletter-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--border-color, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .footer-newsletter-card {
+    width: 36%;
+    padding: 2.5rem 2rem;
+  }
+}
+.footer-card-title {
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2d0f28);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .footer-card-title {
+    font-size: 1.875rem;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-card-title {
+    font-size: 2.25rem;
+  }
+}
+.footer-card-subtitle {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(45, 15, 40, 0.9);
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  .footer-card-subtitle {
+    font-size: 0.875rem;
+  }
+}
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.footer-input {
+  height: 49px;
+  border: 2px solid var(--border-color, #2d0f28);
+  background-color: var(--color-cream, #fffbf2);
+  padding: 1rem;
+  border-radius: var(--radius-sm, 6px);
+  color: var(--color-dark-brown, #2d0f28);
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.875rem;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+.footer-input::placeholder {
+  color: rgba(45, 15, 40, 0.6);
+}
+.footer-input:focus {
+  border-color: var(--color-dark-brown, #2d0f28);
+  background-color: #fff;
+}
+.footer-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .footer-submit-btn {
+    font-size: 1rem;
+  }
+}
+.footer-status-success {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: var(--color-accent-green, #036e2c);
+  font-weight: 700;
+  margin: 0;
+}
+.footer-success-box {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.footer-discount-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 2px dashed var(--border-color, #2d0f28);
+  border-radius: var(--radius-sm, 6px);
+  padding: 0.625rem 0.875rem;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+.footer-discount-label {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: rgba(45, 15, 40, 0.7);
+  letter-spacing: 0.05em;
+}
+.footer-discount-code {
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  font-size: 1.125rem;
+  color: var(--color-dark-brown, #2d0f28);
+  letter-spacing: 0.05em;
+}
+.footer-copy-code-btn {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 1.5px solid var(--border-color, #2d0f28);
+  border-radius: 4px;
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.6875rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.footer-copy-code-btn:hover {
+  background-color: #be84ec;
+  transform: scale(1.05);
+}
+.footer-status-error {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: #c53030;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.footer-links-card {
+  flex-grow: 1;
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--border-color, #2d0f28);
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(45, 15, 40, 0.08));
+  box-sizing: border-box;
+}
+@media (min-width: 1024px) {
+  .footer-links-card {
+    padding: 2.5rem;
+  }
+}
+.footer-links-title {
+  font-family: var(--font-champ, var(--font-primary, 'Champ Black', serif));
+  font-size: 1.875rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--color-dark-brown, #2d0f28);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .footer-links-title {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-links-title {
+    font-size: 3rem;
+  }
+}
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .footer-links-grid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 2.5rem;
+  }
+}
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 1024px) {
+  .footer-nav-list {
+    gap: 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+.footer-nav-link {
+  color: var(--color-dark-brown, #2d0f28);
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  transition: opacity var(--transition-fast, 0.15s ease);
+}
+.footer-nav-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+.footer-social-heading {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  color: var(--color-dark-brown, #2d0f28);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+@media (min-width: 1024px) {
+  .footer-social-heading {
+    font-size: 0.875rem;
+  }
+}
+.footer-social-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.footer-social-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-dark-brown, #2d0f28);
+  transition: opacity var(--transition-fast, 0.15s ease);
+}
+.footer-social-icon-link:hover {
+  opacity: 0.7;
+}
+.footer-bottom-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+@media (min-width: 1024px) {
+  .footer-bottom-section {
+    margin-top: 3.75rem;
+  }
+}
+.footer-logo-box {
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.footer-brand-logo-img {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+@media (min-width: 1024px) {
+  .footer-brand-logo-img {
+    max-height: 160px;
+  }
+}
+.footer-copyright {
+  font-family: var(--font-mono, var(--font-secondary, 'Azeret Mono', monospace));
+  font-size: 0.75rem;
+  color: rgba(45, 15, 40, 0.8);
+}
+@media (min-width: 1024px) {
+  .footer-copyright {
+    font-size: 0.875rem;
+  }
+}
+</style>
+
+
+</div>
+    </div>
+
+    <!-- Modals & Drawers -->
+    <div id="CartDrawerOverlay" class="cart-drawer-overlay"></div>
+
+<aside id="CartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-title-wrap">
+      <h3 class="cart-drawer-title">YOUR CART</h3>
+      <span class="cart-drawer-badge" data-cart-count>0</span>
+    </div>
+    <button type="button" class="cart-drawer-close" data-close-cart aria-label="Close cart">
+      <svg class="icon icon-close " width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    </button>
+  </div>
+
+  <!-- Free Shipping Meter -->
+  <div class="cart-shipping-meter">
+    <p id="ShippingProgressText" class="shipping-progress-text">
+      Add <strong>₹150.00</strong> more for <strong>FREE Delivery!</strong>
+    </p>
+    <div class="shipping-progress-track">
+      <div id="ShippingProgressFill" class="shipping-progress-fill" style="width: 0%;"></div>
+    </div>
+  </div>
+
+  <!-- Items Scroll Area -->
+  <div id="CartDrawerItems" class="cart-drawer-items">
+    <!-- Populated by cart.js -->
+  </div>
+
+  <!-- Footer with Subtotal & Checkout -->
+  <div class="cart-drawer-footer">
+    <div class="cart-drawer-subtotal-row">
+      <span class="subtotal-label">Subtotal</span>
+      <span id="CartDrawerSubtotal" class="subtotal-val">Rs. 0.00</span>
+    </div>
+    <p class="cart-drawer-tax-note">Taxes and shipping calculated at checkout.</p>
+    
+    <div class="cart-drawer-actions">
+      <a href="/checkout" class="button-primary cart-checkout-btn">
+        <span>Proceed to Checkout</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+      <a href="/cart" class="cart-view-link">View Full Cart</a>
+    </div>
+  </div>
+</aside>
+
+<style>
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(45, 15, 40, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.cart-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-background, #f8ebd7);
+  border-left: 4px solid var(--color-foreground, #2d0f28);
+  box-shadow: -10px 0 30px rgba(45, 15, 40, 0.2);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cart-drawer.active {
+  transform: translateX(0);
+}
+.cart-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-cream, #fffbf2);
+}
+.cart-drawer-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.cart-drawer-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--color-foreground, #2d0f28);
+  letter-spacing: -0.02em;
+}
+.cart-drawer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid var(--color-foreground, #2d0f28);
+}
+.cart-drawer-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-foreground, #2d0f28);
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-shipping-meter {
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--color-foreground, #2d0f28);
+}
+.shipping-progress-text {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8125rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-foreground, #2d0f28);
+}
+.shipping-progress-track {
+  width: 100%;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-background, #f8ebd7);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+}
+.shipping-progress-fill {
+  height: 100%;
+  background-color: var(--color-accent-purple, #ca9af1);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.cart-drawer-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.cart-drawer-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+.cart-drawer-empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+.cart-drawer-empty-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-drawer-empty-desc {
+  font-size: 0.95rem;
+  color: rgba(45, 15, 40, 0.7);
+  margin: 0;
+}
+.cart-drawer-item {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  box-shadow: 0 4px 0 var(--color-foreground, #2d0f28);
+}
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cart-item-info {
+  flex: 1;
+}
+.cart-item-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-item-variant {
+  font-size: 0.75rem;
+  color: rgba(45, 15, 40, 0.7);
+  margin: 0 0 0.5rem 0;
+}
+.cart-item-price {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-foreground, #2d0f28);
+  margin-bottom: 0.75rem;
+}
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-qty-picker {
+  display: inline-flex;
+  align-items: center;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-full);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+.cart-qty-btn {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-qty-val {
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+.cart-item-remove {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgba(45, 15, 40, 0.6);
+}
+.cart-drawer-footer {
+  padding: 1.5rem;
+  border-top: 3px solid var(--color-foreground, #2d0f28);
+  background-color: var(--color-cream, #fffbf2);
+}
+.cart-drawer-subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.subtotal-label {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.25rem;
+}
+.subtotal-val {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.cart-drawer-tax-note {
+  font-size: 0.75rem;
+  color: rgba(45, 15, 40, 0.6);
+  margin: 0 0 1.25rem 0;
+}
+.cart-drawer-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cart-checkout-btn {
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem;
+}
+.cart-view-link {
+  text-align: center;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  font-weight: 700;
+  color: var(--color-foreground, #2d0f28);
+}
+</style>
+
+    <div id="RetroNewsletterModal" class="retro-modal-overlay" role="dialog" aria-modal="true" aria-label="Get 10% Off Promotion">
+  <div class="retro-modal-stage">
+    <!-- Top Peeking Bottle behind TV -->
+    <div class="peeking-bottle">
+      <img
+        src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/USASQUIZYYFRONTcopy.jpg?v=165425399635256192891793900647"
+        alt="Squizyy Bottle"
+        class="peeking-bottle-img"
+        width="500"
+        height="500"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- TV Frame Stage -->
+    <div class="tv-frame">
+      <!-- Close Button on top-right -->
+      <button type="button" id="RetroModalClose" class="retro-tv-close-btn" aria-label="Close dialog">✕</button>
+
+      <!-- TV Screen Cutout Area (Form sits directly inside the screen) -->
+      <div class="screen-cutout">
+        <!-- Vintage Scanlines Overlay -->
+        <div class="screen-scanlines"></div>
+
+        <div class="screen-form-box">
+          <h2 class="screen-title">GET 10% OFF YOUR FIRST SQUEEZE</h2>
+          <p class="screen-subtitle">Join for new drops, exclusive deals and dangerously good peanut butter content.</p>
+
+          <form method="post" action="/contact#contact_form" id="contact_form" accept-charset="UTF-8" class="retro-newsletter-form" onsubmit="return window.handleNewsletterSubmit(event, this);"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" />
+            <input type="hidden" name="contact[tags]" value="newsletter,popup"><div class="screen-form-fields">
+                <input
+                  type="email"
+                  name="contact[email]"
+                  placeholder="Email Address"
+                  required
+                  class="screen-input"
+                  aria-label="Email Address"
+                >
+                <button type="submit" class="screen-submit-btn">GIVE ME 10% OFF!</button>
+              </div>
+              <button type="button" class="screen-dismiss-btn" id="RetroModalDismiss">NOT RIGHT NOW</button>
+              <p class="screen-fine-print">Get 10% off on your first order. By subscribing you agree to receive marketing communications.</p></form>
+        </div>
+      </div>
+
+      <!-- Vintage TV Graphic Overlay Frame -->
+      <div class="tv-graphic-overlay">
+        <img
+          src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/story-tv.png?v=82898454585824764361793872663"
+          alt="Retro Squizyy TV"
+          class="tv-graphic-img"
+          width="1500"
+          height="1065"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Docked Bottom-Left Newsletter Launcher Tab (Authentic Squizyy UI) -->
+<div class="newsletter-launcher-wrap">
+  <button type="button" id="NewsletterLauncher" class="newsletter-launcher-tab" aria-label="Get 10% Off">
+    <img src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/mascot-tiny_aecd74eb-a0fc-47ff-bf37-7ce347d869a5.svg?v=62248567694681455651793872663" alt="" class="launcher-tab-mascot" width="16" height="22">
+    <span class="launcher-tab-text">Get 10% Off</span>
+  </button>
+</div>
+
+<style>
+.retro-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.retro-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.retro-modal-stage {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 640px) {
+  .retro-modal-stage {
+    max-width: 640px;
+  }
+}
+.peeking-bottle {
+  width: 6rem;
+  margin-bottom: -2.25rem;
+  position: relative;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .peeking-bottle {
+    width: 8rem;
+    margin-bottom: -3.25rem;
+  }
+}
+.peeking-bottle-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: var(--radius-pill, 9999px);
+}
+.tv-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1167 / 829;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.retro-tv-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 30;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+@media (min-width: 640px) {
+  .retro-tv-close-btn {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+  }
+}
+.retro-tv-close-btn:hover {
+  background-color: #ffffff;
+  transform: scale(1.05);
+}
+.screen-cutout {
+  position: absolute;
+  top: 6.5%;
+  bottom: 9.9%;
+  left: 1.5%;
+  right: 22.5%;
+  z-index: 10;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  color: #fffbf2;
+  background: radial-gradient(ellipse at center, #6b2e1f 0%, #38120b 60%, #200806 100%);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .screen-cutout {
+    border-radius: 28px;
+    padding: 1.25rem 1.5rem;
+  }
+}
+.screen-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.3) 0px, rgba(0,0,0,0.3) 1px, transparent 1px, transparent 3px);
+}
+.screen-form-box {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.screen-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #fffbf2;
+  line-height: 1.15;
+  margin: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .screen-title {
+    font-size: 1.35rem;
+  }
+}
+.screen-subtitle {
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.625rem;
+  color: rgba(248, 235, 215, 0.9);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  line-height: 1.25;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+@media (min-width: 640px) {
+  .screen-subtitle {
+    font-size: 0.75rem;
+    margin-top: 0.375rem;
+  }
+}
+.retro-newsletter-form {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+@media (min-width: 640px) {
+  .retro-newsletter-form {
+    margin-top: 0.75rem;
+  }
+}
+.screen-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .screen-form-fields {
+    gap: 0.5rem;
+  }
+}
+.screen-input {
+  width: 100%;
+  background-color: #ffffff;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  color: var(--color-foreground, #2d0f28);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.6875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .screen-input {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.875rem;
+  }
+}
+.screen-input:focus {
+  border-color: var(--color-accent-purple, #ca9af1);
+  box-shadow: 0 0 0 2px var(--color-accent-purple, #ca9af1);
+}
+.screen-submit-btn {
+  width: 100%;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  font-family: var(--font-primary, 'Champ Black', serif);
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  .screen-submit-btn {
+    font-size: 0.875rem;
+    padding: 0.6rem 1.25rem;
+  }
+}
+.screen-submit-btn:hover {
+  background-color: #d4acf5;
+  transform: translateY(-1px);
+}
+.screen-dismiss-btn {
+  margin-top: 0.35rem;
+  font-size: 0.5625rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(248, 235, 215, 0.8);
+  text-decoration: underline;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.screen-dismiss-btn:hover {
+  color: #fffbf2;
+}
+.screen-fine-print {
+  margin-top: 0.25rem;
+  font-size: 0.4375rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  color: rgba(248, 235, 215, 0.6);
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+@media (min-width: 640px) {
+  .screen-fine-print {
+    font-size: 0.5625rem;
+    margin-top: 0.375rem;
+  }
+}
+.tv-graphic-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  pointer-events: none;
+}
+.tv-graphic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.screen-success-box {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  animation: fadeIn 0.3s ease;
+  width: 100%;
+}
+.screen-success-emoji {
+  font-size: 1.5rem;
+}
+@media (min-width: 640px) {
+  .screen-success-emoji {
+    font-size: 2rem;
+  }
+}
+.screen-success-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  color: var(--color-accent-purple, #ca9af1);
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .screen-success-title {
+    font-size: 1.35rem;
+  }
+}
+.screen-discount-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1.5px dashed var(--color-accent-purple, #ca9af1);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.6875rem;
+  color: #fffbf2;
+}
+.screen-copy-btn {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 1px solid var(--color-foreground, #2d0f28);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.625rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.screen-copy-btn:hover {
+  background-color: #d4acf5;
+}
+.newsletter-launcher-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 1.25rem;
+  z-index: 990;
+}
+.newsletter-launcher-tab {
+  background-color: #ffffff;
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: none;
+  border-top-left-radius: var(--radius-sm, 8px);
+  border-top-right-radius: var(--radius-sm, 8px);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 -2px 10px rgba(45, 15, 40, 0.1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  line-height: 1;
+}
+.newsletter-launcher-tab:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+}
+.launcher-tab-mascot {
+  width: 16px;
+  height: auto;
+  display: block;
+}
+.launcher-tab-text {
+  display: inline-block;
+}
+</style>
+
+
+    <!-- Theme Scripts -->
+    <script src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/cart.js?v=127625815245939557571793902769" defer="defer"></script>
+    <script src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/product.js?v=47901431427809410521793902769" defer="defer"></script>
+    <script src="//squizyy-store.myshopify.com/cdn/shop/t/2/assets/custom.js?v=139852363614361677901793904033" defer="defer"></script>
+  <script src="https://cdn.shopify.com/storefront/standard-actions.js" type="module" data-source-attribution="shopify.standard_actions"></script>
+</body>
+</html>

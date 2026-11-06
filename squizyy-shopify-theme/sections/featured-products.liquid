@@ -19,7 +19,7 @@
   {%- assign product_price = main_product.price | money -%}
 {%- else -%}
   {%- assign product_url = '/products/squizyy-squeezy-peanut-butter-19-4-oz' -%}
-  {%- assign product_price = '$9.99' -%}
+  {%- assign product_price = '₹349.00' -%}
 {%- endif -%}
 
 <div class="featured-product-wrapper">
@@ -210,7 +210,7 @@
                   </svg>
                 {%- endfor -%}
               </div>
-              <span class="featured-rating-text">5.0 Based on 984 Aussie Reviews</span>
+              <span class="featured-rating-text">5.0 Based on 1,250+ Verified Indian Reviews</span>
             </div>
 
             <!-- Product Title & Serving Size -->
@@ -295,7 +295,7 @@
 
             <!-- Free Shipping Subtext -->
             <div class="featured-shipping-note">
-              FREE SHIPPING ON ORDERS $49.99+
+              FREE DELIVERY ACROSS INDIA ON ORDERS OVER {{ settings.free_shipping_threshold | money | default: '₹499' }}+
             </div>
           </div>
         </div>

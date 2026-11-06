@@ -36,7 +36,7 @@ const AnnouncementBar = () => {
                       />
                     </span>
                     <div className={styles.itemText}>
-                      <span>FREE SHIPPING ON ORDERS $49.99+</span>
+                      <span>FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+</span>
                       <span className={styles.buyNow}>BUY NOW</span>
                     </div>
                   </Link>
@@ -59,7 +59,7 @@ const AnnouncementBar = () => {
                       />
                     </span>
                     <div className={styles.itemText}>
-                      <span>FREE SHIPPING ON ORDERS $49.99+</span>
+                      <span>FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+</span>
                       <span className={styles.buyNow}>BUY NOW</span>
                     </div>
                   </Link>
@@ -88,7 +88,7 @@ const AnnouncementBar = () => {
                       />
                     </span>
                     <div className={styles.itemText}>
-                      <span>FREE SHIPPING ON ORDERS $49.99+</span>
+                      <span>FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+</span>
                       <span className={styles.buyNow}>BUY NOW</span>
                     </div>
                   </Link>
@@ -112,7 +112,7 @@ const AnnouncementBar = () => {
                       />
                     </span>
                     <div className={styles.itemText}>
-                      <span>FREE SHIPPING ON ORDERS $49.99+</span>
+                      <span>FREE DELIVERY ACROSS INDIA ON ORDERS ₹499+</span>
                       <span className={styles.buyNow}>BUY NOW</span>
                     </div>
                   </Link>

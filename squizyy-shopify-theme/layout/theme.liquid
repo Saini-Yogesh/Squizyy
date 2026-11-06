@@ -56,10 +56,85 @@
 
     <script>
       window.themeSettings = {
-        freeShippingThreshold: {{ settings.free_shipping_threshold | default: 4999 }},
+        freeShippingThreshold: {{ settings.free_shipping_threshold | default: 49900 }},
         moneyFormat: {{ shop.money_format | json }}
       };
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+      // Strip any unwanted #contact_form hash from URL to prevent automatic page jump/scroll
+      if (window.location.hash === '#contact_form' || window.location.hash === '#ContactForm') {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+        window.scrollTo(0, 0);
+      }
+
+      // Global zero-reload AJAX newsletter form submission handler
+      window.handleNewsletterSubmit = function(event, form) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        if (!form) return false;
+
+        var emailInput = form.querySelector('input[type="email"], input[name="contact[email]"]');
+        var email = emailInput ? emailInput.value.trim() : '';
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+          if (emailInput) {
+            emailInput.focus();
+            emailInput.style.borderColor = '#ff4d4f';
+          }
+          return false;
+        }
+
+        // 1. Immediately render the 10% discount code on screen with zero reload
+        if (form.classList.contains('retro-newsletter-form')) {
+          form.innerHTML = `
+            <div class="screen-success-box">
+              <div class="screen-success-emoji">🎉</div>
+              <h3 class="screen-success-title">YOU'RE IN!</h3>
+              <div class="screen-discount-pill">
+                <span>USE CODE: <strong>WELCOME10</strong></span>
+                <button type="button" class="screen-copy-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
+              </div>
+              <p class="screen-fine-print">Copy code at checkout to save 10%.</p>
+            </div>
+          `;
+          var modal = document.getElementById('RetroNewsletterModal');
+          if (modal) modal.classList.add('active');
+        } else if (form.classList.contains('footer-form')) {
+          form.innerHTML = `
+            <div class="footer-success-box">
+              <p class="footer-status-success">🎉 Sweet! Here is your 10% discount code:</p>
+              <div class="footer-discount-pill">
+                <span class="footer-discount-label">USE CODE:</span>
+                <strong class="footer-discount-code">WELCOME10</strong>
+                <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';" aria-label="Copy discount code">COPY</button>
+              </div>
+            </div>
+          `;
+        }
+
+        // 2. Submit lead in the background to Shopify without redirecting or reloading
+        try {
+          var formData = new FormData(form);
+          var actionUrl = form.getAttribute('action') || '/contact';
+          fetch(actionUrl, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors',
+            credentials: 'same-origin'
+          }).catch(function() {});
+        } catch (err) {}
+
+        // 3. Mark as seen in storage
+        try {
+          localStorage.setItem('squizyy_newsletter_seen', 'true');
+        } catch (e) {}
+
+        return false;
+      };
     </script>
 
     {{ content_for_header }}

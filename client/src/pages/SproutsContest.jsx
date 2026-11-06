@@ -75,7 +75,7 @@ const SproutsContest = () => {
                 Win a Trip to Australia
               </h1>
               <p className={styles.heroDesc}>
-                Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + $2,000 USD spending money.
+                Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + ₹2,00,000 spending money.
               </p>
 
               {/* Sprouts Logo Badge */}
@@ -181,11 +181,11 @@ const SproutsContest = () => {
                 <div className={styles.prizeItem}>
                   <img
                     src="/assets/images/cash-icon.png"
-                    alt="$2,000 spending money"
+                    alt="₹2,00,000 spending money"
                     className={styles.prizeIcon}
                   />
                   <h3 className={styles.prizeHeading}>
-                    $2,000 spending money
+                    ₹2,00,000 spending money
                   </h3>
                   <p className={styles.prizeDesc}>
                     To spend on your hotel accommodations, food, and other expenses while in Australia.

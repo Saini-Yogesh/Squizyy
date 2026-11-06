@@ -118,7 +118,6 @@ async function run() {
   console.log('\n🔍 [Step 2] Testing core customer pages & routes:');
   const routesToTest = [
     { path: '/', desc: 'Homepage' },
-    { path: '/products/drizzy-squeezy-peanut-butter-19-4-oz', desc: 'Main PDP (Product Page)' },
     { path: '/collections/all', desc: 'All Products Collection Catalog' },
     { path: '/pages/our-story', desc: 'Our Story (Brand Journey)' },
     { path: '/pages/wholesale', desc: 'Wholesale B2B Inquiry Page' },

@@ -19,10 +19,10 @@ const fallbackProduct = {
     '/assets/images/SQUIZYY12386.jpg',
   ],
   bottleOptions: [
-    { quantity: 1, title: '1 Bottle', price: 999, perBottle: '$9.99/bottle', savingsPercent: '0%', badge: null },
-    { quantity: 2, title: '2 Bottles', price: 1898, compareAtPrice: 1998, perBottle: '$9.49/bottle', savingsPercent: '5%', badge: null },
-    { quantity: 3, title: '3 Bottles', price: 2697, compareAtPrice: 2997, perBottle: '$8.99/bottle', savingsPercent: '10%', badge: 'Most Popular' },
-    { quantity: 6, title: '6 Bottles', price: 4794, compareAtPrice: 5994, perBottle: '$7.99/bottle', savingsPercent: '20%', badge: 'Best Value' },
+    { quantity: 1, title: '1 Bottle', price: 34900, perBottle: '₹349/bottle', savingsPercent: '0%', badge: null },
+    { quantity: 2, title: '2 Bottles', price: 64900, compareAtPrice: 69800, perBottle: '₹324/bottle', savingsPercent: '7%', badge: null },
+    { quantity: 3, title: '3 Bottles', price: 89900, compareAtPrice: 104700, perBottle: '₹299/bottle', savingsPercent: '14%', badge: 'Most Popular' },
+    { quantity: 6, title: '6 Bottles', price: 169900, compareAtPrice: 209400, perBottle: '₹283/bottle', savingsPercent: '19%', badge: 'Best Value' },
   ],
 };
 
@@ -198,7 +198,7 @@ const ProductDetails = () => {
                   BUY SQUIZYY PEANUT BUTTER NOW
                 </button>
                 <div className={styles.shippingCaption}>
-                  FREE SHIPPING ON ORDERS $49.99+
+                  FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@ const ProductDetails = () => {
         </div>
       </section>
 
-      {/* 4. Loved by 1,000+ Aussies (Reviews Grid) */}
+      {/* 4. Loved by 5,000+ Snackers Across India (Reviews Grid) */}
       <section className={styles.reviewsSection} aria-label="Customer Reviews">
         <div className={styles.premiumContainer}>
           <div className={styles.reviewsHeader}>
@@ -216,7 +216,7 @@ const ProductDetails = () => {
               ))}
             </div>
             <h2 className={styles.reviewsTitle}>
-              Loved by 1,000+ Aussies
+              Loved by 5,000+ Snackers Across India
             </h2>
           </div>
 

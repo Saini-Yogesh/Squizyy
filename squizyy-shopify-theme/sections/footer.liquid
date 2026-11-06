@@ -102,7 +102,7 @@
     <div class="footer-container">
       <div class="footer-cards-row">
         <!-- Card 1: Sign up & save 10% -->
-        <div class="footer-newsletter-card" id="contact_form">
+        <div class="footer-newsletter-card" id="footer_newsletter_card">
           <h2 class="footer-card-title">
             Sign up &amp; save 10%
           </h2>
@@ -110,7 +110,7 @@
             Subscribe to our newsletter and get first access to new releases &amp; exclusive deals.
           </p>
 
-          {% form 'customer', class: 'footer-form' %}
+          {% form 'customer', class: 'footer-form', onsubmit: 'return window.handleNewsletterSubmit(event, this);' %}
             <input type="hidden" name="contact[tags]" value="newsletter,footer">
             {%- if form.posted_successfully? -%}
               <div class="footer-success-box">
@@ -254,7 +254,7 @@
           >
         </div>
         <div class="footer-copyright">
-          &copy; {{ 'now' | date: '%Y' }} Squizyy Pty Limited. All Rights Reserved.
+          &copy; {{ 'now' | date: '%Y' }} Squizyy Foods India Private Limited. All Rights Reserved. Crafted with 100% Indian Peanuts.
         </div>
       </div>
     </div>

@@ -1,15 +1,15 @@
 const productsData = [
   {
-    name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
+    name: 'Squizyy Squeezy Peanut Butter 350g',
     slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
-    description: 'Squizyy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life. No jars. No knives. No mess. Sourced exclusively from Texas for a deeper roast and a smoother drizzle you won\'t find in supermarkets.',
-    price: 999, // $9.99
-    compareAtPrice: 999,
+    description: 'Squizyy™ is an ultra-smooth, drizzlable peanut butter made to fit modern life. No jars. No knives. No mess. Sourced exclusively from Saurashtra, Gujarat for a deeper roast and a smoother drizzle you won\'t find in supermarkets.',
+    price: 34900, // ₹349.00
+    compareAtPrice: 39900,
     category: 'Peanut Butter',
     featured: true,
     available: true,
     rating: 4.9,
-    reviewsCount: 1042,
+    reviewsCount: 1250,
     images: [
       '/assets/images/USASQUIZYYFRONTcopy_1.jpg',
       '/assets/images/USASQUIZYYBACKcopy_1.jpg',
@@ -20,9 +20,9 @@ const productsData = [
       '/assets/images/pdp-image.png'
     ],
     details: {
-      origin: 'Texas, USA',
-      size: '19.4 oz (550g)',
-      ingredients: '100% Roasted American Peanuts, Splash of Peanut Oil, Pinch of Salt',
+      origin: 'Saurashtra, Gujarat, India',
+      size: '350g',
+      ingredients: '100% Indian High-Oleic Peanuts (99.2%), Himalayan Pink Salt (0.8%). FSSAI Certified.',
       protein: '7g per serve',
       shelfLife: '12 months from roasting',
       storage: 'Store upright in a cool, dry place. No messy refrigeration needed!'
@@ -31,40 +31,40 @@ const productsData = [
       {
         quantity: 1,
         title: '1x Bottle',
-        price: 999,
-        compareAtPrice: 999,
-        discountAmount: 0,
-        savingsPercent: '0%',
+        price: 34900,
+        compareAtPrice: 39900,
+        discountAmount: 5000,
+        savingsPercent: '12%',
         badge: '',
         image: '/assets/images/1_bottle.png'
       },
       {
         quantity: 2,
         title: '2x Bottles',
-        price: 1898,
-        compareAtPrice: 1998,
-        discountAmount: 100,
-        savingsPercent: '5%',
+        price: 64900,
+        compareAtPrice: 79800,
+        discountAmount: 14900,
+        savingsPercent: '18%',
         badge: '',
         image: '/assets/images/2_bottle.png'
       },
       {
         quantity: 3,
         title: '3x Bottles',
-        price: 2797,
-        compareAtPrice: 2997,
-        discountAmount: 200,
-        savingsPercent: '7%',
+        price: 89900,
+        compareAtPrice: 119700,
+        discountAmount: 29800,
+        savingsPercent: '25%',
         badge: '/assets/images/most-popular-sticker.png',
         image: '/assets/images/3_bottle.png'
       },
       {
         quantity: 6,
         title: '6x Bottles',
-        price: 4994,
-        compareAtPrice: 5994,
-        discountAmount: 1000,
-        savingsPercent: '17%',
+        price: 169900,
+        compareAtPrice: 239400,
+        discountAmount: 69500,
+        savingsPercent: '29%',
         badge: '/assets/images/best-value-sticker.png',
         image: '/assets/images/6_bottles.png'
       }
@@ -72,9 +72,9 @@ const productsData = [
     variants: [
       {
         title: 'Default Title',
-        sku: 'SQUIZYY-PB-001-USA',
-        price: 999,
-        compareAtPrice: 999,
+        sku: 'SQUIZYY-PB-350G',
+        price: 34900,
+        compareAtPrice: 39900,
         available: true,
         bottleCount: 1
       }
@@ -83,23 +83,23 @@ const productsData = [
   {
     name: 'Food Services Case Pack (6 units)',
     slug: 'food-services-pack-6-units',
-    description: 'Bulk case pack crafted for cafes, restaurants, bakeries, smoothie shops, and commercial food services. Six 19.4 oz squeeze bottles for fast, clean drizzling.',
-    price: 3750, // $37.50
-    compareAtPrice: 4200,
+    description: 'Bulk case pack crafted for cafes, restaurants, bakeries, smoothie shops, and commercial food services. Six 350g squeeze bottles for fast, clean drizzling.',
+    price: 169900, // ₹1,699.00
+    compareAtPrice: 219900,
     category: 'Commercial & Food Service',
     featured: false,
     available: true,
     rating: 5.0,
-    reviewsCount: 88,
+    reviewsCount: 128,
     images: [
       '/assets/images/6_bottles.png',
       '/assets/images/SQUIZYY13152_copy.jpg',
       '/assets/images/pdp-image.png'
     ],
     details: {
-      origin: 'Texas, USA',
-      size: '6 x 19.4 oz bottles (7.27 lbs total)',
-      ingredients: '100% High-Oleic Roasted American Peanuts, Peanut Oil',
+      origin: 'Saurashtra, Gujarat, India',
+      size: '6 x 350g bottles (2.1 kg total)',
+      ingredients: '100% Indian High-Oleic Peanuts (99.2%), Himalayan Pink Salt (0.8%). FSSAI Certified.',
       protein: '7g per 32g serving',
       shelfLife: '12 months',
       storage: 'Room temperature storage, dispense directly from precision drip tip'
@@ -108,10 +108,10 @@ const productsData = [
       {
         quantity: 1,
         title: '1x Case (6 Bottles)',
-        price: 3750,
-        compareAtPrice: 4200,
-        discountAmount: 450,
-        savingsPercent: '11%',
+        price: 169900,
+        compareAtPrice: 219900,
+        discountAmount: 50000,
+        savingsPercent: '23%',
         badge: '/assets/images/best-value-sticker.png',
         image: '/assets/images/6_bottles.png'
       }
@@ -119,9 +119,9 @@ const productsData = [
     variants: [
       {
         title: 'Case Pack (6 Units)',
-        sku: 'SQUIZYY-FS-006-USA',
-        price: 3750,
-        compareAtPrice: 4200,
+        sku: 'SQUIZYY-CASE-006',
+        price: 169900,
+        compareAtPrice: 219900,
         available: true,
         bottleCount: 6
       }

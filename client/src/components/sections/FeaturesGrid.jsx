@@ -92,7 +92,7 @@ const FeaturesGrid = () => {
                   BUY SQUIZYY PEANUT BUTTER NOW
                 </Link>
                 <p className={styles.shippingNote}>
-                  FREE SHIPPING ON ORDERS $49.99+
+                  FREE DELIVERY ACROSS INDIA ON ORDERS OVER ₹499+
                 </p>
               </div>
             </div>

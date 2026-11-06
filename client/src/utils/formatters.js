@@ -1,11 +1,16 @@
 /**
- * Format currency in cents to dollar string
- * @param {number} cents - Amount in cents (e.g. 999 for $9.99)
- * @returns {string} Formatted string (e.g. "$9.99")
+ * Format currency in paise/cents to INR (₹) string
+ * @param {number} cents - Amount in paise (e.g. 34900 for ₹349.00)
+ * @returns {string} Formatted string (e.g. "₹349.00")
  */
 export const formatCurrency = (cents = 0) => {
   const num = Number(cents) || 0;
-  return `$${(num / 100).toFixed(2)}`;
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(num / 100);
 };
 
 /**

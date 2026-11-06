@@ -11,115 +11,35 @@
         {{ collection.title | default: 'Shop All Squizyy' }}
       </h1>
       <p class="collection-page-subtitle">
-        {{ collection.description | default: '100% natural squeezy peanut butter, straight from Texas runner peanuts.' }}
+        {{ collection.description | default: '100% natural squeezy peanut butter, crafted from high-oleic roasted Indian runner peanuts.' }}
       </p>
     </div>
 
-    <!-- Product Grid -->
+    <!-- Product Grid: 100% Dynamic from Shopify Admin -->
     {%- paginate collection.products by 12 -%}
-      <div class="collection-products-grid">
-        {%- if collection.products.size > 0 -%}
+      {%- if collection.products.size > 0 -%}
+        <div class="collection-products-grid">
           {%- for product in collection.products -%}
             {% render 'product-card', product: product %}
           {%- endfor -%}
-        {%- else -%}
-          <!-- Authentic Fallback Product 1: Squizyy Squeezy Peanut Butter 19.4 Oz -->
-          <div class="product-card" data-product-card>
-            <div class="product-card-inner">
-              <a
-                href="/products/squizyy-squeezy-peanut-butter-19-4-oz"
-                class="product-card-image-link"
-                aria-label="View details for Squizyy Squeezy Peanut Butter 19.4 Oz"
-              >
-                <div class="product-card-image-container">
-                  <img
-                    src="{{ 'SQUIZYY12302.jpg' | asset_url }}"
-                    alt="Squizyy Squeezy Peanut Butter 19.4 Oz"
-                    class="product-card-primary-img"
-                    loading="eager"
-                    width="400"
-                    height="533"
-                  >
-                  <img
-                    src="{{ 'USASQUIZYYFRONTcopy.jpg' | asset_url }}"
-                    alt=""
-                    class="product-card-hover-img"
-                    loading="lazy"
-                    width="400"
-                    height="533"
-                  >
-                </div>
-              </a>
-
-              <div class="product-card-info">
-                <a href="/products/squizyy-squeezy-peanut-butter-19-4-oz" class="product-card-title">
-                  Squizyy Squeezy Peanut Butter 19.4 Oz
-                </a>
-                <div class="product-card-price">
-                  $9.99
-                </div>
-              </div>
-
-              <div class="product-card-actions">
-                <a
-                  href="/products/squizyy-squeezy-peanut-butter-19-4-oz"
-                  class="button-primary product-card-btn"
-                >
-                  <span>ADD TO CART</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Authentic Fallback Product 2: Food Services Case Pack (6 units) -->
-          <div class="product-card" data-product-card>
-            <div class="product-card-inner">
-              <a
-                href="/products/food-services-pack-6-units"
-                class="product-card-image-link"
-                aria-label="View details for Food Services Case Pack (6 units)"
-              >
-                <div class="product-card-image-container">
-                  <img
-                    src="{{ 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url }}"
-                    alt="Food Services Case Pack (6 units)"
-                    class="product-card-primary-img"
-                    loading="eager"
-                    width="400"
-                    height="533"
-                  >
-                  <img
-                    src="{{ 'Screenshot2026-08-13at2.48.55pm_0bac0419-b155-4cdf-ac7f-4842cf6b6824.png' | asset_url }}"
-                    alt=""
-                    class="product-card-hover-img"
-                    loading="lazy"
-                    width="400"
-                    height="533"
-                  >
-                </div>
-              </a>
-
-              <div class="product-card-info">
-                <a href="/products/food-services-pack-6-units" class="product-card-title">
-                  Food Services Case Pack (6 units)
-                </a>
-                <div class="product-card-price">
-                  $37.50
-                </div>
-              </div>
-
-              <div class="product-card-actions">
-                <a
-                  href="/products/food-services-pack-6-units"
-                  class="button-primary product-card-btn"
-                >
-                  <span>ADD TO CART</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
+        </div>
+      {%- elsif collections.all.products.size > 0 -%}
+        <div class="collection-products-grid">
+          {%- for product in collections.all.products -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="collection-empty-box">
+          <div class="empty-icon">🥜</div>
+          <h2 class="empty-title">Products will appear here once added in Shopify</h2>
+          <p class="empty-desc">
+            Go to <strong>Shopify Admin &rarr; Products &rarr; Import</strong> and upload your <code>squizyy-products-import.csv</code> file.<br>
+            All products, prices, images, and inventory will automatically show up here in real time!
+          </p>
+          <a href="{{ routes.root_url }}" class="button-primary empty-btn">Back to Home</a>
+        </div>
+      {%- endif -%}
 
       {%- if paginate.pages > 1 -%}
         <div class="collection-pagination">
@@ -317,6 +237,47 @@
 .collection-pagination {
   margin-top: 3rem;
   text-align: center;
+}
+.collection-empty-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background-color: #ffffff;
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.08);
+}
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.empty-title {
+  font-family: var(--font-primary, 'Champ Black', serif);
+  font-size: 1.5rem;
+  color: var(--color-foreground, #2d0f28);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.empty-desc {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.875rem;
+  color: rgba(45, 15, 40, 0.75);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.empty-desc code {
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.empty-btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  text-decoration: none;
 }
 </style>
 

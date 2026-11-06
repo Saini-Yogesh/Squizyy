@@ -2,7 +2,7 @@
  * Squizyy Shopify Theme — Global Interactive Features
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+const initSquizyyApp = () => {
   // 1. Mobile Drawer Navigation
   const menuToggles = document.querySelectorAll('[data-mobile-menu-toggle]');
   const mobileMenu = document.querySelector('[data-mobile-menu]');
@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalLauncher = document.getElementById('NewsletterLauncher');
 
   if (modal) {
-    const hasSeenModal = localStorage.getItem('squizyy_newsletter_seen');
+    let hasSeenModal = false;
+    try {
+      hasSeenModal = localStorage.getItem('squizyy_newsletter_seen') === 'true';
+    } catch (e) {}
 
     if (!hasSeenModal) {
       setTimeout(() => {
@@ -42,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeModal = () => {
       modal.classList.remove('active');
-      localStorage.setItem('squizyy_newsletter_seen', 'true');
+      try {
+        localStorage.setItem('squizyy_newsletter_seen', 'true');
+      } catch (e) {}
     };
 
     if (modalClose) modalClose.addEventListener('click', closeModal);
@@ -106,57 +111,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. Ajax Newsletter Form Enhancement (Footer & Popup)
+  // 5. Ajax Newsletter Form Enhancement (Footer & Popup) with Capture-Phase Interception
   const setupNewsletterForm = (form) => {
     if (!form || form.dataset.ajaxAttached) return;
     form.dataset.ajaxAttached = 'true';
 
     form.addEventListener('submit', (e) => {
-      if (!form.checkValidity()) return;
       e.preventDefault();
-
-      const formData = new FormData(form);
-      const actionUrl = form.getAttribute('action') || '/contact';
-
-      // 1. Instantly display the discount code on-screen with zero redirect
-      if (form.classList.contains('footer-form')) {
-        form.innerHTML = `
-          <div class="footer-success-box">
-            <p class="footer-status-success">🎉 Sweet! Check your email for your 10% discount code.</p>
-            <div class="footer-discount-pill">
-              <span class="footer-discount-label">USE CODE:</span>
-              <strong class="footer-discount-code">WELCOME10</strong>
-              <button type="button" class="footer-copy-code-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
-            </div>
-          </div>
-        `;
-      } else if (form.classList.contains('retro-newsletter-form')) {
-        form.innerHTML = `
-          <div class="screen-success-box">
-            <div class="screen-success-emoji">🎉</div>
-            <h3 class="screen-success-title">YOU'RE IN!</h3>
-            <div class="screen-discount-pill">
-              <span>USE CODE: <strong>WELCOME10</strong></span>
-              <button type="button" class="screen-copy-btn" onclick="navigator.clipboard.writeText('WELCOME10'); this.innerText='COPIED!';">COPY</button>
-            </div>
-            <p class="screen-fine-print">Copy code at checkout to save 10%.</p>
-          </div>
-        `;
-      }
-
-      // 2. Submit data to Shopify in the background without following redirects to /challenge
-      try {
-        fetch(actionUrl, {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors',
-          credentials: 'same-origin'
-        }).catch(() => {});
-      } catch (err) {
-        // Silently ignore so user is never redirected to /challenge
+      e.stopPropagation();
+      if (typeof window.handleNewsletterSubmit === 'function') {
+        window.handleNewsletterSubmit(e, form);
       }
     });
   };
 
   document.querySelectorAll('.footer-form, .retro-newsletter-form').forEach(setupNewsletterForm);
-});
+};
+
+// Global capture-phase listener to guarantee zero reloads even for dynamically injected forms
+document.addEventListener('submit', (e) => {
+  const form = e.target;
+  if (form && (form.classList.contains('retro-newsletter-form') || form.classList.contains('footer-form'))) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (typeof window.handleNewsletterSubmit === 'function') {
+      window.handleNewsletterSubmit(e, form);
+    }
+  }
+}, true);
+
+// Execute immediately if DOM is already ready, otherwise on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSquizyyApp);
+} else {
+  initSquizyyApp();
+}
