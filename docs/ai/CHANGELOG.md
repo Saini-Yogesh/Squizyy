@@ -4,6 +4,371 @@ All notable architectural changes, system refactorings, and bug fixes are docume
 
 ---
 
+## [2026-11-06] — Comprehensive Full-Stack Production Readiness & Security Hardening
+
+### 1. Payment Security & Server-Side Price Authority:
+- **Price Tampering Elimination (`server/src/controllers/formController.js`)**:
+  - Rewrote checkout endpoint to enforce that the backend is the single source of truth for pricing. Client-submitted prices, subtotals, and totals are completely discarded.
+  - Product IDs and variant options are resolved directly from `productService`.
+  - Calculates subtotal, 5% GST (`Math.round(computedSubtotal * 0.05)`), and free shipping threshold (₹499) strictly on the server.
+  - Implemented deep string trimming and input sanitization to prevent XSS and query injection.
+
+### 2. Authentication & Authorization Lockdown:
+- **Admin Authentication Hardening (`server/src/middleware/auth.js`)**:
+  - Replaced insecure query string tokens (`?adminKey=`) with strict HTTP header checks (`x-admin-key` or `Authorization: Bearer <key>`).
+  - Added cryptographic timing-safe buffer comparison (`crypto.timingSafeEqual`) to prevent timing attack vulnerabilities.
+  - Configured fail-closed behavior: in production, if `ADMIN_API_KEY` is undefined or default, access is unconditionally blocked.
+- **Admin Dashboard Client Hardening (`client/src/pages/AdminDashboard.jsx`)**:
+  - Removed hardcoded default API keys and plaintext password hints.
+  - Migrated authentication tokens to `sessionStorage` with instant session clearing on logout.
+
+### 3. API & Infrastructure Hardening:
+- **Rate Limiting Middleware (`server/src/middleware/rateLimiter.js`)**:
+  - `generalApiLimiter`: 100 requests / 15 minutes.
+  - `checkoutLimiter`: 10 requests / 15 minutes to prevent replay and spam orders.
+  - `formSubmissionLimiter`: 15 requests / 15 minutes for newsletter, wholesale, and contest entries.
+  - `adminAuthLimiter`: 5 attempts / 15 minutes to defeat brute-force credential stuffing.
+- **CORS & Body Size Limits (`server/src/app.js`)**:
+  - Added dynamic origin whitelisting with fallback for non-browser clients.
+  - Enforced strict 1MB payload size limits (`express.json({ limit: '1mb' })`).
+- **Information Leakage Prevention (`server/src/middleware/errorHandler.js`)**:
+  - Internal database errors and stack traces are suppressed in production mode (returns generic `Internal Server Error`).
+
+### 4. UI/UX, Performance & State Management:
+- **Immediate Async Loading & Double-Click Prevention**:
+  - Enforced `disabled` state and immediate loading indicators (`Processing...`, `Submitting...`, `Adding...`) across all async operations in `CartPage.jsx`, `Contact.jsx`, `Wholesale.jsx`, `SproutsContest.jsx`, `NewsletterModal.jsx`, `Newsletter.jsx`, `ProductDetails.jsx`, and `ProductCard.jsx`.
+  - Added re-entrancy guards (`if (loading) return;`) preventing race conditions and duplicated database records.
+- **Cart Localization & Currency Synchronization (`client/src/pages/CartPage.jsx`)**:
+  - Replaced US address placeholders with Indian defaults (Ahmedabad, Gujarat, PIN 380001, IN).
+  - Aligned all prices and meters to `formatCurrency` (`₹` INR) matching backend calculation.
+
+### 5. Verification:
+- Client Build: Clean build in 16.85s (`npm run client:build`).
+- Backend Syntax & Boot: Clean load (`node -e "require('./server/src/app');"`).
+- AI Documentation: Verified 57 files with 0 warnings (`npm run doc:verify`).
+- Shopify Theme: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Live Deployment: Successfully pushed to live Shopify theme `#144876961855`.
+
+---
+
+## [2026-11-06] — Promo Code Cleanup & Interactive Clear Functionality
+
+### 1. Promo Code Persistence & UI Upgrade:
+- Investigated and resolved the reported "TESTING" code issue in the cart drawer:
+  - Confirmed `"TESTING"` was **not hardcoded in any theme or application code**. It was cached in browser `localStorage` (`squizyy_discount`) from earlier manual testing.
+  - Implemented automatic purge of test tokens (`TESTING`, `TEST`) on cart load in [`squizyy-shopify-theme/assets/cart.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/cart.js).
+  - Added an interactive **"Remove"** link button to the applied discount notification so customers or merchants can clear or switch discount codes at any time without leaving checkout confused.
+  - Added `clearDiscount()` and `bindDiscountRemove()` controllers.
+
+### 2. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Client Build: Clean build in 19.14s (`npm run client:build`).
+- Pushed live to Shopify Theme `#144876961855`.
+
+---
+
+## [2026-11-06] — Native Shopify Customer Lead Pipeline Restored
+
+### 1. Root Cause Resolution for Customer Emails Not Syncing to Shopify:
+- Discovered and resolved why subscriber emails were not appearing under **Shopify Admin ➔ Customers**:
+  - Previously, a JavaScript event listener was intercepting form submissions with `event.preventDefault()`, which cancelled native browser form posts and attempted a background AJAX `fetch('/contact')`.
+  - Because Shopify's spam protection (hCaptcha) is active, background `fetch()` requests without native session headers were blocked by Shopify's security gateway, preventing customer record creation in the database.
+- **Architectural Fix**:
+  - Restored native Shopify form submission on [`snippets/newsletter-modal.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/newsletter-modal.liquid) (`{% form 'customer', class: 'retro-newsletter-form' %}`) and [`sections/footer.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/footer.liquid).
+  - Removed artificial `window.handleNewsletterSubmit` and `e.preventDefault()` handlers from [`layout/theme.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/layout/theme.liquid) and [`assets/custom.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/custom.js).
+  - Configured automatic post-submission retention in Liquid: when `form.posted_successfully?` evaluates to true, the retro modal automatically presents the `WELCOME10` discount code.
+  - Every customer submission now reliably records in **Shopify Admin ➔ Customers** with marketing status `Subscribed` and tag `newsletter,popup`.
+
+### 2. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Client Build: Vite built cleanly in 19.14s (`npm run client:build`).
+- Pushed live to Shopify Theme `#144876961855`.
+
+---
+
+## [2026-11-06] — Newsletter Launcher Tab Upgrade & Shopify Customer Sync
+
+### 1. Launcher Tab UI Polish:
+- Removed the peanut mascot SVG icon from the persistent bottom-left docked tab in [`squizyy-shopify-theme/snippets/newsletter-modal.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/newsletter-modal.liquid).
+- Increased typography and presence of "Get 10% Off":
+  - Boosted font size from `0.8125rem` (13px) to `0.9375rem` (15px) on mobile and `1.05rem` (~17px) on desktop with bold 800 weight in `Azeret Mono`.
+  - Expanded padding to `0.65rem 1.25rem` (mobile) and `0.75rem 1.5rem` (desktop) with smooth hover elevation.
+  - Aligned React client [`client/src/components/layout/NewsletterModal.module.css`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/components/layout/NewsletterModal.module.css).
+
+### 2. Lead Capture Bug Fix (Shopify Admin Sync):
+- Fixed lead capturing in [`squizyy-shopify-theme/layout/theme.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/layout/theme.liquid):
+  - Previously, `form.innerHTML` was mutated before `new FormData(form)` was called, which cleared form fields before serialization.
+  - Form data is now serialized prior to DOM replacement, sending `form_type=customer`, `contact[tags]=newsletter,popup`, and `contact[email]` to Shopify `/contact`.
+  - Subscriber leads now reliably populate in **Shopify Admin ➔ Customers** tagged with `newsletter,popup` and `Email marketing: Subscribed`.
+
+### 3. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Client Build: Vite built cleanly in 17.29s (`npm run client:build`).
+- Pushed live to Shopify Theme `#144876961855`.
+- Verified live homepage HTTP 200: `Has launcher-tab-mascot: false`, `Has 1.05rem / 0.9375rem: true`.
+
+---
+
+## [2026-11-06] — PDP Pack Selector: 1-Pack, 2-Pack, and 3-Pack (6-Pack Excluded)
+
+### 1. 3-Tier Pack Selector Update:
+- Reconfigured the PDP pack selector to offer **1-Pack**, **2-Pack**, and **3-Pack** while keeping **6-Pack** excluded (reserved for the separate wholesale product):
+  - Updated [`squizyy-shopify-theme/snippets/bottle-selector.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/bottle-selector.liquid) to render 1-Pack (Standard), 2-Pack (Save 10%), and 3-Pack (Popular, Save 15%) in an even 3-column grid.
+  - Updated header hint in [`squizyy-shopify-theme/sections/product-main.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/product-main.liquid) to "Stock up & save up to 15%".
+  - Configured [`squizyy-shopify-theme/assets/product.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/product.js) with `discounts: { 1: 0, 2: 0.10, 3: 0.15 }`.
+  - Updated React client [`client/src/pages/ProductDetails.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/pages/ProductDetails.jsx) fallback options.
+
+### 2. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Client Build: Vite built cleanly in 20.28s (`npm run client:build`).
+- Pushed live to Shopify Theme `#144876961855`.
+- Verified live PDP HTTP 200: `Has 1-Pack: true`, `Has 2-Pack: true`, `Has 3-Pack: true`, `Has 6-Pack: false`.
+
+---
+
+## [2026-11-06] — Simplified Pack Size Selector (1-Pack and 2-Pack Only)
+
+### 1. Bottle Selector Refactoring:
+- Streamlined the PDP bottle pack selector to offer strictly **1-Pack** and **2-Pack** options, removing 6-Pack (handled via dedicated bulk wholesale product) and 3-Pack:
+  - Updated [`squizyy-shopify-theme/snippets/bottle-selector.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/bottle-selector.liquid) to render only 1-Pack (Standard) and 2-Pack (Popular, Save 10%) in a responsive 2-column grid.
+  - Adjusted header hint in [`squizyy-shopify-theme/sections/product-main.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/product-main.liquid) from "Stock up & save up to 20%" to "Stock up & save 10%".
+  - Updated CSS `.bottle-grid` to 2 columns across all viewports.
+  - Aligned [`squizyy-shopify-theme/assets/product.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/product.js) calculation model (`discounts: { 1: 0, 2: 0.10 }`).
+  - Updated React counterpart [`client/src/pages/ProductDetails.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/pages/ProductDetails.jsx) fallback options.
+
+### 2. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses (`npm run theme:check`).
+- Client Build: Vite built cleanly in 23.95s (`npm run client:build`).
+- Pushed live to Shopify Theme `#144876961855`.
+- Verified live PDP HTTP 200 with `Has 1-Pack: true`, `Has 2-Pack: true`, `Has 3-Pack: false`, `Has 6-Pack: false`.
+
+---
+
+## [2026-11-06] — PDP Pack Size Dynamic Pricing & Subscription Removal
+
+### 1. Subscription Box Removal:
+- Completely removed the "Subscribe & Save an Extra 15%" radio selection box from the PDP:
+  - Deleted `.pdp-subscription-box` and `.sub-radio-wrap` from [`squizyy-shopify-theme/sections/product-main.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/product-main.liquid).
+  - Removed subscription toggle cards and frequency selectors from React client [`client/src/components/product/PdpBuyBox.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/components/product/PdpBuyBox.jsx).
+  - Streamlined [`squizyy-shopify-theme/assets/product.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/product.js) to purely calculate one-time pack prices.
+
+### 2. Pack Size Pricing & Variant Integration:
+- Resolved the pack bundle pricing issue where selecting 2-Pack, 3-Pack, or 6-Pack was charging/adding at the single bottle price:
+  - Embedded dynamic product variants JSON (`data-product-variants`) into [`product-main.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/product-main.liquid).
+  - Upgraded [`assets/product.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/product.js) with `findMatchingVariant(count)`:
+    - **Pack Variant Mode**: If variants named `1-Pack`, `2-Pack`, `3-Pack`, `6-Pack` exist in Shopify Admin, it dynamically sets `data-variant-id` to that pack variant with `quantity: 1` and uses that variant's exact Shopify price.
+    - **Single Variant Mode (Current Fallback)**: If only 1 default variant exists, it passes `data-quantity` (2, 3, or 6) with `data-pack-name="N-Pack"`.
+  - Upgraded [`assets/cart.js`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/cart.js) to pass line item properties (`Pack Size`) to Shopify `/cart/add.js` and display the pack size in the cart drawer.
+- Provided merchant instructions for setting up 4 pack variants in Shopify Admin for 100% native checkout price matching.
+
+### 3. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses found.
+- Client Build: Vite built cleanly in 23.77s.
+- Deployed live to Shopify Theme `#144876961855`.
+- Verified live PDP HTTP 200 with subscription elements removed and dynamic pack data active.
+
+---
+
+## [2026-11-06] — Interactive Contact & User Feedback Page Deployment
+
+### 1. Contact & Customer Feedback System:
+- Resolved the empty Contact page issue (`/pages/contact` was previously rendering blank placeholder text):
+  - Created [`snippets/contact-form.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/snippets/contact-form.liquid) providing a complete two-column interactive experience.
+  - Created [`sections/main-contact.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/main-contact.liquid) and JSON 2.0 template [`templates/page.contact.json`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/templates/page.contact.json).
+  - Updated [`sections/main-page.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/main-page.liquid) with an automatic fallback so `/pages/contact` displays the full contact & feedback form immediately regardless of whether `page` or `page.contact` template is selected in Shopify Admin.
+  - Implemented Client React counterpart [`client/src/pages/Contact.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/pages/Contact.jsx) and CSS module.
+- **Key Features**:
+  - **Left Column (Direct Support)**: One-click WhatsApp Chat support (+91), email link (`support@squizyy.in`), operating hours (Mon-Sat 9:30 AM - 6:30 PM IST), brand headquarters, and FAQ link.
+  - **Right Column (Interactive Form)**: Name, Email, Phone/WhatsApp, Topic/Department dropdown (Order tracking, Feedback, Damaged bottle, Wholesale, General), Order Number, and multiline Message box.
+  - Automatic Shopify Customer tagging (`customer-feedback,contact-page`) and direct email alerts to the merchant.
+
+### 2. Verification & Live Deployment:
+- Theme Check: 65 files inspected, 0 offenses found.
+- Client Build: Passed with zero errors (`dist/index.html` generated).
+- Pushed live to Shopify Theme `#144876961855`.
+- Verified live route `/pages/contact` returning HTTP 200 with full form, topic dropdown, and support channels.
+
+---
+
+## [2026-11-06] — Squizyy India Grand Launch Giveaway & Official Rules Upgrade
+
+### 1. 100% Indian Rebranding of Giveaway & Official Rules:
+- Replaced the legacy Australian Sprouts Sweepstakes with the **Squizyy India Grand Launch Giveaway** across both Shopify theme sections and client React components:
+  - **Hero Section ([`sections/contest-hero.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/contest-hero.liquid))**:
+    - New Heading: "Win a Luxury Vacation + ₹1,00,000"
+    - Subtitle: "Celebrate our Grand India Launch! Enter for a chance to win an all-expenses-paid luxury holiday for two + ₹1,00,000 cash spending money + 1-year free supply of Squizyy."
+    - Added Indian Launch Giveaway pill badge (`🇮🇳 SQUIZYY INDIA GRAND LAUNCH GIVEAWAY`) and holographic drip sticker.
+  - **Prizes Section ([`sections/contest-details.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/contest-details.liquid))**:
+    - Prize 1: Round-Trip Domestic Flights for 2 (Goa, Kerala, or Kashmir).
+    - Prize 2: ₹1,00,000 Cash Spending Money (Direct Bank / UPI transfer).
+    - Prize 3: 1-Year Free Squizyy Peanut Butter (12 monthly drops of fresh Saurashtra peanut butter).
+  - **How to Enter ([`sections/contest-instructions.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/contest-instructions.liquid))**:
+    - Step 1: Order Squizyy Peanut Butter online or at partner stores across India.
+    - Step 2: Keep Order ID / Bill receipt.
+    - Step 3: Enter full name, email, WhatsApp number, and Order ID (or upload purchase bill).
+    - Step 4: Lucky Draw entry confirmed with live winner announcements on Instagram [@squizyy](https://www.instagram.com/squizyy/).
+  - **Entry Form ([`sections/contest-draw.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/contest-draw.liquid))**:
+    - Added Phone / WhatsApp input field (`+91 ...`) and Order ID field.
+    - Tagged entries with `contest-india-launch`.
+  - **Official Rules ([`sections/rules-content.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/rules-content.liquid))**:
+    - Governed by Indian Law, jurisdictions of Ahmedabad / Mumbai.
+    - Free Alternative Method of Entry (AMOE) compliant.
+    - Total Prize Package ARV: ₹1,52,000.
+
+### 2. Verification & Live Deployment:
+- Client Vite production build (`npm run client:build`): Passed with zero errors.
+- Shopify Theme Check (`npx shopify theme check`): 62 files inspected, 0 offenses found.
+- Pushed live to production theme `#144876961855` via `npm run theme:push`.
+- Verified live HTTP 200 responses with active Indian Launch Giveaway copy and rules.
+
+---
+
+## [2026-11-06] — Production Navigation & Compliance Policies Upgrade
+
+### 1. Footer Links Overhaul (Zero Visual Theme Disruption):
+- Preserved exact visual cards, colors, font families (`Champ Black`, `Azeret Mono`), and responsive spacing of the footer.
+- Enhanced Column 1 (Explore Squizyy):
+  - `Shop Squizyy` (`{{ buy_now_url }}`)
+  - `Our Story` (`{{ our_story_url }}`)
+  - `Stories & Blog` (`{{ blog_url }}`)
+  - `Wholesale` (`{{ wholesale_url }}`)
+  - `Store Locator` (`{{ store_locator_url }}`)
+- Enhanced Column 2 (Customer Care & Legal Compliance):
+  - `Contact Us` (`{{ contact_url }}`)
+  - `FAQ` (`{{ faq_url }}`)
+  - `Shipping Policy` (`{{ shipping_url }}`)
+  - `Refund Policy` (`{{ refund_url }}`)
+  - `Privacy Policy` (`{{ privacy_url }}`)
+  - `Terms of Service` (`{{ terms_url }}`)
+- Implemented smart dynamic policy URL resolution with automatic fallback between Shopify Policy objects (`shop.*_policy.url`) and custom pages (`pages['*'].url`).
+- Completely removed legacy Australian sweepstakes links from default footer view.
+
+### 2. Header & Navigation Refinement:
+- Cleaned up mobile drawer navigation links in [`sections/header.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/header.liquid) to include `Home`, `Our Story`, `Stockists`, `Wholesale`, `Stories & Blog`, `FAQ`, and `Contact`.
+- Fixed brand `aria-label` from "Squizyy USA" to "Squizyy".
+
+### 3. Production FAQ Page Template:
+- Created [`templates/page.faq.json`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/templates/page.faq.json) connecting to the theme's interactive FAQ accordion section.
+- Verified 62 theme files with `shopify theme check` (0 offenses).
+- Pushed live to production theme `#144876961855` via `npm run theme:push` and verified HTTP 200.
+
+---
+
+## [2026-11-06] — Shopify Online Store Preferences & SEO Setup
+
+### 1. SEO & Social Sharing Image Generation:
+- Generated high-resolution 1200x630 Open Graph social sharing image ([`social-sharing-image.jpg`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/social-sharing-image.jpg)) tailored for WhatsApp, iMessage, Twitter, and Facebook previews.
+- Features Squizyy bottle, holographic drip sticker, brand tagline, and clean retro cream aesthetic.
+- Formulated optimal Google SEO Homepage Title (58 chars) and Meta Description (155 chars) optimized for Indian D2C search queries.
+
+---
+
+## [2026-11-06] — Flipkart/DTC Split 2-Column Article Layout (Side-by-Side Media & Text)
+
+### 1. Split 2-Column Layout Implementation:
+- Transformed [`sections/main-article.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/main-article.liquid) from a tall vertical stack into an e-commerce/Flipkart-style 2-column layout (`grid-template-columns: 460px 1fr` on desktop):
+  - **Left Column (Sticky on Scroll)**:
+    - Featured Media Card with 4px border, 8px bottom border, rounded 32px, and holographic dripping "S" sticker overlay.
+    - Integrated Flipkart-style **Shop Squizyy Product Card**: thumbnail bottle image, "THE ORIGINAL SQUEEZE" badge, product title, "₹499" price, and "BUY NOW →" pill button.
+    - Social sharing suite (Copy Link, WhatsApp, X).
+  - **Right Column (Main Story Content)**:
+    - Category pill badge & breadcrumb navigation.
+    - Headline in natural Title Case `Champ Black` font.
+    - Byline meta (author avatar, date, reading time).
+    - Full rich-text story card (`.rte`) with lead paragraph styling, quotes, and tags.
+    - Author storyteller card.
+    - Next/Previous story navigation.
+- Responsive Behavior: Smoothly collapses to a clean single column on mobile/tablet viewports (< 1024px).
+
+### 2. Verification & Live Deployment:
+- Passed `npm run theme:check` with 0 offenses across 61 files.
+- Pushed live to Shopify theme `#144876961855`.
+- Verified live: `article-split-grid`, `article-left-col`, `article-right-col`, and product buy card active and returning HTTP 200.
+
+---
+
+## [2026-11-06] — Blog & Article Template UX Upgrade (Natural Casing & Interactive Features)
+
+### 1. Natural Casing & Readability:
+- Removed forced `text-transform: uppercase;` across article headlines (`.article-title`), article rich-text subheadings (`h2`, `h3`, `h4`), blog cards (`.blog-card-title`), blog headings, and navigation labels.
+- Authors can now publish stories in natural, elegant Title Case without loud, aggressive all-caps shouting.
+- Upgraded body typography: lead paragraph styled with `font-size: 1.25rem; line-height: 1.75; font-weight: 500;`, body text enhanced to `font-size: 1.125rem` with `line-height: 1.8` for comfortable reading.
+
+### 2. User-Friendly Interactive Features:
+- **Scroll Reading Progress Bar**: Added a smooth purple progress bar indicator along the top of the browser window as the reader scrolls through the story.
+- **Social Sharing Suite**: Added instant 1-click **Copy Link** (with animated "Link Copied! 🎉" state), **WhatsApp Share** (`https://api.whatsapp.com/send`), and **X / Twitter Post** buttons.
+- **Author Storyteller Card**: Added a dedicated author bio badge at the bottom of the article card.
+- **Related Stories Carousel/Grid**: Automatically recommends up to 2 other stories from the blog at the end of the post to drive discovery and keep visitors on site.
+- **Pagination & Navigation**: Friendly `← Previous Story` and `Next Story →` cards with story title previews.
+
+### 3. Verification & Live Deployment:
+- Passed `npm run theme:check` with 0 offenses across 61 files.
+- Built client bundle (`npm run client:build`) with exit code 0.
+- Pushed live to Shopify theme `#144876961855`.
+- Verified live rendering: Title renders as *"Introducing Squizyy – A New Beginning in Peanut Butter!"* in natural casing, progress bar, share buttons, and related stories active.
+
+---
+
+## [2026-11-06] — Native Shopify Blog & Article Templates Implementation
+
+### 1. Root Cause of Blog 404:
+- The Shopify theme lacked standard Online Store 2.0 templates `templates/article.json` and `templates/blog.json`, as well as corresponding Liquid sections `sections/main-article.liquid` and `sections/main-blog.liquid`.
+- Without these templates, any article (e.g. `/blogs/news/introducing-squizyy-a-new-beginning-in-peanut-butter`) or blog index (`/blogs/news`) resulted in an automatic 404 error from Shopify's routing engine.
+
+### 2. Implementation:
+- **`squizyy-shopify-theme/templates/article.json`**: Standard JSON 2.0 template routing articles to `main-article`.
+- **`squizyy-shopify-theme/templates/blog.json`**: Standard JSON 2.0 template routing blog listings to `main-blog`.
+- **`squizyy-shopify-theme/sections/main-article.liquid`**:
+  - Chunky retro card layout (`var(--color-cream, #fffbf2)` with 4px border, 8px bottom border, rounded 32px).
+  - Prominent article title in `Champ Black` font.
+  - Metadata row (published date, author, reading time in `Azeret Mono`).
+  - Featured hero image support.
+  - Full rich text editor (`.rte`) typography support.
+  - Interactive copy-to-clipboard share button with feedback.
+  - Previous/Next story pagination links and bottom CTA to store catalog.
+- **`squizyy-shopify-theme/sections/main-blog.liquid`**:
+  - Responsive 3-column grid of article cards with hover animations.
+  - Image links, dates, titles, excerpts, and "READ STORY →" links.
+  - Built-in pagination and empty-state support.
+
+### 3. Verification & Live Deployment:
+- Passed `npm run theme:check` with 0 offenses across 61 files.
+- Pushed live to Shopify production store (`squizyy-store.myshopify.com`, Theme `#144876961855`).
+- Verified live: `/blogs/news/introducing-squizyy-a-new-beginning-in-peanut-butter` returns **HTTP 200** and renders the H1 title *"Introducing Squizyy – A New Beginning in Peanut Butter!"* and article body.
+- Verified `/blogs/news` returns **HTTP 200**.
+
+---
+
+## [2026-11-06] — Header Brand Typography & Logo Alignment, Holographic Sticker 1:1 Calibration & /products/all Seamless Catalog Routing
+
+### 1. Authentic Header Wordmark & Brand Typography Alignment:
+- **Logo Wordmark**: Replaced bubbly title-case logo on Shopify store header with the authentic heavy italic all-caps wordmark `SQUIZYY™` ([`squizyy-dark-logo.svg`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/squizyy-dark-logo.svg)), scaled prominently to `height: 48px` to match `getdrizzy.co` (`DRIZZY™`).
+- **Nav Links & Buttons**: Updated `.nav-link` and `.nav-buy-now-btn` across [`header.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/header.liquid) and [`Navbar.module.css`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/components/layout/Navbar.module.css):
+  - `font-family: var(--font-primary, 'Champ Black', sans-serif)`
+  - `font-size: 20px (1.25rem)`
+  - `font-weight: 900`
+  - `line-height: 1.2`
+  - `letter-spacing: -0.01em`
+  - `text-transform: uppercase`
+- **Font-Face Weight Range**: Updated `@font-face` for `Champ Black` in [`theme.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/layout/theme.liquid), [`theme.css`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/theme.css), and [`globals.css`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/styles/globals.css) to `font-weight: 100 900;` to ensure any requested font weight reliably resolves to `Champ Black` without falling back to system serif.
+
+### 2. Holographic Sticker 1:1 Calibration (`sticker.png`):
+- Replaced the sticker with a 1:1 calibrated asset:
+  - Base: Pristine anisotropic silver-rainbow CD metallic holographic sheen with two crisp concentric black border rings.
+  - Arc Typography: Right-side up `SQUIZYY.` along the lower arc ($34^\circ$ to $106^\circ$), with tops facing radially outward towards the outer ring and baselines facing inward, matching `SHAKE.` and `SQUEEZE.`.
+  - Center Badge: Solid, chunky dripping brand **"S"** with 3 organic peanut butter drips dangling naturally from the bottom curve (no artificial white hole).
+  - Saved to [`squizyy-shopify-theme/assets/sticker.png`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/assets/sticker.png) and [`client/public/assets/images/sticker.png`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/public/assets/images/sticker.png).
+
+### 3. `/products/all` Seamless Catalog Routing:
+- Added instant browser redirection in `<head>` of [`theme.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/layout/theme.liquid) and [`main-404.liquid`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/squizyy-shopify-theme/sections/main-404.liquid) so requests to `/products/all` seamlessly route to `/collections/all` with zero delay.
+- Added `<Route path="/products/all" element={<Navigate to="/collections/all" replace />} />` to [`client/src/App.jsx`](file:///c:/Users/yoges/Desktop/GitHub/Squizyy/client/src/App.jsx).
+
+### 4. Verification & Live Deployment:
+- Deployed live to Shopify production store (`squizyy-store.myshopify.com`, theme `#144876961855`).
+- Verified via `scripts/verify_live_store_fixes.js`: `/collections/all` returns HTTP 200, `/products/all` redirects seamlessly, homepage contains `squizyy-dark-logo.svg`, updated `sticker.png`, and 20px weight-900 nav typography.
+
+---
+
 ## [2026-11-06] — Wholesale Hero & Times Square Visual Rebranding + Shopify Cart Discount Integration
 
 ### 1. Wholesale Hero Visual Rebranding (`wholesale-hero.png` & `wholesale-hero-mobile.png`):

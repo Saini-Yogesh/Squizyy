@@ -34,26 +34,10 @@
         <div class="pdp-bottle-selector">
           <div class="selector-heading-row">
             <span class="selector-title">Select Pack Size:</span>
-            <span class="selector-hint">Stock up & save up to 20%</span>
+            <span class="selector-hint">Stock up & save up to 15%</span>
           </div>
 
           {% render 'bottle-selector', product: product %}
-        </div>
-
-        <!-- Purchase Subscription Toggle -->
-        <div class="pdp-subscription-box">
-          <label class="sub-radio-wrap">
-            <input type="radio" name="purchase_type" value="onetime" checked>
-            <span class="radio-label-text">
-              <strong>One-Time Delivery</strong>
-            </span>
-          </label>
-          <label class="sub-radio-wrap">
-            <input type="radio" name="purchase_type" value="subscribe">
-            <span class="radio-label-text">
-              <strong>Subscribe & Save an Extra 15%</strong> (Cancel anytime)
-            </span>
-          </label>
         </div>
 
         <!-- Add to Cart CTA -->
@@ -64,9 +48,15 @@
           data-add-to-cart-main
           data-variant-id="{{ product.selected_or_first_available_variant.id }}"
           data-quantity="1"
+          data-pack-name="1-Pack"
         >
           <span>Add to Cart — {{ product.price | default: 34900 | money }}</span>
         </button>
+
+        <!-- Product Variants Data for Dynamic Pack Matching -->
+        <script type="application/json" id="ProductVariantsJson-{{ section.id }}" data-product-variants>
+          {{ product.variants | json }}
+        </script>
 
         <!-- Product Value Perks -->
         <div class="pdp-trust-perks">
@@ -265,13 +255,14 @@
 }
 .bottle-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 @media (min-width: 480px) {
   .bottle-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
   }
 }
 .bottle-card-btn {
@@ -321,23 +312,6 @@
 }
 .val-badge {
   background-color: var(--color-foreground, #2d0f28);
-}
-.pdp-subscription-box {
-  background-color: var(--color-cream, #fffbf2);
-  border: 2px solid var(--color-foreground, #2d0f28);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.sub-radio-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  cursor: pointer;
 }
 .pdp-cta-btn {
   width: 100%;

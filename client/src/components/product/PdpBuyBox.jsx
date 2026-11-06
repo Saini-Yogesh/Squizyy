@@ -21,10 +21,8 @@ const PdpBuyBox = ({
   };
 
   const calculatedPrice = selectedOption
-    ? purchaseType === 'subscription'
-      ? Math.round(selectedOption.price * 0.9)
-      : selectedOption.price
-    : product?.price || 999;
+    ? selectedOption.price
+    : product?.price || 34900;
 
   return (
     <div className={styles.buyBox}>
@@ -78,85 +76,6 @@ const PdpBuyBox = ({
           onSelect={onSelectOption}
         />
       )}
-
-      {/* Subscription toggle cards */}
-      <div className={styles.subscriptionCards}>
-        {/* Card 1: Subscribe and save */}
-        <div
-          onClick={() => setPurchaseType('subscription')}
-          className={`${styles.subCard} ${
-            purchaseType === 'subscription' ? styles.subCardActive : styles.subCardInactive
-          }`}
-          role="radio"
-          aria-checked={purchaseType === 'subscription'}
-          tabIndex={0}
-        >
-          <div className={styles.subCardRow}>
-            <div className={styles.subCardLeft}>
-              <div
-                className={`${styles.radioCircle} ${
-                  purchaseType === 'subscription' ? styles.radioActive : styles.radioInactive
-                }`}
-              >
-                {purchaseType === 'subscription' && <div className={styles.radioInner} />}
-              </div>
-              <span className={styles.subCardLabel}>
-                Subscribe and save
-              </span>
-            </div>
-            <span className={styles.subCardPrice}>
-              {formatCurrency(Math.round((selectedOption?.price || 34900) * 0.9))}
-            </span>
-          </div>
-
-          {/* Frequency Dropdown */}
-          {purchaseType === 'subscription' && (
-            <div className={styles.frequencyRow}>
-              <span>Delivery:</span>
-              <select
-                value={deliveryFrequency}
-                onChange={(e) => setDeliveryFrequency(e.target.value)}
-                className={styles.frequencySelect}
-                aria-label="Delivery Frequency"
-              >
-                <option value="2 weeks" className={styles.frequencyOption}>Every 2 weeks</option>
-                <option value="4 weeks" className={styles.frequencyOption}>Every 4 weeks</option>
-                <option value="6 weeks" className={styles.frequencyOption}>Every 6 weeks</option>
-                <option value="8 weeks" className={styles.frequencyOption}>Every 8 weeks</option>
-              </select>
-            </div>
-          )}
-        </div>
-
-        {/* Card 2: One Time Purchase */}
-        <div
-          onClick={() => setPurchaseType('one-time')}
-          className={`${styles.subCard} ${
-            purchaseType === 'one-time' ? styles.subCardActive : styles.subCardInactive
-          }`}
-          role="radio"
-          aria-checked={purchaseType === 'one-time'}
-          tabIndex={0}
-        >
-          <div className={styles.subCardRow}>
-            <div className={styles.subCardLeft}>
-              <div
-                className={`${styles.radioCircle} ${
-                  purchaseType === 'one-time' ? styles.radioActive : styles.radioInactive
-                }`}
-              >
-                {purchaseType === 'one-time' && <div className={styles.radioInner} />}
-              </div>
-              <span className={styles.subCardLabel}>
-                One Time Purchase
-              </span>
-            </div>
-            <span className={styles.subCardPrice}>
-              {formatCurrency(selectedOption?.price || 34900)}
-            </span>
-          </div>
-        </div>
-      </div>
 
       {/* Add to Cart CTA */}
       <div className={styles.ctaWrapper}>

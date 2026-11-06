@@ -9,6 +9,7 @@ const Newsletter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status.loading) return;
     if (!email) return;
     setStatus({ loading: true, success: false, message: '' });
     try {
@@ -19,11 +20,11 @@ const Newsletter = () => {
         message: res.message || 'Thanks for subscribing! Use code WELCOME10 at checkout.',
       });
       setEmail('');
-    } catch {
+    } catch (err) {
       setStatus({
         loading: false,
         success: false,
-        message: 'Something went wrong. Please check your email and try again.',
+        message: err?.response?.data?.message || 'Something went wrong. Please check your email and try again.',
       });
     }
   };

@@ -22,6 +22,13 @@ Base URL: `http://localhost:5000/api` (proxied in development to `/api`)
 }
 ```
 
+### 1.1 Rate Limiting & Protection
+- **General APIs**: 100 requests / 15 min sliding window.
+- **Checkout (`POST /api/checkout`)**: 10 requests / 15 min sliding window.
+- **Form Submissions (`POST /api/newsletter`, `/wholesale`, `/contest`)**: 15 requests / 15 min.
+- **Admin Endpoints (`/api/admin/*`)**: 5 attempts / 15 min.
+- **Request Size**: Enforced 1MB maximum payload.
+
 ---
 
 ## 2. Public Endpoints
@@ -122,7 +129,8 @@ Processes an order checkout.
   }
   ```
 - **Response**: `{ "success": true, "data": { ...order, "orderNumber": "DRZ-1001" } }`.
-- **Status Codes**: `201 Created`, `400 Bad Request`.
+- **Price Security & Validation**: Server queries `productService` for unit prices. Client-supplied subtotal, tax, and total values are strictly discarded and recomputed server-side (5% GST, ₹499 free shipping threshold).
+- **Status Codes**: `201 Created`, `400 Bad Request`, `429 Too Many Requests`.
 
 ---
 
@@ -167,7 +175,7 @@ Submits an entry into the Sprouts Australia flights giveaway.
 
 ## 3. Protected Admin Endpoints
 
-All admin endpoints require the `x-admin-key` HTTP header matching the server's `ADMIN_SECRET_KEY` (default: `drizzy_admin_secret_key_2026`).
+Admin endpoints require authentication via HTTP header (`x-admin-key: <ADMIN_API_KEY>` or `Authorization: Bearer <ADMIN_API_KEY>`). Verification uses cryptographic timing-safe buffer comparison (`crypto.timingSafeEqual`) and is protected by `adminAuthLimiter` (5 attempts / 15m).
 
 #### `GET /api/admin/stats`
 - **Headers**: `x-admin-key: <ADMIN_SECRET_KEY>`

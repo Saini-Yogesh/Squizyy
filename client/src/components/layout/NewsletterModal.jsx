@@ -26,6 +26,7 @@ const NewsletterModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status.loading) return;
     if (!validateEmail(email)) return;
     setStatus({ loading: true, success: false, message: '' });
     try {

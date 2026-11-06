@@ -57,8 +57,13 @@ class SquizyyCart {
         e.preventDefault();
         const variantId = addBtn.getAttribute('data-variant-id');
         const quantity = parseInt(addBtn.getAttribute('data-quantity') || '1', 10);
+        const packName = addBtn.getAttribute('data-pack-name') || '';
+        const properties = {};
+        if (packName) {
+          properties['Pack Size'] = packName;
+        }
         if (variantId && !variantId.startsWith('4400000000')) {
-          this.addItem(variantId, quantity, addBtn);
+          this.addItem(variantId, quantity, addBtn, properties);
         } else {
           const productLink = addBtn.closest('.product-card')?.querySelector('a')?.href;
           if (productLink) {
@@ -89,14 +94,21 @@ class SquizyyCart {
   }
 
   initDiscount() {
-    const savedDiscount = localStorage.getItem('squizyy_discount') || '';
+    let savedDiscount = localStorage.getItem('squizyy_discount') || '';
+    // Automatically purge legacy test codes so users are never misled
+    if (savedDiscount === 'TESTING' || savedDiscount === 'TEST') {
+      localStorage.removeItem('squizyy_discount');
+      savedDiscount = '';
+    }
+
     if (savedDiscount) {
       if (this.discountInput) this.discountInput.value = savedDiscount;
       this.updateCheckoutUrl(savedDiscount);
       if (this.discountMsg) {
-        this.discountMsg.textContent = `Promo code "${savedDiscount}" will be applied at checkout.`;
+        this.discountMsg.innerHTML = `Promo code "<strong>${this.escapeHtml(savedDiscount)}</strong>" will be applied at checkout. <button type="button" class="cart-discount-remove-link" data-remove-discount style="margin-left:8px;text-decoration:underline;background:none;border:none;cursor:pointer;color:#c5221f;font-weight:700;">Remove</button>`;
         this.discountMsg.className = 'cart-discount-msg success';
         this.discountMsg.style.display = 'block';
+        this.bindDiscountRemove();
       }
     }
 
@@ -107,16 +119,13 @@ class SquizyyCart {
           localStorage.setItem('squizyy_discount', code);
           this.updateCheckoutUrl(code);
           if (this.discountMsg) {
-            this.discountMsg.textContent = `Promo code "${code}" will be applied at checkout.`;
+            this.discountMsg.innerHTML = `Promo code "<strong>${this.escapeHtml(code)}</strong>" will be applied at checkout. <button type="button" class="cart-discount-remove-link" data-remove-discount style="margin-left:8px;text-decoration:underline;background:none;border:none;cursor:pointer;color:#c5221f;font-weight:700;">Remove</button>`;
             this.discountMsg.className = 'cart-discount-msg success';
             this.discountMsg.style.display = 'block';
+            this.bindDiscountRemove();
           }
         } else {
-          localStorage.removeItem('squizyy_discount');
-          this.updateCheckoutUrl('');
-          if (this.discountMsg) {
-            this.discountMsg.style.display = 'none';
-          }
+          this.clearDiscount();
         }
       });
       this.discountInput.addEventListener('keydown', (e) => {
@@ -124,6 +133,27 @@ class SquizyyCart {
           e.preventDefault();
           this.discountApplyBtn.click();
         }
+      });
+    }
+  }
+
+  clearDiscount() {
+    localStorage.removeItem('squizyy_discount');
+    if (this.discountInput) this.discountInput.value = '';
+    if (this.discountMsg) {
+      this.discountMsg.style.display = 'none';
+      this.discountMsg.innerHTML = '';
+    }
+    this.updateCheckoutUrl('');
+  }
+
+  bindDiscountRemove() {
+    if (!this.discountMsg) return;
+    const removeBtn = this.discountMsg.querySelector('[data-remove-discount]');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.clearDiscount();
       });
     }
   }
@@ -172,7 +202,7 @@ class SquizyyCart {
     }
   }
 
-  async addItem(variantId, quantity = 1, buttonEl = null) {
+  async addItem(variantId, quantity = 1, buttonEl = null, properties = {}) {
     if (buttonEl) {
       buttonEl.setAttribute('disabled', 'disabled');
       buttonEl.dataset.originalText = buttonEl.innerHTML;
@@ -180,10 +210,14 @@ class SquizyyCart {
     }
 
     try {
+      const payload = { id: variantId, quantity };
+      if (properties && Object.keys(properties).length > 0) {
+        payload.properties = properties;
+      }
       const res = await fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: variantId, quantity })
+        body: JSON.stringify(payload)
       });
 
       if (!res.ok) {
@@ -299,7 +333,7 @@ class SquizyyCart {
           </div>
           <div class="cart-item-info">
             <h4 class="cart-item-title">${this.escapeHtml(item.product_title || item.title)}</h4>
-            ${item.variant_title && item.variant_title !== 'Default Title' ? `<p class="cart-item-variant">${this.escapeHtml(item.variant_title)}</p>` : ''}
+            ${item.variant_title && item.variant_title !== 'Default Title' ? `<p class="cart-item-variant">${this.escapeHtml(item.variant_title)}</p>` : (item.properties && item.properties['Pack Size'] ? `<p class="cart-item-variant">${this.escapeHtml(item.properties['Pack Size'])}</p>` : '')}
             <div class="cart-item-price">${this.formatMoney(item.final_line_price)}</div>
             
             <div class="cart-item-controls">

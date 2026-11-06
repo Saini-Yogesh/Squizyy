@@ -20,11 +20,6 @@
       <span class="bottle-tier-count b-count">3-Pack</span>
       <span class="bottle-tier-save b-save">Save 15%</span>
     </button>
-    <button type="button" class="bottle-tier-btn bottle-card-btn" data-bottles="6" data-bottle-count="6" data-discount="20">
-      <span class="bottle-tier-badge b-badge val-badge">Best Value</span>
-      <span class="bottle-tier-count b-count">6-Pack</span>
-      <span class="bottle-tier-save b-save">Save 20%</span>
-    </button>
   </div>
 </div>
 
@@ -34,12 +29,13 @@
 }
 .bottle-selector-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 }
 @media (min-width: 640px) {
   .bottle-selector-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
   }
 }
 .bottle-tier-btn {

@@ -15,6 +15,7 @@ const Wholesale = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status.loading) return;
     setStatus({ loading: true, success: false, message: '' });
     try {
       const res = await submitWholesale(formData);
@@ -26,17 +27,17 @@ const Wholesale = () => {
           'Thank you! Your wholesale application has been submitted. Our team will review it within 1-2 business days.',
       });
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
-    } catch {
+    } catch (err) {
       setStatus({
         loading: false,
         success: false,
-        message: 'There was an issue submitting your inquiry. Please try again.',
+        message: err?.response?.data?.message || 'There was an issue submitting your inquiry. Please try again.',
       });
     }
   };
 
   const tickerItems = [
-    { icon: '/assets/images/aussie.png', title: 'Aussie owned' },
+    { icon: '/assets/images/zero-sugar.png', title: '100% Indian Peanuts' },
     { icon: '/assets/images/smile.png', title: 'Ultra-Smooth Drizzle' },
     { icon: '/assets/images/zero-sugar.png', title: 'Zero added sugar' },
     { icon: '/assets/images/natural-fuel.png', title: 'Natural fuel' },

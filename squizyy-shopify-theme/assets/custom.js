@@ -32,15 +32,20 @@ const initSquizyyApp = () => {
   const modalLauncher = document.getElementById('NewsletterLauncher');
 
   if (modal) {
-    let hasSeenModal = false;
-    try {
-      hasSeenModal = localStorage.getItem('squizyy_newsletter_seen') === 'true';
-    } catch (e) {}
+    // If the customer just submitted the form successfully, keep modal open displaying the discount code
+    if (modal.querySelector('.screen-success-box') || window.location.search.includes('customer_posted=true')) {
+      modal.classList.add('active');
+    } else {
+      let hasSeenModal = false;
+      try {
+        hasSeenModal = localStorage.getItem('squizyy_newsletter_seen') === 'true';
+      } catch (e) {}
 
-    if (!hasSeenModal) {
-      setTimeout(() => {
-        modal.classList.add('active');
-      }, 5000);
+      if (!hasSeenModal) {
+        setTimeout(() => {
+          modal.classList.add('active');
+        }, 5000);
+      }
     }
 
     const closeModal = () => {
@@ -110,35 +115,7 @@ const initSquizyyApp = () => {
       toggle.setAttribute('aria-expanded', 'true');
     }
   });
-
-  // 5. Ajax Newsletter Form Enhancement (Footer & Popup) with Capture-Phase Interception
-  const setupNewsletterForm = (form) => {
-    if (!form || form.dataset.ajaxAttached) return;
-    form.dataset.ajaxAttached = 'true';
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (typeof window.handleNewsletterSubmit === 'function') {
-        window.handleNewsletterSubmit(e, form);
-      }
-    });
-  };
-
-  document.querySelectorAll('.footer-form, .retro-newsletter-form').forEach(setupNewsletterForm);
 };
-
-// Global capture-phase listener to guarantee zero reloads even for dynamically injected forms
-document.addEventListener('submit', (e) => {
-  const form = e.target;
-  if (form && (form.classList.contains('retro-newsletter-form') || form.classList.contains('footer-form'))) {
-    e.preventDefault();
-    e.stopPropagation();
-    if (typeof window.handleNewsletterSubmit === 'function') {
-      window.handleNewsletterSubmit(e, form);
-    }
-  }
-}, true);
 
 // Execute immediately if DOM is already ready, otherwise on DOMContentLoaded
 if (document.readyState === 'loading') {

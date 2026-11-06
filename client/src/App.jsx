@@ -18,6 +18,7 @@ import SproutsContest from './pages/SproutsContest';
 import Rules from './pages/Rules';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import Contact from './pages/Contact';
 import CartPage from './pages/CartPage';
 import AdminDashboard from './pages/AdminDashboard';
 import styles from './App.module.css';
@@ -42,11 +43,18 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections/all" element={<Products />} />
+          <Route path="/products/all" element={<Navigate to="/collections/all" replace />} />
+          <Route path="/products" element={<Navigate to="/collections/all" replace />} />
           <Route path="/products/:slug" element={<ProductDetails />} />
           <Route path="/pages/our-story" element={<OurStory />} />
           <Route path="/pages/store-locator" element={<StoreLocator />} />
           <Route path="/pages/wholesale" element={<Wholesale />} />
+          <Route path="/pages/contact" element={<Contact />} />
           <Route path="/pages/sproutslaunchwinflightstoaustralia" element={<SproutsContest />} />
+          <Route path="/pages/win-flights-to-australia" element={<SproutsContest />} />
+          <Route path="/pages/launch-giveaway" element={<SproutsContest />} />
+          <Route path="/pages/giveaway" element={<SproutsContest />} />
+          <Route path="/pages/official-rules" element={<Rules />} />
           <Route path="/pages/rules" element={<Rules />} />
           <Route path="/policies/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/policies/terms-of-service" element={<TermsOfService />} />

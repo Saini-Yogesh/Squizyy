@@ -2,21 +2,21 @@
   <div class="contest-hero-container">
     <!-- Text & CTAs -->
     <div class="contest-hero-text-col">
-      <h1 class="contest-hero-title">{{ section.settings.heading | default: 'Win a Trip to Australia' }}</h1>
-      <p class="contest-hero-desc">{{ section.settings.description | default: 'Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + ₹2,00,000 spending money.' }}</p>
-
-      <!-- Sprouts Logo Badge -->
-      <div class="contest-sprouts-badge">
-        <img src="{{ 'Sprouts_Farmers_Market_Logo_4_Vectorized.svg' | asset_url }}" alt="Sprouts Farmers Market" width="1800" height="468">
+      <div class="contest-launch-badge">
+        <span class="contest-badge-flag">🇮🇳</span>
+        <span class="contest-badge-text">SQUIZYY INDIA GRAND LAUNCH GIVEAWAY</span>
       </div>
 
-      <a href="#instructions" class="button-primary contest-enter-btn">ENTER</a>
+      <h1 class="contest-hero-title">{{ section.settings.heading | default: 'Win a Luxury Vacation + ₹1,00,000' }}</h1>
+      <p class="contest-hero-desc">{{ section.settings.description | default: 'Celebrate our Grand India Launch! Enter for a chance to win an all-expenses-paid luxury holiday for two + ₹1,00,000 cash spending money + 1-year free supply of Squizyy.' }}</p>
+
+      <a href="#instructions" class="button-primary contest-enter-btn">ENTER TO WIN</a>
 
       <div class="contest-hero-legal">
         <p>
-          <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26.
-          <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at
-          <a href="{{ routes.root_url }}pages/rules">Official Rules</a> for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
+          <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to all legal residents of India, 18+. Ends 31/12/2026.
+          <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) Purchase any bottle of Squizyy Peanut Butter online or at partner stores, or (ii) free online entry. See Rules at
+          <a href="{{ routes.root_url }}pages/rules">Rules</a> for full details. Sponsor: Squizyy Foods India Private Limited.
         </p>
       </div>
     </div>
@@ -24,7 +24,7 @@
     <!-- Media Side -->
     <div class="contest-hero-media-col">
       <div class="contest-australia-sticker">
-        <img src="{{ 'Australia_Icon_7cdf6797-9b9e-43cd-8855-bed45dbfad15.png' | asset_url }}" alt="Australia Icon" width="1500" height="1500">
+        <img src="{{ 'sticker.png' | asset_url }}" alt="Squizyy Holographic Drip Sticker" width="500" height="500" loading="eager">
       </div>
 
       <div class="contest-video-frame">
@@ -36,10 +36,10 @@
           loop
           poster="{{ 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url }}"
           class="contest-video"
-          aria-label="Squizyy USA"
+          aria-label="Squizyy Peanut Butter"
         >
           <source src="{{ contest_video_url }}" type="video/mp4">
-          <img src="{{ 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url }}" alt="Squizyy USA" width="1100" height="615">
+          <img src="{{ 'Screenshot_2026-08-21_at_10.32.56_am.png' | asset_url }}" alt="Squizyy Peanut Butter" width="1100" height="615">
         </video>
       </div>
     </div>
@@ -115,25 +115,27 @@
     text-align: left;
   }
 }
-.contest-sprouts-badge {
-  position: absolute;
-  z-index: 1;
-  width: 6.5rem;
-  top: -7%;
-  left: 5%;
-  transform: rotate(-7deg);
+.contest-launch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border: 2px solid var(--color-dark-brown, #2b1408);
+  border-radius: var(--radius-full, 9999px);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--color-dark-brown, #2b1408);
+  box-shadow: 0 4px 12px rgba(43, 20, 8, 0.1);
+  margin-bottom: 1.25rem;
 }
 @media (min-width: 1024px) {
-  .contest-sprouts-badge {
-    width: 11.25rem;
-    top: 50%;
-    left: 72%;
+  .contest-launch-badge {
+    font-size: 0.8125rem;
+    padding: 0.5rem 1.25rem;
   }
-}
-.contest-sprouts-badge img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
 .contest-enter-btn {
   display: block;
@@ -218,13 +220,13 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Win a Trip to Australia"
+      "default": "Win a Luxury Vacation + ₹1,00,000"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + ₹2,00,000 spending money."
+      "default": "Celebrate our Grand India Launch! Enter for a chance to win an all-expenses-paid luxury holiday for two + ₹1,00,000 cash spending money + 1-year free supply of Squizyy."
     },
     {
       "type": "url",

@@ -41,24 +41,21 @@
   {%- assign wholesale_url = pages['wholesale'].url -%}
 {%- endif -%}
 
+{%- assign blog_url = blogs['news'].url | default: '/blogs/news' -%}
+{%- assign contact_url = pages['contact'].url | default: '/pages/contact' -%}
+{%- assign faq_url = pages['faq'].url | default: '/pages/faq' -%}
+
 {%- assign contest_url = nil -%}
-{%- if pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
-  {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
-{%- elsif pages['sprouts-launch-win-flights-to-australia'].title != blank -%}
-  {%- assign contest_url = pages['sprouts-launch-win-flights-to-australia'].url -%}
+{%- if pages['launch-giveaway'].title != blank -%}
+  {%- assign contest_url = pages['launch-giveaway'].url -%}
+{%- elsif pages['giveaway'].title != blank -%}
+  {%- assign contest_url = pages['giveaway'].url -%}
 {%- elsif pages['contest'].title != blank -%}
   {%- assign contest_url = pages['contest'].url -%}
 {%- elsif pages['win-flights-to-australia'].title != blank -%}
   {%- assign contest_url = pages['win-flights-to-australia'].url -%}
-{%- endif -%}
-
-{%- assign rules_url = nil -%}
-{%- if pages['rules'].title != blank -%}
-  {%- assign rules_url = pages['rules'].url -%}
-{%- elsif pages['official-rules'].title != blank -%}
-  {%- assign rules_url = pages['official-rules'].url -%}
-{%- elsif pages['sweepstakes-rules'].title != blank -%}
-  {%- assign rules_url = pages['sweepstakes-rules'].url -%}
+{%- elsif pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
+  {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
 {%- endif -%}
 
 <div class="site-nav-wrapper">
@@ -82,7 +79,7 @@
           </button>
 
           <!-- Mobile Center Brand Logo -->
-          <a href="{{ routes.root_url }}" class="nav-mobile-logo" aria-label="Squizyy USA">
+          <a href="{{ routes.root_url }}" class="nav-mobile-logo" aria-label="Squizyy">
             <img
               src="{{ 'squizyy-dark-logo.svg' | asset_url }}"
               alt="Squizyy"
@@ -129,7 +126,7 @@
             </div>
 
             <!-- Center Brand Logo -->
-            <a href="{{ routes.root_url }}" class="nav-desktop-logo" aria-label="Squizyy USA">
+            <a href="{{ routes.root_url }}" class="nav-desktop-logo" aria-label="Squizyy">
               <img
                 src="{{ 'squizyy-dark-logo.svg' | asset_url }}"
                 alt="Squizyy"
@@ -189,12 +186,12 @@
       <a href="{{ our_story_url }}" class="mobile-nav-link">Our Story</a>
       <a href="{{ store_locator_url }}" class="mobile-nav-link">Stockists</a>
       <a href="{{ wholesale_url }}" class="mobile-nav-link">Wholesale</a>
+      <a href="{{ blog_url }}" class="mobile-nav-link">Stories &amp; Blog</a>
       {%- if contest_url != blank -%}
-        <a href="{{ contest_url }}" class="mobile-nav-link">Win Flights to Australia</a>
+        <a href="{{ contest_url }}" class="mobile-nav-link">Launch Giveaway</a>
       {%- endif -%}
-      {%- if rules_url != blank -%}
-        <a href="{{ rules_url }}" class="mobile-nav-link">Official Rules</a>
-      {%- endif -%}
+      <a href="{{ faq_url }}" class="mobile-nav-link">FAQ</a>
+      <a href="{{ contact_url }}" class="mobile-nav-link">Contact</a>
       <a href="{{ buy_now_url }}" class="mobile-buy-now-btn">BUY SQUIZYY NOW</a>
     </nav>
   </div>
@@ -303,7 +300,7 @@
 }
 .nav-desktop-logo {
   display: block;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
   flex-shrink: 0;
   outline: none;
   border: none;
@@ -322,8 +319,11 @@
 }
 .nav-link {
   display: block;
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.125rem;
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--color-foreground, #2d0f28);
   transition: opacity 0.15s ease;
@@ -336,28 +336,28 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-primary, 'Champ Black', serif);
-  font-size: 1.0625rem;
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   padding: 0.75rem 1.5rem;
   background-color: var(--color-accent-purple, #ca9af1);
   color: var(--color-foreground, #2d0f28);
   border: 2px solid var(--color-foreground, #2d0f28);
-  border-bottom: 4px solid var(--color-foreground, #2d0f28);
   border-radius: var(--radius-pill, 9999px);
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
 }
 .nav-buy-now-btn:hover {
   background-color: var(--color-cream, #fffbf2);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45, 15, 40, 0.15);
+  transform: translateY(-1px);
 }
 .nav-buy-now-btn:active {
-  transform: translateY(1px);
-  border-bottom-width: 2px;
+  transform: translateY(0);
 }
 .nav-cart-trigger-desktop {
   margin-left: auto;
@@ -365,14 +365,14 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0.5rem;
   border-radius: 50%;
-  border: 1px solid var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
   background-color: var(--color-accent-purple, #ca9af1);
   cursor: pointer;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.2s ease;
 }
 .nav-cart-trigger-desktop:hover {
   transform: scale(1.05);
@@ -459,8 +459,9 @@
   gap: 1rem;
 }
 .mobile-nav-link {
-  font-family: var(--font-primary, 'Champ Black', serif);
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
   font-size: 1.25rem;
+  font-weight: 900;
   text-transform: uppercase;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--border-muted, rgba(45, 15, 40, 0.15));
@@ -471,7 +472,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-primary, 'Champ Black', serif);
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 900;
   text-transform: uppercase;
   background-color: var(--color-accent-purple, #ca9af1);
   color: var(--color-foreground, #2d0f28);

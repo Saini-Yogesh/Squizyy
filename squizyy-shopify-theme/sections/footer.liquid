@@ -41,28 +41,55 @@
   {%- assign wholesale_url = pages['wholesale'].url -%}
 {%- endif -%}
 
+{%- assign blog_url = blogs['news'].url | default: '/blogs/news' -%}
+{%- assign contact_url = pages['contact'].url | default: '/pages/contact' -%}
+{%- assign faq_url = pages['faq'].url | default: '/pages/faq' -%}
+
+{%- assign privacy_url = shop.privacy_policy.url -%}
+{%- if privacy_url == blank and pages['privacy-policy'].title != blank -%}
+  {%- assign privacy_url = pages['privacy-policy'].url -%}
+{%- elsif privacy_url == blank -%}
+  {%- assign privacy_url = '/policies/privacy-policy' -%}
+{%- endif -%}
+
+{%- assign terms_url = shop.terms_of_service.url -%}
+{%- if terms_url == blank and pages['terms-of-service'].title != blank -%}
+  {%- assign terms_url = pages['terms-of-service'].url -%}
+{%- elsif terms_url == blank -%}
+  {%- assign terms_url = '/policies/terms-of-service' -%}
+{%- endif -%}
+
+{%- assign refund_url = shop.refund_policy.url -%}
+{%- if refund_url == blank and pages['refund-policy'].title != blank -%}
+  {%- assign refund_url = pages['refund-policy'].url -%}
+{%- elsif refund_url == blank -%}
+  {%- assign refund_url = '/policies/refund-policy' -%}
+{%- endif -%}
+
+{%- assign shipping_url = shop.shipping_policy.url -%}
+{%- if shipping_url == blank and pages['shipping-policy'].title != blank -%}
+  {%- assign shipping_url = pages['shipping-policy'].url -%}
+{%- elsif shipping_url == blank -%}
+  {%- assign shipping_url = '/policies/shipping-policy' -%}
+{%- endif -%}
+
 {%- assign contest_url = nil -%}
-{%- if pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
-  {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
-{%- elsif pages['sprouts-launch-win-flights-to-australia'].title != blank -%}
-  {%- assign contest_url = pages['sprouts-launch-win-flights-to-australia'].url -%}
+{%- if pages['launch-giveaway'].title != blank -%}
+  {%- assign contest_url = pages['launch-giveaway'].url -%}
+{%- elsif pages['giveaway'].title != blank -%}
+  {%- assign contest_url = pages['giveaway'].url -%}
 {%- elsif pages['contest'].title != blank -%}
   {%- assign contest_url = pages['contest'].url -%}
 {%- elsif pages['win-flights-to-australia'].title != blank -%}
   {%- assign contest_url = pages['win-flights-to-australia'].url -%}
+{%- elsif pages['sproutslaunchwinflightstoaustralia'].title != blank -%}
+  {%- assign contest_url = pages['sproutslaunchwinflightstoaustralia'].url -%}
 {%- endif -%}
 
 {%- assign rules_url = nil -%}
 {%- if pages['rules'].title != blank -%}
   {%- assign rules_url = pages['rules'].url -%}
-{%- elsif pages['official-rules'].title != blank -%}
-  {%- assign rules_url = pages['official-rules'].url -%}
-{%- elsif pages['sweepstakes-rules'].title != blank -%}
-  {%- assign rules_url = pages['sweepstakes-rules'].url -%}
 {%- endif -%}
-
-{%- assign privacy_url = shop.privacy_policy.url | default: '/policies/privacy-policy' -%}
-{%- assign terms_url = shop.terms_of_service.url | default: '/policies/terms-of-service' -%}
 
 <footer class="footer-wrapper" role="contentinfo">
   <section class="footer-section">
@@ -110,7 +137,7 @@
             Subscribe to our newsletter and get first access to new releases &amp; exclusive deals.
           </p>
 
-          {% form 'customer', class: 'footer-form', onsubmit: 'return window.handleNewsletterSubmit(event, this);' %}
+          {% form 'customer', class: 'footer-form', id: 'FooterCustomerForm' %}
             <input type="hidden" name="contact[tags]" value="newsletter,footer">
             {%- if form.posted_successfully? -%}
               <div class="footer-success-box">
@@ -159,19 +186,37 @@
                   <a href="{{ our_story_url }}" class="footer-nav-link">Our Story</a>
                 </li>
                 <li>
+                  <a href="{{ blog_url }}" class="footer-nav-link">Stories &amp; Blog</a>
+                </li>
+                <li>
                   <a href="{{ wholesale_url }}" class="footer-nav-link">Wholesale</a>
+                </li>
+                <li>
+                  <a href="{{ store_locator_url }}" class="footer-nav-link">Store Locator</a>
                 </li>
                 {%- if contest_url != blank -%}
                 <li>
-                  <a href="{{ contest_url }}" class="footer-nav-link">Win Flights</a>
+                  <a href="{{ contest_url }}" class="footer-nav-link">Launch Giveaway</a>
                 </li>
                 {%- endif -%}
               </ul>
             </div>
 
-            <!-- Col 2: Legal & Rules -->
+            <!-- Col 2: Legal & Support -->
             <div class="footer-nav-col">
               <ul class="footer-nav-list">
+                <li>
+                  <a href="{{ contact_url }}" class="footer-nav-link">Contact Us</a>
+                </li>
+                <li>
+                  <a href="{{ faq_url }}" class="footer-nav-link">FAQ</a>
+                </li>
+                <li>
+                  <a href="{{ shipping_url }}" class="footer-nav-link">Shipping Policy</a>
+                </li>
+                <li>
+                  <a href="{{ refund_url }}" class="footer-nav-link">Refund Policy</a>
+                </li>
                 <li>
                   <a href="{{ privacy_url }}" class="footer-nav-link">Privacy Policy</a>
                 </li>
@@ -180,12 +225,9 @@
                 </li>
                 {%- if rules_url != blank -%}
                 <li>
-                  <a href="{{ rules_url }}" class="footer-nav-link">Sweepstakes Rules</a>
+                  <a href="{{ rules_url }}" class="footer-nav-link">Rules</a>
                 </li>
                 {%- endif -%}
-                <li>
-                  <a href="{{ store_locator_url }}" class="footer-nav-link">Store Locator</a>
-                </li>
               </ul>
             </div>
 

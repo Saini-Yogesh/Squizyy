@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'Champ Black';
   src: url('/assets/fonts/Champ-Black.otf') format('opentype');
-  font-weight: 700 900;
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }

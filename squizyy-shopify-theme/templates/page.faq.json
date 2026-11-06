@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "faq": {
+      "type": "product-faq",
+      "settings": {
+        "heading": "FREQUENTLY ASKED QUESTIONS",
+        "bg_color": "#ca9af1"
+      }
+    }
+  },
+  "order": [
+    "faq"
+  ]
+}
+

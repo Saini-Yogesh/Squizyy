@@ -5,7 +5,7 @@ import styles from './AdminDashboard.module.css';
 
 const AdminDashboard = () => {
   const [adminKey, setAdminKey] = useState(
-    () => localStorage.getItem('squizyy_admin_key') || 'squizyy_admin_secret_key_2026'
+    () => sessionStorage.getItem('squizyy_admin_key') || ''
   );
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [stats, setStats] = useState(null);
@@ -17,26 +17,41 @@ const AdminDashboard = () => {
   const [editingPrice, setEditingPrice] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e, keyToUse) => {
     if (e) e.preventDefault();
+    const key = keyToUse || adminKey;
+    if (!key || !key.trim()) {
+      setError('Please enter your Admin Secret Key.');
+      return;
+    }
     setLoading(true);
     setError('');
     try {
-      const data = await getAdminStats(adminKey);
+      const data = await getAdminStats(key.trim());
       setStats(data);
       setIsAuthenticated(true);
-      localStorage.setItem('squizyy_admin_key', adminKey);
+      sessionStorage.setItem('squizyy_admin_key', key.trim());
     } catch (err) {
       setError(err.response?.data?.message || 'Invalid Admin Secret Key. Access Denied.');
       setIsAuthenticated(false);
+      sessionStorage.removeItem('squizyy_admin_key');
     } finally {
       setLoading(false);
     }
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem('squizyy_admin_key');
+    localStorage.removeItem('squizyy_admin_key');
+    setIsAuthenticated(false);
+    setStats(null);
+    setAdminKey('');
+  };
+
   useEffect(() => {
-    if (adminKey) {
-      handleLogin();
+    const saved = sessionStorage.getItem('squizyy_admin_key');
+    if (saved) {
+      handleLogin(null, saved);
     }
   }, []);
 
@@ -78,9 +93,6 @@ const AdminDashboard = () => {
                 placeholder="Enter Admin API Key"
                 className={styles.loginInput}
               />
-              <span className={styles.hintText}>
-                Default: squizyy_admin_secret_key_2026
-              </span>
             </div>
 
             {error && (
@@ -123,10 +135,7 @@ const AdminDashboard = () => {
           </h1>
         </div>
         <button
-          onClick={() => {
-            setIsAuthenticated(false);
-            localStorage.removeItem('squizyy_admin_key');
-          }}
+          onClick={handleLogout}
           className={styles.signOutBtn}
         >
           Lock / Sign Out

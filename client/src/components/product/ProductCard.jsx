@@ -11,8 +11,9 @@ const ProductCard = ({ product }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    if (loading) return;
     setLoading(true);
-    const defaultOption = product.bottleOptions?.[0] || { quantity: 1, price: product.price || 999 };
+    const defaultOption = product.bottleOptions?.[0] || { quantity: 1, price: product.price || 34900 };
     addToCart(product, defaultOption, 'one-time', null, 1);
     setTimeout(() => {
       setLoading(false);

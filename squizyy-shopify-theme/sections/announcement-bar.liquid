@@ -203,20 +203,24 @@
 }
 .announcement-item-text {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   font-family: var(--font-secondary, 'Azeret Mono', monospace);
-  font-size: 0.625rem;
-  line-height: 1;
+  font-size: 11px;
+  line-height: 1.4;
   font-weight: 500;
+  letter-spacing: 0.01em;
 }
 @media (min-width: 1024px) {
   .announcement-item-text {
-    font-size: 0.75rem;
+    font-size: 14px;
+    letter-spacing: 0.01em;
   }
 }
 .announcement-buy-now {
   text-decoration: underline;
   font-weight: 700;
+  margin-left: 0.25rem;
 }
 @keyframes announcement-marquee {
   0% { transform: translateX(0); }

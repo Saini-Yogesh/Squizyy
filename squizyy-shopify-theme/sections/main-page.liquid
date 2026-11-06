@@ -1,20 +1,24 @@
-<section class="main-page-section">
-  <div class="main-page-container">
-    <h1 class="main-page-heading">{{ page.title }}</h1>
+{%- if page.handle == 'contact' -%}
+  {% render 'contact-form' %}
+{%- else -%}
+  <section class="main-page-section">
+    <div class="main-page-container">
+      <h1 class="main-page-heading">{{ page.title }}</h1>
 
-    <div class="main-page-card rte">
-      {%- if page.content != blank -%}
-        {{ page.content }}
-      {%- else -%}
-        <!-- Default Content Placeholder for Fresh Theme Installation -->
-        <h2 style="font-family: var(--font-primary, 'Champ Black', serif); font-size: 1.5rem; text-transform: uppercase; color: var(--color-dark-brown, #2b1408); margin: 0 0 1rem 0;">
-          {{ page.title }}
-        </h2>
-        <p>Please edit this page's content in your Shopify Admin (Online Store &gt; Pages).</p>
-      {%- endif -%}
+      <div class="main-page-card rte">
+        {%- if page.content != blank -%}
+          {{ page.content }}
+        {%- else -%}
+          <!-- Default Content Placeholder for Fresh Theme Installation -->
+          <h2 style="font-family: var(--font-primary, 'Champ Black', serif); font-size: 1.5rem; text-transform: uppercase; color: var(--color-dark-brown, #2b1408); margin: 0 0 1rem 0;">
+            {{ page.title }}
+          </h2>
+          <p>Please edit this page's content in your Shopify Admin (Online Store &gt; Pages).</p>
+        {%- endif -%}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+{%- endif -%}
 
 <style>
 .main-page-section {

@@ -1,3 +1,12 @@
+<script>
+  (function() {
+    var path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+    if (path === '/products/all' || path === '/products' || path.indexOf('/products/all') !== -1) {
+      window.location.replace('{{ routes.all_products_collection_url }}');
+    }
+  })();
+</script>
+
 <section class="error-404-section">
   <div class="error-404-container">
     <div class="error-404-card">

@@ -12,11 +12,11 @@
   border: 2px solid var(--border-color);
   border-bottom: none;
   font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-top-left-radius: var(--radius-sm);
-  border-top-right-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  padding: 0.65rem 1.25rem;
+  border-top-left-radius: var(--radius-md, 12px);
+  border-top-right-radius: var(--radius-md, 12px);
   box-shadow: var(--shadow-md);
   cursor: pointer;
   transition: transform var(--transition-fast), background-color var(--transition-fast);
@@ -25,8 +25,8 @@
 
 @media (min-width: 640px) {
   .launcherBtn {
-    font-size: 0.875rem;
-    padding: 0.625rem 1.25rem;
+    font-size: 1.05rem;
+    padding: 0.75rem 1.5rem;
   }
 }
 

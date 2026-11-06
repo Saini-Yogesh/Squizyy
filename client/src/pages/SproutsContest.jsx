@@ -24,6 +24,7 @@ const SproutsContest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (status.loading) return;
     if (!form.agreedRules) {
       alert('You must accept the Official Rules & Eligibility Terms to enter.');
       return;
@@ -43,7 +44,7 @@ const SproutsContest = () => {
         success: true,
         message:
           res.message ||
-          'Congratulations! You are officially entered into the draw to win flights to Australia.',
+          'Congratulations! You are officially entered into the Squizyy India Grand Launch Giveaway. Stay tuned for winner announcements!',
       });
       setForm({
         firstName: '',
@@ -54,11 +55,11 @@ const SproutsContest = () => {
         receiptFile: null,
       });
       setFileName('');
-    } catch {
+    } catch (err) {
       setStatus({
         loading: false,
         success: false,
-        message: 'Error submitting your entry. Please check your connection and try again.',
+        message: err?.response?.data?.message || 'Error submitting your entry. Please check your connection and try again.',
       });
     }
   };
@@ -71,37 +72,33 @@ const SproutsContest = () => {
           <div className={styles.heroContainer}>
             {/* Text & CTAs */}
             <div className={styles.heroTextCol}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', backgroundColor: 'var(--color-accent-purple, #ca9af1)', border: '2px solid var(--color-dark-brown, #2b1408)', borderRadius: '9999px', padding: '0.5rem 1rem', fontFamily: "var(--font-secondary, 'Azeret Mono')", fontSize: '12px', fontWeight: 800, marginBottom: '1.25rem' }}>
+                <span>🇮🇳</span>
+                <span>SQUIZYY INDIA GRAND LAUNCH GIVEAWAY</span>
+              </div>
+
               <h1 className={styles.heroTitle}>
-                Win a Trip to Australia
+                Win a Luxury Vacation + ₹1,00,000
               </h1>
               <p className={styles.heroDesc}>
-                Enter for a chance to win round-trip economy flights to Sydney, Australia for you and a guest + ₹2,00,000 spending money.
+                Celebrate our Grand India Launch! Enter for a chance to win an all-expenses-paid luxury holiday for two + ₹1,00,000 cash spending money + 1-year free supply of Squizyy.
               </p>
-
-              {/* Sprouts Logo Badge */}
-              <div className={styles.sproutsBadge}>
-                <img
-                  src="/assets/images/Sprouts_Farmers_Market_Logo_4_Vectorized.svg"
-                  alt="Sprouts Farmers Market"
-                  style={{ width: '100%', height: 'auto', display: 'block' }}
-                />
-              </div>
 
               <a
                 href="#instructions"
                 className={styles.enterCtaBtn}
               >
-                ENTER
+                ENTER TO WIN
               </a>
 
               <div className={styles.heroLegalNote}>
                 <p style={{ margin: 0 }}>
-                  <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26.{' '}
-                  <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
+                  <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to all legal residents of India, 18+. Ends 31/12/2026.{' '}
+                  <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) Purchase any bottle of Squizyy Peanut Butter online or at partner stores, or (ii) free online entry. See Official Rules at{' '}
                   <a href="/pages/rules" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                    https://squizyy.com/pages/rules
+                    https://squizyy.in/pages/rules
                   </a>{' '}
-                  for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
+                  for details. Sponsor: Squizyy Foods India Private Limited.
                 </p>
               </div>
             </div>
@@ -110,8 +107,8 @@ const SproutsContest = () => {
             <div className={styles.heroMediaCol}>
               <div className={styles.australiaSticker}>
                 <img
-                  src="/assets/images/Australia_Icon_7cdf6797-9b9e-43cd-8855-bed45dbfad15.png"
-                  alt="Australia Icon"
+                  src="/assets/images/sticker.png"
+                  alt="Squizyy Holographic Drip Sticker"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
               </div>
@@ -124,7 +121,7 @@ const SproutsContest = () => {
                   loop
                   className={styles.videoElement}
                   poster="/assets/images/Screenshot_2026-08-21_at_10.32.56_am.png"
-                  aria-label="Squizyy USA"
+                  aria-label="Squizyy Peanut Butter"
                 >
                   <source
                     src="https://squizyy.com/cdn/shop/videos/c/vp/3bf20797693b4279ad33d2af5e4962c2/3bf20797693b4279ad33d2af5e4962c2.HD-1080p-7.2Mbps-92269433.mp4"
@@ -132,7 +129,7 @@ const SproutsContest = () => {
                   />
                   <img
                     src="/assets/images/Screenshot_2026-08-21_at_10.32.56_am.png"
-                    alt="Squizyy USA"
+                    alt="Squizyy Peanut Butter"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </video>
@@ -158,7 +155,7 @@ const SproutsContest = () => {
 
             <div className={styles.tripContent}>
               <h2 className={styles.tripTitle}>
-                Here's What You're Playing For
+                Here's What You Can Win
               </h2>
 
               <div className={styles.prizesRow}>
@@ -170,10 +167,10 @@ const SproutsContest = () => {
                     className={styles.prizeIcon}
                   />
                   <h3 className={styles.prizeHeading}>
-                    Round-trip flights
+                    Round-Trip Flights for 2
                   </h3>
                   <p className={styles.prizeDesc}>
-                    Round-trip economy flights to Sydney, Australia for you and a guest.
+                    All-expenses-paid round-trip flight tickets for you and a guest to a luxury holiday destination (Goa, Kerala, or Kashmir).
                   </p>
                 </div>
 
@@ -181,14 +178,14 @@ const SproutsContest = () => {
                 <div className={styles.prizeItem}>
                   <img
                     src="/assets/images/cash-icon.png"
-                    alt="₹2,00,000 spending money"
+                    alt="₹1,00,000 spending money"
                     className={styles.prizeIcon}
                   />
                   <h3 className={styles.prizeHeading}>
-                    ₹2,00,000 spending money
+                    ₹1,00,000 Spending Money
                   </h3>
                   <p className={styles.prizeDesc}>
-                    To spend on your hotel accommodations, food, and other expenses while in Australia.
+                    Direct bank/UPI transfer to cover your 5-star resort stay, fine dining, and luxury experiences.
                   </p>
                 </div>
 
@@ -196,14 +193,14 @@ const SproutsContest = () => {
                 <div className={styles.prizeItem}>
                   <img
                     src="/assets/images/cam-icon.png"
-                    alt="An unforgettable trip"
+                    alt="1-Year Free Squizyy"
                     className={styles.prizeIcon}
                   />
                   <h3 className={styles.prizeHeading}>
-                    An unforgettable trip
+                    1-Year Free Squizyy
                   </h3>
                   <p className={styles.prizeDesc}>
-                    One winner + one guest are heading Down Under.
+                    A full year of fresh, slow-roasted Saurashtra peanut butter delivered to your doorstep every month.
                   </p>
                 </div>
               </div>
@@ -243,62 +240,47 @@ const SproutsContest = () => {
                 How to Enter
               </h2>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1.5rem', fontFamily: "var(--font-secondary, 'Azeret Mono')", fontSize: '1rem' }}>
-                <span>Buy Squizyy (In-store or via sprouts.com)</span>
-                <img
-                  src="/assets/images/Sprouts_Farmers_Market_Logo_4_Vectorized.svg"
-                  alt="Sprouts logo"
-                  style={{ height: '3rem', width: 'auto', objectFit: 'contain' }}
-                />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '1.25rem', fontFamily: "var(--font-secondary, 'Azeret Mono')", fontSize: '0.875rem', color: 'var(--color-dark-brown, #2b1408)', fontWeight: 700 }}>
+                <span>Order Squizyy Online or at Authorized Retail Stores Across India</span>
               </div>
 
               {/* Step 1 */}
               <div className={styles.stepBlock}>
                 <h3 className={styles.stepHeading}>
-                  1. Sign up or sign in to Sprouts
+                  1. Order Squizyy Peanut Butter
                 </h3>
                 <p className={styles.stepBody}>
-                  Before you shop, create a Sprouts account or sign in to your existing account. You'll need your purchase linked to your account so we can verify your entry.
+                  Purchase any bottle of Squizyy Peanut Butter on our website or through our authorized retail and delivery partners.
                 </p>
               </div>
 
               {/* Step 2 */}
               <div className={styles.stepBlock}>
                 <h3 className={styles.stepHeading}>
-                  2. Buy Squizyy at Sprouts
+                  2. Keep Your Order ID / Bill
                 </h3>
                 <p className={styles.stepBody}>
-                  Purchase at least one bottle of Squizyy at Sprouts between August 24 and September 20, 2026.
+                  Hold onto your order confirmation number (#XXXX) from your confirmation email/SMS, or keep a photo of your retail store purchase bill.
                 </p>
               </div>
 
               {/* Step 3 */}
               <div className={styles.stepBlock}>
                 <h3 className={styles.stepHeading}>
-                  3. Keep your receipt
+                  3. Submit Your Entry Below
                 </h3>
                 <p className={styles.stepBody}>
-                  Hold onto your receipt! You'll need it to enter. If you purchased online, your digital receipt will be in your email inbox showing your Squizyy purchase.
+                  Enter your name, email, WhatsApp number, and Order ID (or upload a photo/screenshot of your purchase bill).
                 </p>
               </div>
 
               {/* Step 4 */}
               <div className={styles.stepBlock}>
                 <h3 className={styles.stepHeading}>
-                  4. Upload & enter
+                  4. You're In The Draw!
                 </h3>
                 <p className={styles.stepBody}>
-                  Enter your name and email address below and upload a clear photo or screenshot of your Sprouts receipt. Use the same email address linked to your Sprouts account so we can verify your purchase.
-                </p>
-              </div>
-
-              {/* Step 5 */}
-              <div className={styles.stepBlock}>
-                <h3 className={styles.stepHeading}>
-                  5. You're in!
-                </h3>
-                <p className={styles.stepBody}>
-                  Once your qualifying purchase and submission are verified, you'll officially be entered into the draw.
+                  Once submitted, you'll receive your Lucky Draw confirmation. Winners are announced on our official Instagram and notified directly via WhatsApp &amp; Email!
                 </p>
               </div>
 
@@ -306,7 +288,7 @@ const SproutsContest = () => {
                 href="#draw-form"
                 className={styles.enterCtaBtn}
               >
-                ENTER
+                ENTER TO WIN
               </a>
             </div>
           </div>
@@ -423,7 +405,7 @@ const SproutsContest = () => {
                         <input
                           type="email"
                           required
-                          placeholder="Your Sprouts-linked email address"
+                          placeholder="name@example.com"
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
                           className={styles.inputField}
@@ -434,7 +416,7 @@ const SproutsContest = () => {
                       <div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                           <label className={styles.formFieldLabel} style={{ marginBottom: 0 }}>
-                            Drop Your Receipt *
+                            Upload Receipt / Bill (Optional)
                           </label>
                           {fileName && (
                             <span style={{ fontSize: '12px', fontFamily: "var(--font-secondary, 'Azeret Mono')", fontWeight: 700, color: 'var(--color-accent-green, #176537)' }}>
@@ -472,7 +454,7 @@ const SproutsContest = () => {
                             style={{ marginTop: '3px', width: '1rem', height: '1rem', accentColor: 'var(--color-dark-brown, #2b1408)' }}
                           />
                           <span style={{ fontSize: '12px', fontFamily: "var(--font-secondary, 'Azeret Mono')", color: 'var(--color-dark-brown, #2b1408)', lineHeight: 1.5 }}>
-                            I certify that I am 18+ and agree to the{' '}
+                            I certify that I am 18+ and a resident of India, and agree to the{' '}
                             <a href="/pages/rules" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', fontWeight: 700 }}>
                               Official Rules
                             </a>{' '}
@@ -523,11 +505,11 @@ const SproutsContest = () => {
                     </a>
                   </p>
                   <p style={{ margin: 0 }}>
-                    <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26. <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at{' '}
+                    <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to all legal residents of India, 18+. Ends 31/12/2026. <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) Purchase any bottle of Squizyy Peanut Butter online or at partner stores, or (ii) free online entry. See Official Rules at{' '}
                     <a href="/pages/rules" style={{ textDecoration: 'underline', fontWeight: 700, color: 'var(--color-dark-brown, #2b1408)' }}>
-                      https://squizyy.com/pages/rules
+                      https://squizyy.in/pages/rules
                     </a>{' '}
-                    for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
+                    for details. Sponsor: Squizyy Foods India Private Limited.
                   </p>
                 </div>
               </div>

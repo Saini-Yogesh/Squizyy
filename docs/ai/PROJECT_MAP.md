@@ -19,6 +19,7 @@
 | **Sprouts Contest** | `client/src/pages/SproutsContest.jsx` | `server/src/controllers/formController.js` (`submitContest`) | `server/src/models/Contest.js` |
 | **Newsletter** | `client/src/components/layout/NewsletterModal.jsx`<br>`client/src/components/sections/Newsletter.jsx` | `server/src/controllers/formController.js` (`subscribeNewsletter`) | `server/src/models/Newsletter.js` |
 | **Admin Portal** | `client/src/pages/AdminDashboard.jsx` | `server/src/controllers/adminController.js`<br>`server/src/middleware/auth.js` | All Models |
+| **Contact & Feedback** | `client/src/pages/Contact.jsx` | N/A | N/A |
 | **Legal & Policies** | `client/src/pages/Rules.jsx`<br>`client/src/pages/PrivacyPolicy.jsx`<br>`client/src/pages/TermsOfService.jsx` | N/A | N/A |
 
 ---
@@ -35,6 +36,9 @@
   - `server/src/server.js` — Process entry point; handles MongoDB connection and initiates HTTP server listener.
   - `server/src/app.js` — Express application setup; middleware (CORS, body-parser), route mounts (`/api/*`), and centralized error handler.
   - `server/src/config/db.js` — Mongoose connection lifecycle and connection logging.
+  - `server/src/middleware/rateLimiter.js` — Multi-tiered rate limiting (general, checkout, form submission, admin auth).
+  - `server/src/middleware/auth.js` — Timing-safe header-based API key authentication.
+  - `server/src/middleware/errorHandler.js` — Centralized error handler with production detail sanitization.
 
 ---
 
@@ -82,9 +86,9 @@ Squizyy/
     ├── config/                        # Theme settings schema and defaults
     ├── layout/                        # Theme layout shells (theme.liquid)
     ├── locales/                       # Locale translations (en.default.json)
-    ├── sections/                      # Modular Liquid sections (31 sections)
-    ├── snippets/                      # Reusable Liquid snippets (10 snippets)
-    ├── templates/                     # JSON 2.0 templates (11 templates)
+    ├── sections/                      # Modular Liquid sections (34 sections)
+    ├── snippets/                      # Reusable Liquid snippets (11 snippets)
+    ├── templates/                     # JSON 2.0 templates (15 templates)
     └── README.md                      # Shopify CLI instructions and guide
 ```
 

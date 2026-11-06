@@ -11,7 +11,7 @@ import styles from './ProductDetails.module.css';
 const fallbackProduct = {
   name: 'Squizyy Squeezy Peanut Butter 19.4 Oz',
   slug: 'squizyy-squeezy-peanut-butter-19-4-oz',
-  price: 999,
+  price: 34900,
   images: [
     '/assets/images/SQUIZYY12302.jpg',
     '/assets/images/USASQUIZYYFRONTcopy.jpg',
@@ -20,9 +20,8 @@ const fallbackProduct = {
   ],
   bottleOptions: [
     { quantity: 1, title: '1 Bottle', price: 34900, perBottle: '₹349/bottle', savingsPercent: '0%', badge: null },
-    { quantity: 2, title: '2 Bottles', price: 64900, compareAtPrice: 69800, perBottle: '₹324/bottle', savingsPercent: '7%', badge: null },
-    { quantity: 3, title: '3 Bottles', price: 89900, compareAtPrice: 104700, perBottle: '₹299/bottle', savingsPercent: '14%', badge: 'Most Popular' },
-    { quantity: 6, title: '6 Bottles', price: 169900, compareAtPrice: 209400, perBottle: '₹283/bottle', savingsPercent: '19%', badge: 'Best Value' },
+    { quantity: 2, title: '2 Bottles', price: 62800, compareAtPrice: 69800, perBottle: '₹314/bottle', savingsPercent: '10%', badge: null },
+    { quantity: 3, title: '3 Bottles', price: 88900, compareAtPrice: 104700, perBottle: '₹296/bottle', savingsPercent: '15%', badge: 'Popular' },
   ],
 };
 
@@ -47,7 +46,7 @@ const ProductDetails = () => {
         const currentProduct = data || fallbackProduct;
         setProduct(currentProduct);
         if (currentProduct.bottleOptions?.length) {
-          setSelectedOption(currentProduct.bottleOptions[2] || currentProduct.bottleOptions[0]);
+          setSelectedOption(currentProduct.bottleOptions[0]);
         }
         setLoading(false);
       })
@@ -55,7 +54,7 @@ const ProductDetails = () => {
         if (!isMounted) return;
         console.warn('Fallback product data loaded:', err);
         setProduct(fallbackProduct);
-        setSelectedOption(fallbackProduct.bottleOptions[2]);
+        setSelectedOption(fallbackProduct.bottleOptions[0]);
         setLoading(false);
       });
 
@@ -65,7 +64,7 @@ const ProductDetails = () => {
   }, [slug]);
 
   const handleAddToCart = () => {
-    if (!product || !selectedOption) return;
+    if (adding || !product || !selectedOption) return;
     setAdding(true);
     addToCart(product, selectedOption, purchaseType, deliveryFrequency, 1);
     setTimeout(() => {

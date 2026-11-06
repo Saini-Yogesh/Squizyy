@@ -1,0 +1,1138 @@
+{%- comment -%}
+  Main Blog Article Section — Squizyy Brand Aesthetic (Split Flipkart / DTC Editorial Layout)
+  Left Column: Sticky Featured Media Card, Shop Squizyy Bottle Widget, Social Share Suite.
+  Right Column: Category, Headline, Byline, Full Rich-Text Story, Tags, Author Bio.
+{%- endcomment -%}
+
+{%- assign main_product = nil -%}
+{%- if all_products['squizyy-squeezy-peanut-butter-19-4-oz'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-squeezy-peanut-butter-19-4-oz'] -%}
+{%- elsif all_products['squizyy-peanut-butter'].title != blank -%}
+  {%- assign main_product = all_products['squizyy-peanut-butter'] -%}
+{%- elsif collections.all.products.first != blank -%}
+  {%- assign main_product = collections.all.products.first -%}
+{%- endif -%}
+
+{%- if main_product != blank and main_product.url != blank -%}
+  {%- assign buy_url = main_product.url -%}
+  {%- assign product_title = main_product.title -%}
+  {%- assign product_price = main_product.price | money -%}
+{%- else -%}
+  {%- assign buy_url = routes.all_products_collection_url -%}
+  {%- assign product_title = 'Squizyy Squeezy Peanut Butter' -%}
+  {%- assign product_price = '₹499' -%}
+{%- endif -%}
+
+<!-- Top Reading Progress Bar -->
+<div class="reading-progress-track" aria-hidden="true">
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+</div>
+
+<article class="article-section" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-container">
+    
+    <!-- Top Breadcrumbs & Category Bar -->
+    <div class="article-top-bar">
+      <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}" class="breadcrumb-link">Home</a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <a href="{{ blog.url }}" class="breadcrumb-link">{{ blog.title | default: 'Stories' }}</a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">{{ article.title | truncatewords: 4 }}</span>
+      </nav>
+      <span class="article-category-pill">{{ blog.title | default: 'News & Stories' }}</span>
+    </div>
+
+    <!-- Main Flipkart-style Split 2-Column Grid -->
+    <div class="article-split-grid">
+      
+      <!-- ================= LEFT COLUMN: STICKY MEDIA & PRODUCT BUY BOX ================= -->
+      <aside class="article-left-col">
+        <div class="article-sticky-sidebar">
+          
+          <!-- Featured Image Card -->
+          <div class="article-media-card">
+            {%- if article.image != blank -%}
+              <img
+                src="{{ article.image | image_url: width: 1000 }}"
+                alt="{{ article.image.alt | default: article.title | escape }}"
+                class="article-sticky-img"
+                width="{{ article.image.width }}"
+                height="{{ article.image.height }}"
+                loading="eager"
+                itemprop="image"
+              >
+            {%- else -%}
+              <div class="article-img-placeholder">
+                <img
+                  src="{{ '1_bottle.png' | asset_url }}"
+                  alt="Squizyy Squeezy Peanut Butter"
+                  class="placeholder-bottle-img"
+                  width="200"
+                  height="340"
+                  loading="eager"
+                >
+                <span class="placeholder-caption">100% Saurashtra Peanuts • Made in India</span>
+              </div>
+            {%- endif -%}
+
+            <!-- Floating Sticker Badge -->
+            <div class="article-sticker-badge" aria-hidden="true">
+              <img
+                src="{{ 'sticker.png' | asset_url }}"
+                alt="Squizyy"
+                width="72"
+                height="72"
+                loading="eager"
+              >
+            </div>
+          </div>
+
+          <!-- Flipkart-style Shop Squizyy Product Card -->
+          <div class="article-product-card">
+            <div class="product-card-thumb">
+              {%- if main_product.featured_image != blank -%}
+                <img
+                  src="{{ main_product.featured_image | image_url: width: 160 }}"
+                  alt="{{ product_title | escape }}"
+                  width="70"
+                  height="90"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img
+                  src="{{ '1_bottle.png' | asset_url }}"
+                  alt="{{ product_title | escape }}"
+                  width="70"
+                  height="90"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            </div>
+            <div class="product-card-details">
+              <span class="product-card-badge">THE ORIGINAL SQUEEZE</span>
+              <h4 class="product-card-name">{{ product_title }}</h4>
+              <p class="product-card-desc">100% natural, zero palm oil, zero stir.</p>
+              <div class="product-card-action">
+                <span class="product-card-price">{{ product_price }}</span>
+                <a href="{{ buy_url }}" class="product-card-buy-btn">
+                  <span>BUY NOW</span>
+                  <span class="buy-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Share Suite -->
+          {%- if section.settings.show_share -%}
+            <div class="article-sidebar-share">
+              <span class="sidebar-share-label">Share story</span>
+              <div class="sidebar-share-actions">
+                <button
+                  type="button"
+                  class="sidebar-share-pill copy-pill"
+                  onclick="navigator.clipboard.writeText(window.location.href); this.classList.add('copied'); this.querySelector('.pill-text').innerText='Copied! 🎉'; setTimeout(() => { this.classList.remove('copied'); this.querySelector('.pill-text').innerText='Copy Link'; }, 3000);"
+                  title="Copy Link to Clipboard"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                  <span class="pill-text">Copy Link</span>
+                </button>
+
+                <a
+                  href="https://api.whatsapp.com/send?text={{ article.title | url_encode }}%20{{ shop.url | append: article.url | url_encode }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="sidebar-share-pill whatsapp-pill"
+                  title="Share on WhatsApp"
+                >
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href="https://twitter.com/intent/tweet?text={{ article.title | url_encode }}&url={{ shop.url | append: article.url | url_encode }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="sidebar-share-pill twitter-pill"
+                  title="Post on X"
+                >
+                  <span>Post</span>
+                </a>
+              </div>
+            </div>
+          {%- endif -%}
+
+        </div>
+      </aside>
+
+      <!-- ================= RIGHT COLUMN: HEADLINE, METADATA & STORY BODY ================= -->
+      <main class="article-right-col">
+        
+        <!-- Headline & Author Row -->
+        <header class="article-header-card">
+          <h1 class="article-main-title" itemprop="headline">{{ article.title }}</h1>
+
+          <div class="article-byline-row">
+            {%- if section.settings.show_author and article.author != blank -%}
+              <div class="byline-author-badge" itemprop="author">
+                <span class="byline-avatar" aria-hidden="true">{{ article.author | slice: 0, 1 | upcase }}</span>
+                <span class="byline-author-name">By {{ article.author }}</span>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.show_date -%}
+              <span class="byline-sep" aria-hidden="true">•</span>
+              <span class="byline-meta-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}" itemprop="datePublished">
+                  {{ article.published_at | date: "%B %d, %Y" }}
+                </time>
+              </span>
+            {%- endif -%}
+
+            {%- assign words = article.content | strip_html | split: ' ' | size -%}
+            {%- assign read_time = words | divided_by: 200 | at_least: 1 -%}
+            <span class="byline-sep" aria-hidden="true">•</span>
+            <span class="byline-meta-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>{{ read_time }} min read</span>
+            </span>
+          </div>
+        </header>
+
+        <!-- Main Article Content Card -->
+        <div class="article-body-card">
+          <div class="article-content rte" id="articleBody" itemprop="articleBody">
+            {%- if article.content != blank -%}
+              {{ article.content }}
+            {%- else -%}
+              <p>This article has no content yet.</p>
+            {%- endif -%}
+          </div>
+
+          <!-- Tags List -->
+          {%- if article.tags.size > 0 -%}
+            <div class="article-tags-row">
+              <span class="tags-row-label">Tags:</span>
+              <div class="tags-row-list">
+                {%- for tag in article.tags -%}
+                  <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-chip">#{{ tag }}</a>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+
+          <!-- Author Bio Box -->
+          {%- if section.settings.show_author and article.author != blank -%}
+            <div class="article-author-bio-box">
+              <div class="author-avatar-circle" aria-hidden="true">
+                <span>{{ article.author | slice: 0, 1 | upcase }}</span>
+              </div>
+              <div class="author-bio-content">
+                <h4 class="author-bio-title">Written by {{ article.author }}</h4>
+                <p class="author-bio-text">Peanut butter enthusiast & Squizyy storyteller on a mission to bring delicious, zero-stir squeezable goodness to kitchens everywhere.</p>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- Next / Previous Story Cards -->
+        {%- if blog.previous_article or blog.next_article -%}
+          <nav class="article-story-nav" aria-label="Story Navigation">
+            {%- if blog.previous_article -%}
+              <a href="{{ blog.previous_article.url }}" class="story-nav-card prev">
+                <span class="story-nav-arrow" aria-hidden="true">←</span>
+                <div class="story-nav-meta">
+                  <span class="story-nav-sub">Previous Story</span>
+                  <span class="story-nav-title">{{ blog.previous_article.title | truncatewords: 6 }}</span>
+                </div>
+              </a>
+            {%- else -%}
+              <div class="story-nav-spacer"></div>
+            {%- endif -%}
+
+            {%- if blog.next_article -%}
+              <a href="{{ blog.next_article.url }}" class="story-nav-card next">
+                <div class="story-nav-meta text-right">
+                  <span class="story-nav-sub">Next Story</span>
+                  <span class="story-nav-title">{{ blog.next_article.title | truncatewords: 6 }}</span>
+                </div>
+                <span class="story-nav-arrow" aria-hidden="true">→</span>
+              </a>
+            {%- endif -%}
+          </nav>
+        {%- endif -%}
+
+      </main>
+
+    </div>
+
+    <!-- More from the Squeeze (Related Stories) -->
+    {%- assign related_count = 0 -%}
+    <div class="related-section">
+      <h3 class="related-heading">More from the Squeeze</h3>
+      <div class="related-grid">
+        {%- for other in blog.articles limit: 4 -%}
+          {%- if other.id != article.id and related_count < 2 -%}
+            {%- assign related_count = related_count | plus: 1 -%}
+            <a href="{{ other.url }}" class="related-card">
+              {%- if other.image != blank -%}
+                <img
+                  src="{{ other.image | image_url: width: 600 }}"
+                  alt="{{ other.image.alt | default: other.title | escape }}"
+                  class="related-img"
+                  width="{{ other.image.width }}"
+                  height="{{ other.image.height }}"
+                  loading="lazy"
+                >
+              {%- endif -%}
+              <div class="related-body">
+                <span class="related-date">{{ other.published_at | date: "%b %d, %Y" }}</span>
+                <h4 class="related-title">{{ other.title }}</h4>
+                <span class="related-link">Read story →</span>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!-- Bottom Squizyy Call to Action Box -->
+    <div class="article-bottom-cta">
+      <div class="bottom-cta-text">
+        <h3 class="bottom-cta-title">Ready for real peanut butter?</h3>
+        <p class="bottom-cta-desc">100% natural, no palm oil, and zero stir. Just pure squeezable deliciousness.</p>
+      </div>
+      <a href="{{ routes.all_products_collection_url }}" class="bottom-cta-btn">Buy Squizyy Now</a>
+    </div>
+
+  </div>
+</article>
+
+<script>
+  // Reading Progress Bar
+  window.addEventListener('scroll', function() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (height > 0) ? (winScroll / height) * 100 : 0;
+    var bar = document.getElementById('readingProgressBar');
+    if (bar) bar.style.width = scrolled + '%';
+  });
+</script>
+
+<style>
+/* Reading Progress Bar */
+.reading-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 99999;
+}
+.reading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent-purple, #ca9af1), #9b54e3);
+  transition: width 0.1s ease-out;
+}
+
+.article-section {
+  width: 100%;
+  background-color: var(--color-background, #f8ebd7);
+  padding: 1.5rem 1rem 6rem 1rem;
+}
+@media (min-width: 1024px) {
+  .article-section {
+    padding: 2.5rem 2rem 7rem 2rem;
+  }
+}
+.article-container {
+  margin: 0 auto;
+  max-width: 82.5rem; /* ~1320px */
+  box-sizing: border-box;
+}
+
+/* Top Breadcrumbs & Category Bar */
+.article-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(45, 15, 40, 0.7);
+}
+.breadcrumb-link {
+  color: var(--color-foreground, #2d0f28);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.breadcrumb-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+.breadcrumb-sep {
+  opacity: 0.4;
+}
+.breadcrumb-current {
+  color: rgba(45, 15, 40, 0.85);
+  font-weight: 700;
+}
+.article-category-pill {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ================= SPLIT 2-COLUMN GRID (FLIPKART / DTC STYLE) ================= */
+.article-split-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .article-split-grid {
+    display: grid;
+    grid-template-columns: 440px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+}
+@media (min-width: 1280px) {
+  .article-split-grid {
+    grid-template-columns: 480px 1fr;
+    gap: 4rem;
+  }
+}
+
+/* ================= LEFT COLUMN: STICKY SIDEBAR ================= */
+.article-left-col {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .article-left-col {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+}
+.article-sticky-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Featured Image Media Card */
+.article-media-card {
+  position: relative;
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-bottom-width: 8px;
+  border-radius: var(--radius-2xl, 32px);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(45, 15, 40, 0.12);
+}
+.article-sticky-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.article-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(180deg, var(--color-accent-purple-light, #f4eaff) 0%, var(--color-cream, #fffbf2) 100%);
+}
+.placeholder-bottle-img {
+  height: 220px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.placeholder-caption {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-foreground, #2d0f28);
+  background: var(--color-cream, #fffbf2);
+  padding: 0.3rem 0.85rem;
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+}
+.article-img-sticker {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(45, 15, 40, 0.25));
+}
+.article-img-sticker img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Flipkart-style Shop Squizyy Product Card */
+.article-product-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom-width: 6px;
+  border-radius: var(--radius-xl, 24px);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: 0 8px 24px rgba(45, 15, 40, 0.08);
+}
+.product-card-thumb {
+  width: 70px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-purple-light, #f4eaff);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: 16px;
+  padding: 0.25rem;
+  flex-shrink: 0;
+}
+.product-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.product-card-details {
+  flex: 1 1 0%;
+}
+.product-card-badge {
+  display: inline-block;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-foreground, #2d0f28);
+  background-color: var(--color-accent-purple, #ca9af1);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill, 9999px);
+  margin-bottom: 0.35rem;
+}
+.product-card-name {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.25rem 0;
+}
+.product-card-desc {
+  font-size: 0.8rem;
+  color: rgba(45, 15, 40, 0.75);
+  margin: 0 0 0.6rem 0;
+  line-height: 1.3;
+}
+.product-card-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.product-card-price {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.2rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.product-card-buy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 1rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  color: var(--color-foreground, #2d0f28);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-bottom: 3.5px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.product-card-buy-btn:hover {
+  background-color: var(--color-cream, #fffbf2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(45, 15, 40, 0.15);
+}
+.buy-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Sidebar Share Suite */
+.article-sidebar-share {
+  background-color: var(--color-cream, #fffbf2);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 20px);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.sidebar-share-label {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 0.95rem;
+  color: var(--color-foreground, #2d0f28);
+}
+.sidebar-share-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.sidebar-share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  background-color: var(--color-cream-light, #fff9ef);
+  color: var(--color-foreground, #2d0f28);
+  border: 1.5px solid var(--color-foreground, #2d0f28);
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.sidebar-share-pill:hover {
+  background-color: var(--color-accent-purple, #ca9af1);
+  transform: translateY(-1px);
+}
+.sidebar-share-pill.copied {
+  background-color: #8ae0a0;
+}
+
+/* ================= RIGHT COLUMN: STORY CONTENT ================= */
+.article-right-col {
+  width: 100%;
+  min-width: 0; /* Prevents overflow issues */
+}
+
+/* Headline Card */
+.article-header-card {
+  margin-bottom: 1.5rem;
+}
+.article-main-title {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 2.25rem;
+  line-height: 1.15;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.015em;
+  word-break: break-word;
+}
+@media (min-width: 640px) {
+  .article-main-title {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .article-main-title {
+    font-size: 3.25rem;
+  }
+}
+
+.article-byline-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.825rem;
+  color: rgba(45, 15, 40, 0.75);
+  font-weight: 600;
+}
+.byline-author-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.byline-avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border: 1.5px solid var(--color-foreground, #2d0f28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: var(--color-foreground, #2d0f28);
+}
+.byline-author-name {
+  color: var(--color-foreground, #2d0f28);
+  font-weight: 700;
+}
+.byline-sep {
+  opacity: 0.35;
+}
+.byline-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Article Body Card */
+.article-body-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-bottom-width: 8px;
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2.25rem 1.5rem;
+  box-shadow: 0 20px 40px rgba(45, 15, 40, 0.12);
+  color: var(--color-foreground, #2d0f28);
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .article-body-card {
+    padding: 3rem 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .article-body-card {
+    padding: 3.5rem 3rem;
+  }
+}
+
+/* Rich Text Styling */
+.article-content {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-foreground, #2d0f28);
+}
+.article-content > p:first-of-type {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #1a0817;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+}
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  color: var(--color-foreground, #2d0f28);
+  margin: 2.75rem 0 1rem 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.article-content h2 {
+  font-size: 1.95rem;
+  border-bottom: 2px dashed rgba(45, 15, 40, 0.2);
+  padding-bottom: 0.6rem;
+}
+.article-content h3 {
+  font-size: 1.5rem;
+}
+.article-content h4 {
+  font-size: 1.25rem;
+}
+.article-content p {
+  margin: 0 0 1.5rem 0;
+}
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+.article-content strong {
+  font-weight: 700;
+  color: #1a0817;
+}
+.article-content ul,
+.article-content ol {
+  padding-left: 1.75rem;
+  margin: 1.25rem 0 1.75rem 0;
+}
+.article-content li {
+  margin-bottom: 0.75rem;
+}
+.article-content blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.75rem;
+  border-left: 5px solid var(--color-accent-purple, #ca9af1);
+  background-color: var(--color-accent-purple-light, #f4eaff);
+  border-radius: 0 16px 16px 0;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  font-style: italic;
+  font-weight: 500;
+}
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-radius: 20px;
+  margin: 2rem 0;
+  box-shadow: 0 8px 24px rgba(45, 15, 40, 0.08);
+}
+.article-content a {
+  color: var(--color-foreground, #2d0f28);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 700;
+  transition: color 0.15s ease;
+}
+.article-content a:hover {
+  color: var(--color-brown, #894031);
+}
+
+/* Tags Row */
+.article-tags-row {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed rgba(45, 15, 40, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.tags-row-label {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(45, 15, 40, 0.75);
+}
+.tags-row-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.tag-chip {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  background-color: var(--color-cream-light, #fff9ef);
+  border: 1.5px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.75rem;
+  color: var(--color-foreground, #2d0f28);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.tag-chip:hover {
+  background-color: var(--color-accent-purple, #ca9af1);
+  transform: translateY(-1px);
+}
+
+/* Author Bio Box */
+.article-author-bio-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-accent-purple-light, #f4eaff);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.author-avatar-circle {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border: 2px solid var(--color-foreground, #2d0f28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-foreground, #2d0f28);
+  flex-shrink: 0;
+}
+.author-bio-content {
+  flex: 1 1 0%;
+}
+.author-bio-title {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.15rem;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.25rem 0;
+}
+.author-bio-text {
+  font-size: 0.925rem;
+  line-height: 1.45;
+  color: rgba(45, 15, 40, 0.85);
+  margin: 0;
+}
+
+/* Next / Previous Story Nav Cards */
+.article-story-nav {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .article-story-nav {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.story-nav-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom: 5px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  text-decoration: none;
+  color: var(--color-foreground, #2d0f28);
+  transition: all 0.15s ease;
+}
+.story-nav-card:hover {
+  background-color: var(--color-accent-purple-light, #f4eaff);
+  transform: translateY(-2px);
+}
+.story-nav-card.next {
+  justify-content: flex-end;
+}
+.story-nav-arrow {
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.story-nav-meta {
+  display: flex;
+  flex-direction: column;
+}
+.story-nav-meta.text-right {
+  text-align: right;
+}
+.story-nav-sub {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(45, 15, 40, 0.6);
+  margin-bottom: 0.2rem;
+}
+.story-nav-title {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--color-foreground, #2d0f28);
+}
+.story-nav-spacer {
+  display: none;
+}
+@media (min-width: 640px) {
+  .story-nav-spacer {
+    display: block;
+  }
+}
+
+/* ================= RELATED STORIES SECTION ================= */
+.related-section {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px dashed rgba(45, 15, 40, 0.2);
+}
+.related-heading {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.85rem;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1.75rem 0;
+  letter-spacing: -0.01em;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+@media (min-width: 640px) {
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.related-card {
+  background-color: var(--color-cream, #fffbf2);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom: 6px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-xl, 24px);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-foreground, #2d0f28);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+.related-card:hover {
+  transform: translateY(-3px);
+}
+.related-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 3px solid var(--color-foreground, #2d0f28);
+}
+.related-body {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+.related-date {
+  font-family: var(--font-secondary, 'Azeret Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: rgba(45, 15, 40, 0.65);
+  margin-bottom: 0.5rem;
+}
+.related-title {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 1rem 0;
+  flex: 1 1 0%;
+}
+.related-link {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 0.925rem;
+  font-weight: 900;
+  color: var(--color-foreground, #2d0f28);
+}
+
+/* ================= BOTTOM CTA BOX ================= */
+.article-bottom-cta {
+  margin-top: 4rem;
+  background-color: var(--color-accent-purple, #ca9af1);
+  border: 4px solid var(--color-foreground, #2d0f28);
+  border-bottom-width: 8px;
+  border-radius: var(--radius-2xl, 32px);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  box-shadow: 0 20px 40px rgba(45, 15, 40, 0.15);
+}
+@media (min-width: 768px) {
+  .article-bottom-cta {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    padding: 3rem 2.5rem;
+  }
+}
+.bottom-cta-text {
+  flex: 1 1 0%;
+}
+.bottom-cta-title {
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 2rem;
+  line-height: 1.15;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0 0 0.5rem 0;
+}
+.bottom-cta-desc {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-foreground, #2d0f28);
+  margin: 0;
+  opacity: 0.9;
+}
+.bottom-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2.25rem;
+  background-color: var(--color-cream, #fffbf2);
+  color: var(--color-foreground, #2d0f28);
+  border: 3px solid var(--color-foreground, #2d0f28);
+  border-bottom: 5px solid var(--color-foreground, #2d0f28);
+  border-radius: var(--radius-pill, 9999px);
+  font-family: var(--font-primary, 'Champ Black', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.bottom-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(45, 15, 40, 0.2);
+}
+.bottom-cta-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 3px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Blog Article",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show Published Date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show Author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share",
+      "label": "Show Share Buttons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

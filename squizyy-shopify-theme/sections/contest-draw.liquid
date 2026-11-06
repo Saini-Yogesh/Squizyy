@@ -15,7 +15,7 @@
             {%- if form.posted_successfully? -%}
               <div class="contest-draw-success">
                 <p class="contest-success-title">🎉 Entry Received!</p>
-                <p class="contest-success-desc">Congratulations! You are officially entered into the draw to win flights to Australia.</p>
+                <p class="contest-success-desc">Congratulations! You are officially entered into the Squizyy India Grand Launch Giveaway. Stay tuned to your Email &amp; WhatsApp for lucky draw updates.</p>
               </div>
             {%- else -%}
               {%- if form.errors -%}
@@ -25,7 +25,7 @@
               {%- endif -%}
 
               <!-- Hidden identifier tag for contest entry -->
-              <input type="hidden" name="contact[tags]" value="contest-sprouts-australia">
+              <input type="hidden" name="contact[tags]" value="contest-india-launch">
 
               <!-- Name Fields -->
               <div class="contest-form-name-row">
@@ -60,8 +60,33 @@
                   type="email"
                   id="Contest-email"
                   name="contact[email]"
-                  placeholder="Your Sprouts-linked email address"
+                  placeholder="name@example.com"
                   required
+                  class="contest-input"
+                >
+              </div>
+
+              <!-- Phone / WhatsApp Field -->
+              <div class="contest-field-group">
+                <label for="Contest-phone" class="contest-field-label">Phone / WhatsApp Number *</label>
+                <input
+                  type="tel"
+                  id="Contest-phone"
+                  name="contact[phone]"
+                  placeholder="+91 98765 43210"
+                  required
+                  class="contest-input"
+                >
+              </div>
+
+              <!-- Order ID / Store Name -->
+              <div class="contest-field-group">
+                <label for="Contest-order" class="contest-field-label">Order Number / Store Name</label>
+                <input
+                  type="text"
+                  id="Contest-order"
+                  name="contact[order_number]"
+                  placeholder="e.g. #1024 or store name (or 'FREE' for AMOE)"
                   class="contest-input"
                 >
               </div>
@@ -69,7 +94,7 @@
               <!-- Receipt File Dropzone -->
               <div class="contest-field-group">
                 <div class="contest-dropzone-header">
-                  <label class="contest-field-label" style="margin-bottom: 0;">Drop Your Receipt *</label>
+                  <label class="contest-field-label" style="margin-bottom: 0;">Upload Receipt / Bill (Optional)</label>
                   <span id="contest-file-name" class="contest-file-badge" style="display: none;"></span>
                 </div>
 
@@ -96,8 +121,8 @@
                 <label class="contest-checkbox-label">
                   <input type="checkbox" required class="contest-checkbox">
                   <span>
-                    I certify that I am 18+ and agree to the
-                    <a href="{{ routes.root_url }}pages/rules" target="_blank" rel="noopener noreferrer">Official Rules</a>
+                    I certify that I am 18+ and a resident of India, and agree to the
+                    <a href="{{ routes.root_url }}pages/rules" target="_blank" rel="noopener noreferrer">Rules</a>
                     and
                     <a href="{{ routes.root_url }}policies/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
                   </span>
@@ -122,14 +147,14 @@
         <!-- Rules Banner Box -->
         <div class="contest-rules-banner">
           <p class="contest-rules-links">
-            <a href="{{ routes.root_url }}pages/rules" target="_blank" rel="noopener noreferrer">OFFICIAL RULES</a>
+            <a href="{{ routes.root_url }}pages/rules" target="_blank" rel="noopener noreferrer">RULES</a>
             |
             <a href="{{ routes.root_url }}policies/privacy-policy" target="_blank" rel="noopener noreferrer">PRIVACY POLICY</a>
           </p>
           <p class="contest-rules-text">
-            <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to U.S. residents, 18+. Ends 9/20/26.
-            <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) A qualifying purchase of Squizyy peanut butter at Sprouts Farmers Market, or (ii) mail-in entry. See Official Rules at
-            <a href="{{ routes.root_url }}pages/rules">Official Rules</a> for details. Sponsor: Squizyy Holdings Inc., 90 Park Ave., NY, NY 10016.
+            <strong>NO PURCHASE NECESSARY; </strong>void where prohibited. Open to all legal residents of India, 18+. Ends 31/12/2026.
+            <strong>Limit one (1) entry per person total. </strong>Two entry methods: (i) Purchase any bottle of Squizyy Peanut Butter online or at partner stores, or (ii) free online entry. See Rules at
+            <a href="{{ routes.root_url }}pages/rules">Rules</a> for full details. Sponsor: Squizyy Foods India Private Limited.
           </p>
         </div>
       </div>

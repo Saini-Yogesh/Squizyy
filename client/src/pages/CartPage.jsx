@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { checkoutOrder } from '../services/api';
+import { formatCurrency } from '../utils/formatters';
 import styles from './CartPage.module.css';
 
 const CartPage = () => {
@@ -23,7 +24,7 @@ const CartPage = () => {
     phone: '',
     address1: '',
     city: '',
-    state: 'TX',
+    state: 'Gujarat',
     zip: '',
   });
 
@@ -31,8 +32,12 @@ const CartPage = () => {
   const [orderConfirmed, setOrderConfirmed] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const tax = Math.round(subtotal * 0.05);
+  const total = subtotal + shipping + tax;
+
   const handleCheckout = async (e) => {
     e.preventDefault();
+    if (checkingOut) return;
     setErrorMessage('');
 
     if (!customer.firstName || !customer.email) {
@@ -43,30 +48,31 @@ const CartPage = () => {
     try {
       const orderPayload = {
         customer: {
-          firstName: customer.firstName,
-          lastName: customer.lastName || 'Customer',
-          email: customer.email,
-          phone: customer.phone,
+          firstName: customer.firstName.trim(),
+          lastName: customer.lastName ? customer.lastName.trim() : 'Customer',
+          email: customer.email.trim(),
+          phone: customer.phone ? customer.phone.trim() : '',
         },
         shippingAddress: {
-          address1: customer.address1 || '123 Main St',
-          city: customer.city || 'Dallas',
-          state: customer.state || 'TX',
-          zip: customer.zip || '75201',
-          country: 'US',
+          address1: customer.address1 ? customer.address1.trim() : '123 Market Street',
+          city: customer.city ? customer.city.trim() : 'Ahmedabad',
+          state: customer.state ? customer.state.trim() : 'Gujarat',
+          zip: customer.zip ? customer.zip.trim() : '380001',
+          country: 'IN',
         },
         items,
         subtotal,
         shipping,
-        tax: Math.round(subtotal * 0.0825),
-        total: subtotal + shipping + Math.round(subtotal * 0.0825),
+        tax,
+        total,
       };
 
       const res = await checkoutOrder(orderPayload);
       setOrderConfirmed(res.order || res.data || res);
       clearCart();
-    } catch {
-      setErrorMessage('Checkout error. Please verify your details and try again.');
+    } catch (err) {
+      const msg = err?.response?.data?.message || err?.message || 'Checkout error. Please verify your details and try again.';
+      setErrorMessage(msg);
     } finally {
       setCheckingOut(false);
     }
@@ -128,13 +134,13 @@ const CartPage = () => {
         <div className={styles.shippingMeterCard}>
           <p className={styles.shippingMeterText}>
             {amountUntilFreeShipping > 0
-              ? `You're $${(amountUntilFreeShipping / 100).toFixed(2)} away from FREE shipping!`
+              ? `You're ${formatCurrency(amountUntilFreeShipping)} away from FREE shipping!`
               : '🎉 You unlocked FREE Shipping!'}
           </p>
           <div className={styles.meterTrack}>
             <div
               className={styles.meterFill}
-              style={{ width: `${freeShippingProgress}%` }}
+              style={{ width: `${Math.min(100, freeShippingProgress)}%` }}
             />
           </div>
         </div>
@@ -161,10 +167,9 @@ const CartPage = () => {
                   </h3>
                   <p className={styles.itemOption}>
                     {item.option?.title || `${item.option?.quantity || 1} Bottle`}
-                    {item.purchaseType === 'subscription' && ' • Subscribe & Save'}
                   </p>
                   <p className={styles.itemPrice}>
-                    ${((item.price * item.quantity) / 100).toFixed(2)}
+                    {formatCurrency(item.price * item.quantity)}
                   </p>
 
                   {/* Quantity selector */}
@@ -269,7 +274,7 @@ const CartPage = () => {
                 />
                 <input
                   type="text"
-                  placeholder="ZIP"
+                  placeholder="PIN Code"
                   value={customer.zip}
                   onChange={(e) => setCustomer({ ...customer, zip: e.target.value })}
                   className={styles.formInput}
@@ -279,17 +284,21 @@ const CartPage = () => {
               <div className={styles.summarySection}>
                 <div className={styles.summaryRow}>
                   <span>Subtotal:</span>
-                  <span style={{ fontWeight: 700 }}>${(subtotal / 100).toFixed(2)}</span>
+                  <span style={{ fontWeight: 700 }}>{formatCurrency(subtotal)}</span>
+                </div>
+                <div className={styles.summaryRow}>
+                  <span>GST (5%):</span>
+                  <span style={{ fontWeight: 700 }}>{formatCurrency(tax)}</span>
                 </div>
                 <div className={styles.summaryRow}>
                   <span>Shipping:</span>
                   <span style={{ fontWeight: 700 }}>
-                    {shipping === 0 ? 'FREE' : `$${(shipping / 100).toFixed(2)}`}
+                    {shipping === 0 ? 'FREE' : formatCurrency(shipping)}
                   </span>
                 </div>
                 <div className={styles.totalRow}>
                   <span>Total:</span>
-                  <span>${((subtotal + shipping) / 100).toFixed(2)}</span>
+                  <span>{formatCurrency(total)}</span>
                 </div>
               </div>
 
@@ -298,7 +307,7 @@ const CartPage = () => {
                 disabled={checkingOut}
                 className={styles.checkoutSubmitBtn}
               >
-                {checkingOut ? 'Processing...' : 'Complete Checkout'}
+                {checkingOut ? 'PROCESSING ORDER...' : 'COMPLETE ORDER'}
               </button>
             </form>
           </div>
